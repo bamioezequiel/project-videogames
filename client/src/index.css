@@ -1,3 +1,8 @@
+/* @font-face {
+  font-family: 'ChaletSixty';
+  src: url('./assets/Chalet\ Comprime\ Cologne\ Sixty.otf') format('otf')
+} */
+
 :root {
   --main-color: #f4733b;
 }

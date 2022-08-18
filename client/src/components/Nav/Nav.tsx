@@ -29,7 +29,7 @@ export default function Nav() {
             </NavLink>
           </div>
           <div className={s.nav_menu_col2}>
-            <NavLink to={"/"} className={s.nav_menu_item}>
+            <NavLink to={"/store"} className={s.nav_menu_item}>
               <AiOutlineAppstoreAdd />
             </NavLink>
             <NavLink to={"/"} className={s.nav_menu_item}>
