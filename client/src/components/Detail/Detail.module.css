@@ -61,7 +61,7 @@
 
 .detail_btn_container {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     width: 100%;
     margin: 20px 0;
 }

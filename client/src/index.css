@@ -4,7 +4,10 @@
 } */
 
 :root {
-  --main-color: #f4733b;
+  --main-color: #FFA932;
+  --color-gray: #aaa;
+  --color-white: #fafafa;
+  --color-black: #212121;
 }
 
 html {

@@ -1,16 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { AiFillHome, AiOutlineLogin, AiOutlineAppstoreAdd } from "react-icons/ai";
 import { MdGames, MdFavorite } from "react-icons/md";
-import { BsFillCartCheckFill, BsJustify } from "react-icons/bs";
+import { BsFillCartCheckFill } from "react-icons/bs";
 import s from "./Nav.module.css";
 
 export default function Nav() {
-  const [openNav, setOpenNav] = useState(false);
-  const handleOpen = () => {
-    setOpenNav(!openNav);
-  };
-
+  
   return (
     <div className={s.nav_container}>
       <nav className={s.nav}>
@@ -46,7 +42,7 @@ export default function Nav() {
             </NavLink>
           </div>
           <div className={s.nav_menu_col3}>
-            <NavLink to={"/"} className={`${s.nav_menu_item}`}>
+            <NavLink to={"/login"} className={`${s.nav_menu_item}`}>
               <AiOutlineLogin />
             </NavLink>
           </div>
