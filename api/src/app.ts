@@ -4,23 +4,27 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import error from "./interfaces/error.interfaces";
 
-// const recipes = require('./routes/recipes.js');
-// const diets = require('./routes/diets.js');
+import usersRoutes from './routes/users.routes';
+import gamesRoutes from './routes/games.routes';
+import favoritesRoutes from './routes/favorites.routes';
+import cartRoutes from './routes/cart.routes';
 
-const server: Application = express();
+const app: Application = express();
 
 // Middlewares
-server.use(express.urlencoded({ extended: true, limit: "50mb" })); //middleware
-server.use(express.json({ limit: "50mb" }));
-server.use(cookieParser());
-server.use(cors());
-server.use(express.json());
-server.use(morgan("dev"));
+app.use(express.urlencoded({ extended: true, limit: "50mb" })); //middleware
+app.use(express.json({ limit: "50mb" }));
+app.use(cookieParser());
+app.use(cors());
+app.use(express.json());
+app.use(morgan("dev"));
 
-// server.use('/recipes', recipes);
-// server.use('/diets', diets);
+app.use('/users', usersRoutes);
+app.use('/games', gamesRoutes);
+app.use('/favorites', favoritesRoutes);
+app.use('/cart', cartRoutes);
 
-server.use((req, res, next) => {
+app.use((req, res, next) => {
   // res.header('Access-Control-Allow-Origin', 'http://localhost:3000'); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Credentials", "true");
@@ -33,7 +37,7 @@ server.use((req, res, next) => {
 });
 
 // Error catching endware.
-server.use((err: error, _req: Request, res: Response, next: NextFunction) => {
+app.use((err: error, _req: Request, res: Response, next: NextFunction) => {
   // eslint-disable-line no-unused-vars
   const status = err.status || 500;
   const message = err.message || err;
@@ -41,4 +45,4 @@ server.use((err: error, _req: Request, res: Response, next: NextFunction) => {
   res.status(status).send(message);
 });
 
-export default server;
+export default app;

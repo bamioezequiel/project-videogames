@@ -1,23 +1,23 @@
 import {
-    Model, Column, Table, PrimaryKey, DataType, Unique, AllowNull
+    Model, Column, Table, DataType, DeletedAt
 } from 'sequelize-typescript';
 
 @Table
 export class User extends Model {
 
-    @Column(DataType.STRING)
+    @Column({ type: DataType.STRING, allowNull: false })
     name!: string
 
-    @Column(DataType.STRING)
+    @Column({ type: DataType.STRING, allowNull: false })
     lastname!: string
 
-    @Column(DataType.STRING)
+    @Column({ type: DataType.STRING, defaultValue: 'default image' })
     picture!: string
 
     @Column(DataType.STRING)
     date_of_birth!: string
 
-    @Column(DataType.STRING)
+    @Column({ type: DataType.STRING, allowNull: false, unique: true })
     email!: string
 
     @Column(DataType.STRING)
@@ -26,16 +26,14 @@ export class User extends Model {
     @Column(DataType.STRING)
     phone!: string
 
-    @Column({ defaultValue: true })
+    @Column({ type: DataType.BOOLEAN, defaultValue: true })
     active!: boolean
 
-    @Column({ defaultValue: false })
+    @Column({ type: DataType.BOOLEAN, defaultValue: false })
     is_admin!: boolean
-// Crear tablas para fav y carrito
-    @Column(DataType.STRING)
-    favorites!: string
-
-    @Column(DataType.STRING)
-    cart!: string
-
+    
+    @DeletedAt
+    @Column
+    deletionDate!: Date;
+    paranoid!: true;
 }

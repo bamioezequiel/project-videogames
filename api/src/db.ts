@@ -13,5 +13,5 @@ export const sequelize = new Sequelize({
 });
 
 export const {
-  
+  Cart, Favorites, User, Game
 } = sequelize.models;
