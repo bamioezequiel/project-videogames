@@ -1,6 +1,6 @@
 import { Response, Request } from "express";
 import { Game } from "./../db";
-import { dataGames } from "./../data/games";
+import { dataGames } from "../lib/data/games";
 
 export const getAllGames = async (req: Request, res: Response) =>{
     try {

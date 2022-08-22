@@ -6,7 +6,10 @@ import {
 export class User extends Model {
 
     @Column({ type: DataType.STRING, allowNull: false })
-    name!: string
+    username!: string
+    
+    @Column({ type: DataType.STRING, allowNull: false })
+    firstname!: string
 
     @Column({ type: DataType.STRING, allowNull: false })
     lastname!: string

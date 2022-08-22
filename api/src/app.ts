@@ -2,7 +2,7 @@ import express, { Application, Request, Response, NextFunction } from "express";
 import morgan from "morgan";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import error from "./interfaces/error.interfaces";
+import error from "./lib/interfaces/error.interfaces";
 
 import usersRoutes from './routes/users.routes';
 import gamesRoutes from './routes/games.routes';

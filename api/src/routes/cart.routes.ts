@@ -1,12 +1,10 @@
-import {Response, Request, Router} from 'express';
+import { Router } from "express";
+import { addCart, deleteCart, getCart, getDeleteCart } from "../controllers/cart.controllers";
 const router = Router();
 
-router.get('/', (req: Request, res: Response) => {
- res.send('soy la ruta get!');
-});
-
-router.post('/', (req: Request, res: Response) => {
- res.send('soy la ruta post!');
-});
+router.get('/:id', getCart);
+router.get('/:id', getDeleteCart);
+router.post('/:id', addCart);
+router.delete('/:id', deleteCart);
 
 export default router;

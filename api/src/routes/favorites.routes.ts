@@ -1,12 +1,9 @@
-import {Response, Request, Router} from 'express';
+import { Router } from "express";
+import { addFavorites, deleteFavorites, getFavorites } from "../controllers/favorites.controllers";
 const router = Router();
 
-router.get('/', (req: Request, res: Response) => {
- res.send('soy la ruta get!');
-});
-
-router.post('/', (req: Request, res: Response) => {
- res.send('soy la ruta post!');
-});
+router.get('/:id', getFavorites);
+router.post('/:id', addFavorites);
+router.delete('/:id', deleteFavorites);
 
 export default router;

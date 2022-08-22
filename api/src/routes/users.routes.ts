@@ -1,12 +1,23 @@
-import {Response, Request, Router} from 'express';
+import { Router } from "express";
+import {
+  getUsers,
+  getUserByID,
+  postUser,
+  deleteUser,
+  restoreUser,
+  patchAdminUser,
+  patchStatusUser,
+  updateUser,
+} from "../controllers/users.controllers";
 const router = Router();
 
-router.get('/', (req: Request, res: Response) => {
- res.send('soy la ruta get!');
-});
-
-router.post('/', (req: Request, res: Response) => {
- res.send('soy la ruta post!');
-});
+router.get("/", getUsers);
+router.get("/:id", getUserByID);
+router.post("/", postUser);
+router.delete("/delete/:id", deleteUser);
+router.put("/update", updateUser);
+router.patch("/restore/:id", restoreUser);
+router.patch("/status/:id", patchStatusUser);
+router.patch("/admin/:id", patchAdminUser);
 
 export default router;
