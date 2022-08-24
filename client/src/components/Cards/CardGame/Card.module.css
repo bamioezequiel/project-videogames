@@ -105,10 +105,7 @@ p {
 .button {
 	width: fit-content;
 	height: fit-content;
-	margin-top: 10px;
-	
-	
-	
+	margin-top: 10px;	
 }
 
 .button a {
@@ -121,8 +118,7 @@ p {
 	padding: 10px 15px;
 	border: 1px solid #aaa;
 	font-weight: bold;
-	
-	
+	cursor: pointer;
 }
 
 .button a:after{

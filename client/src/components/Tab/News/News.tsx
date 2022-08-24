@@ -10,7 +10,7 @@ export default function News({ show }: any) {
         show && <div className={s.cards_container}>
             {
                newsGames.length > 0 
-               ? newsGames.slice(9, 18).map( (g: any) => <Card image={g.main_image} tag='NEWS' /> )
+               ? newsGames.slice(9, 18).map( (g: any) => <Card name={g.name} description={g.description} price={g.price} image={g.main_image} tag='NEWS' /> )
                : <span>No hay nuevos juegos para mostrar</span> 
             }
             {/* <Card image='https://imgur.com/IRINZJc.jpg' tag='NEWS' /> */}

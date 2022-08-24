@@ -2,9 +2,9 @@ export const dataGames = [
   {
     id: 3498,
     name: "Grand Theft Auto V",
+    description: "Rockstar Games went bigger, since their previous installment of the series. You get the complicated and realistic world-building from Liberty City of GTA4 in the setting of lively and diverse Los Santos, from an old fan favorite GTA San Andreas. 561 different vehicles (including every transport you can operate) and the amount is rising with every update. \nSimultaneous storytelling from three unique perspectives: \nFollow Michael, ex-criminal living his life of leisure away from the past, Franklin, a kid that seeks the better future, and Trevor, the exact past Michael is trying to run away from. \nGTA Online will provide a lot of additional challenge even for the experienced players, coming fresh from the story mode. Now you will have other players around that can help you just as likely as ruin your mission. Every GTA mechanic up to date can be experienced by players through the unique customizable character, and community content paired with the leveling system tends to keep everyone busy and engaged.",
     released: "2013-09-17",
-    main_image:
-      "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg",
+    main_image: "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg",
       "https://media.rawg.io/media/screenshots/a7c/a7c43871a54bed6573a6a429451564ef.jpg",
@@ -12,13 +12,13 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/f95/f9518b1d99210c0cae21fc09e95b4e31.jpg",
       "https://media.rawg.io/media/screenshots/a5c/a5c95ea539c87d5f538763e16e18fb99.jpg",
       "https://media.rawg.io/media/screenshots/a7e/a7e990bc574f4d34e03b5926361d1ee7.jpg",
-      "https://media.rawg.io/media/screenshots/592/592e2501d8734b802b2a34fee2df59fa.jpg",
+      "https://media.rawg.io/media/screenshots/592/592e2501d8734b802b2a34fee2df59fa.jpg"
     ],
     rating: 4.47,
-    price: 206,
+    price: 782,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 3,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
@@ -29,9 +29,12 @@ export const dataGames = [
       "PlayStation 3",
       "Xbox 360",
       "Xbox One",
-      "PlayStation 5",
+      "PlayStation 5"
     ],
-    genres: ["Action", "Adventure"],
+    genres: [
+      "Action",
+      "Adventure"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -51,15 +54,15 @@ export const dataGames = [
       "Third-Person Shooter",
       "Moddable",
       "Crime",
-      "vr mod",
-    ],
+      "vr mod"
+    ]
   },
   {
     id: 3328,
     name: "The Witcher 3: Wild Hunt",
+    description: "The third game in a series, it holds nothing back from the player. Open world adventures of the renowned monster slayer Geralt of Rivia are now even on a larger scale. Following the source material more accurately, this time Geralt is trying to find the child of the prophecy, Ciri while making a quick coin from various contracts on the side. Great attention to the world building above all creates an immersive story, where your decisions will shape the world around you.\n\nCD Project Red are infamous for the amount of work they put into their games, and it shows, because aside from classic third-person action RPG base game they provided 2 massive DLCs with unique questlines and 16 smaller DLCs, containing extra quests and items.\n\nPlayers praise the game for its atmosphere and a wide open world that finds the balance between fantasy elements and realistic and believable mechanics, and the game deserved numerous awards for every aspect of the game, from music to direction.",
     released: "2015-05-18",
-    main_image:
-      "https://media.rawg.io/media/games/618/618c2031a07bbff6b4f611f10b6bcdbc.jpg",
+    main_image: "https://media.rawg.io/media/games/618/618c2031a07bbff6b4f611f10b6bcdbc.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/618/618c2031a07bbff6b4f611f10b6bcdbc.jpg",
       "https://media.rawg.io/media/screenshots/1ac/1ac19f31974314855ad7be266adeb500.jpg",
@@ -67,13 +70,13 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/cdd/cdd31b6b4a687425a87b5ce231ac89d7.jpg",
       "https://media.rawg.io/media/screenshots/862/862397b153221a625922d3bb66337834.jpg",
       "https://media.rawg.io/media/screenshots/166/166787c442a45f52f4f230c33fd7d605.jpg",
-      "https://media.rawg.io/media/screenshots/f63/f6373ee614046d81503d63f167181803.jpg",
+      "https://media.rawg.io/media/screenshots/f63/f6373ee614046d81503d63f167181803.jpg"
     ],
     rating: 4.67,
-    price: 34,
+    price: 85,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 10,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
@@ -83,9 +86,13 @@ export const dataGames = [
       "Xbox Series S/X",
       "Xbox One",
       "PC",
-      "PlayStation 4",
+      "PlayStation 4"
     ],
-    genres: ["Action", "Adventure", "RPG"],
+    genres: [
+      "Action",
+      "Adventure",
+      "RPG"
+    ],
     tags: [
       "Singleplayer",
       "Atmospheric",
@@ -106,15 +113,15 @@ export const dataGames = [
       "Dark Fantasy",
       "Medieval",
       "Magic",
-      "Multiple Endings",
-    ],
+      "Multiple Endings"
+    ]
   },
   {
     id: 4200,
     name: "Portal 2",
+    description: "Portal 2 is a first-person puzzle game developed by Valve Corporation and released on April 19, 2011 on Steam, PS3 and Xbox 360. It was published by Valve Corporation in digital form and by Electronic Arts in physical form. \n\nIts plot directly follows the first game's, taking place in the Half-Life universe. You play as Chell, a test subject in a research facility formerly ran by the company Aperture Science, but taken over by an evil AI that turned upon its creators, GladOS. After defeating GladOS at the end of the first game but failing to escape the facility, Chell is woken up from a stasis chamber by an AI personality core, Wheatley, as the unkempt complex is falling apart. As the two attempt to navigate through the ruins and escape, they stumble upon GladOS, and accidentally re-activate her...\n\nPortal 2's core mechanics are very similar to the first game's ; the player must make their way through several test chambers which involve puzzles. For this purpose, they possess a Portal Gun, a weapon capable of creating teleportation portals on white surfaces. This seemingly simple mechanic and its subtleties coupled with the many different puzzle elements that can appear in puzzles allows the game to be easy to start playing, yet still feature profound gameplay. The sequel adds several new puzzle elements, such as gel that can render surfaces bouncy or allow you to accelerate when running on them.\n\nThe game is often praised for its gameplay, its memorable dialogue and writing and its aesthetic. Both games in the series are responsible for inspiring most puzzle games succeeding them, particularly first-person puzzle games. The series, its characters and even its items such as the portal gun and the companion cube have become a cultural icon within gaming communities.\n\nPortal 2 also features a co-op mode where two players take on the roles of robots being led through tests by GladOS, as well as an in-depth level editor.",
     released: "2011-04-18",
-    main_image:
-      "https://media.rawg.io/media/games/328/3283617cb7d75d67257fc58339188742.jpg",
+    main_image: "https://media.rawg.io/media/games/328/3283617cb7d75d67257fc58339188742.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/328/3283617cb7d75d67257fc58339188742.jpg",
       "https://media.rawg.io/media/screenshots/221/221a03c11e5ff9f765d62f60d4b4cbf5.jpg",
@@ -122,13 +129,13 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/b11/b11a2ae0664f0e8a1ef2346f99df26e1.jpg",
       "https://media.rawg.io/media/screenshots/9b1/9b107a790909b31918ebe2f40547cc85.jpg",
       "https://media.rawg.io/media/screenshots/d05/d058fc7f7fa6128916c311eb14267fed.jpg",
-      "https://media.rawg.io/media/screenshots/415/41543dcc12dffc8e97d85a56ad42cda8.jpg",
+      "https://media.rawg.io/media/screenshots/415/41543dcc12dffc8e97d85a56ad42cda8.jpg"
     ],
     rating: 4.61,
-    price: 472,
+    price: 964,
     on_sale: 0,
     stock: 1,
-    features: true,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
@@ -138,9 +145,12 @@ export const dataGames = [
       "macOS",
       "PlayStation 3",
       "PC",
-      "Xbox One",
+      "Xbox One"
     ],
-    genres: ["Shooter", "Puzzle"],
+    genres: [
+      "Shooter",
+      "Puzzle"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -166,15 +176,15 @@ export const dataGames = [
       "Includes level editor",
       "Captions available",
       "Commentary available",
-      "Science",
-    ],
+      "Science"
+    ]
   },
   {
     id: 5286,
     name: "Tomb Raider (2013)",
+    description: "A cinematic revival of the series in its action third person form, Tomb Rider follows Lara in her least experience period of life – her youth. Heavily influenced by Naughty Dog’s “Uncharted”, the game is a mix of everything, from stealth and survival to combat and QTE action scenes.\r\nYoung Lara Croft arrives on the Yamatai, lost island near Japan, as the leader of the expedition in search of the Yamatai Kingdom, with a diverse team of specialists. But shipwreck postponed the successful arrival and seemingly forgotten island is heavily populated with hostile inhabitants, cultists of Solarii Brotherhood.\r\nThe game will be graphic at times, especially after failed QTE’s during some of the survival scenes, but overall players will enjoy classic action adventure, reminiscent of the beginning of the series. This game is not a direct sequel or continuation of existing sub-series within the franchise, but a reboot, setting up Tomb Raider to represent modern gaming experience.\r\nThe game has RPG elements and has a world, which you can explore during the story campaign and after the completion. As well as multiplayer mode, where 2 teams (4 scavengers and 4 survivors) are clashing in 3 game modes while using weapons and environments from the single-player campaign.",
     released: "2013-03-05",
-    main_image:
-      "https://media.rawg.io/media/games/021/021c4e21a1824d2526f925eff6324653.jpg",
+    main_image: "https://media.rawg.io/media/games/021/021c4e21a1824d2526f925eff6324653.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/021/021c4e21a1824d2526f925eff6324653.jpg",
       "https://media.rawg.io/media/screenshots/4f9/4f9d5efdecfb63cb99f1baa4c0ceb3bf.jpg",
@@ -182,13 +192,13 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/a87/a8733e877f8fbe45e4a727c22a06aa2e.jpg",
       "https://media.rawg.io/media/screenshots/3f9/3f91678c6805a76419fa4ea3a045a909.jpg",
       "https://media.rawg.io/media/screenshots/417/4170bf07be43a8d8249193883f87f1c1.jpg",
-      "https://media.rawg.io/media/screenshots/2a4/2a4250f83ad9e959d8b4ca9376ae34ea.jpg",
+      "https://media.rawg.io/media/screenshots/2a4/2a4250f83ad9e959d8b4ca9376ae34ea.jpg"
     ],
     rating: 4.05,
-    price: 303,
+    price: 989,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 7,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
@@ -198,9 +208,12 @@ export const dataGames = [
       "PC",
       "Xbox One",
       "Xbox 360",
-      "PlayStation 3",
+      "PlayStation 3"
     ],
-    genres: ["Action", "Adventure"],
+    genres: [
+      "Action",
+      "Adventure"
+    ],
     tags: [
       "Singleplayer",
       "Multiplayer",
@@ -218,15 +231,15 @@ export const dataGames = [
       "Cinematic",
       "Quick-Time Events",
       "Dinosaurs",
-      "Lara Croft",
-    ],
+      "Lara Croft"
+    ]
   },
   {
     id: 4291,
     name: "Counter-Strike: Global Offensive",
+    description: "Counter-Strike is a multiplayer phenomenon in its simplicity. No complicated narratives to explain the source of the conflict, no futuristic and alien threats, but counter-terrorists against terrorists. Arena shooter at its core, CS:GO provides you with various methods of disposing enemies and reliant on cooperation within the team. During the round of the classical clash mode, you will gradually receive currency to purchase different equipment. Each player can carry a primary weapon, secondary pistol, knife and a set of grenades, which all can change the battle if wielded by the skilled player. \r\nObjectives are clear and vary from map to map, from game mode to game mode. Stop the terrorists from planting explosives, stop the counter-terrorist from retrieving the hostages, kill everyone who isn’t you and just perform the best with.\r\nCS:GO is one of the major cybersport discipline, which makes playing it more exciting to some players. Aside from purchasing the game, CS:GO is infamous for its loot case system, that requires players to purchase keys, in order to open said cases. Customization items consist of weapon skins, weapon stickers, and sprays that do not affect gameplay and have purely visual value to the player.",
     released: "2012-08-21",
-    main_image:
-      "https://media.rawg.io/media/games/736/73619bd336c894d6941d926bfd563946.jpg",
+    main_image: "https://media.rawg.io/media/games/736/73619bd336c894d6941d926bfd563946.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/736/73619bd336c894d6941d926bfd563946.jpg",
       "https://media.rawg.io/media/screenshots/ff1/ff16661bb15f7969b44f6c4118870e44.jpg",
@@ -234,18 +247,25 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/754/754545acdbf71f56e8902a07c7d20696.jpg",
       "https://media.rawg.io/media/screenshots/fd8/fd873cab4c66db0b8e85d8a66e940074.jpg",
       "https://media.rawg.io/media/screenshots/7db/7db2954f7908b6749c36a5f3c9052f65.jpg",
-      "https://media.rawg.io/media/screenshots/337/337a3e98b5933f456a2b37b59fab5f39.jpg",
+      "https://media.rawg.io/media/screenshots/337/337a3e98b5933f456a2b37b59fab5f39.jpg"
     ],
     rating: 3.57,
-    price: 446,
+    price: 923,
     on_sale: 0,
-    stock: 1,
+    stock: 14,
     features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["PC", "Xbox 360", "PlayStation 3"],
-    genres: ["Action", "Shooter"],
+    platforms: [
+      "PC",
+      "Xbox 360",
+      "PlayStation 3"
+    ],
+    genres: [
+      "Action",
+      "Shooter"
+    ],
     tags: [
       "Steam Achievements",
       "Multiplayer",
@@ -270,15 +290,15 @@ export const dataGames = [
       "Competitive",
       "Valve Anti-Cheat enabled",
       "e-sports",
-      "Trading",
-    ],
+      "Trading"
+    ]
   },
   {
     id: 5679,
     name: "The Elder Scrolls V: Skyrim",
+    description: "The fifth game in the series, Skyrim takes us on a journey through the coldest region of Cyrodiil. Once again player can traverse the open world RPG armed with various medieval weapons and magic, to become a hero of Nordic legends –Dovahkiin, the Dragonborn. After mandatory character creation players will have to escape not only imprisonment but a fire-breathing dragon. Something Skyrim hasn’t seen in centuries.\r\nAfter Oblivion, the magic system was reworked, in order to show players more aggressive and direct combat. As a Dragonborn, your character will be able to use the powerful magic of dragon shouts, powered, upgraded and researched with the souls of the dragons that will be randomly encountered by players, while traveling. Hundreds of sidequests will invite players to discover every part of the newly introduced land. Aside from already filled with guilds, Daedra and steampunk Dwemer ruins, Skyrim has additional DLC content that not only brings Solstheim island and vampire conclave but gives players the ability to build their own homes, instead of buying pre-made ones.",
     released: "2011-11-11",
-    main_image:
-      "https://media.rawg.io/media/games/7cf/7cfc9220b401b7a300e409e539c9afd5.jpg",
+    main_image: "https://media.rawg.io/media/games/7cf/7cfc9220b401b7a300e409e539c9afd5.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/7cf/7cfc9220b401b7a300e409e539c9afd5.jpg",
       "https://media.rawg.io/media/screenshots/3bd/3bd2710bd1ffb6664fdea7b83afd067e.jpg",
@@ -286,18 +306,26 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/599/59946a630e9c7871003763d63184404a.jpg",
       "https://media.rawg.io/media/screenshots/c5d/c5dad426038d7d12f933eedbeab48ff3.jpg",
       "https://media.rawg.io/media/screenshots/b32/b326fa01c82db82edd41ed299886ee44.jpg",
-      "https://media.rawg.io/media/screenshots/091/091e95b49d5a22de036698fc731395a2.jpg",
+      "https://media.rawg.io/media/screenshots/091/091e95b49d5a22de036698fc731395a2.jpg"
     ],
     rating: 4.42,
-    price: 272,
+    price: 265,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 14,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["PC", "Nintendo Switch", "Xbox 360", "PlayStation 3"],
-    genres: ["Action", "RPG"],
+    platforms: [
+      "PC",
+      "Nintendo Switch",
+      "Xbox 360",
+      "PlayStation 3"
+    ],
+    genres: [
+      "Action",
+      "RPG"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -322,15 +350,15 @@ export const dataGames = [
       "Medieval",
       "Magic",
       "Lore-Rich",
-      "Dragons",
-    ],
+      "Dragons"
+    ]
   },
   {
     id: 12020,
     name: "Left 4 Dead 2",
+    description: "Cooperative survival continues with a different set of characters. New survivors are making their way through 5 campaigns with an added ability to play through the story of the first game as well, using not only expanded arsenal of 20 ranged and 10 melee weapons but improved AI Director. Your surroundings and weather will change; enemy and item placement will differ from map to map, from difficulty to difficulty. New unique special zombies, placed in the unlucky for the player spot, can end your run.\r\nHigh compatibility with community mods will allow you not only to add user-created maps but player models, enemy models, and even in-game music, which will help any player to create the unique experience on top of solid game mechanics.\r\nCompetitive multiplayer mods from arena survival to a head-on competition with another team of survivors are addictive and, in addition to the campaign, will provide you with hundreds of hours of game content.",
     released: "2009-11-17",
-    main_image:
-      "https://media.rawg.io/media/games/d58/d588947d4286e7b5e0e12e1bea7d9844.jpg",
+    main_image: "https://media.rawg.io/media/games/d58/d588947d4286e7b5e0e12e1bea7d9844.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/d58/d588947d4286e7b5e0e12e1bea7d9844.jpg",
       "https://media.rawg.io/media/screenshots/4c0/4c043fd1a5ff78900483f2e82580fea0.jpg",
@@ -338,18 +366,26 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/e29/e293b0f98092b8c0dbe24d66846088bb.jpg",
       "https://media.rawg.io/media/screenshots/168/16867bc76b385eb0fb749e41f7ada93d.jpg",
       "https://media.rawg.io/media/screenshots/fb9/fb917e562f311f48ff8d27632bd29a80.jpg",
-      "https://media.rawg.io/media/screenshots/5f2/5f2ca569912add2a211b20ba3f576b97.jpg",
+      "https://media.rawg.io/media/screenshots/5f2/5f2ca569912add2a211b20ba3f576b97.jpg"
     ],
     rating: 4.08,
-    price: 47,
+    price: 601,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 17,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["macOS", "Linux", "PC", "Xbox 360"],
-    genres: ["Action", "Shooter"],
+    platforms: [
+      "macOS",
+      "Linux",
+      "PC",
+      "Xbox 360"
+    ],
+    genres: [
+      "Action",
+      "Shooter"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -378,15 +414,15 @@ export const dataGames = [
       "Team-Based",
       "Valve Anti-Cheat enabled",
       "Commentary available",
-      "Includes Source SDK",
-    ],
+      "Includes Source SDK"
+    ]
   },
   {
     id: 13536,
     name: "Portal",
+    description: "Every single time you click your mouse while holding a gun, you expect bullets to fly and enemies to fall. But here you will try out the FPS game filled with environmental puzzles and engaging story. \r\nSilent template for your adventures, Chell, wakes up in a testing facility. She’s a subject of experiments on instant travel device, supervised by snarky and hostile GLaDOS.\r\nPlayers will have to complete the tests, room by room, expecting either reward, freedom or more tests. By using the gun, that shoots portals (Portal-Gun™), players will move blocks, travel great distance quickly and learn about your current situation, which is unraveled through environmental storytelling. What you will be told might be different from what you will see.\r\nWhite environments will guide the player’s portal placement, forcing them to pay attention to the surroundings.  Portal creates tension, allowing either solving puzzles at your own leisure or moving quickly, due to the time limit or threats.",
     released: "2007-10-09",
-    main_image:
-      "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
+    main_image: "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
       "https://media.rawg.io/media/screenshots/99e/99e94bd55eb75fa6e75c3dcbb1a570b2.jpg",
@@ -394,18 +430,28 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/3b3/3b3713fbca6194dfc4d6e8a8d006d354.jpg",
       "https://media.rawg.io/media/screenshots/c6f/c6f9afc3e4dd51068b22f04acbc6ca99.jpg",
       "https://media.rawg.io/media/screenshots/748/74841207eec76ebc7fc03210168bfb7e.jpg",
-      "https://media.rawg.io/media/screenshots/e72/e7256b4caedf099bcb8ebd332f892334.jpg",
+      "https://media.rawg.io/media/screenshots/e72/e7256b4caedf099bcb8ebd332f892334.jpg"
     ],
     rating: 4.51,
-    price: 695,
+    price: 496,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 3,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["PC", "macOS", "Linux", "Xbox 360", "PlayStation 3", "Android"],
-    genres: ["Adventure", "Puzzle"],
+    platforms: [
+      "PC",
+      "macOS",
+      "Linux",
+      "Xbox 360",
+      "PlayStation 3",
+      "Android"
+    ],
+    genres: [
+      "Adventure",
+      "Puzzle"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -427,15 +473,15 @@ export const dataGames = [
       "Dark Humor",
       "Commentary available",
       "Includes Source SDK",
-      "Science",
-    ],
+      "Science"
+    ]
   },
   {
     id: 4062,
     name: "BioShock Infinite",
+    description: "The third game in the series, Bioshock takes the story of the underwater confinement within the lost city of Rapture and takes it in the sky-city of Columbia. Players will follow Booker DeWitt, a private eye with a military past; as he will attempt to wipe his debts with the only skill he’s good at – finding people. Aside from obvious story and style differences, this time Bioshock protagonist has a personality, character, and voice, no longer the protagonist is a silent man, trying to survive.\r\nOpen and bright level design of Columbia shows industrial colonial America in a seemingly endless carnival. But Bioshock is not famous for its visuals, but for its story.  Mystery and creative vision of Irrational Games invite players to uncover the secrets of Columbia’s leader - Zachary Comstock and save Elizabeth, the girl, that’s been locked up in the flying city since her birth.\r\nUnique weapons and mechanics of Vigor will make encounters different, helping players to adjust to the new found mobility and hook shot, making fights fast-paced and imaginative.",
     released: "2013-03-26",
-    main_image:
-      "https://media.rawg.io/media/games/fc1/fc1307a2774506b5bd65d7e8424664a7.jpg",
+    main_image: "https://media.rawg.io/media/games/fc1/fc1307a2774506b5bd65d7e8424664a7.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/fc1/fc1307a2774506b5bd65d7e8424664a7.jpg",
       "https://media.rawg.io/media/screenshots/bf0/bf07e2c6d2c888d372917d9ef453c8a4.jpg",
@@ -443,13 +489,13 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/595/59572d257b6797986e4eabcd1ee023fd.jpg",
       "https://media.rawg.io/media/screenshots/f71/f71c23eb76f050d6180490e82d58d799.jpg",
       "https://media.rawg.io/media/screenshots/871/8713411d5332ceb2b4092073a6f5f3f2.jpg",
-      "https://media.rawg.io/media/screenshots/985/985b56daa78e0a23133518d4226e9f97.jpg",
+      "https://media.rawg.io/media/screenshots/985/985b56daa78e0a23133518d4226e9f97.jpg"
     ],
     rating: 4.39,
-    price: 179,
+    price: 91,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 3,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
@@ -460,9 +506,12 @@ export const dataGames = [
       "Linux",
       "PC",
       "PlayStation 3",
-      "Xbox One",
+      "Xbox One"
     ],
-    genres: ["Action", "Shooter"],
+    genres: [
+      "Action",
+      "Shooter"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -484,15 +533,15 @@ export const dataGames = [
       "Linear",
       "Alternate History",
       "Time Travel",
-      "Political",
-    ],
+      "Political"
+    ]
   },
   {
     id: 3439,
     name: "Life is Strange",
+    description: "Interactive storytelling and plot-heavy games gained popularity, and “Life is Strange” arrived as teen mystery adventure. The plot will go through the life of Maxine, a teenager in possession of curious power, allowing her to stop and rewind time, in order to manipulate her surroundings. Max, after the reunion with her friend Chloe, is on the path to uncovering the secrets of Arcadia Bay. Players will have to deal with puzzle solving through the fetch quests, in order to change the world around them. \nThe game puts players in situations, where they’re forced to make a moral choice, going through the decision which may have short-term or long-term consequences. Every choice made by the player will trigger the butterfly effect, surrounding the first playthrough of the game with a lot of emotional struggle, thoughtfully crafted by the developers at Dontnod Entertainment. Life is Strange is third person adventure game, where players might seem just as an observer of the stories, unfolding in front of them.",
     released: "2015-01-29",
-    main_image:
-      "https://media.rawg.io/media/games/562/562553814dd54e001a541e4ee83a591c.jpg",
+    main_image: "https://media.rawg.io/media/games/562/562553814dd54e001a541e4ee83a591c.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/562/562553814dd54e001a541e4ee83a591c.jpg",
       "https://media.rawg.io/media/screenshots/edf/edfcbdf85f02f871263dabf1b4f0aa87.jpg",
@@ -500,13 +549,13 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/6aa/6aa56ef1485c8b287a913fa842883daa.jpg",
       "https://media.rawg.io/media/screenshots/cb1/cb148b52fe857f5b0b83ae9c01f56d8e.jpg",
       "https://media.rawg.io/media/screenshots/aea/aea38b33b90054f8fe4cc8bb05253b1d.jpg",
-      "https://media.rawg.io/media/screenshots/c1d/c1d6333b2da0f920e8de10c14d3c6093.jpg",
+      "https://media.rawg.io/media/screenshots/c1d/c1d6333b2da0f920e8de10c14d3c6093.jpg"
     ],
     rating: 4.11,
-    price: 308,
+    price: 392,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 7,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
@@ -519,9 +568,11 @@ export const dataGames = [
       "Xbox 360",
       "Android",
       "PlayStation 4",
-      "Xbox One",
+      "Xbox One"
     ],
-    genres: ["Adventure"],
+    genres: [
+      "Adventure"
+    ],
     tags: [
       "Singleplayer",
       "Atmospheric",
@@ -546,15 +597,15 @@ export const dataGames = [
       "Time Manipulation",
       "student",
       "strange",
-      "photography",
-    ],
+      "photography"
+    ]
   },
   {
     id: 802,
     name: "Borderlands 2",
+    description: "Sequel to the 4-player cooperative FPS RPG Borderlands, where the new team of Vault Hunters arrives on the infamous planet Pandora in order to get the riches, hidden inside the Vault, and help to free the planet from the Handsome Jack, President of Hyperion. Clear out the endless waves and groups and marauders with various weapon types and character abilities.\r\nUnlike the first game, Borderlands 2 provided DLC not only expanding the world of Pandora with stand-alone story campaigns but adding 2 more characters. Now the main cast consists of Gunzerker Salvador(dual-wields guns at command), Siren Maya (holds and paralyzes the enemy), Commando Axton (summons turrets) and Zer0 the Assasin (invisible sniper ninja). But with the DLC players can try out summoning giant flying robots with Gaige the Mechromancer and Krieg the Psycho. \r\nMost of the game charm and popularity of Borderlands 2 comes from the supporting cast and the personalities of the NPC, making this fast-paced shooter with optional cover stand out.",
     released: "2012-09-18",
-    main_image:
-      "https://media.rawg.io/media/games/588/588c6bdff3d4baf66ec36b1c05b793bf.jpg",
+    main_image: "https://media.rawg.io/media/games/588/588c6bdff3d4baf66ec36b1c05b793bf.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/588/588c6bdff3d4baf66ec36b1c05b793bf.jpg",
       "https://media.rawg.io/media/screenshots/adb/adbbb37113618ee107459cd5c344f2a8.jpg",
@@ -562,13 +613,13 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/864/8644946ba14a03ab69f0766c42a03f80.jpg",
       "https://media.rawg.io/media/screenshots/f87/f87ad2b8f02b56e36c57b25cf8eac042.jpg",
       "https://media.rawg.io/media/screenshots/194/194e0962afa272604300001718a07793.jpg",
-      "https://media.rawg.io/media/screenshots/297/29716964351ecd82545f1de3a50dfc4e.jpg",
+      "https://media.rawg.io/media/screenshots/297/29716964351ecd82545f1de3a50dfc4e.jpg"
     ],
     rating: 4.03,
-    price: 665,
+    price: 911,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 5,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
@@ -578,9 +629,13 @@ export const dataGames = [
       "PlayStation 3",
       "PC",
       "Xbox One",
-      "macOS",
+      "macOS"
     ],
-    genres: ["Action", "Shooter", "RPG"],
+    genres: [
+      "Action",
+      "Shooter",
+      "RPG"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -603,15 +658,15 @@ export const dataGames = [
       "Memes",
       "Dark Humor",
       "Loot",
-      "Stylized",
-    ],
+      "Stylized"
+    ]
   },
   {
     id: 28,
     name: "Red Dead Redemption 2",
+    description: "America, 1899. The end of the wild west era has begun as lawmen hunt down the last remaining outlaw gangs. Those who will not surrender or succumb are killed. \r\n\r\nAfter a robbery goes badly wrong in the western town of Blackwater, Arthur Morgan and the Van der Linde gang are forced to flee. With federal agents and the best bounty hunters in the nation massing on their heels, the gang must rob, steal and fight their way across the rugged heartland of America in order to survive. As deepening internal divisions threaten to tear the gang apart, Arthur must make a choice between his own ideals and loyalty to the gang who raised him.\r\n\r\nFrom the creators of Grand Theft Auto V and Red Dead Redemption, Red Dead Redemption 2 is an epic tale of life in America at the dawn of the modern age.",
     released: "2018-10-26",
-    main_image:
-      "https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg",
+    main_image: "https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg",
       "https://media.rawg.io/media/screenshots/7b8/7b8895a23e8ca0dbd9e1ba24696579d9.jpg",
@@ -619,18 +674,25 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/fd6/fd6e41d4c30c098158568aef32dfed35.jpg",
       "https://media.rawg.io/media/screenshots/2ed/2ed3b2791b3bbed6b98bf362694aeb73.jpg",
       "https://media.rawg.io/media/screenshots/857/8573b9f4f06a0c112d6e39cdf3544881.jpg",
-      "https://media.rawg.io/media/screenshots/985/985e3e1f1d1af1ab0797d43a95d472cc.jpg",
+      "https://media.rawg.io/media/screenshots/985/985e3e1f1d1af1ab0797d43a95d472cc.jpg"
     ],
     rating: 4.59,
-    price: 1,
+    price: 789,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 7,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["PC", "PlayStation 4", "Xbox One"],
-    genres: ["Action", "Adventure"],
+    platforms: [
+      "PC",
+      "PlayStation 4",
+      "Xbox One"
+    ],
+    genres: [
+      "Action",
+      "Adventure"
+    ],
     tags: [
       "Singleplayer",
       "Multiplayer",
@@ -664,15 +726,15 @@ export const dataGames = [
       "Beautiful",
       "Hunting",
       "Western",
-      "3rd-person",
-    ],
+      "3rd-person"
+    ]
   },
   {
     id: 13537,
     name: "Half-Life 2",
+    description: "Gordon Freeman became the most popular nameless and voiceless protagonist in gaming history. He is painted as the most famous scientist and a hero within the world of Half-Life, and for a good reason. In the first game he saved the planet from alien invasion, this time, when the invasion is already begun, the world needs his help one more time. And you, as a player, will help this world to survive. This time Gordon arrives in City 17, ravaged and occupied by Combines, where he meets his old Black Mesa friends. \r\nWhat is different, aside from the overall design quality, is the use of Valve’s Source engine that not only expands on the fluidity of character model animations and movement but allows players to interact with a myriad of objects with the advanced and realistic (to an extent) physics. Classic Headcrab Zombies are revamped and have new variants that provide players with different threats. For a story-driven FPS, Half-Life 2 is unique in its plot delivery, and making in-game mechanics feel natural, be it platforming or driving.",
     released: "2004-11-16",
-    main_image:
-      "https://media.rawg.io/media/games/b8c/b8c243eaa0fbac8115e0cdccac3f91dc.jpg",
+    main_image: "https://media.rawg.io/media/games/b8c/b8c243eaa0fbac8115e0cdccac3f91dc.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/b8c/b8c243eaa0fbac8115e0cdccac3f91dc.jpg",
       "https://media.rawg.io/media/screenshots/8af/8af6188357426890cbc8c8a34d9e7b75.jpg",
@@ -680,18 +742,28 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/3d6/3d6066e45d259d2e83bf6767e6113d94.jpg",
       "https://media.rawg.io/media/screenshots/e49/e49327df2404df6c5dafa8eac7990852.jpg",
       "https://media.rawg.io/media/screenshots/5dd/5dd3e53131bbfe6278bd15b9abe261a0.jpg",
-      "https://media.rawg.io/media/screenshots/e99/e995e154d4f9e2df0367adea528a72c5.jpg",
+      "https://media.rawg.io/media/screenshots/e99/e995e154d4f9e2df0367adea528a72c5.jpg"
     ],
     rating: 4.5,
-    price: 713,
+    price: 750,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 2,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["PC", "Xbox 360", "Linux", "Xbox", "Android", "macOS"],
-    genres: ["Action", "Shooter"],
+    platforms: [
+      "PC",
+      "Xbox 360",
+      "Linux",
+      "Xbox",
+      "Android",
+      "macOS"
+    ],
+    genres: [
+      "Action",
+      "Shooter"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -715,15 +787,15 @@ export const dataGames = [
       "Dystopian",
       "Includes Source SDK",
       "Silent Protagonist",
-      "vr mod",
-    ],
+      "vr mod"
+    ]
   },
   {
     id: 4286,
     name: "BioShock",
+    description: "FPS with RPG elements, Bioshock invites players to experience horrors of underwater isolation in the city of Rapture, the failed project of the better future. After surviving the plane crash, the protagonist has only one way to go – to the giant lighthouse that opens a way to the underwater utopia. Players will have to unravel the complicated history of Rapture, relying only on themselves, their guns and Plasmids, a mystical substance, that allows it’s user to obtain near magical abilities.\r\nThe atmosphere of isolation and threat is conveyed through the environmental sounds, subtle electrical buzzing and audio logs, telling the story of societal decay and despair. Players will shape the story, making moral choices along their way, saving Little Sisters or extracting ADAM, the mystical fuel for your abilities. While exploring the underwater city, players will complete missions for the last sane inhabitants of Rapture, while fending off the less fortunate ones.",
     released: "2007-08-21",
-    main_image:
-      "https://media.rawg.io/media/games/bc0/bc06a29ceac58652b684deefe7d56099.jpg",
+    main_image: "https://media.rawg.io/media/games/bc0/bc06a29ceac58652b684deefe7d56099.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/bc0/bc06a29ceac58652b684deefe7d56099.jpg",
       "https://media.rawg.io/media/screenshots/01f/01f62d7064838a5c3202acfc61503487.jpg",
@@ -731,13 +803,13 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/aca/aca089b963a42ec4cbf56b5e5334af8e.jpg",
       "https://media.rawg.io/media/screenshots/3aa/3aa6f71eba1d64e671bd45826ca96560.jpg",
       "https://media.rawg.io/media/screenshots/d8e/d8ed29c7c0b41e4013588847944ed446.jpg",
-      "https://media.rawg.io/media/screenshots/146/146e418797aca19296f90d259207414c.jpg",
+      "https://media.rawg.io/media/screenshots/146/146e418797aca19296f90d259207414c.jpg"
     ],
     rating: 4.37,
-    price: 568,
+    price: 390,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 15,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
@@ -749,9 +821,12 @@ export const dataGames = [
       "Xbox One",
       "PC",
       "macOS",
-      "PlayStation 4",
+      "PlayStation 4"
     ],
-    genres: ["Action", "Shooter"],
+    genres: [
+      "Action",
+      "Shooter"
+    ],
     tags: [
       "Singleplayer",
       "Atmospheric",
@@ -770,15 +845,15 @@ export const dataGames = [
       "Steampunk",
       "Alternate History",
       "Political",
-      "Underwater",
-    ],
+      "Underwater"
+    ]
   },
   {
     id: 1030,
     name: "Limbo",
+    description: "This popular 2D puzzle-platformer creates the atmosphere of isolation, where the player alone can guide the nameless protagonist to his destination. Hostile environments and one-hit deaths may seem difficult, but the game implements a fair amount of checkpoints. The monochrome color palette showcases cartoony proportions of every living thing while making lack of details threatening. Limbo shows you exactly what you encounter, but never how it looks.\n\nLimbo uses the atmosphere and sound design of the horror genre while avoiding tropes of the modern horror games. The overarching theme and unique style compensated for the rather short game with an abrupt ending, making Limbo one of the most impactful games for the genre.\n\nThe simple controls and easy-to-pick-up mechanics help to make a clear distinction, which part of the stage players can interact with, and which part can lead to the quick death. Even though the game is in black and white, this separation is intuitive and natural, so the player would know exactly where to go or what to do.",
     released: "2010-07-21",
-    main_image:
-      "https://media.rawg.io/media/games/942/9424d6bb763dc38d9378b488603c87fa.jpg",
+    main_image: "https://media.rawg.io/media/games/942/9424d6bb763dc38d9378b488603c87fa.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/942/9424d6bb763dc38d9378b488603c87fa.jpg",
       "https://media.rawg.io/media/screenshots/512/512f4bc2092016478ddcb9e7e60aeec0.jpg",
@@ -786,13 +861,13 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/de0/de04bbc0fd9904071ef25bf23113c8c4.jpg",
       "https://media.rawg.io/media/screenshots/eed/eedbbca4ae2debf2d4e23e55d1f6cff7.jpg",
       "https://media.rawg.io/media/screenshots/59f/59f472b3ed7b414777a29213d70b4d17.jpg",
-      "https://media.rawg.io/media/screenshots/e58/e58d31146e4a9e3786dabcbfc30126bc.jpg",
+      "https://media.rawg.io/media/screenshots/e58/e58d31146e4a9e3786dabcbfc30126bc.jpg"
     ],
     rating: 4.16,
-    price: 921,
+    price: 132,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 9,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
@@ -807,9 +882,14 @@ export const dataGames = [
       "macOS",
       "Xbox 360",
       "PlayStation 3",
-      "PlayStation 4",
+      "PlayStation 4"
     ],
-    genres: ["Adventure", "Indie", "Puzzle", "Platformer"],
+    genres: [
+      "Adventure",
+      "Indie",
+      "Puzzle",
+      "Platformer"
+    ],
     tags: [
       "Singleplayer",
       "Atmospheric",
@@ -826,15 +906,15 @@ export const dataGames = [
       "Cinematic",
       "Puzzle-Platformer",
       "Surreal",
-      "Minimalist",
-    ],
+      "Minimalist"
+    ]
   },
   {
     id: 2454,
     name: "DOOM (2016)",
+    description: "Return of the classic FPS, Doom (2016) acts as a reboot of the series and brings back the Doomslayer, protagonist of the original Doom games. In order to solve the energy crisis, humanity learned to harvest the energy from Hell, and when something went wrong and a demon invasion has started, it’s up to the player to control the Doomslayer and destroy the evil.\n\nDoom is a fast-paced game that restores the concept of instant health packs and leaves the player against armies of Hell with no cover, no health regeneration, or help from anyone. After damaging monsters enough, they will start glowing, which will allow players to perform glory kills to restore some health. While exploring the levels, players will come across secrets, collectible items, or upgrade points for the weapons and armor. The single-player campaign silent protagonist has a noticeable personality. He gets visibly annoyed and angry in his actions during expository cutscenes and forces his way through the game. Multiplayer maps gather players in Deathmatch/”king-of-the-hill” type game modes, with all the weapons from the single-player campaign.",
     released: "2016-05-13",
-    main_image:
-      "https://media.rawg.io/media/games/c4b/c4b0cab189e73432de3a250d8cf1c84e.jpg",
+    main_image: "https://media.rawg.io/media/games/c4b/c4b0cab189e73432de3a250d8cf1c84e.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/c4b/c4b0cab189e73432de3a250d8cf1c84e.jpg",
       "https://media.rawg.io/media/screenshots/353/353c1e834e7da7d6ceaa6beaff529c29.jpg",
@@ -842,18 +922,26 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/ae9/ae9e9f7bfe19c63bd16151f81f81a7ed.jpg",
       "https://media.rawg.io/media/screenshots/14e/14e33eccb109558b0524761340ff2023.jpg",
       "https://media.rawg.io/media/screenshots/45d/45d16955ac9e90141b726684a07db02a.jpg",
-      "https://media.rawg.io/media/screenshots/b77/b77629938389a41160d3b2a56eaed568.jpg",
+      "https://media.rawg.io/media/screenshots/b77/b77629938389a41160d3b2a56eaed568.jpg"
     ],
     rating: 4.39,
-    price: 726,
+    price: 709,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 11,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["Xbox One", "PC", "Nintendo Switch", "PlayStation 4"],
-    genres: ["Action", "Shooter"],
+    platforms: [
+      "Xbox One",
+      "PC",
+      "Nintendo Switch",
+      "PlayStation 4"
+    ],
+    genres: [
+      "Action",
+      "Shooter"
+    ],
     tags: [
       "Singleplayer",
       "Multiplayer",
@@ -874,15 +962,15 @@ export const dataGames = [
       "Memes",
       "Remake",
       "Blood",
-      "Demons",
-    ],
+      "Demons"
+    ]
   },
   {
     id: 3070,
     name: "Fallout 4",
+    description: "The fourth game in the post-apocalyptic action RPG series from Bethesda studious brings players back to the retro-future. After customizing the facial features of the character, players will be admitted to the Vault 111 with their family, and tricked into entering the cryogenic capsule. After the rude awakening after the unknown amount of time has passed, the child is separated from the parents and the loving partner is killed in front of them – the main quest is settled. Now there’s only the giant open world to explore. Fallout 4 introduces the mechanics of settlement building, where players can build their own little town. Gathering material for crafting and building brings more “survival” elements into the old formula. Within their own settlements, players will be able to build all needed utilities, from storage spaces to power armor stations. Visual upgrade from the previous game brings life to what used to be brown wastelands, now filled with details and color.",
     released: "2015-11-09",
-    main_image:
-      "https://media.rawg.io/media/games/d82/d82990b9c67ba0d2d09d4e6fa88885a7.jpg",
+    main_image: "https://media.rawg.io/media/games/d82/d82990b9c67ba0d2d09d4e6fa88885a7.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/d82/d82990b9c67ba0d2d09d4e6fa88885a7.jpg",
       "https://media.rawg.io/media/screenshots/f55/f5598897e0e418c67521f2213dceb459.jpg",
@@ -890,18 +978,25 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/fd3/fd3a97519e6d1b73f429f6bfcfb3bcf5.jpg",
       "https://media.rawg.io/media/screenshots/069/0691b4c1b839e55531d8c3206cd83dd7.jpg",
       "https://media.rawg.io/media/screenshots/cc0/cc0b3e29b579faae8d8585fd9ecff142.jpg",
-      "https://media.rawg.io/media/screenshots/99c/99c81029aeace339293753186246099f.jpg",
+      "https://media.rawg.io/media/screenshots/99c/99c81029aeace339293753186246099f.jpg"
     ],
     rating: 3.79,
-    price: 78,
+    price: 931,
     on_sale: 0,
-    stock: 1,
+    stock: 13,
     features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["Xbox One", "PC", "PlayStation 4"],
-    genres: ["Action", "RPG"],
+    platforms: [
+      "Xbox One",
+      "PC",
+      "PlayStation 4"
+    ],
+    genres: [
+      "Action",
+      "RPG"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -921,15 +1016,15 @@ export const dataGames = [
       "Survival",
       "Action RPG",
       "Third-Person Shooter",
-      "Post-apocalyptic",
-    ],
+      "Post-apocalyptic"
+    ]
   },
   {
     id: 32,
     name: "Destiny 2",
+    description: "Destiny 2 is an online multiplayer first-person shooter. You take on the role of a Guardian that needs to protect the last city on Earth from alien invaders. The game follows its predecessor, Destiny. The goal of the game is to return the Light that was stolen from the Guardians by the aliens.\nDestiny 2 features two main activity types: player versus environment and player versus player. PvE is focused on exploration, story missions interaction with NPCs and side quests. PvP features 4v4 team matches in different modes. The game also allows taking part in group missions, such as three-player strikes and six-player raids.\nDestiny 2 has a strong RPG aspect that includes character customization and development. There are three classes in the game - Warlock, Hunter, and Titan; they provide different playstyles depending on their specialization and unique abilities. To develop the character you can gain experience points completing the story and side missions.",
     released: "2017-09-06",
-    main_image:
-      "https://media.rawg.io/media/games/34b/34b1f1850a1c06fd971bc6ab3ac0ce0e.jpg",
+    main_image: "https://media.rawg.io/media/games/34b/34b1f1850a1c06fd971bc6ab3ac0ce0e.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/34b/34b1f1850a1c06fd971bc6ab3ac0ce0e.jpg",
       "https://media.rawg.io/media/screenshots/818/818cc34134cb22fb18fda8edec7144a3.jpg",
@@ -937,12 +1032,12 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/75d/75d8fbb3254f5b06f1a3f9a026d9c122.jpg",
       "https://media.rawg.io/media/screenshots/ca3/ca3bdc1a51fc90a96c860ab6db8a313c.jpg",
       "https://media.rawg.io/media/screenshots/575/5751a70c954618a99ec574f32be7ad43.jpg",
-      "https://media.rawg.io/media/screenshots/2e7/2e7304d3b9e670f943d0bd1e4be090f0.jpg",
+      "https://media.rawg.io/media/screenshots/2e7/2e7304d3b9e670f943d0bd1e4be090f0.jpg"
     ],
     rating: 3.57,
-    price: 72,
+    price: 2,
     on_sale: 0,
-    stock: 1,
+    stock: 8,
     features: false,
     is_new: false,
     saturated_color: "0f0f0f",
@@ -953,9 +1048,14 @@ export const dataGames = [
       "PlayStation 4",
       "Web",
       "Xbox Series S/X",
-      "PlayStation 5",
+      "PlayStation 5"
     ],
-    genres: ["Action", "Shooter", "Adventure", "Massively Multiplayer"],
+    genres: [
+      "Action",
+      "Shooter",
+      "Adventure",
+      "Massively Multiplayer"
+    ],
     tags: [
       "Singleplayer",
       "Multiplayer",
@@ -999,15 +1099,15 @@ export const dataGames = [
       "enemy",
       "quick",
       "darkness",
-      "defender",
-    ],
+      "defender"
+    ]
   },
   {
     id: 58175,
     name: "God of War",
+    description: "It is a new beginning for Kratos. Living as a man outside the shadow of the gods, he ventures into the brutal Norse wilds with his son Atreus, fighting to fulfill a deeply personal quest. \r\n\r\nHis vengeance against the Gods of Olympus years behind him, Kratos now lives as a man in the realm of Norse Gods and monsters. It is in this harsh, unforgiving world that he must fight to survive… And teach his son to do the same. This startling reimagining of God of War deconstructs the core elements that defined the series—satisfying combat; breathtaking scale; and a powerful narrative—and fuses them anew. \r\n\r\nKratos is a father again. As mentor and protector to Atreus, a son determined to earn his respect, he is forced to deal with and control the rage that has long defined him while out in a very dangerous world with his son. \r\n\r\nFrom the marble and columns of ornate Olympus to the gritty forests, mountains, and caves of Pre-Viking Norse lore, this is a distinctly new realm with its own pantheon of creatures, monsters, and gods. With an added emphasis on discovery and exploration, the world will draw players in to explore every inch of God of War’s breathtakingly threatening landscape—by far the largest in the franchise. \r\n\r\nWith an over the shoulder free camera that brings the player closer to the action than ever before, fights in God of War mirror the pantheon of Norse creatures Kratos will face: grand, gritty, and grueling. A new main weapon and new abilities retain the defining spirit of God of War while presenting a vision of violent conflict that forges new ground in the genre",
     released: "2018-04-20",
-    main_image:
-      "https://media.rawg.io/media/games/4be/4be6a6ad0364751a96229c56bf69be59.jpg",
+    main_image: "https://media.rawg.io/media/games/4be/4be6a6ad0364751a96229c56bf69be59.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/4be/4be6a6ad0364751a96229c56bf69be59.jpg",
       "https://media.rawg.io/media/screenshots/d68/d6868e5f7bce66e326bd48b11ba24b13.jpeg",
@@ -1015,18 +1115,26 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/a54/a549a06ebe89c570cabb57308c4c42a5.jpeg",
       "https://media.rawg.io/media/screenshots/f02/f0279f8199da3e91134078e737e5fbcf.jpg",
       "https://media.rawg.io/media/screenshots/e87/e87c57660c7c37fe973c6dd6ebcc1ac6.jpeg",
-      "https://media.rawg.io/media/screenshots/5b7/5b7280fe437c39d3ce501a867c46a998.jpeg",
+      "https://media.rawg.io/media/screenshots/5b7/5b7280fe437c39d3ce501a867c46a998.jpeg"
     ],
     rating: 4.59,
-    price: 378,
+    price: 67,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 8,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["PlayStation 5", "PlayStation 4", "PC"],
-    genres: ["Action", "Adventure", "RPG"],
+    platforms: [
+      "PlayStation 5",
+      "PlayStation 4",
+      "PC"
+    ],
+    genres: [
+      "Action",
+      "Adventure",
+      "RPG"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -1054,15 +1162,15 @@ export const dataGames = [
       "Mythology",
       "Emotional",
       "Souls-like",
-      "Remote Play on TV",
-    ],
+      "Remote Play on TV"
+    ]
   },
   {
     id: 11859,
     name: "Team Fortress 2",
+    description: "TF2 is an objective based arena shooter with unique characters, representing different classes, acting as a staple of casual and competitive gaming for Steam. Dozens of different maps and game modes are trying to keep this game alive, after all the years it was available. Each character has a vast arsenal that can be accessed through completing in-game achievements, randomly receiving them from loot-boxes within the game, crafting them or just buying and trading items on the Steam Market. \r\nFor players, that's not into the direct clash with players from the enemy team, Team Fortress 2 introduced a PvE mode, which is wave defense from the mirrored robotic opponents that have qualities of some of the playable classes. \r\nEvery update and introduction, made over years, provided a lot of entertainment In the form of comic books an short animated videos, creating and explaining a story behind endless clashes for resources, briefcases or pure domination.",
     released: "2007-10-10",
-    main_image:
-      "https://media.rawg.io/media/games/46d/46d98e6910fbc0706e2948a7cc9b10c5.jpg",
+    main_image: "https://media.rawg.io/media/games/46d/46d98e6910fbc0706e2948a7cc9b10c5.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/46d/46d98e6910fbc0706e2948a7cc9b10c5.jpg",
       "https://media.rawg.io/media/screenshots/596/5968ba06bac8bee0ec7e9d03c970c421.jpg",
@@ -1070,18 +1178,25 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/a0a/a0ad82cad18d0a2466d1d5f12bf8858c.jpg",
       "https://media.rawg.io/media/screenshots/a83/a83038d2ec296522ab1b9ab0521b1ec3.jpg",
       "https://media.rawg.io/media/screenshots/8d4/8d488a3e65256ec777c8097b0faacc78.jpg",
-      "https://media.rawg.io/media/screenshots/707/707c7488bd6e35bc74d274a923bc1df2.jpg",
+      "https://media.rawg.io/media/screenshots/707/707c7488bd6e35bc74d274a923bc1df2.jpg"
     ],
     rating: 3.67,
-    price: 703,
+    price: 244,
     on_sale: 0,
-    stock: 1,
+    stock: 16,
     features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["PC", "macOS", "Linux"],
-    genres: ["Action", "Shooter"],
+    platforms: [
+      "PC",
+      "macOS",
+      "Linux"
+    ],
+    genres: [
+      "Action",
+      "Shooter"
+    ],
     tags: [
       "Steam Achievements",
       "Multiplayer",
@@ -1112,15 +1227,15 @@ export const dataGames = [
       "Cartoony",
       "Cartoon",
       "Class-Based",
-      "Trading",
-    ],
+      "Trading"
+    ]
   },
   {
     id: 3939,
     name: "PAYDAY 2",
+    description: "The gang is back, and they have bigger and better plans. Objective based cooperative FPS became more complicated. The classic group of Hoxton, Dallas, Chains and Wolf got reinforcement, and now Payday Gang consists of 21 heisters, some of which are based on movie characters or even Youtubers. Players will be able to customize their own private arsenal, their masks, and skills, to complete the missions in their own way, be it stealthy sneak-in or full frontal assault. After completing missions, players will receive EXP points, money and a chance to get a special item that can be a gun modification, mask or a safe containing weapon skins.\r\nPayday 2 is a multiplayer game, meaning, that even during offline missions players will be followed by AI characters, whose loadouts, masks and perks can be customized as well. This game has been supported by the developers for many years, and amount of DLC speaks plenty of their dedication to the player base.",
     released: "2013-08-13",
-    main_image:
-      "https://media.rawg.io/media/games/73e/73eecb8909e0c39fb246f457b5d6cbbe.jpg",
+    main_image: "https://media.rawg.io/media/games/73e/73eecb8909e0c39fb246f457b5d6cbbe.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/73e/73eecb8909e0c39fb246f457b5d6cbbe.jpg",
       "https://media.rawg.io/media/screenshots/c38/c38f5aa479eebab20cedcdae370e6e18.jpg",
@@ -1128,18 +1243,25 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/c2c/c2ccfeaeda357f932d1899a91f298850.jpg",
       "https://media.rawg.io/media/screenshots/a18/a18da938def6ce6e5b571f1c20272ab0.jpg",
       "https://media.rawg.io/media/screenshots/a5d/a5da0d01195f01cdedec974d52892128.jpg",
-      "https://media.rawg.io/media/screenshots/4ee/4ee5c3c8b850ab4ba8e04b9f5d5ab060.jpg",
+      "https://media.rawg.io/media/screenshots/4ee/4ee5c3c8b850ab4ba8e04b9f5d5ab060.jpg"
     ],
     rating: 3.5,
-    price: 681,
+    price: 3,
     on_sale: 0,
-    stock: 1,
+    stock: 14,
     features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["Linux", "PC", "Xbox One"],
-    genres: ["Action", "Shooter"],
+    platforms: [
+      "Linux",
+      "PC",
+      "Xbox One"
+    ],
+    genres: [
+      "Action",
+      "Shooter"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -1160,15 +1282,15 @@ export const dataGames = [
       "Crime",
       "PvE",
       "Heist",
-      "Gun Customization",
-    ],
+      "Gun Customization"
+    ]
   },
   {
     id: 278,
     name: "Horizon Zero Dawn",
+    description: "Horizon Zero Dawn is an experiment. A very impressive experiment that actually succeeded. \r\nHaving a very curious mix of cyberpunk and prehistorical styles and esthetic, the game provides us with quite a unique experience. We need to arm ourselves with arrows and a bow, with a spear or any other prehistorical-ish weapon in order to defeat out enemies - dinosaur-mechanisms that are spread around the world. If that wasn't enough, Aloy our main protagonist can control an AI named GAIA. What we're having here is an exciting connection with \"very old times\" and \"near future\", even though the game is set up in the 31st century. \r\nBeing an outcast with her father Rost, Aloy must restore her position in the tribe and save the world by stopping the Eclipse, a cult that wants to rule the world. Join her on that journey, exploring the world and people that live in such hard surroundings.",
     released: "2017-02-28",
-    main_image:
-      "https://media.rawg.io/media/games/b7d/b7d3f1715fa8381a4e780173a197a615.jpg",
+    main_image: "https://media.rawg.io/media/games/b7d/b7d3f1715fa8381a4e780173a197a615.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/b7d/b7d3f1715fa8381a4e780173a197a615.jpg",
       "https://media.rawg.io/media/screenshots/9cc/9cc79c34d70e437f3931f8476c384f43.jpg",
@@ -1176,18 +1298,25 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/c44/c44b7da5fcbf57d740a7bafe435d555e.jpg",
       "https://media.rawg.io/media/screenshots/c8c/c8cbefacf83746eadc23f19531676304.jpg",
       "https://media.rawg.io/media/screenshots/e53/e534a3e2c61f57b41ad1d1389d5b126f.jpg",
-      "https://media.rawg.io/media/screenshots/120/12094e8cdcdc97a607d711e9c923ab64.jpg",
+      "https://media.rawg.io/media/screenshots/120/12094e8cdcdc97a607d711e9c923ab64.jpg"
     ],
     rating: 4.33,
-    price: 412,
+    price: 734,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 19,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["PlayStation 4", "PC"],
-    genres: ["Action", "Adventure", "RPG"],
+    platforms: [
+      "PlayStation 4",
+      "PC"
+    ],
+    genres: [
+      "Action",
+      "Adventure",
+      "RPG"
+    ],
     tags: [
       "Singleplayer",
       "Atmospheric",
@@ -1213,15 +1342,15 @@ export const dataGames = [
       "3rd-person",
       "Experience",
       "atmosphere",
-      "open-world",
-    ],
+      "open-world"
+    ]
   },
   {
     id: 4459,
     name: "Grand Theft Auto IV",
+    description: "Every crime story is a story of a search for success. The player will become Niko Bellic, immigrant arriving at the Liberty City to reunite with his cousin Roman and find the man that betrayed him and his army unit fifteen years prior to the events of the game. While protecting his cousin, Niko has to deal with loan sharks, Russian mobsters, and other gangs. After the third game, GTA brought more realism to the player, in order to make the city and its people look more believable. Street vendors on every corner will sell food that replenishes health, bars with playable dart boards, bowling alleys and even comedy clubs and movie theatres. Open world will allow players not only hang out with important NPC in order to receive bonuses and unlocks but taking girls on the dates as well, to help Niko settle. Multiplayer mode allows up to 32 players to explore the copy of the single-player city and initiate multiplayer activities, like races or Deathmatches.",
     released: "2008-04-29",
-    main_image:
-      "https://media.rawg.io/media/games/4a0/4a0a1316102366260e6f38fd2a9cfdce.jpg",
+    main_image: "https://media.rawg.io/media/games/4a0/4a0a1316102366260e6f38fd2a9cfdce.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/4a0/4a0a1316102366260e6f38fd2a9cfdce.jpg",
       "https://media.rawg.io/media/screenshots/07f/07f7cf80741ff306e4eca982c3e64ac8.jpg",
@@ -1229,18 +1358,26 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/b78/b78ffd258d5793be704c380e572748bc.jpg",
       "https://media.rawg.io/media/screenshots/17c/17c85ab9dfc4fda8e1e5ba72932ef2bf.jpg",
       "https://media.rawg.io/media/screenshots/a12/a12ca99cc74c1e7eba7100b0891dd1e0.jpg",
-      "https://media.rawg.io/media/screenshots/b25/b254f9729ae3f36a9ccffccaa01d5cf6.jpg",
+      "https://media.rawg.io/media/screenshots/b25/b254f9729ae3f36a9ccffccaa01d5cf6.jpg"
     ],
     rating: 4.25,
-    price: 593,
+    price: 717,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 6,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["Xbox 360", "PlayStation 3", "Xbox One", "PC"],
-    genres: ["Action", "Adventure"],
+    platforms: [
+      "Xbox 360",
+      "PlayStation 3",
+      "Xbox One",
+      "PC"
+    ],
+    genres: [
+      "Action",
+      "Adventure"
+    ],
     tags: [
       "Singleplayer",
       "Multiplayer",
@@ -1260,15 +1397,15 @@ export const dataGames = [
       "Dark Humor",
       "Satire",
       "first person mod",
-      "Bowling",
-    ],
+      "Bowling"
+    ]
   },
   {
     id: 3272,
     name: "Rocket League",
+    description: "Highly competitive soccer game with rocket-cars is the most comprehensive way to describe this game. Technically a sequel to Psyonix’ previous game - Supersonic Acrobatic Rocket-Powered Battle-Cars; Rocket League successfully became a standalone sensation, that can be enjoyed by anyone. Easy to learn, hard to master game mechanics are perfect for the tight controls. Players are invited to maneuver the different fields within several game modes, from arcade to ranked game either 1v1, or in 2v2 and 3v3 teams. Using boosters will not only speed up the car but will allow the car to propel itself into the air.\r\nRocket League provides several levels of customization, where not only the color of your car can be adjusted, but the colors and form of the booster flame, different hats, and little flags. Or players can pick a completely different car. Collaboration with different franchises brought not only original transport but some famous cars, including Batmobile or Delorian from Back to the Future.",
     released: "2015-07-07",
-    main_image:
-      "https://media.rawg.io/media/games/8cc/8cce7c0e99dcc43d66c8efd42f9d03e3.jpg",
+    main_image: "https://media.rawg.io/media/games/8cc/8cce7c0e99dcc43d66c8efd42f9d03e3.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/8cc/8cce7c0e99dcc43d66c8efd42f9d03e3.jpg",
       "https://media.rawg.io/media/screenshots/6a0/6a0745d9dcd0f7a368d372260baf91aa.jpg",
@@ -1276,12 +1413,12 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/508/5083fd170bf10606afd12afc7d17db04.jpg",
       "https://media.rawg.io/media/screenshots/02d/02d36e8e01a9f1063c6431ce09324e24.jpg",
       "https://media.rawg.io/media/screenshots/036/036ddade8156ac52ecf8de593123d12c.jpg",
-      "https://media.rawg.io/media/screenshots/861/8615727f6e52f1632ae38d71e9e4c800.jpg",
+      "https://media.rawg.io/media/screenshots/861/8615727f6e52f1632ae38d71e9e4c800.jpg"
     ],
     rating: 3.97,
-    price: 602,
+    price: 712,
     on_sale: 0,
-    stock: 1,
+    stock: 7,
     features: false,
     is_new: false,
     saturated_color: "0f0f0f",
@@ -1292,9 +1429,13 @@ export const dataGames = [
       "PC",
       "macOS",
       "Linux",
-      "Nintendo Switch",
+      "Nintendo Switch"
     ],
-    genres: ["Sports", "Racing", "Indie"],
+    genres: [
+      "Sports",
+      "Racing",
+      "Indie"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -1318,15 +1459,15 @@ export const dataGames = [
       "Competitive",
       "4 Player Local",
       "Football",
-      "Soccer",
-    ],
+      "Soccer"
+    ]
   },
   {
     id: 10213,
     name: "Dota 2",
+    description: "What used to be an unofficial modded map for the Warcraft 3, ended up being the most budgeted cybersport discipline, gathering millions of people to watch annual international championships.\nMOBA genre started with the DOTA, Defense of the Ancients, which can be efficiently described as 5 vs 5 top-down action strategy game, during which players are tasked to destroy the enemy core while protecting their own.\nPlayers can pick out of the roster of 112 heroes and battle on the single map while taking advantage of field vision, resources and item build that can either make heroes stronger or disable the enemy. DOTA 2 is still active, and receives updates weekly, reshaping metas and refreshing game balance, if by any chance some heroes became unreasonably strong. Each hero has not only a unique set of abilities but is fully customizable, through getting items for heroes after matches of through the trade. Not only heroes but terrain, couriers, that deliver items for you and even match announcers, that can be voiced by heroes, professional casters of just memorable characters from other forms of media.",
     released: "2013-07-09",
-    main_image:
-      "https://media.rawg.io/media/games/83f/83f6f70a7c1b86cd2637b029d8b42caa.jpg",
+    main_image: "https://media.rawg.io/media/games/83f/83f6f70a7c1b86cd2637b029d8b42caa.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/83f/83f6f70a7c1b86cd2637b029d8b42caa.jpg",
       "https://media.rawg.io/media/screenshots/cef/cefd0f45c88be2d6e2ff7eed94c16cf3.jpg",
@@ -1334,18 +1475,25 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/55e/55e2c2ff16229eef87cfd8728ca537ac.jpg",
       "https://media.rawg.io/media/screenshots/601/601ceb08d04da42f4de5d8b9016f31a6.jpg",
       "https://media.rawg.io/media/screenshots/f02/f02a389dafd748b801cb4ff971a868af.jpg",
-      "https://media.rawg.io/media/screenshots/da6/da6e4cba4e5787674d0e6877d1fc426a.jpg",
+      "https://media.rawg.io/media/screenshots/da6/da6e4cba4e5787674d0e6877d1fc426a.jpg"
     ],
     rating: 3.06,
-    price: 833,
+    price: 567,
     on_sale: 0,
-    stock: 1,
+    stock: 6,
     features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["PC", "macOS", "Linux"],
-    genres: ["Action", "Massively Multiplayer"],
+    platforms: [
+      "PC",
+      "macOS",
+      "Linux"
+    ],
+    genres: [
+      "Action",
+      "Massively Multiplayer"
+    ],
     tags: [
       "Multiplayer",
       "steam-trading-cards",
@@ -1369,15 +1517,15 @@ export const dataGames = [
       "Tower Defense",
       "MOBA",
       "e-sports",
-      "SteamVR Collectibles",
-    ],
+      "SteamVR Collectibles"
+    ]
   },
   {
     id: 29028,
     name: "Metro 2033",
+    description: "Not all post-apocalyptic stories begin in the burned wastelands, this time nuclear and chemical locked up survivors in the Moscow Subway, and player will take the place of Artyom, one of the survivors from the VDNKh, adoptive son of the station commander, and taking upon himself the task to deliver information about the Dark Ones to the Polis, the capital of subway, after the special operative from Spartans named Hunter went missing, after he ventured to gather information on the Hive – living space of the Dark Ones.\r\nDark tunnels of broken subway create a claustrophobic atmosphere, where good and bad people alike are forced to bond. Closely following original book, Metro 2033 introducing bullets as currency. Players can exchange one type of bullets for another one, but it’s still ammo and will be wasted with inaccurate aim. It’s a first person shooter that will allow players not only see how broken apart can society become but to explore such society and ruins of the city above the underground settlement. Various monsters and mutants are not the only threat to the players, but humans as well. FPS with some stealth sections, Metro 2033 will show you every historical enemy type: bandits, Communists, and Nazis.",
     released: "2010-03-16",
-    main_image:
-      "https://media.rawg.io/media/games/120/1201a40e4364557b124392ee50317b99.jpg",
+    main_image: "https://media.rawg.io/media/games/120/1201a40e4364557b124392ee50317b99.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/120/1201a40e4364557b124392ee50317b99.jpg",
       "https://media.rawg.io/media/screenshots/e79/e7946cab379370fdef03c2e2c9dfcce3.jpg",
@@ -1385,18 +1533,24 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/28e/28e63b7f13e9ec24ad64ef5ae75e258c.jpg",
       "https://media.rawg.io/media/screenshots/b99/b99a0bf0f09991d76ad13c65f7e64562.jpg",
       "https://media.rawg.io/media/screenshots/df1/df1aa556c727ad4f4753dbb9e43875c0.jpg",
-      "https://media.rawg.io/media/screenshots/94b/94bcd09e75c34712fa85ea6b4945a57c.jpg",
+      "https://media.rawg.io/media/screenshots/94b/94bcd09e75c34712fa85ea6b4945a57c.jpg"
     ],
     rating: 3.92,
-    price: 196,
+    price: 495,
     on_sale: 0,
-    stock: 1,
+    stock: 17,
     features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["Xbox 360", "PC"],
-    genres: ["Action", "Shooter"],
+    platforms: [
+      "Xbox 360",
+      "PC"
+    ],
+    genres: [
+      "Action",
+      "Shooter"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -1417,15 +1571,15 @@ export const dataGames = [
       "3D Vision",
       "Linear",
       "Based On A Novel",
-      "Benchmark",
-    ],
+      "Benchmark"
+    ]
   },
   {
     id: 766,
     name: "Warframe",
+    description: "Warframe is an online free-to-play cooperative third-person looter shooter. In the far future the Orokin had absolute control over the solar system but have since disappeared, now the militaristic Grineer, the money-worshipping Corpus, and the Infested fight for what they left behind. You are a Tenno - a master of gun and blade and user of the Warframes, it is up to you to bring back balance to the system from within, while also fighting a new threat from without: the Sentients.\r\nOver 40 unique Warframes to build, hundreds of guns and melee weapons to utilize, and various pet companions to help you along the way - all of which can be crafted for free and enhanced by an in-depth modding system.\r\nWith constant updates by Digital Extremes, the game now has over six years of updates including new open-world landscapes (Plains of Eidolon-2017, Orb Vallis-2018) and cinematic story expansions (The Second Dream-2015, The War Within-2016, The The Sacrifice-2018) with more content being added every year.",
     released: "2013-03-25",
-    main_image:
-      "https://media.rawg.io/media/games/f87/f87457e8347484033cb34cde6101d08d.jpg",
+    main_image: "https://media.rawg.io/media/games/f87/f87457e8347484033cb34cde6101d08d.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/f87/f87457e8347484033cb34cde6101d08d.jpg",
       "https://media.rawg.io/media/screenshots/2e1/2e15c9f4cca692ebca67b7652e559f6d.jpg",
@@ -1433,12 +1587,12 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/b3a/b3a368123558e7f4010e8b68518d6412.jpg",
       "https://media.rawg.io/media/screenshots/fd2/fd2225327c9dca60c9acea0edca8c5fc.jpg",
       "https://media.rawg.io/media/screenshots/34e/34e3c0d71551f07c3bb709fe12f18ca2.jpg",
-      "https://media.rawg.io/media/screenshots/977/977735a2fad2bc47917424e20e9dff56.jpg",
+      "https://media.rawg.io/media/screenshots/977/977735a2fad2bc47917424e20e9dff56.jpg"
     ],
     rating: 3.43,
-    price: 778,
+    price: 921,
     on_sale: 0,
-    stock: 1,
+    stock: 6,
     features: false,
     is_new: false,
     saturated_color: "0f0f0f",
@@ -1449,9 +1603,13 @@ export const dataGames = [
       "PlayStation 4",
       "Xbox One",
       "Nintendo Switch",
-      "PC",
+      "PC"
     ],
-    genres: ["Action", "Shooter", "Massively Multiplayer"],
+    genres: [
+      "Action",
+      "Shooter",
+      "Massively Multiplayer"
+    ],
     tags: [
       "Singleplayer",
       "Multiplayer",
@@ -1475,15 +1633,15 @@ export const dataGames = [
       "Cyberpunk",
       "PvE",
       "Ninja",
-      "looter shooter",
-    ],
+      "looter shooter"
+    ]
   },
   {
     id: 3192,
     name: "Metal Gear Solid V: The Phantom Pain",
+    description: "Metal Gear Solid 5 continues the story of MGS: Peace Walker and MGS V: Ground Zeroes. Snake seeks revenge for the attack on the MSF group 9 years ago, that placed Big Boss into a coma. After the failed assassination attempt, Big Boss takes the code name Venom Snake, delving back into the world of superhumans and espionage.\r\nA large-scale story that includes 5 hours of cinematic cutscenes compliments open world exploration with hundreds of audio logs and side missions, forming the atmosphere of military drama with sci-fi elements. MGS5: Phantom Pain has an advanced AI system that will allow enemy soldiers constantly call for reinforcements if they see that something is wrong, forcing players to take down communications and fight or retreat and try again. \r\nPlayers will manage the base by gathering and managing staff, weaponry, and resources, in order to upgrade their personal arsenal and companions.",
     released: "2015-09-01",
-    main_image:
-      "https://media.rawg.io/media/games/490/49016e06ae2103881ff6373248843069.jpg",
+    main_image: "https://media.rawg.io/media/games/490/49016e06ae2103881ff6373248843069.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/490/49016e06ae2103881ff6373248843069.jpg",
       "https://media.rawg.io/media/screenshots/fa0/fa0cb095629729fb990079d0ec135dae.jpg",
@@ -1491,18 +1649,27 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/40b/40bf3a64adc8e3b6ffadd1420b1bd250.jpg",
       "https://media.rawg.io/media/screenshots/344/3447022b021fb337970aaa16e9adfa1f.jpg",
       "https://media.rawg.io/media/screenshots/410/41074cb7d1a80e15b16e5166f121c0e0.jpg",
-      "https://media.rawg.io/media/screenshots/535/5358bcad9e3c51816ffb923fcdd9938a.jpg",
+      "https://media.rawg.io/media/screenshots/535/5358bcad9e3c51816ffb923fcdd9938a.jpg"
     ],
     rating: 4.16,
-    price: 87,
+    price: 280,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 7,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["Xbox One", "PlayStation 3", "PlayStation 4", "Xbox 360", "PC"],
-    genres: ["Action", "Shooter"],
+    platforms: [
+      "Xbox One",
+      "PlayStation 3",
+      "PlayStation 4",
+      "Xbox 360",
+      "PC"
+    ],
+    genres: [
+      "Action",
+      "Shooter"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -1526,15 +1693,15 @@ export const dataGames = [
       "Replay Value",
       "Cinematic",
       "Heist",
-      "Horses",
-    ],
+      "Horses"
+    ]
   },
   {
     id: 422,
     name: "Terraria",
+    description: "Terraria is a 2D action adventure sandbox game, where players create a character and gather resources in order to gradually craft stronger weapons and armor. Players create randomly generated maps that contain different locations within it, and by gathering specific resources and triggering special events, players will fight one of the many in-game bosses. Created characters can be played on different maps.\r\nThe game introduces hundreds of unique items that can be found across the entirety of the map, some of which may not even be encountered. \r\nTerraria have many different Biomes and areas with distinct visuals, containing resources and enemies unique to this biome. After gathering materials, players can craft furniture, and build settlements and houses, since after completing events or finding specific items NPCs will start to arrive, and will require player’s protection. Terraria can be played on three difficulties and has a large modding community.",
     released: "2011-05-16",
-    main_image:
-      "https://media.rawg.io/media/games/f46/f466571d536f2e3ea9e815ad17177501.jpg",
+    main_image: "https://media.rawg.io/media/games/f46/f466571d536f2e3ea9e815ad17177501.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/f46/f466571d536f2e3ea9e815ad17177501.jpg",
       "https://media.rawg.io/media/screenshots/3af/3afd69426804e7162edbe03cd9f8d0f4.jpg",
@@ -1542,13 +1709,13 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/84b/84b447d4df99d42ffe479c7feb438171.jpg",
       "https://media.rawg.io/media/screenshots/de0/de053efd6104719567d23fb0dad58b92.jpg",
       "https://media.rawg.io/media/screenshots/490/4907be07a7771c8a7f0eb30c3a1fadc0.jpg",
-      "https://media.rawg.io/media/screenshots/485/485ce1d6c733357664be153777097af1.jpg",
+      "https://media.rawg.io/media/screenshots/485/485ce1d6c733357664be153777097af1.jpg"
     ],
     rating: 4.04,
-    price: 106,
+    price: 839,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 5,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
@@ -1565,9 +1732,13 @@ export const dataGames = [
       "Nintendo Switch",
       "PlayStation 3",
       "PS Vita",
-      "Android",
+      "Android"
     ],
-    genres: ["Action", "Indie", "Platformer"],
+    genres: [
+      "Action",
+      "Indie",
+      "Platformer"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -1592,15 +1763,15 @@ export const dataGames = [
       "Family Friendly",
       "Crafting",
       "Building",
-      "overlay",
-    ],
+      "overlay"
+    ]
   },
   {
     id: 7689,
     name: "Rise of the Tomb Raider",
+    description: "Rise of the Tomb Raider is the eleventh entry in the franchise, being a sequel to its predecessor, Tomb Raider, a reboot of the franchise. This story follows Lara Croft, one year after battling her supernatural experiences in Yamatai. This time she is trying to find the legendary city of Kitezh in Siberia, Russia. The legend behind the city begins in the 12th century and still comes nowadays, that this ancient city grants with a promise of immortality. While Lara tries to solve the mystery of Siberia, she encounters an organisation called Trinity. They want to retrieve this gift to themselves. Following the notes of her father, Lara tries to discover the secrets of the ancient city and stop Trinity in doing so.\r\n\r\nExploring the Soviet motive, even more, the game has the DLC's - Baba Yaga, the Temple of the Witch, which follows Lara in the Soviet mine and confronting the legendary witch of Russian folk-tales, Cold Darkness Awakened, the story about a secret biological weapon and Blood Ties and Lara's Nightmare - a fight for ownership of the Croft estate. \r\n\r\nBesides craftmanship and exploring, the game focuses on a very progressive combat system giving a player a wide variety of strategic options. There is a way to evade your opponents in the bushes; stealth kills with bow and arrows or open combat with firearms like shotguns, pistols and other guns. WIth earning experience, you can give Lara new ways of encountering her enemies by three different specialisations - Hunter, Survivor or Brawler. Each skill tree offers various options of combat, for example using Lara's surroundings and fauna, traps or better aim. With these options, you can choose how to guide Lara Croft in her adventures.",
     released: "2015-11-10",
-    main_image:
-      "https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg",
+    main_image: "https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg",
       "https://media.rawg.io/media/screenshots/fbf/fbff1fe1f3cbe33dec8b2fc98bbad4a4.jpg",
@@ -1608,18 +1779,25 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/256/256472a369b9f52cfe0b8e85eb49ef19.jpg",
       "https://media.rawg.io/media/screenshots/38a/38a67aab95a0a5f9fe1a40821a63f0c6.jpg",
       "https://media.rawg.io/media/screenshots/a1f/a1f2d03a0d0f70f4aed355f6e138f2a4.jpg",
-      "https://media.rawg.io/media/screenshots/03d/03df750d5d64eb8bf0121e92e1f701e0.jpg",
+      "https://media.rawg.io/media/screenshots/03d/03df750d5d64eb8bf0121e92e1f701e0.jpg"
     ],
     rating: 4.03,
-    price: 896,
+    price: 65,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 7,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["Xbox One", "PC", "macOS", "PlayStation 4"],
-    genres: ["Action"],
+    platforms: [
+      "Xbox One",
+      "PC",
+      "macOS",
+      "PlayStation 4"
+    ],
+    genres: [
+      "Action"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -1641,15 +1819,15 @@ export const dataGames = [
       "Action-Adventure",
       "Parkour",
       "Quick-Time Events",
-      "Lara Croft",
-    ],
+      "Lara Croft"
+    ]
   },
   {
     id: 23027,
     name: "The Walking Dead: Season 1",
+    description: "The Walking Dead is a five-part game series set in the same universe as Robert Kirkman’s award-winning comic book series. Play as Lee Everett, a convicted criminal, who has been given a second chance at life in a world devastated by the undead. With corpses returning to life and survivors stopping at nothing to maintain their own safety, protecting an orphaned girl named Clementine may offer him redemption in a world gone to hell.\r\nA continuing story of adventure horror spanning across 5 episodes:\r\n\r\nEpisode 1 – A New Day (Available Now)\r\nEpisode 2 – Starved for Help (Available Now)\r\n\r\nEpisode 3 – Long Road Ahead (Available Now)\r\nEpisode 4 – Around Every Corner (Available Now)\r\nEpisode 5 – No Time Left (Available Now)\r\nAll five episodes are now available immediately upon purchasing Season 1. Based on Robert Kirkman’s Eisner-Award winning comic book series, The Walking Dead allows gamers to experience the true horror of the zombie apocalypse\r\nA tailored game experience – Live with the profound and lasting consequences of the decisions that you make in each episode. Your actions and choices will affect how your story plays out across the entire series.\r\nExperience events, meet people and visit locations that foreshadow the story of Deputy Sheriff Rick Grimes\r\nMeet Glenn before he heads to Atlanta, explore Hershel’s farm before Rick and his group of survivors arrive and before the barn becomes a notorious location in Walking Dead lore\r\nYou’ll be forced to make decisions that are not only difficult, but that will require you to make an almost immediate choice. There’s no time to ponder when the undead are pounding the door down!\r\nFeatures meaningful decision-making, exploration, problem solving and a constant fight for survival in a world overrun by the undead\r\nArtwork inspired by the original comic books",
     released: "2012-04-23",
-    main_image:
-      "https://media.rawg.io/media/games/8d6/8d69eb6c32ed6acfd75f82d532144993.jpg",
+    main_image: "https://media.rawg.io/media/games/8d6/8d69eb6c32ed6acfd75f82d532144993.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/8d6/8d69eb6c32ed6acfd75f82d532144993.jpg",
       "https://media.rawg.io/media/screenshots/d38/d38c78ec9cc707bf42652452235dbe8c.jpg",
@@ -1657,13 +1835,13 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/72b/72b67d15b5ae5538734bac2b195f2976.jpg",
       "https://media.rawg.io/media/screenshots/74d/74d6a18a7b5592777de8f6a7cdbc91f8.jpg",
       "https://media.rawg.io/media/screenshots/52a/52aca015b4748b1b0bbbacf33110e983.jpg",
-      "https://media.rawg.io/media/screenshots/94b/94b6701276d06b5b562890601fd6abaa.jpg",
+      "https://media.rawg.io/media/screenshots/94b/94b6701276d06b5b562890601fd6abaa.jpg"
     ],
     rating: 4.31,
-    price: 695,
+    price: 380,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 5,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
@@ -1677,9 +1855,11 @@ export const dataGames = [
       "PC",
       "iOS",
       "Nintendo Switch",
-      "Xbox One",
+      "Xbox One"
     ],
-    genres: ["Adventure"],
+    genres: [
+      "Adventure"
+    ],
     tags: [
       "Singleplayer",
       "Atmospheric",
@@ -1699,15 +1879,15 @@ export const dataGames = [
       "Drama",
       "Comic Book",
       "Quick-Time Events",
-      "Choose Your Own Adventure",
-    ],
+      "Choose Your Own Adventure"
+    ]
   },
   {
     id: 41494,
     name: "Cyberpunk 2077",
+    description: "Cyberpunk 2077 is a science fiction game loosely based on the role-playing game Cyberpunk 2020.\r\n\r\n###Setting\r\nThe game is set in the year 2077 in a fictional futuristic metropolis Night City in California. In the world of the game, there are developed cybernetic augmentations that enhance people's strength, agility, and memory. The city is governed by corporations. Many jobs are taken over by the robots, leaving a lot of people poor and homeless. Night City has a roaring underworld, with black markets, underground surgeons, drug dealers, and street gangs abound.\r\n\r\n###Characters\r\nThe main protagonist is fully customizable, including his or her sex and appearance, and goes by the nickname V. He or she is an underground mercenary who does “dirty business” for the various contractors. An NPC companion named Jackie joins the protagonist early at the game, and various other companions may join the player on certain missions as the plot demands. However, the game has no parties and no companion system.\r\n\r\n###Gameplay\r\nThe player controls V from the first person view, with the third-person view used for cutscenes only. The protagonist can travel across the city on feet or using various vehicles, in a manner some observers compared to GTA series. There are many options for the character customization, including three character classes, and a variety of augmentations V can install to enhance his or her abilities.",
     released: "2020-12-10",
-    main_image:
-      "https://media.rawg.io/media/games/26d/26d4437715bee60138dab4a7c8c59c92.jpg",
+    main_image: "https://media.rawg.io/media/games/26d/26d4437715bee60138dab4a7c8c59c92.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/26d/26d4437715bee60138dab4a7c8c59c92.jpg",
       "https://media.rawg.io/media/screenshots/814/814c25d6fd1fd34a4e6dade645a3bda7.jpg",
@@ -1715,13 +1895,13 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/2ab/2ab0b67e68b6ede6b19d80094b6f7f2a_qTSfS2g.jpg",
       "https://media.rawg.io/media/screenshots/cd2/cd22af9d6ac593440defac6082760e4a.jpg",
       "https://media.rawg.io/media/screenshots/9b5/9b51535beb9d9e416cb9aac874091334.jpg",
-      "https://media.rawg.io/media/screenshots/d84/d84d3a16c1e2cb24dcf73e0108d78455.jpg",
+      "https://media.rawg.io/media/screenshots/d84/d84d3a16c1e2cb24dcf73e0108d78455.jpg"
     ],
     rating: 4.07,
-    price: 499,
+    price: 17,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 15,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
@@ -1730,9 +1910,13 @@ export const dataGames = [
       "PC",
       "Xbox Series S/X",
       "PlayStation 5",
-      "Xbox One",
+      "Xbox One"
     ],
-    genres: ["Action", "Adventure", "RPG"],
+    genres: [
+      "Action",
+      "Adventure",
+      "RPG"
+    ],
     tags: [
       "Singleplayer",
       "Atmospheric",
@@ -1765,15 +1949,15 @@ export const dataGames = [
       "Hacking",
       "Role Playing Game",
       "Photorealistic",
-      "immersive",
-    ],
+      "immersive"
+    ]
   },
   {
     id: 3287,
     name: "Batman: Arkham Knight",
+    description: "Batman: Arkham Knight is the final instalment for the Arkham series by now. Joining forces with Bruce Wayne for the last time, we have to oppose Scarecrow and other iconic villains such as The Riddler, Harleen Quinzel a.k.a. Harley Quinn, Penguin and others.\n\nThe story continued after events in Arkham City when Joker died due to infection in his blood. Now, Scarecrow tries to release a new fear toxin, meanwhile new mysterious Arkham Knight plots against Batman as well. Still having consequences after being poisoned by the Joker and seeing visions with him, Bruce has to prevail the death of Gotham City.\n\nThe gameplay mechanics stays the same to the Arkham series. Melee combat system, use of the detective skills to find clues and gadgets still play a major role in Batman's fight against evil. Although now you can travel around not only by your grappling hook but a legendary Batmobile as well. Iconic voices of the characters, Kevin Conroy and Mark Hammil once again return to give their voices for the last game in Arkham series.",
     released: "2015-06-23",
-    main_image:
-      "https://media.rawg.io/media/games/310/3106b0e012271c5ffb16497b070be739.jpg",
+    main_image: "https://media.rawg.io/media/games/310/3106b0e012271c5ffb16497b070be739.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/310/3106b0e012271c5ffb16497b070be739.jpg",
       "https://media.rawg.io/media/screenshots/1ed/1ed7f33789fdb79dbe7ae346f7b24fdf.jpg",
@@ -1781,18 +1965,24 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/b87/b873d09e51115514cb1445a954dbca9e.jpg",
       "https://media.rawg.io/media/screenshots/cbe/cbee51d83cafbe75224336859ddfc27e.jpg",
       "https://media.rawg.io/media/screenshots/d2a/d2ab2d0f10e778c1a867c999515c3f9a.jpg",
-      "https://media.rawg.io/media/screenshots/172/172a4d61d4b6d3b77f19f5826de439f2.jpg",
+      "https://media.rawg.io/media/screenshots/172/172a4d61d4b6d3b77f19f5826de439f2.jpg"
     ],
     rating: 4.22,
-    price: 874,
+    price: 529,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 18,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["PC", "Xbox One", "PlayStation 4"],
-    genres: ["Action"],
+    platforms: [
+      "PC",
+      "Xbox One",
+      "PlayStation 4"
+    ],
+    genres: [
+      "Action"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -1813,15 +2003,15 @@ export const dataGames = [
       "Detective",
       "Comic Book",
       "Superhero",
-      "Batman",
-    ],
+      "Batman"
+    ]
   },
   {
     id: 16944,
     name: "The Witcher 2: Assassins of Kings Enhanced Edition",
+    description: "The player is Geralt of Rivia, infamous monster slayer. In the second game of the series, titular witcher is involved in the inner conflicts of Temeria, where he stopped the rebellion and was hired as a bodyguard of Temerian King Foltest. Eventually, Foltest was assassinated by a witcher-like assassin, and the only person fitting the description was Geralt. \r\nThe game combat system was reworked, in order to add traps and ranged throwing weapon, giving players more control over the course of the battle. It’s still a third person action RPG, and the player can upgrade and improve general abilities, swordsmanship, alchemy, and magic. \r\nThe enhanced edition includes additional hours of content, new cinematics, the original soundtrack, game manual and quest handbook, among other things. The new tutorial allows players to spend more time to master new game mechanics and see for themselves visual improvements to the core game.",
     released: "2012-04-16",
-    main_image:
-      "https://media.rawg.io/media/games/6cd/6cd653e0aaef5ff8bbd295bf4bcb12eb.jpg",
+    main_image: "https://media.rawg.io/media/games/6cd/6cd653e0aaef5ff8bbd295bf4bcb12eb.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/6cd/6cd653e0aaef5ff8bbd295bf4bcb12eb.jpg",
       "https://media.rawg.io/media/screenshots/0c2/0c2a61b9c675c79be87bb3932779062c.jpg",
@@ -1829,18 +2019,24 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/336/3366909fa35d542c7293df9d6b4d0aac.jpg",
       "https://media.rawg.io/media/screenshots/c67/c672445939555d23ab0acbeba2d4527f.jpg",
       "https://media.rawg.io/media/screenshots/441/4413f59b847bc08634920b79a2071399.jpg",
-      "https://media.rawg.io/media/screenshots/cb5/cb5517c5b620811050cb791516f2c5da.jpg",
+      "https://media.rawg.io/media/screenshots/cb5/cb5517c5b620811050cb791516f2c5da.jpg"
     ],
     rating: 4.18,
-    price: 832,
+    price: 452,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 16,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["macOS", "PC", "Xbox 360"],
-    genres: ["RPG"],
+    platforms: [
+      "macOS",
+      "PC",
+      "Xbox 360"
+    ],
+    genres: [
+      "RPG"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -1864,33 +2060,39 @@ export const dataGames = [
       "Magic",
       "Multiple Endings",
       "Based On A Novel",
-      "Nonlinear",
-    ],
+      "Nonlinear"
+    ]
   },
   {
     id: 19103,
     name: "Half-Life 2: Lost Coast",
+    description: "Essentially a tech demo, “Half-Life 2: Lost Coast” sole purpose was to show off the new high-dynamic-range-rendering of the Source engine, it was a welcome addition to the franchise. It’s a free addition to the game that can be downloaded through Steam by the owners of Half-Life 2. Gordon Freeman founds himself near a group of decaying piers, fully armed and ready to explore the monastery above him, fighting through the Combine forces.\nHigh-dynamic-range-rendering introduced realistic lighting effects to the game, emulating even camera’s overexposure to the bright light, which was eventually moved to the main game. Lost Coast story is conveyed without cutscenes, every part of the level is tailored specifically to demonstrate the changes, made by developers. Even though it was originally created for the Half-Life 2, it was removed from the main game, alongside some minor story details. It’s not a full standalone game and wasn’t intended as one.",
     released: "2005-10-27",
-    main_image:
-      "https://media.rawg.io/media/games/b7b/b7b8381707152afc7d91f5d95de70e39.jpg",
+    main_image: "https://media.rawg.io/media/games/b7b/b7b8381707152afc7d91f5d95de70e39.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/b7b/b7b8381707152afc7d91f5d95de70e39.jpg",
       "https://media.rawg.io/media/screenshots/9bf/9bf18c7c6759805fc79aad53f3df6f7d.jpg",
       "https://media.rawg.io/media/screenshots/9c5/9c5ac8722a23212460d1536e03c5562d.jpg",
       "https://media.rawg.io/media/screenshots/59d/59d81fcb1b2bff1e56bfe5c489638a46.jpg",
       "https://media.rawg.io/media/screenshots/259/259239f48f9e32210774b5641527071f.jpg",
-      "https://media.rawg.io/media/screenshots/12b/12b9a7c1311586328718da042e5c16f3.jpg",
+      "https://media.rawg.io/media/screenshots/12b/12b9a7c1311586328718da042e5c16f3.jpg"
     ],
     rating: 3.45,
-    price: 459,
+    price: 437,
     on_sale: 0,
-    stock: 1,
+    stock: 5,
     features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["macOS", "Linux", "PC"],
-    genres: ["Action"],
+    platforms: [
+      "macOS",
+      "Linux",
+      "PC"
+    ],
+    genres: [
+      "Action"
+    ],
     tags: [
       "Singleplayer",
       "Multiplayer",
@@ -1908,15 +2110,15 @@ export const dataGames = [
       "Commentary available",
       "Illuminati",
       "Silent Protagonist",
-      "Benchmark",
-    ],
+      "Benchmark"
+    ]
   },
   {
     id: 11973,
     name: "Middle-earth: Shadow of Mordor",
+    description: "Lord of the rings franchise brought a new title to the collection, an open world action-adventure game, that follows Talion, Gondor captain, that survived the sacrifice that was meant to bring the Elf Lord Celebrimbor as a wraith. Losing his wife and his son, Talion is merged with Celebrimor, escaping death.  Players will have to gain EXP in order to upgrade abilities through completing various missions and defeating Uruk warlords. Some missions might require special conditions for the greater reward.\r\nShadow of Mordor implemented the Nemesis System. It tracks the progress of every special Uruk warrior. Each special Uruk has a set of strengths and weaknesses, and players can assassinate higher ranked officers in order to promote easy to defeat Uruk to defeat them at a higher rank, weakening the Sauron’s army. This planning allows players to adapt, and use mechanics of stealth kills, ranged combat, wraith skills and head-on melee more effective.",
     released: "2014-09-30",
-    main_image:
-      "https://media.rawg.io/media/games/d1a/d1a2e99ade53494c6330a0ed945fe823.jpg",
+    main_image: "https://media.rawg.io/media/games/d1a/d1a2e99ade53494c6330a0ed945fe823.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/d1a/d1a2e99ade53494c6330a0ed945fe823.jpg",
       "https://media.rawg.io/media/screenshots/123/1239cbfc3e25664170e8c1d5049a6d91.jpg",
@@ -1924,12 +2126,12 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/9e7/9e7f6fad3ee317a7edf7f3bc6001ba9d.jpg",
       "https://media.rawg.io/media/screenshots/97f/97fdbb526196705e25ee503bc248b63f.jpg",
       "https://media.rawg.io/media/screenshots/770/77011e668d64fe192691d56f364fb561.jpg",
-      "https://media.rawg.io/media/screenshots/1f2/1f2851c47112ca8e1edf7c2c377632a9.jpg",
+      "https://media.rawg.io/media/screenshots/1f2/1f2851c47112ca8e1edf7c2c377632a9.jpg"
     ],
     rating: 3.89,
-    price: 546,
+    price: 234,
     on_sale: 0,
-    stock: 1,
+    stock: 0,
     features: false,
     is_new: false,
     saturated_color: "0f0f0f",
@@ -1941,9 +2143,12 @@ export const dataGames = [
       "PlayStation 3",
       "PlayStation 4",
       "macOS",
-      "PC",
+      "PC"
     ],
-    genres: ["Action", "RPG"],
+    genres: [
+      "Action",
+      "RPG"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -1969,15 +2174,15 @@ export const dataGames = [
       "Based On A Novel",
       "steam",
       "category",
-      "microtranzations",
-    ],
+      "microtranzations"
+    ]
   },
   {
     id: 416,
     name: "Grand Theft Auto: San Andreas",
+    description: "Grand Theft Auto - San Andreas is the seventh entry in the series in the GTA franchise, but only second big title after GTA - Vice City. Setting up in fictional state San Andreas, you follow the story of CJ, a member of one of the multiple gangs in the city. CJ's family is being attacked in drive shooting which resulted in the death of CJ's mother, so he returns to home from Liberty City. Meeting the rest of the family at his mom's funeral, he decides to rebuild the gang and gain control of the state.\r\n\r\nThe game makes a brilliant connection with missions and open world actions that you are able to do around the cities. You can steal cars, buy guns, hunt for collectables and do some side quests, while different characters give you specific missions in order to push the plot forward. Streets are filled with people as well as plenty of vehicles to steal. Fictional brands of cars, tanks, bikes are available to be stolen from any place around the city. Armoury contains pistols, rifles, hand-machine guns or a rocket launcher as well as melee weapons giving player freedom in anything he's doing in GTA.",
     released: "2004-10-26",
-    main_image:
-      "https://media.rawg.io/media/games/960/960b601d9541cec776c5fa42a00bf6c4.jpg",
+    main_image: "https://media.rawg.io/media/games/960/960b601d9541cec776c5fa42a00bf6c4.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/960/960b601d9541cec776c5fa42a00bf6c4.jpg",
       "https://media.rawg.io/media/screenshots/679/679c267107151f01696d3c8ea71ac650.jpg",
@@ -1985,13 +2190,13 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/c8c/c8cf7ea395e6aa2e46abee36d9d2d699.jpg",
       "https://media.rawg.io/media/screenshots/191/191445072d9e85b6ad7ffed5152fc17a.jpg",
       "https://media.rawg.io/media/screenshots/bfe/bfe3c652960e2b6869c608a58d69d327.jpg",
-      "https://media.rawg.io/media/screenshots/436/436134f55bd10cfd7a6fd1ded7487355.jpg",
+      "https://media.rawg.io/media/screenshots/436/436134f55bd10cfd7a6fd1ded7487355.jpg"
     ],
     rating: 4.51,
-    price: 266,
+    price: 740,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 3,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
@@ -2005,9 +2210,12 @@ export const dataGames = [
       "Xbox 360",
       "PlayStation 2",
       "PlayStation 3",
-      "PlayStation 4",
+      "PlayStation 4"
     ],
-    genres: ["Action", "Adventure"],
+    genres: [
+      "Action",
+      "Adventure"
+    ],
     tags: [
       "Singleplayer",
       "Multiplayer",
@@ -2029,15 +2237,15 @@ export const dataGames = [
       "Remote Play on Tablet",
       "Remote Play on Phone",
       "controversial",
-      "karaihb",
-    ],
+      "karaihb"
+    ]
   },
   {
     id: 17822,
     name: "The Witcher: Enhanced Edition Director's Cut",
+    description: "The Witcher is the very first instalment of the series that follows the story of Geralt from Rivia. Being found unconscious on the battlefield he must retrieve his memory and help the emperor's daughter, Adda to stop her from turning in to a feral monster. Facing the biggest enemy, Salamander, Geralt must also help all the fractions around the world to find peace between each other.\n\nThe fighting system is very flexible. Choosing from three different styles, you can adapt Geralt for any kind of a combat situation. Fast style of fighting gives you an opportunity to strike your opponents with your speed. The strong style focuses itself on destroying your enemies with powerful attacks, while sweeping style is very good when facing a number of foes. You can also craft some potions to gain important benefits such as seeing in the dark or having a larger amount HP. Plot style is unique as well. The game never gives a precise definition of evil, which leads the player to convenient situations where the choice is quite bad anyway. Enhanced edition improves every aspect of the game as graphics and the productivity of it, while Director's Cut does the same without censorship for North America's version.",
     released: "2008-09-16",
-    main_image:
-      "https://media.rawg.io/media/games/ee3/ee3e10193aafc3230ba1cae426967d10.jpg",
+    main_image: "https://media.rawg.io/media/games/ee3/ee3e10193aafc3230ba1cae426967d10.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/ee3/ee3e10193aafc3230ba1cae426967d10.jpg",
       "https://media.rawg.io/media/screenshots/6dc/6dc151862452fba8dfb510ba7131cefd.jpg",
@@ -2045,18 +2253,24 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/698/6983ac0ee603750b50212a0822a2cab7.jpg",
       "https://media.rawg.io/media/screenshots/7c5/7c545f5c7ae02355e8b76ee3d28bd12a.jpg",
       "https://media.rawg.io/media/screenshots/5bf/5bf40b1e7d50240c867a0ca1540b7b07.jpg",
-      "https://media.rawg.io/media/screenshots/39c/39c47322a4dad4f3ac87cc97557c9a2d.jpg",
+      "https://media.rawg.io/media/screenshots/39c/39c47322a4dad4f3ac87cc97557c9a2d.jpg"
     ],
     rating: 4.06,
-    price: 571,
+    price: 611,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 6,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["PC", "macOS"],
-    genres: ["Action", "RPG"],
+    platforms: [
+      "PC",
+      "macOS"
+    ],
+    genres: [
+      "Action",
+      "RPG"
+    ],
     tags: [
       "Singleplayer",
       "Atmospheric",
@@ -2076,15 +2290,15 @@ export const dataGames = [
       "Medieval",
       "Magic",
       "Multiple Endings",
-      "Based On A Novel",
-    ],
+      "Based On A Novel"
+    ]
   },
   {
     id: 4427,
     name: "BioShock 2",
+    description: "The second game returns us to the city of Rapture, on the New Year’s Eve, but this time player takes control of Subject Delta, Big Daddy, that’s been separated from his little sister and has been forced to shoot himself 2 years before the events of the first game took place. And after his awakening 10 years later, players will help to save the last sane citizens of Rapture. As seen in the previous game, the player will have access to new weapons, unique to Big Daddies, power drill and a rivet gun, alongside an array of plasmids, Tonics, and guns. Now players will be able not only save Little Sisters from other Big Daddies, and then either harvest ADAM directly, or protect them while they collect ADAM for their new guardian. Bioshock introduces a new enemy type, Big Sisters, which are extremely agile and fast versions of Big Daddies. Newly added multiplayer brings several never seen formats to the series. Aside from expected Deathmatches, the game added story-driven mode Fall of Rapture.",
     released: "2010-02-09",
-    main_image:
-      "https://media.rawg.io/media/games/157/15742f2f67eacff546738e1ab5c19d20.jpg",
+    main_image: "https://media.rawg.io/media/games/157/15742f2f67eacff546738e1ab5c19d20.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/157/15742f2f67eacff546738e1ab5c19d20.jpg",
       "https://media.rawg.io/media/screenshots/a13/a130b342c9830f9c56d65c204638fe17.jpg",
@@ -2092,13 +2306,13 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/996/996d1459d3f2ec1f03daba488d96c521.jpg",
       "https://media.rawg.io/media/screenshots/8da/8daab3b2c3d9e355f636e7d408a08315.jpg",
       "https://media.rawg.io/media/screenshots/f5c/f5c713b706c6b153b6a22ca1b08a1f5a.jpg",
-      "https://media.rawg.io/media/screenshots/b7c/b7c32275a6be8134744322f1204ce176.jpg",
+      "https://media.rawg.io/media/screenshots/b7c/b7c32275a6be8134744322f1204ce176.jpg"
     ],
     rating: 4.07,
-    price: 874,
+    price: 478,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 9,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
@@ -2109,9 +2323,12 @@ export const dataGames = [
       "PC",
       "macOS",
       "Xbox 360",
-      "PlayStation 3",
+      "PlayStation 3"
     ],
-    genres: ["Action", "Shooter"],
+    genres: [
+      "Action",
+      "Shooter"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -2131,15 +2348,15 @@ export const dataGames = [
       "Steampunk",
       "Linear",
       "Underwater",
-      "Philisophical",
-    ],
+      "Philisophical"
+    ]
   },
   {
     id: 10035,
     name: "Hitman",
+    description: "Hitman is a six episodes game with different contracts. The action takes place as a prequel to Hitman: Agent 47 (only prologue) and episodes take place six years after Hitman: Absolution. All contracts are being ordered by a \"shadow client\" and seem to be unrelated. But as you fulfil those contracts, you start to realise that all of the targets somehow are a part of a secret organisation called the Providence.\r\n\r\nWhile playing Agent 47, you have a large amount of free will in completing those contracts. The main target is all that matters, and you can do anything to kill this person in your style and fashion. You can disguise as a different person and infiltrate secured area to perform the kill manually or use a long-range sniper rifle to do the trick. Your surroundings help you a lot as well by listening to nearby chat or news reports. Players are given as much freedom as possible to find your professional style in the art of killing. A large amount of DLC and expanded missions can either give you gimmick-based contracts and travel to Japan, Serbia and other countries.",
     released: "2016-03-11",
-    main_image:
-      "https://media.rawg.io/media/games/16b/16b1b7b36e2042d1128d5a3e852b3b2f.jpg",
+    main_image: "https://media.rawg.io/media/games/16b/16b1b7b36e2042d1128d5a3e852b3b2f.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/16b/16b1b7b36e2042d1128d5a3e852b3b2f.jpg",
       "https://media.rawg.io/media/screenshots/ef6/ef6c0a92d08a99d2e405cac53c597d10.jpg",
@@ -2147,18 +2364,28 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/202/202293192d1b6245c8a1e252d9df604c.jpg",
       "https://media.rawg.io/media/screenshots/278/278bd63ee564982e816ec7fe802df420.jpg",
       "https://media.rawg.io/media/screenshots/002/0021b0e5db6959989d90979abba68c8d.jpg",
-      "https://media.rawg.io/media/screenshots/c8a/c8a537532ab8ce8750293a1fc41ee7f8.jpg",
+      "https://media.rawg.io/media/screenshots/c8a/c8a537532ab8ce8750293a1fc41ee7f8.jpg"
     ],
     rating: 3.92,
-    price: 597,
+    price: 855,
     on_sale: 0,
-    stock: 1,
+    stock: 15,
     features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["PlayStation 4", "Linux", "macOS", "PC", "Xbox One"],
-    genres: ["Action", "Shooter", "Simulation"],
+    platforms: [
+      "PlayStation 4",
+      "Linux",
+      "macOS",
+      "PC",
+      "Xbox One"
+    ],
+    genres: [
+      "Action",
+      "Shooter",
+      "Simulation"
+    ],
     tags: [
       "Singleplayer",
       "Atmospheric",
@@ -2176,15 +2403,15 @@ export const dataGames = [
       "Assassin",
       "Episodic",
       "Illuminati",
-      "Heist",
-    ],
+      "Heist"
+    ]
   },
   {
     id: 5563,
     name: "Fallout: New Vegas",
+    description: "Fallout: New Vegas is the second instalment after the reboot of the Fallout series and a fourth instalment in the franchise itself. Being a spin-off and developed by a different studio, Obsidian Entertainment, Fallout: New Vegas follows the Courier as he's ambushed by a gang lead by Benny, stealing a Platinum Chip and heavily wounded, practically left for dead. As he wakes up, he minds himself in the company of Doc Mitchell who saved our protagonist and patches him up. This section of the game is given for customising your characters, picking traits and the look of the main hero before embarking on his journey to retrieve Platinum Chip.\n\nNew Vegas has very similar gameplay to Fallout 3 with a few improvements, such as iron sights for most of the guns, new animations for VATS kills, new perk Survivor, which allowed you to have more benefits from drinks and food you could craft and gambling in the casinos. Expanded crafting system, weapon modification system force player to scavenge for resources. Reputation system was reintroduced in New Vegas as old reputation system from Fallout 2, with Karma making a serious impact on the game.",
     released: "2010-10-19",
-    main_image:
-      "https://media.rawg.io/media/games/995/9951d9d55323d08967640f7b9ab3e342.jpg",
+    main_image: "https://media.rawg.io/media/games/995/9951d9d55323d08967640f7b9ab3e342.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/995/9951d9d55323d08967640f7b9ab3e342.jpg",
       "https://media.rawg.io/media/screenshots/5b3/5b39206a3b241688fbd69467d75151b8.jpg",
@@ -2192,18 +2419,29 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/7c5/7c5083ee282a2ea3d6248361592cf8af.jpg",
       "https://media.rawg.io/media/screenshots/704/704c2186d4d1e73ca30e4a3f904f7a6c.jpg",
       "https://media.rawg.io/media/screenshots/502/502aacc7e1e71435c29e4dae7ce6c1f3.jpg",
-      "https://media.rawg.io/media/screenshots/afe/afecd18ebd303b5cc450777f6beb1dd5.jpg",
+      "https://media.rawg.io/media/screenshots/afe/afecd18ebd303b5cc450777f6beb1dd5.jpg"
     ],
     rating: 4.44,
-    price: 414,
+    price: 146,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 6,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["Xbox One", "PlayStation 4", "PlayStation 3", "PC", "Xbox 360"],
-    genres: ["Action", "Shooter", "Adventure", "RPG"],
+    platforms: [
+      "Xbox One",
+      "PlayStation 4",
+      "PlayStation 3",
+      "PC",
+      "Xbox 360"
+    ],
+    genres: [
+      "Action",
+      "Shooter",
+      "Adventure",
+      "RPG"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -2224,15 +2462,15 @@ export const dataGames = [
       "Moddable",
       "Post-apocalyptic",
       "Character Customization",
-      "Western",
-    ],
+      "Western"
+    ]
   },
   {
     id: 4248,
     name: "Dishonored",
+    description: "Dishonored is the game about stealth. Or action and killing people. It is you who will decide what to do with your enemies. You play as Corvo Attano, Empress' bodyguard, a masterful assassin and a combat specialist. All of a sudden, a group of assassins kill the Empress and kidnaps her daughter Emily. Being accused of murder and waiting for execution in a cell, Corvo still manages to escape with the help of the Loyalists and their leader Admiral Havelock. Now it is your duty to return the Empress daughter and restore your name. The main focus of the game is to give the player a choice. You can spare the lives of your enemies by knocking them out or making others do the job for you or brutally murder everyone in the city. Gadgets are given by Piero Joplin, Loyalists engineer and by the Outsider, who gives Corvo magical abilities. The game reacts to your choices - grim atmosphere by itself can be turned even darker by killing people or slightly lighter by not doing so. It is only a player's choice what to do with his abilities. Basing on these actions the game will give you with two different endings of the story.",
     released: "2012-09-25",
-    main_image:
-      "https://media.rawg.io/media/games/4e6/4e6e8e7f50c237d76f38f3c885dae3d2.jpg",
+    main_image: "https://media.rawg.io/media/games/4e6/4e6e8e7f50c237d76f38f3c885dae3d2.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/4e6/4e6e8e7f50c237d76f38f3c885dae3d2.jpg",
       "https://media.rawg.io/media/screenshots/683/68302a7d6425b77f73b550d74d12c149.jpg",
@@ -2240,18 +2478,28 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/ed4/ed45a4d528eb22d30048654c43ba4854.jpg",
       "https://media.rawg.io/media/screenshots/903/903a31cf943126bf46c5db2be9bc8116.jpg",
       "https://media.rawg.io/media/screenshots/9cb/9cb61afd240b902b943c850ddf5c60c9.jpg",
-      "https://media.rawg.io/media/screenshots/ad8/ad8a34687cf34713bc59580d568248e8.jpg",
+      "https://media.rawg.io/media/screenshots/ad8/ad8a34687cf34713bc59580d568248e8.jpg"
     ],
     rating: 4.37,
-    price: 792,
+    price: 138,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 18,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["PlayStation 4", "PlayStation 3", "Xbox 360", "PC", "Xbox One"],
-    genres: ["Action", "Adventure", "RPG"],
+    platforms: [
+      "PlayStation 4",
+      "PlayStation 3",
+      "Xbox 360",
+      "PC",
+      "Xbox One"
+    ],
+    genres: [
+      "Action",
+      "Adventure",
+      "RPG"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -2272,15 +2520,15 @@ export const dataGames = [
       "Dystopian",
       "Multiple Endings",
       "Steampunk",
-      "Assassin",
-    ],
+      "Assassin"
+    ]
   },
   {
     id: 10142,
     name: "PlayerUnknown’s Battlegrounds",
+    description: "PLAYERUNKNOWN’S BATTLEGROUNDS is battle-royale shooter made only for the multiplayer experience. Players should do their best to become the last one alive. Matches are held on 3 main maps of a large size (Erangel, Miramar, and Sanhok). Each match has 100 participants fighting for themselves. The battle begins with players making the leap out of the plane to spread out across the map and to gather all possible equipment required for survival. Then, after a while, game intelligence randomly sets a circle shape safe zone, which gamers must reach to stay alive, and marks it on the map. Gear and resources are scattered throughout the map, so players can grab everything they need while running to the zone. Therefore, the main action comes out of the players’ collision on their ways to the circle. You can join the fight either alone or in a team (up to 4 people). Due to the customization system, lots of clothing items and weapon skins could be both bought on the marketplace and found in crates. However, in-app purchases don’t actually affect the gameplay.",
     released: "2017-12-20",
-    main_image:
-      "https://media.rawg.io/media/games/1bd/1bd2657b81eb0c99338120ad444b24ff.jpg",
+    main_image: "https://media.rawg.io/media/games/1bd/1bd2657b81eb0c99338120ad444b24ff.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/1bd/1bd2657b81eb0c99338120ad444b24ff.jpg",
       "https://media.rawg.io/media/screenshots/657/6576473e7e22b81ac5c389b6f836e73c.jpg",
@@ -2288,18 +2536,26 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/241/241d6a22b84dc483bcd980b428805556.jpg",
       "https://media.rawg.io/media/screenshots/0bb/0bb71c08f7d23715886253f6b2cc2657.jpg",
       "https://media.rawg.io/media/screenshots/b54/b545a7128b63a125aed16181c0237686.jpg",
-      "https://media.rawg.io/media/screenshots/2fb/2fb10f556bbcaebed101f23d571e8498.jpg",
+      "https://media.rawg.io/media/screenshots/2fb/2fb10f556bbcaebed101f23d571e8498.jpg"
     ],
     rating: 3.3,
-    price: 336,
+    price: 351,
     on_sale: 0,
-    stock: 1,
+    stock: 11,
     features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["PC", "Xbox One", "PlayStation 4"],
-    genres: ["Action", "Shooter", "Massively Multiplayer"],
+    platforms: [
+      "PC",
+      "Xbox One",
+      "PlayStation 4"
+    ],
+    genres: [
+      "Action",
+      "Shooter",
+      "Massively Multiplayer"
+    ],
     tags: [
       "Multiplayer",
       "Co-op",
@@ -2314,15 +2570,15 @@ export const dataGames = [
       "Tactical",
       "Third-Person Shooter",
       "PvP",
-      "Battle Royale",
-    ],
+      "Battle Royale"
+    ]
   },
   {
     id: 3387,
     name: "Bloodborne",
+    description: "Bloodborne is an action-RPG and another member of souls-like title series. The game has no predecessors or successors, making it the only entry with one add-on: “The Old Hunters.” The Bloodborne universe, however, also includes a comics and a board game.\n\nGenerally resembling the Dark Souls series, Bloodborne, however, has some different mechanics and the pace of combat is increased thanks to the risk-rewarding battle system. Another difference is multiplayer, which comes in two kinds: you can summon other players into your game and fight bosses side by side or you can fight impostors, who are other players invading your playthrough.\n\nThroughout the game, you are forced to explore an enormous open world of Yharnam, which looks like alternate universe Lovecraft-inspired Victorian-era England, as The Hunter. You meet horrific bosses, explore vast areas, houses and open spaces while continually dodging, attacking and trying not to get killed by a massive number of hostile NPCs.",
     released: "2015-03-24",
-    main_image:
-      "https://media.rawg.io/media/games/214/214b29aeff13a0ae6a70fc4426e85991.jpg",
+    main_image: "https://media.rawg.io/media/games/214/214b29aeff13a0ae6a70fc4426e85991.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/214/214b29aeff13a0ae6a70fc4426e85991.jpg",
       "https://media.rawg.io/media/screenshots/75a/75a67f69575ebfc412a70cdde7fb8923.jpg",
@@ -2330,18 +2586,23 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/d8e/d8e17e4899561a0a25e0728541b1cac9.jpg",
       "https://media.rawg.io/media/screenshots/48c/48cfa5b44c1a6787971889bc7646ca47.jpg",
       "https://media.rawg.io/media/screenshots/472/472f9b7dfb71ac5d6880e94dd1c1a77c.jpg",
-      "https://media.rawg.io/media/screenshots/c6d/c6de8c602de1cf1798353aa83a830948.jpg",
+      "https://media.rawg.io/media/screenshots/c6d/c6de8c602de1cf1798353aa83a830948.jpg"
     ],
     rating: 4.4,
-    price: 133,
+    price: 263,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 2,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["PlayStation 4"],
-    genres: ["Action", "RPG"],
+    platforms: [
+      "PlayStation 4"
+    ],
+    genres: [
+      "Action",
+      "RPG"
+    ],
     tags: [
       "Atmospheric",
       "Story Rich",
@@ -2350,33 +2611,39 @@ export const dataGames = [
       "exclusive",
       "Character Customization",
       "Dark Fantasy",
-      "true exclusive",
-    ],
+      "true exclusive"
+    ]
   },
   {
     id: 11935,
     name: "Half-Life Deathmatch: Source",
+    description: "A direct port of the original Deathmatch mode for the half-life to the Source engine slightly improves the game flow, by making controls more responsive and the connection more stable. Half-Life Deathmatch Source recreates the gameplay of the original multiplayer of Half-Life. All players are randomly spawned at the different map points and battle each other within a free-for-all brawl. To acquire any resource (weapons, ammo, health, and energy) players must scavenge the map for the various caches. Victory is achieved by obtaining the largest amount of kills during the match, by eliminating other players. In case of the draw, the player with the least amount of deaths is a winner of the match. Aside from the user created content, there are 8 available maps for the Half-Life Deathmatch: Source.",
     released: "2006-05-01",
-    main_image:
-      "https://media.rawg.io/media/games/174/174fabfca02d5730531bab2153a7dfcb.jpg",
+    main_image: "https://media.rawg.io/media/games/174/174fabfca02d5730531bab2153a7dfcb.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/174/174fabfca02d5730531bab2153a7dfcb.jpg",
       "https://media.rawg.io/media/screenshots/93b/93bc0cb7efc9ac841433dc7763b674bc.jpg",
       "https://media.rawg.io/media/screenshots/496/4966eb36d9048d222226fcd0ae8455ca.jpg",
       "https://media.rawg.io/media/screenshots/aaf/aaf0a14f690cd76f6844c651495b19b6.jpg",
       "https://media.rawg.io/media/screenshots/246/2464d78ea26df75043b37361c0e181a8.jpg",
-      "https://media.rawg.io/media/screenshots/69d/69d3c07e45fcbbe167235d7b3f09fc8b.jpg",
+      "https://media.rawg.io/media/screenshots/69d/69d3c07e45fcbbe167235d7b3f09fc8b.jpg"
     ],
     rating: 3.25,
-    price: 297,
+    price: 441,
     on_sale: 0,
-    stock: 1,
+    stock: 6,
     features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["macOS", "Linux", "PC"],
-    genres: ["Action"],
+    platforms: [
+      "macOS",
+      "Linux",
+      "PC"
+    ],
+    genres: [
+      "Action"
+    ],
     tags: [
       "Multiplayer",
       "First-Person",
@@ -2384,15 +2651,15 @@ export const dataGames = [
       "Horror",
       "FPS",
       "Classic",
-      "Valve Anti-Cheat enabled",
-    ],
+      "Valve Anti-Cheat enabled"
+    ]
   },
   {
     id: 12447,
     name: "The Elder Scrolls V: Skyrim Special Edition",
+    description: "The Elder Scrolls V: Skyrim Special Edition is the 2016 reinstallment of the open world fantasy RPG, developed by Bethesda Game Studios. Following the original release of 2011, Special Edition focuses on reshaping every sword and ax, polishing every stone in the high castles and the suburbs of the low, overall bringing a renewed experience to its fans and newcomer players.\nAfter 5 years of the original’s glory, this collection of all the content, available with the game itself, offers to once again set foot on the snowy mountains of the Skyrim province of Tamriel. The magnificent open world, full of breathtaking environments and landscapes, welcomes all its players to embark on another journey. Explore the even more beautiful flora of Skyrim, fight the most dangerous fauna, and many more.\nThe Elder Scrolls V: Skyrim Special Edition now includes full support of community-made and developer-approved mods, allowing for even more exploration and experiments with the in-game contents. Continually expanding, the database of various new quests, characters, and locations not disappointing any player, while some modifications try to focus on enhancing the vanilla experience to the maximum.",
     released: "2016-10-27",
-    main_image:
-      "https://media.rawg.io/media/games/62c/62c7c8b28a27b83680b22fb9d33fc619.jpg",
+    main_image: "https://media.rawg.io/media/games/62c/62c7c8b28a27b83680b22fb9d33fc619.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/62c/62c7c8b28a27b83680b22fb9d33fc619.jpg",
       "https://media.rawg.io/media/screenshots/e38/e387d8f781c00520eccb5934b95f1720.jpg",
@@ -2400,18 +2667,25 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/8d4/8d4ad7d58d614d82e3933f69095e6b23.jpg",
       "https://media.rawg.io/media/screenshots/dd3/dd340c1c2c146f41d48f505a58dada09.jpg",
       "https://media.rawg.io/media/screenshots/ae1/ae167fabd67a73cac9ef8c99690572bf.jpg",
-      "https://media.rawg.io/media/screenshots/e8b/e8b57630f5924da6633a07777f1a8c7a.jpg",
+      "https://media.rawg.io/media/screenshots/e8b/e8b57630f5924da6633a07777f1a8c7a.jpg"
     ],
     rating: 4.45,
-    price: 828,
+    price: 686,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 8,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["PC", "Xbox One", "PlayStation 4"],
-    genres: ["Action", "RPG"],
+    platforms: [
+      "PC",
+      "Xbox One",
+      "PlayStation 4"
+    ],
+    genres: [
+      "Action",
+      "RPG"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -2433,15 +2707,15 @@ export const dataGames = [
       "Walking Simulator",
       "Magic",
       "Remake",
-      "Dragons",
-    ],
+      "Dragons"
+    ]
   },
   {
     id: 4166,
     name: "Mass Effect",
+    description: "Mass Effect was the very start of the trilogy about Commander Shepard in his journey to save the universe from Reapers - an old civilisation that wants to kill every possible rational being in order to prevail any wars. You play as Shepard. With flexible backstory and different classes you travel to Eden Prime with Captain Anderson and Nihlus Kryik, you and your team must discover the mystery behind the attack on the human colony. In the process, it is revealed that another Spectre, Saron, has become rogue and escapes the planet to awoke Reapers and start a full-scale war with the galaxy.\r\n\r\nFor BioWare, third-person shooters with tactical elements is a very common genre. Four different weapons - automatic rifle, shotgun, pistol and sniper rifle can be obtained through the game with better characteristics. Also, you can level up your protagonist and his squad to gain better stats and new skills. Dialogue panel is simple yet efficient - you choose the style of your approach and build a reputation of a hero or a renegade. With this options in hand, you can build your own story as Commander Shepard in saving the Milky Way Galaxy.",
     released: "2007-11-16",
-    main_image:
-      "https://media.rawg.io/media/games/a6c/a6ccd34125c594abf1a9c9821b9a715d.jpg",
+    main_image: "https://media.rawg.io/media/games/a6c/a6ccd34125c594abf1a9c9821b9a715d.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/a6c/a6ccd34125c594abf1a9c9821b9a715d.jpg",
       "https://media.rawg.io/media/screenshots/2c7/2c710533fe55e02facda408ce681640e.jpg",
@@ -2449,18 +2723,26 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/5db/5db5afc10fa39739c96c05f455f5d253.jpg",
       "https://media.rawg.io/media/screenshots/7af/7af44f9b67fe50d162d630f07ae6900b.jpg",
       "https://media.rawg.io/media/screenshots/67e/67e4fa3122553e5ad52b97d0efecf0e1.jpg",
-      "https://media.rawg.io/media/screenshots/196/196268519e753a7d53fbee7040fde318.jpg",
+      "https://media.rawg.io/media/screenshots/196/196268519e753a7d53fbee7040fde318.jpg"
     ],
     rating: 4.4,
-    price: 977,
+    price: 16,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 0,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["Xbox One", "Xbox 360", "PlayStation 3", "PC"],
-    genres: ["Action", "RPG"],
+    platforms: [
+      "Xbox One",
+      "Xbox 360",
+      "PlayStation 3",
+      "PC"
+    ],
+    genres: [
+      "Action",
+      "RPG"
+    ],
     tags: [
       "Singleplayer",
       "Atmospheric",
@@ -2478,15 +2760,15 @@ export const dataGames = [
       "Choices Matter",
       "Dark Fantasy",
       "Real-Time with Pause",
-      "Romance",
-    ],
+      "Romance"
+    ]
   },
   {
     id: 3747,
     name: "Metal Gear Solid V: Ground Zeroes",
+    description: "Metal Gear Solid V: Ground Zeroes is a standalone prologue for the main entry of the series, Phantom Pain. As Snake now is the Big Boss, Ground Zeroes follows Peace Walker entry some little time after it. Considering that Paz Ortega Andrade has died, MSF starts to work in different ways when suddenly there is information that Paz is being detained by Camp Omega on Cuba. The situation becomes even worse when Ricardo \"Chico\" Libre is sent for rescue and being captured as well. Snake is now headed to Cuba to save them or confirm their deaths. \n\nStill being a stealth action game, spotting system has been changed in Ground Zeroes, as now there is now meters, and the player must navigate through his eyes and ears to understand if he's been spotted. Reflex Mode is also added to the game. When the player is spotted, there is a little gap of time in slow-motion to kill the enemy before he alarms everyone around him. As well now the iDroid system in the game can be connected to your phones in order to have a look at an in-game map.",
     released: "2014-03-18",
-    main_image:
-      "https://media.rawg.io/media/games/7ac/7aca7ccf0e70cd0974cb899ab9e5158e.jpg",
+    main_image: "https://media.rawg.io/media/games/7ac/7aca7ccf0e70cd0974cb899ab9e5158e.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/7ac/7aca7ccf0e70cd0974cb899ab9e5158e.jpg",
       "https://media.rawg.io/media/screenshots/d09/d095258c73a70e6c5089b9af2c64b2f6.jpg",
@@ -2494,18 +2776,27 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/512/5129df7049bc270ba6381fc06f48ab75.jpg",
       "https://media.rawg.io/media/screenshots/f9f/f9fb16022e1ee4d892a80ce1086d21db.jpg",
       "https://media.rawg.io/media/screenshots/a1f/a1fdda760d8aaadbc2adbf788e5a28f7.jpg",
-      "https://media.rawg.io/media/screenshots/05f/05f060b6adada26f48ec632562650883.jpg",
+      "https://media.rawg.io/media/screenshots/05f/05f060b6adada26f48ec632562650883.jpg"
     ],
     rating: 3.89,
-    price: 970,
+    price: 497,
     on_sale: 0,
     stock: 1,
     features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["PlayStation 3", "PlayStation 4", "PC", "Xbox One", "Xbox 360"],
-    genres: ["Action", "Shooter"],
+    platforms: [
+      "PlayStation 3",
+      "PlayStation 4",
+      "PC",
+      "Xbox One",
+      "Xbox 360"
+    ],
+    genres: [
+      "Action",
+      "Shooter"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -2527,15 +2818,15 @@ export const dataGames = [
       "Short",
       "Replay Value",
       "Cinematic",
-      "Cold War",
-    ],
+      "Cold War"
+    ]
   },
   {
     id: 3543,
     name: "Borderlands: The Pre-Sequel",
+    description: "The game belongs to the Borderlands game line, its action takes place between the events of Borderlands and Borderlands 2.\nEverything happens on the moon of Pandora - Elpis. The story tells about the formation of Hyperion Corporation and the fate of its head - Handsome Jack, whom we meet while in the role of a simple programmer who dreams to find some valuable artifact. In the game there are various innovations - in the plot, in the characters, in the scenarios of missions and in the setting. For example, on the Pandora satellite, gravity is much weaker, but there is no oxygen at all. Therefore, the task of obtaining oxygen becomes very important for everyone. Moreover, oxygen is needed not only for breathing, but also for the functioning of personal jetpacks and long high jumps. In the game there is another additional story and downloadable content, including new characters and story campaigns.",
     released: "2014-10-13",
-    main_image:
-      "https://media.rawg.io/media/games/530/5302dd22a190e664531236ca724e8726.jpg",
+    main_image: "https://media.rawg.io/media/games/530/5302dd22a190e664531236ca724e8726.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/530/5302dd22a190e664531236ca724e8726.jpg",
       "https://media.rawg.io/media/screenshots/ee9/ee9f6de36d4b0bdaf43bd10a2ec56f4a.jpg",
@@ -2543,12 +2834,12 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/99b/99b2d12cf0c1d4a2492f632465c4cf71.jpg",
       "https://media.rawg.io/media/screenshots/579/5792b69c652c9b210122a686e9dd59e1.jpg",
       "https://media.rawg.io/media/screenshots/706/7063852169f86cd4e70440de419353e8.jpg",
-      "https://media.rawg.io/media/screenshots/01c/01c6128a0c81ed34efd4433abea32a18.jpg",
+      "https://media.rawg.io/media/screenshots/01c/01c6128a0c81ed34efd4433abea32a18.jpg"
     ],
     rating: 3.55,
-    price: 787,
+    price: 182,
     on_sale: 0,
-    stock: 1,
+    stock: 12,
     features: false,
     is_new: false,
     saturated_color: "0f0f0f",
@@ -2561,9 +2852,13 @@ export const dataGames = [
       "PC",
       "Linux",
       "Android",
-      "macOS",
+      "macOS"
     ],
-    genres: ["Action", "Shooter", "RPG"],
+    genres: [
+      "Action",
+      "Shooter",
+      "RPG"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -2586,15 +2881,15 @@ export const dataGames = [
       "Action RPG",
       "Space",
       "Memes",
-      "Loot",
-    ],
+      "Loot"
+    ]
   },
   {
     id: 3017,
     name: "Just Cause 3",
+    description: "Just Cause 3 is an open-world action adventure with the large locus on freedom of exploring. It is the thirds title in the Just Cause series produced by Avalanche Studios, preceded by the first two numerical parts and having the 4th part not yet released as its successor.\r\nRico Rodriguez is the protagonist of the game, who is continually being forced to deal with bandits and dictators somewhere in the Mediterranean. The events of the third game in the series take place 6 years after the second installment. \r\nAny game of this category is strongly associated with complete freedom of roaming, and the third part pushes all the metrics up: you now have 1 000 square kilometers of space to wander around and upgraded hook which has allowed you continuously to overcome any obstacle. The grappling hook works like a universal tool: you may drag your enemies closer Skorpion-style, climb mountains and cling to foe's cars. \r\nNot only tools but physics provide unique exploring experience — the key word for them is an exaggeration for any event in the game looks like it was cut straight out of an action movie.",
     released: "2015-11-30",
-    main_image:
-      "https://media.rawg.io/media/games/5bb/5bb55ccb8205aadbb6a144cf6d8963f1.jpg",
+    main_image: "https://media.rawg.io/media/games/5bb/5bb55ccb8205aadbb6a144cf6d8963f1.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/5bb/5bb55ccb8205aadbb6a144cf6d8963f1.jpg",
       "https://media.rawg.io/media/screenshots/0dd/0dd5106115ca80c3af4f4901b25a2b47.jpg",
@@ -2602,18 +2897,25 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/ce6/ce6e57483d44cee91d1962d7775b8e0d.jpg",
       "https://media.rawg.io/media/screenshots/dc4/dc419a4605ff9a1b227c50a74838e3ac.jpg",
       "https://media.rawg.io/media/screenshots/59e/59e389b494a7cbd1ab5f23a3bf243f67.jpg",
-      "https://media.rawg.io/media/screenshots/bd0/bd0b533f3e3de4f1ea3e1a059d26ba1f.jpg",
+      "https://media.rawg.io/media/screenshots/bd0/bd0b533f3e3de4f1ea3e1a059d26ba1f.jpg"
     ],
     rating: 3.37,
-    price: 745,
+    price: 10,
     on_sale: 0,
-    stock: 1,
+    stock: 5,
     features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["Xbox One", "PlayStation 4", "PC"],
-    genres: ["Action", "Shooter"],
+    platforms: [
+      "Xbox One",
+      "PlayStation 4",
+      "PC"
+    ],
+    genres: [
+      "Action",
+      "Shooter"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -2635,15 +2937,15 @@ export const dataGames = [
       "Moddable",
       "Physics",
       "Parkour",
-      "Destruction",
-    ],
+      "Destruction"
+    ]
   },
   {
     id: 58812,
     name: "Control",
+    description: "Control is a surrealist low-fantasy game about a secret organization that deals with the paranormal activities.\r\n\r\n###Plot\r\nThe game follows Jesse Faden, a woman with superhuman powers. She works with the Federal Bureau of Control, a secret governmental organization that deals with the paranormal phenomena, often by annihilating it as a threat. The Bureau headquarters, known as the Oldest House, is taken over by a supernatural power called the Hiss. The director of Bureau, Zachariah Trench, is killed, and Faden is unexpectedly promoted to his place, while the ghost of her predecessor haunts her. She has to travel the endless corridors of the Oldest House and defeat the Hiss using magical Director's Pistol. \r\n\r\n###Setting\r\nMost of the game takes place in the FBC building, which is a high-rise on Manhattan. The Oldest House is a non-euclidian space, which is larger on the inside. Its corridors and rooms change shape and positions depending on the rituals its inhabitants perform. The Oldest House stores the magical artifacts called Altered Items.\r\n\r\n###Gameplay\r\nThe player controls Faden from the third person view. To defeat her enemies, she uses various superhuman powers, such as telekinesis or levitation. She also wields the shape-shifting Director's Pistol and the magic artifacts she can obtain as a reward for completing quests. Jesse's skills grow throughout the game. \r\n\r\nThere is no multiplayer mode.",
     released: "2019-08-27",
-    main_image:
-      "https://media.rawg.io/media/games/253/2534a46f3da7fa7c315f1387515ca393.jpg",
+    main_image: "https://media.rawg.io/media/games/253/2534a46f3da7fa7c315f1387515ca393.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/253/2534a46f3da7fa7c315f1387515ca393.jpg",
       "https://media.rawg.io/media/screenshots/5b2/5b2548a1b1a0ac9fa6469cb8526657e4.jpg",
@@ -2651,13 +2953,13 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/219/21934e4ab7d99134fc0564b7bbf10ab2.jpg",
       "https://media.rawg.io/media/screenshots/151/151ce2dd8a8d7c1bd6e4a7a8862f3097.jpg",
       "https://media.rawg.io/media/screenshots/9f4/9f4d8c704ea7711f17d3a5b6a9d94483.jpg",
-      "https://media.rawg.io/media/screenshots/4e9/4e97e38a479472b0c7dd7a738d7e34ce.jpg",
+      "https://media.rawg.io/media/screenshots/4e9/4e97e38a479472b0c7dd7a738d7e34ce.jpg"
     ],
     rating: 4.17,
-    price: 610,
+    price: 368,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 2,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
@@ -2666,9 +2968,13 @@ export const dataGames = [
       "PlayStation 5",
       "Xbox One",
       "PlayStation 4",
-      "PC",
+      "PC"
     ],
-    genres: ["Action", "Shooter", "Adventure"],
+    genres: [
+      "Action",
+      "Shooter",
+      "Adventure"
+    ],
     tags: [
       "Singleplayer",
       "Atmospheric",
@@ -2685,15 +2991,15 @@ export const dataGames = [
       "Supernatural",
       "Abstract",
       "realism",
-      "paranormal",
-    ],
+      "paranormal"
+    ]
   },
   {
     id: 50738,
     name: "Death Stranding",
+    description: "Sam Bridges must brave a world utterly transformed by the Death Stranding. Carrying the stranded remnants of the future in his hands, Sam embarks on a journey to reunite the shattered world one step at a time. What is the mystery of the Death Stranding? What will Sam discover on the road ahead? A genre defining gameplay experience holds these answers and more.\r\n\r\nExperience a journey like nothing before it, from legendary game creator Hideo Kojima. Take control of working man Sam Bridges, as he braves a deadly and mysterious world where death’s tide lurks everywhere.\r\n\r\nFeaturing an all-star cast, including Norman Reedus, Mads Mikkelsen, Lindsay Wagner, Léa Seydoux and Guillermo del Toro, Death Stranding is a unique and unforgettable game.",
     released: "2019-11-08",
-    main_image:
-      "https://media.rawg.io/media/games/2ad/2ad87a4a69b1104f02435c14c5196095.jpg",
+    main_image: "https://media.rawg.io/media/games/2ad/2ad87a4a69b1104f02435c14c5196095.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/2ad/2ad87a4a69b1104f02435c14c5196095.jpg",
       "https://media.rawg.io/media/screenshots/9da/9da640f5aa62f6fc00a4d1d255460737.jpg",
@@ -2701,18 +3007,24 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/5f3/5f3bc8289f9545db69a30fc414e94186.jpg",
       "https://media.rawg.io/media/screenshots/2b7/2b731c32ebc308c30abe974cd1266648.jpg",
       "https://media.rawg.io/media/screenshots/460/4606e5ba14266eb2292cea7444e4239b.jpg",
-      "https://media.rawg.io/media/screenshots/2f1/2f10403f41e636dac29d1af2c5c1b982.jpg",
+      "https://media.rawg.io/media/screenshots/2f1/2f10403f41e636dac29d1af2c5c1b982.jpg"
     ],
     rating: 4.35,
-    price: 633,
+    price: 709,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 2,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["PC", "PlayStation 4"],
-    genres: ["Action", "Adventure"],
+    platforms: [
+      "PC",
+      "PlayStation 4"
+    ],
+    genres: [
+      "Action",
+      "Adventure"
+    ],
     tags: [
       "Singleplayer",
       "Atmospheric",
@@ -2736,15 +3048,15 @@ export const dataGames = [
       "3rd-Person Perspective",
       "Drama",
       "Heist",
-      "Masterpiece",
-    ],
+      "Masterpiece"
+    ]
   },
   {
     id: 108,
     name: "Mortal Kombat X",
+    description: "Mortal Kombat X is a fighting game involving 1x1 encounters. The game is the part of a massive Mortal Kombat franchise which originates in 1992 being one of the first fighting games. The MK universe includes films, literature, and TV-shows, let alone dozens of games. \r\nThe game features unique abilities throughout all of the series' titles. Fatality — the final death blow was introduced in the first section and have made its way to the Mortal Kombat X. The new piece of a franchise, nevertheless, implements newer mechanics such as X-Ray — a sharp blow delivered when the respective scale is fulfilled and breaking combos, utilizing the same bar but allowing a player to defend themselves. \r\nThe storyline of a game lists is superb, and every new title brings enrichment into it.  Mortal Kombat X tells a story of a self-titled tournament in the NetherRealm — a place somewhere between the land of the living and dead. The victor was supposed to become a NetherRealm's curator up until the next round of a championship. The MK X features 24 fighters with expending the list up to 33 playable characters thanks to two DLCs.",
     released: "2015-04-07",
-    main_image:
-      "https://media.rawg.io/media/games/aa3/aa36ba4b486a03ddfaef274fb4f5afd4.jpg",
+    main_image: "https://media.rawg.io/media/games/aa3/aa36ba4b486a03ddfaef274fb4f5afd4.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/aa3/aa36ba4b486a03ddfaef274fb4f5afd4.jpg",
       "https://media.rawg.io/media/screenshots/446/44613a8909c81372bab11ed2f19ca0e8.jpg",
@@ -2752,18 +3064,27 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/949/949d5ef2043538d263fc8eabaa4e4f62.jpg",
       "https://media.rawg.io/media/screenshots/cac/cac440239e1c42c69f4dd3d69b97a0b4.jpg",
       "https://media.rawg.io/media/screenshots/533/533d3b571a1699ab1c275a2a99181ff2.jpg",
-      "https://media.rawg.io/media/screenshots/138/1388b5d9f91dbe27823f3be2cee11105.jpg",
+      "https://media.rawg.io/media/screenshots/138/1388b5d9f91dbe27823f3be2cee11105.jpg"
     ],
     rating: 3.86,
-    price: 348,
+    price: 326,
     on_sale: 0,
-    stock: 1,
+    stock: 18,
     features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["Xbox One", "iOS", "PlayStation 4", "Android", "PC"],
-    genres: ["Action", "Fighting"],
+    platforms: [
+      "Xbox One",
+      "iOS",
+      "PlayStation 4",
+      "Android",
+      "PC"
+    ],
+    genres: [
+      "Action",
+      "Fighting"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -2786,15 +3107,15 @@ export const dataGames = [
       "Competitive",
       "Blood",
       "2.5D",
-      "2D Fighter",
-    ],
+      "2D Fighter"
+    ]
   },
   {
     id: 613,
     name: "Bastion",
+    description: "After the Calamity, most of the world was destroyed and seemingly everyone was turned to stone, except the Kid. As the Kid, players will have to flee collapsing city, in order to reach the Bastion, where the game’s narrator Rucks, will instruct players to collect the Cores. Most of the story will be told through the narration and music. \n\nBastion is an action role-playing game with an isometric overview of the map. As players progress across the levels they will find and unlock collectible items and weapons. After completing said levels the Kid will find Cores, that are used to upgrade the Hub are of Bastion and unlock more features, like a blacksmith, arsenal or an item shop. Any level can be replayed if players missed any items or if they’re short on currency, called fragments. The Kid will also encounter challenge levels, where players will have to successfully use collected weapons under a time limit.\n\n**Key Features**:\n• Action-packed combat rewards playing with finesse\n• Hours of reactive narration delivers a deep story\n• Stunning hand-painted artwork in full 1080p resolution\n• Critically-acclaimed original music score\n• Controls custom-tailored to PC plus gamepad support\n• 10+ unique upgradeable weapons to be used\n• 6 powerful Bastion structures to be discovered\n• 'New Game Plus' and 'Score Attack' modes unlocked after finishing the story\n• 'No-Sweat Mode' lets players of any skill level enjoy the story",
     released: "2011-07-20",
-    main_image:
-      "https://media.rawg.io/media/games/f99/f9979698c43fd84c3ab69280576dd3af.jpg",
+    main_image: "https://media.rawg.io/media/games/f99/f9979698c43fd84c3ab69280576dd3af.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/f99/f9979698c43fd84c3ab69280576dd3af.jpg",
       "https://media.rawg.io/media/screenshots/24c/24c8d0fb4059edb73e8ee2157a17b1c1.jpg",
@@ -2802,13 +3123,13 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/7de/7ded4f413b6670b37b8047a0565b5a6c.jpg",
       "https://media.rawg.io/media/screenshots/d36/d36f5867baf7af7506765702b9ff7c84.jpg",
       "https://media.rawg.io/media/screenshots/c0b/c0b36461930db0284a10635c9776daf7.jpg",
-      "https://media.rawg.io/media/screenshots/4c5/4c5996a474a68ae141a2fb9247a2cdac.jpg",
+      "https://media.rawg.io/media/screenshots/4c5/4c5996a474a68ae141a2fb9247a2cdac.jpg"
     ],
     rating: 4.16,
-    price: 127,
+    price: 691,
     on_sale: 0,
     stock: 1,
-    features: true,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
@@ -2821,9 +3142,14 @@ export const dataGames = [
       "Linux",
       "Nintendo Switch",
       "Xbox 360",
-      "macOS",
+      "macOS"
     ],
-    genres: ["Action", "Adventure", "RPG", "Indie"],
+    genres: [
+      "Action",
+      "Adventure",
+      "RPG",
+      "Indie"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -2851,15 +3177,15 @@ export const dataGames = [
       "Narration",
       "Twin Stick Shooter",
       "Dynamic Narration",
-      "Narrative",
-    ],
+      "Narrative"
+    ]
   },
   {
     id: 3254,
     name: "Journey",
+    description: "Journey is an indie game placed in a setting of the vast desert. The protagonist is a nameless and speechless figure moving towards the distant mountain. The player gets to know the story without words, but rather through cutscenes. The main character wears a magical scarf, which allows flying for some time, and recharges it with gathered cloth or simply by walking. From time to time the protagonist finds collectible items and discover ruins that can give additional information about the world or the storyline. The only way of interaction with in-game objects is a shout. \n\nThe game transfers the atmosphere of an absolute loneliness. However, during the journey the character can meet other players controlling differently dressed, but generally the same figures. Wandering together can be helpful for both players, as they are able to charge one another’s scarves. The thing is that both players cannot communicate each other in any way, except producing noises. Together players can complete levels and continue moving to their final destination.",
     released: "2012-03-13",
-    main_image:
-      "https://media.rawg.io/media/games/baf/baf9905270314e07e6850cffdb51df41.jpg",
+    main_image: "https://media.rawg.io/media/games/baf/baf9905270314e07e6850cffdb51df41.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/baf/baf9905270314e07e6850cffdb51df41.jpg",
       "https://media.rawg.io/media/screenshots/b3f/b3f7f9c7fc81de2417135f758470b806.jpg",
@@ -2867,18 +3193,27 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/704/70438c6fad16044c53a67b5c63fda9a6.jpg",
       "https://media.rawg.io/media/screenshots/d3c/d3c6674838af8d63f2e8bc1d7da16a9d.jpg",
       "https://media.rawg.io/media/screenshots/f61/f61dc90adfc5796cd1a950f6eb5eb16e.jpg",
-      "https://media.rawg.io/media/screenshots/509/5094aeab0e11682a6792d09a0828154a.jpg",
+      "https://media.rawg.io/media/screenshots/509/5094aeab0e11682a6792d09a0828154a.jpg"
     ],
     rating: 4.33,
-    price: 770,
+    price: 868,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 2,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["PC", "iOS", "PlayStation 4", "PlayStation 3"],
-    genres: ["Adventure", "Family", "Indie"],
+    platforms: [
+      "PC",
+      "iOS",
+      "PlayStation 4",
+      "PlayStation 3"
+    ],
+    genres: [
+      "Adventure",
+      "Family",
+      "Indie"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -2901,15 +3236,15 @@ export const dataGames = [
       "Masterpiece",
       "Beautiful",
       "calm",
-      "peaceful",
-    ],
+      "peaceful"
+    ]
   },
   {
     id: 9882,
     name: "Don't Starve Together",
+    description: "Don't Starve Together is surrealistic and grim survival game made up for six people simultaneously. Initially, Don't Starve is a single-player game with a core mechanic of going through various problems of your character. You have to sleep and eat well. Also, you have to keep your mental health all right and don't go completely mad at a situation, when these dreadful and twisted creatures are running towards you to tear apart. It seems like the world of Don't Starve is heavily inspired by Tim Burton, having a very grotesque yet creepy and bizarre-looking monsters and locations with an atmospheric soundtrack.\n\nWhile heading to multiplayer, you will experience every single problem from a singles game. The game exploits pretty similar mechanic to Minecraft - randomly generated world, surviving as a top priority for the gamer. With the only difference - if you die, you die. Permanent death of your characters increases the grim and tense atmosphere of the game itself, making the process challenging and creepy. Just remember. Don't Starve.",
     released: "2016-04-21",
-    main_image:
-      "https://media.rawg.io/media/games/dd5/dd50d4266915d56dd5b63ae1bf72606a.jpg",
+    main_image: "https://media.rawg.io/media/games/dd5/dd50d4266915d56dd5b63ae1bf72606a.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/dd5/dd50d4266915d56dd5b63ae1bf72606a.jpg",
       "https://media.rawg.io/media/screenshots/9c4/9c4cdf7b06094566881d343c286d8d30.jpg",
@@ -2917,18 +3252,28 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/340/3409a9ab93c4c69873909f62e4ab6519.jpg",
       "https://media.rawg.io/media/screenshots/c70/c707c04d79f5e0441dac2eb7b85554fb.jpg",
       "https://media.rawg.io/media/screenshots/78c/78c0b0a90a4c5d18ac36dbc2623f12e4.jpg",
-      "https://media.rawg.io/media/screenshots/dc5/dc5965a2a6b94d8d129492287f7206c7.jpg",
+      "https://media.rawg.io/media/screenshots/dc5/dc5965a2a6b94d8d129492287f7206c7.jpg"
     ],
     rating: 3.78,
-    price: 949,
+    price: 766,
     on_sale: 0,
-    stock: 1,
+    stock: 19,
     features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["Linux", "Xbox One", "PlayStation 4", "macOS", "PC"],
-    genres: ["Action", "Simulation", "Indie"],
+    platforms: [
+      "Linux",
+      "Xbox One",
+      "PlayStation 4",
+      "macOS",
+      "PC"
+    ],
+    genres: [
+      "Action",
+      "Simulation",
+      "Indie"
+    ],
     tags: [
       "Singleplayer",
       "Multiplayer",
@@ -2950,15 +3295,15 @@ export const dataGames = [
       "Cross-Platform Multiplayer",
       "Survival Horror",
       "Crafting",
-      "Roguelike",
-    ],
+      "Roguelike"
+    ]
   },
   {
     id: 864,
     name: "Dishonored 2",
+    description: "Dishonored 2 is an action-adventure game based on players’ stealth skill. The game is played from the first-person perspective and includes several RPG elements. It is a sequel to the original Dishonored game, so the story takes place in Dunwall and mostly in Karnaca 12 years after the ending of the previous part. To start the action, the player has to decide whether he wants to assume the role of deposed Empress Emily or the role of her father and the Royal Protector Corvo, the protagonist of the first Dishonored game. Both characters have their own bunch of special abilities so the choice will influence the way of returning to the throne. In the course of the game, both equipment and abilities can be upgraded. The storyline is divided into several main missions and includes various side quests that let protagonists get acquainted with the useful new skills. Although the gameplay is initially focused on the stealth, actually there is a multitude of ways to complete all the missions and to return the lost honor.",
     released: "2016-11-10",
-    main_image:
-      "https://media.rawg.io/media/games/f6b/f6bed028b02369d4cab548f4f9337e81.jpg",
+    main_image: "https://media.rawg.io/media/games/f6b/f6bed028b02369d4cab548f4f9337e81.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/f6b/f6bed028b02369d4cab548f4f9337e81.jpg",
       "https://media.rawg.io/media/screenshots/236/2365eaea84505996adbe4aca614d0c4f.jpg",
@@ -2966,18 +3311,25 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/597/59749ba429e176f45abee6ced14de963.jpg",
       "https://media.rawg.io/media/screenshots/ce3/ce3f8d7fc8b1973ea41efa8f69ee8074.jpg",
       "https://media.rawg.io/media/screenshots/cad/cad513106134c55e71ec4a62a217287f.jpg",
-      "https://media.rawg.io/media/screenshots/d94/d9402537f42b3a273468b72e662d13df.jpg",
+      "https://media.rawg.io/media/screenshots/d94/d9402537f42b3a273468b72e662d13df.jpg"
     ],
     rating: 4.26,
-    price: 17,
+    price: 291,
     on_sale: 0,
-    stock: 1,
-    features: true,
+    stock: 9,
+    features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["Xbox One", "PC", "PlayStation 4"],
-    genres: ["Action", "RPG"],
+    platforms: [
+      "Xbox One",
+      "PC",
+      "PlayStation 4"
+    ],
+    genres: [
+      "Action",
+      "RPG"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -3001,33 +3353,39 @@ export const dataGames = [
       "Illuminati",
       "Heist",
       "Supernatural",
-      "Immersive Sim",
-    ],
+      "Immersive Sim"
+    ]
   },
   {
     id: 11934,
     name: "Counter-Strike: Source",
+    description: "Counter-Strike: Source is the third entry of the big franchise of competitive shooters. Based on a modification to the original Valve game Half-Life, Counter-Strike: Source has no plot yet fully concentrating on a competitive part of the gameplay.\n\nWith two opposing teams, Counter Terrorist and Terrorist, each side has a unique set of weapons to choose. Having a big variety for a player, you can select a gun for your particular style of gameplay. Pistols, shotguns, rifles or machine guns are available in the game for a certain price you can earn by winning each round. You can win by successful bombing the target or defusing the bomb, eliminate the whole enemy team or by rescuing hostages. A big choice of game modes also aids plenty amount of maps. You can have a standard match, deathmatch, gun game or jumping challenges. In Counter-Strike: Source anyone can find something for himself.",
     released: "2004-11-01",
-    main_image:
-      "https://media.rawg.io/media/games/48e/48e63bbddeddbe9ba81942772b156664.jpg",
+    main_image: "https://media.rawg.io/media/games/48e/48e63bbddeddbe9ba81942772b156664.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/48e/48e63bbddeddbe9ba81942772b156664.jpg",
       "https://media.rawg.io/media/screenshots/d8a/d8abe071b4628ee58cda844676959b18.jpg",
       "https://media.rawg.io/media/screenshots/f54/f54c9f442426f52afaf29d45ff8d7a2f.jpg",
       "https://media.rawg.io/media/screenshots/b49/b4961b17e0031e5819c0722343e97a12.jpg",
       "https://media.rawg.io/media/screenshots/58f/58f23befccb87ef5d8e9501658f8c8f2.jpg",
-      "https://media.rawg.io/media/screenshots/69c/69ca8f86ffefe75f33388a48301a5228.jpg",
+      "https://media.rawg.io/media/screenshots/69c/69ca8f86ffefe75f33388a48301a5228.jpg"
     ],
     rating: 3.73,
-    price: 69,
+    price: 380,
     on_sale: 0,
-    stock: 1,
+    stock: 16,
     features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["Linux", "macOS", "PC"],
-    genres: ["Shooter"],
+    platforms: [
+      "Linux",
+      "macOS",
+      "PC"
+    ],
+    genres: [
+      "Shooter"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -3050,15 +3408,15 @@ export const dataGames = [
       "Competitive",
       "Valve Anti-Cheat enabled",
       "Includes Source SDK",
-      "e-sports",
-    ],
+      "e-sports"
+    ]
   },
   {
     id: 4513,
     name: "Just Cause 2",
+    description: "Just Cause II follows a story of Rico Rodriguez, who arrives yet on another fictional island. Previously being on the Caribbean, now he is coming to Panau - an island in Southeast Asia. This time, Rico has to overthrow the dictatorial regime with its leader, Pandak \"Baby\" Panay and confront his former mentor, Tom Sheldon. When Rico arrives at the island, he discovers three criminal gangs: The Roaches, The Reapers and the Ular Boys. In order to prevail, Rico has to fight all of the three fractions as well.\r\n\r\nOne of the key features of the game is speed. This game is filled with adrenaline and ways of doing things very fastly. A wide variety of vehicles such as planes, boats, cars and other. A grappling hook is also available for the player as he can make his character fly around like Spider-Man or tie enemies to each other. There is a big choice of weaponry as well - you can have a pistol, two pistols, auto-rifles or even a grenade launcher! Having an open world map provides a player with experience do whatever they please - flying around, making missions or just discovering new things on the island.",
     released: "2010-03-23",
-    main_image:
-      "https://media.rawg.io/media/games/a3c/a3c529a12c896c0ef02db5b4741de2ba.jpg",
+    main_image: "https://media.rawg.io/media/games/a3c/a3c529a12c896c0ef02db5b4741de2ba.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/a3c/a3c529a12c896c0ef02db5b4741de2ba.jpg",
       "https://media.rawg.io/media/screenshots/34a/34a30f4a5a6f0e5c340d3c14456b8fcf.jpg",
@@ -3066,18 +3424,26 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/5c1/5c144b4d26fe4c41bb35aa3878498b4f.jpg",
       "https://media.rawg.io/media/screenshots/39d/39d23cd38d9f6f9f45bf473c5ec4f49d.jpg",
       "https://media.rawg.io/media/screenshots/dde/ddef23e3e0f22bc174b757cf69cc5816.jpg",
-      "https://media.rawg.io/media/screenshots/514/514908623cd01610f3e361887102e549.jpg",
+      "https://media.rawg.io/media/screenshots/514/514908623cd01610f3e361887102e549.jpg"
     ],
     rating: 3.61,
-    price: 149,
+    price: 745,
     on_sale: 0,
-    stock: 1,
+    stock: 13,
     features: false,
     is_new: false,
     saturated_color: "0f0f0f",
     dominant_color: "0f0f0f",
-    platforms: ["Xbox 360", "PlayStation 3", "Xbox One", "PC"],
-    genres: ["Action", "Shooter"],
+    platforms: [
+      "Xbox 360",
+      "PlayStation 3",
+      "Xbox One",
+      "PC"
+    ],
+    genres: [
+      "Action",
+      "Shooter"
+    ],
     tags: [
       "Singleplayer",
       "Steam Achievements",
@@ -3098,15 +3464,15 @@ export const dataGames = [
       "Moddable",
       "Physics",
       "3D Vision",
-      "Destruction",
-    ],
+      "Destruction"
+    ]
   },
   {
     id: 3191,
     name: "Mad Max",
+    description: "Although Mad Max is not related to the film series, it is based on its universe. Max Rockatansky is trying to reach the \"Plains Of Silence\", place in which he believes he will finally find peace. He is confronted by a group of War Boys led by Scabrous Scrotus. Beating Max up and stealing everything from him, they leave him in the desert to face his death. Recovering from his injuries, he chases Scrotus in a duel but fails to defeat him. Wandering in the desert, he meets a technic named Chumbucket that helps him to build a new machine and revenge Scrotus. \n\nBeing in such esthetics, Max is able to travel in an open world post-apocalyptic universe of Mad Max. Utilizing driving as a primary mechanic, you are able to confront and battle your way out on the car while armed with different weapons. Flamethrowers, turbo-boosts, basically anything that may come handy. You can have your preference for playing stealthy or aggressive. To drive, you need gasoline and to customise your car you need experience which you will get over time. Experience all the consequences of being a survivor by driving through the wasteland.",
     released: "2015-08-31",
-    main_image:
-      "https://media.rawg.io/media/games/d7d/d7d33daa1892e2468cd0263d5dfc957e.jpg",
+    main_image: "https://media.rawg.io/media/games/d7d/d7d33daa1892e2468cd0263d5dfc957e.jpg",
     short_screenshots: [
       "https://media.rawg.io/media/games/d7d/d7d33daa1892e2468cd0263d5dfc957e.jpg",
       "https://media.rawg.io/media/screenshots/ca7/ca7933771fe1efbdc7f97b9f301dc7d8.jpg",
@@ -3114,12 +3480,12 @@ export const dataGames = [
       "https://media.rawg.io/media/screenshots/fb6/fb67103d3b044e202a96b2e08853861f.jpg",
       "https://media.rawg.io/media/screenshots/261/26141dec80cd1933390597e3a4eac780.jpg",
       "https://media.rawg.io/media/screenshots/d8d/d8da5b7bae3c8084d30745ba6e17f1ef.jpg",
-      "https://media.rawg.io/media/screenshots/793/7939b2e64a9520894c51696c2eed1c34.jpg",
+      "https://media.rawg.io/media/screenshots/793/7939b2e64a9520894c51696c2eed1c34.jpg"
     ],
     rating: 3.76,
-    price: 710,
+    price: 551,
     on_sale: 0,
-    stock: 1,
+    stock: 11,
     features: false,
     is_new: false,
     saturated_color: "0f0f0f",
@@ -3130,9 +3496,12 @@ export const dataGames = [
       "Xbox 360",
       "Linux",
       "macOS",
-      "PC",
+      "PC"
     ],
-    genres: ["Action", "Adventure"],
+    genres: [
+      "Action",
+      "Adventure"
+    ],
     tags: [
       "Singleplayer",
       "Multiplayer",
@@ -3149,7 +3518,46 @@ export const dataGames = [
       "War",
       "Post-apocalyptic",
       "Driving",
-      "movie-based",
-    ],
-  },
-];
+      "movie-based"
+    ]
+  }
+]
+
+/* 
+
+let arrGames = [];
+    let ids = [];
+    try {
+        ids = dataGames.map( (g) => g.id )
+        for(let i = 0; i < ids.length; i++) {
+            let detail = await axios.get(`https://api.rawg.io/api/games/${ids[i]}?key=6de51b3aabbb48349ae0f7d88c117d0d`)
+            arrGames.push({
+                id: dataGames[i].id,
+                name: dataGames[i].name,
+                description: detail.data.description_raw,
+                released: dataGames[i].released,
+                main_image: dataGames[i].main_image,
+                short_screenshots: dataGames[i].short_screenshots,
+                rating: dataGames[i].rating,
+                price: Math.floor(Math.random() * 1000),
+                on_sale: 0,
+                stock: Math.floor(Math.random() * 20),
+                features: dataGames[i].rating == 5,
+                is_new: false,
+                saturated_color: dataGames[i].saturated_color,
+                dominant_color: dataGames[i].dominant_color,
+                platforms: dataGames[i].platforms,
+                genres: dataGames[i].genres,
+                tags: dataGames[i].tags,
+              })
+        }
+      
+    } catch(err) {
+        console.log(err)
+    }
+
+  res.send(arrGames);
+
+    
+
+*/

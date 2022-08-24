@@ -1,7 +1,8 @@
 import { Game } from "../models/Game.js";
 import { dataGames } from "../lib/data/games.js";
+import axios from "axios";
 
-export const getAllGames = async (req, res) =>{
+export const getAllGames = async (req, res) =>{ 
     try {
         const allGames = await Game.findAll();
         res.send(allGames);

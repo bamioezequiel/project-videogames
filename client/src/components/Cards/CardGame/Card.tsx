@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import s from "./Card.module.css";
 import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
 
-export default function Card({ image, tag }: any) {
+export default function Card({ name, description, price, image, tag }: any) {
     const [favorite, setFavorite] = useState(false);
 
     function handleFavorites(e: any) {
@@ -27,14 +27,15 @@ export default function Card({ image, tag }: any) {
             <div className={s.outer}>
                 <div className={s.content}>
                     <span className={s.bg}>{tag}</span>
-                    <h1>Afro<br /> baseball hair</h1>
-                    <p>Shadow your real allegiance to New York's Pirate radio with this cool cap featuring the Graphic Know Wave logo.</p>
+                    <h1>{name}</h1>
+                    {/* 110 max */}
+                    <p>{description.slice(0, 130)}...</p>
 
                     <div className={s.button}>
                         <NavLink to={`/detail/1`}>
-                            $115
+                            ${price}
                         </NavLink>
-                        <a className={s.cart_btn} href="#"><i className={`${s.cart_icon} ${s.ion_bag}`}></i>ADD TO CART</a>
+                        <a className={s.cart_btn}><i className={`${s.cart_icon} ${s.ion_bag}`}></i>ADD TO CART</a>
                     </div>
 
                 </div>

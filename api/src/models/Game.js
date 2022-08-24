@@ -9,6 +9,11 @@ export const Game = sequelize.define("game", {
     allowNull: false,
   },
 
+  description: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+
   released: {
     type: DataTypes.STRING,
     allowNull: false,

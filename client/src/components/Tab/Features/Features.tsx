@@ -10,7 +10,7 @@ export default function Features({ show }: any) {
         show && <div className={s.cards_container}>
             {
                 featuresGames.length > 0 
-                ? featuresGames.slice(0, 9).map( (g: any) => <Card image={g.main_image} tag='FEATURE' /> )
+                ? featuresGames.slice(0, 9).map( (g: any) => <Card name={g.name} description={g.description} price={g.price} image={g.main_image} tag='FEATURES' /> )
                 : <span>No hay juegos destacados para mostrar</span> 
             }
             

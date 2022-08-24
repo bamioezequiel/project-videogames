@@ -315,3 +315,32 @@ export const Tags = [
   'Immersive Sim',
   'movie-based'
 ];
+
+
+
+/* let tags = ["Action",
+    "Indie",
+    "Adventure",
+    "RPG",
+    "Strategy",
+    "Shooter",
+    "Casual",
+    "Simulation",
+    "Puzzle",
+    "Arcade",
+    "Platformer",
+    "Racing",
+    "Massively Multiplayer",
+    "Sports",
+    "Fighting",
+    "Family",
+    "Board Games",
+    "Educational",
+    "Card",];
+    
+    dataGames.forEach( (el) => {
+      let aux = el.genres;
+      tags = [...tags, ...aux.map( (t) => t )]
+
+    })
+    console.log(new Set(tags)) */

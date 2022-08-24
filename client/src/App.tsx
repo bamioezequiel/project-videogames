@@ -13,16 +13,19 @@ import { useDispatch, useSelector } from "react-redux";
 // import Cart from './components/Cart/Cart';
 
 function App() {
-  const dispatch = useDispatch();
+  const dispatch: Function = useDispatch();
+  const loading: boolean = useSelector( (state: any) => state.loading );
   
   useEffect(() => {
     dispatch(getAllGames())
   }, [dispatch]);
 
   return (
-    <div className='container'>
+    loading ? <div>Cargando...</div>
+    : <div className='container'>
       <BrowserRouter>
         <Nav />
+        <div className="content">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/store" element={<Store />} />
@@ -32,6 +35,7 @@ function App() {
           <Route path="/favorites" element={<Favorites />} />
           {/* <Route path="/cart" element={<Cart />} /> */}
         </Routes>
+        </div>
       </BrowserRouter>
     </div>
   );
