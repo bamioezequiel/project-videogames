@@ -6,8 +6,19 @@ import Detail from "./components/Detail/Detail";
 import Store from "./components/Store/Store";
 import Login from "./components/Login/Login";
 import Signup from "./components/Singup/Signup";
+import Favorites from './components/Favorites/Favorites';
+import { useEffect } from "react";
+import { getAllGames } from "./redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+// import Cart from './components/Cart/Cart';
 
 function App() {
+  const dispatch = useDispatch();
+  
+  useEffect(() => {
+    dispatch(getAllGames())
+  }, [dispatch]);
+
   return (
     <div className='container'>
       <BrowserRouter>
@@ -18,6 +29,8 @@ function App() {
           <Route path="/detail/:id" element={<Detail />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/favorites" element={<Favorites />} />
+          {/* <Route path="/cart" element={<Cart />} /> */}
         </Routes>
       </BrowserRouter>
     </div>

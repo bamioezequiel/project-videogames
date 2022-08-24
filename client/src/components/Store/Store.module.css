@@ -17,25 +17,7 @@
 }
 
 .store_pagination {
-  display: flex;
-  justify-content: center;
-  width: 100%;
   margin: 40px auto;
-}
-
-.store_pagination span {
-  border: thin solid #000;
-  width: 2vw;
-  padding: 0.8vh 0;
-  text-align: center;
-  border-radius: 100%;
-  margin-right: 10px;
-  cursor: pointer;
-}
-
-.store_pagination span:hover {
-  background-color: #212121;
-  color: #fafafa;
 }
 
 .store_list {

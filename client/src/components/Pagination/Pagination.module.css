@@ -1,0 +1,27 @@
+.pagination_container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 40px auto;
+}
+
+.pagination_container span {
+  border: thin solid #000;
+  width: 2vw;
+  padding: 0.8vh 0;
+  text-align: center;
+  border-radius: 100%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.pagination_selected {
+  background-color: #212121;
+  color: #fafafa;
+}
+
+.pagination_container span:hover {
+  background-color: #212121;
+  color: #fafafa;
+}
+

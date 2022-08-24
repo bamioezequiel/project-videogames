@@ -1,17 +1,28 @@
-import React from "react";
+import React, { useState} from "react";
 import { NavLink } from "react-router-dom";
 import s from "./Card.module.css";
+import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
 
 export default function Card({ image, tag }: any) {
+    const [favorite, setFavorite] = useState(false);
+
+    function handleFavorites(e: any) {
+        e.preventDefault();
+        setFavorite(!favorite);
+    }
 
     return (
         <div className={s.wrapper}>
-            <div className={s.wrapper_image}
-                style={{
-                    backgroundImage: `url(${image})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center"
-                }}>
+            <div className={s.topCard}>
+                <div className={s.wrapper_image}
+                    style={{
+                        backgroundImage: `url(${image})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        height: '200px'
+                    }}>
+                <i className={favorite ? s.favIconCard : s.noFavIconCard} onClick={(e) => handleFavorites(e)}>{favorite ? <MdFavorite /> : <MdFavoriteBorder />}</i>
+            </div>
             </div>
             <div className={s.outer}>
                 <div className={s.content}>

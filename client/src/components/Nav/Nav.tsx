@@ -15,7 +15,7 @@ export default function Nav() {
             <NavLink to={"/"} className={s.nav_menu_item}>
               <AiFillHome />
             </NavLink>
-            <NavLink to={"/"} className={s.nav_menu_item}>
+            <NavLink to={"/favorites"} className={s.nav_menu_item}>
               <MdFavorite />
               <span className={s.item_amount}>5</span>
             </NavLink>

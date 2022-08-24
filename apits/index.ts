@@ -4,7 +4,7 @@ import { loadGames } from './src/controllers/games.controllers';
 const PORT = process.env.PORT || 3001;
 
 sequelize
-  .sync({ force: false })
+  .sync({ force: true })
   .then(() => {
     console.log('database connected!');
     return loadGames();

@@ -29,6 +29,31 @@
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
+.topCard{
+	position: relative;
+
+}
+
+.favIconCard{
+	color: red;
+	margin-top: calc(.6rem + .3vw);
+	font-size: calc(1.8rem + .3vw);
+	position: absolute;
+	left: auto;
+    right: calc(.6rem + .3vw);
+	cursor: pointer;
+}
+
+.noFavIconCard{
+	color: white;
+	margin-top: calc(.6rem + .3vw);
+	font-size: calc(1.8rem + .3vw);
+	position: absolute;
+	left: auto;
+    right: calc(.6rem + .3vw);
+	cursor: pointer;
+}
+
 .wrapper_image {
     width: 100%;
     height: 100%;

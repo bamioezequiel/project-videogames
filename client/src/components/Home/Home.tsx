@@ -18,7 +18,6 @@ export default function Home() {
       </div>
       <br /><br /><br /><br /><br />
       <Tab />
-      <hr />
       <Footer />
     </div>
   );

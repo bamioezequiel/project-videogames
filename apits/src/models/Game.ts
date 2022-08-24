@@ -1,4 +1,7 @@
-import { Model, Table, Column, DataType, DeletedAt } from 'sequelize-typescript';
+import { Model, Table, Column, DataType, DeletedAt, BelongsToMany, ForeignKey, BelongsTo } from 'sequelize-typescript';
+import { Cart } from './Cart';
+import { Favorites } from './Favorites';
+import { User } from './User';
 
 @Table
 export class Game extends Model {
@@ -55,5 +58,11 @@ export class Game extends Model {
     @Column
     deletionDate!: Date;
     paranoid!: true;
+    
+    @ForeignKey(() => Cart)
+    @Column
+    cartId!: number
 
+    @BelongsTo(() => Cart)
+    cart!: Cart
 }

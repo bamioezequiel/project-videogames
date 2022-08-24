@@ -1,8 +1,7 @@
-import { Response, Request } from "express";
-import { Game } from "./../db";
-import { dataGames } from "../lib/data/games";
+import { Game } from "../models/Game.js";
+import { dataGames } from "../lib/data/games.js";
 
-export const getAllGames = async (req: Request, res: Response) =>{
+export const getAllGames = async (req, res) =>{
     try {
         const allGames = await Game.findAll();
         res.send(allGames);
@@ -11,7 +10,7 @@ export const getAllGames = async (req: Request, res: Response) =>{
     }
 }
 
-export const getGamesById = async (req: Request, res: Response) => {
+export const getGamesById = async (req, res) => {
     const { id } = req.params;
     try {
         const game = await Game.findByPk(id);
@@ -21,7 +20,7 @@ export const getGamesById = async (req: Request, res: Response) => {
     }
 }
 
-export const deleteGame = async (req: Request, res: Response) => {
+export const deleteGame = async (req, res) => {
     const { id } = req.params;
     try {
         const deletedGame = await Game.findByPk(id);
@@ -39,7 +38,7 @@ export const deleteGame = async (req: Request, res: Response) => {
     }
 }
 
-export const restoreGame = async (req: Request, res: Response) => {
+export const restoreGame = async (req, res) => {
     const { id } = req.params;
     try {
         await Game.restore({
@@ -53,7 +52,7 @@ export const restoreGame = async (req: Request, res: Response) => {
     }
 }
 
-export const postGame = async (req: Request, res: Response) => {
+export const postGame = async (req, res) => {
     const bodyGame = req.body;
     try {
         const createdGame = await Game.findOrCreate({
@@ -84,7 +83,7 @@ export const postGame = async (req: Request, res: Response) => {
     }
 }
 
-export const putGame = async (req: Request, res: Response) => {
+export const putGame = async (req, res) => {
     const bodyGame = req.body;
     try {
         const updatedGame = await Game.update(bodyGame, {
@@ -105,10 +104,13 @@ export const loadGames = async () => {
   try {
     if (!(await Game.findAndCountAll())?.count) {
       console.log("Loading games in database...");
-      dataGames?.map(async (g: any) => {
+      dataGames?.map(async (g) => {
         await Game.findOrCreate({
           where: {
             ...g,
+            is_new: false,
+            stock: 0,
+            active: true
           },
         });
       });
