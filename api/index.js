@@ -6,7 +6,7 @@ import { dataGames } from './src/lib/data/games.js';
 const PORT = process.env.PORT || 3001;
 
 sequelize
-  .sync({ force: true })
+  .sync({ force: false })
   .then( () => {
     console.log('database connected!');
     return loadGames();

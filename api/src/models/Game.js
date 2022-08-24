@@ -55,7 +55,7 @@ export const Game = sequelize.define("game", {
     defaultValue: 0,
   },
 
-  features: {
+  featured: {
     type: DataTypes.BOOLEAN,
     defaultValue: false,
   },

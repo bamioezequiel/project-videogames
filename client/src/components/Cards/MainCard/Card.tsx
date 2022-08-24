@@ -1,9 +1,11 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import s from "./Card.module.css";
 
-export default function Card({ image, size }: any) {
+export default function Card({ id, name, description, image, size, tag }: any) {
 
   return (
+    <NavLink style={{textDecoration: 'none'}} to={`/detail/${id}`}>
     <div
       className={s.card_container}
       style={{
@@ -11,14 +13,15 @@ export default function Card({ image, size }: any) {
         height: (size === 'small' ? '30vh' : '62.7vh'),
         backgroundImage: `url(${image})`,
         backgroundSize: "cover",
-        backgroundPosition: "center" }} >
+        backgroundPosition: "top" }} >
       <div className={s.card_content}>
         <span className={s.card_title}>
-            <span className={s.card_tag}>NEW</span> 
-            Capcom To Showcase MEga Man Battle Network LEgacy Collection At TGS
+            <span className={s.card_tag}>{tag}</span> 
+            {name}
         </span>
-        <span className={s.card_subtitle}>More Moster Hunter Rise: Sunbreak content also available</span>
+        <span className={s.card_subtitle}>{description.slice(0, 120)}...</span>
       </div>
     </div>
+    </NavLink>
   );
 }

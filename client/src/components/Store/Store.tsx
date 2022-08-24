@@ -53,7 +53,7 @@ export default function Store() {
             <div className={s.store_list}>
                 {
                     currentVideogame.map( (g: any) => {
-                        return <Card image={g.main_image} tag='BUY' />
+                        return <Card name={g.name} description={g.description} price={g.price} image={g.main_image} tag='BUY' />
                     })
                 }
                 

@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import s from "./Card.module.css";
 import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
@@ -21,15 +21,16 @@ export default function Card({ name, description, price, image, tag }: any) {
                         backgroundPosition: "center",
                         height: '200px'
                     }}>
-                <i className={favorite ? s.favIconCard : s.noFavIconCard} onClick={(e) => handleFavorites(e)}>{favorite ? <MdFavorite /> : <MdFavoriteBorder />}</i>
-            </div>
+                    <i className={favorite ? s.favIconCard : s.noFavIconCard} onClick={(e) => handleFavorites(e)}>{favorite ? <MdFavorite /> : <MdFavoriteBorder />}</i>
+                </div>
             </div>
             <div className={s.outer}>
                 <div className={s.content}>
-                    <span className={s.bg}>{tag}</span>
-                    <h1>{name}</h1>
-                    {/* 110 max */}
-                    <p>{description.slice(0, 130)}...</p>
+                    <div>
+                        <span className={s.bg}>{tag}</span>
+                        <h2>{name}</h2>
+                        <p>{description.slice(0, 170)}...</p>
+                    </div>
 
                     <div className={s.button}>
                         <NavLink to={`/detail/1`}>
@@ -43,18 +44,3 @@ export default function Card({ name, description, price, image, tag }: any) {
         </div>
     );
 }
-
-{/* <div className={s.card_container}>
-        <div className={s.card_image}
-            style={{
-                backgroundImage: `url(${image})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center"
-            }}>
-            <span className={s.card_tag}>{tag}</span>
-
-        </div>
-        <div className={s.card_content}>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit harum aliquam ipsam exercitationem vitae veniam minima eligendi tempore</p>
-        </div>
-    </div> */}

@@ -35,9 +35,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// Error catching endware.
 app.use((err, _req, res, next ) => {
-  // eslint-disable-line no-unused-vars
   const status = err.status || 500;
   const message = err.message || err;
   console.error(err);

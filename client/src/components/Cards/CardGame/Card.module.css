@@ -69,29 +69,32 @@
 	width: 100%;
 	overflow: hidden;
 	display: flex;
-	align-items: center;
+	/* align-items: center; */
     border-radius: 20px;
 }
 
 .content {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
 	animation-delay: 0.3s;
 	position: absolute;
 	left: 20px;
 	z-index: 3
-	
 }
 
-.wrapper h1 {
+.wrapper h2 {
+	width: 95%;
 	color: #111;
 }
 
 p {
-	width: 280px;
-	font-size: 13px;
+	width: 95%;
+	font-size: 14px;
 	line-height: 1.4;
 	color: #aaa;
 	margin: 20px 0;
-	
 }
 
 .bg {
@@ -99,6 +102,7 @@ p {
 	color: #fff;
 	background: red;
 	padding: 5px 10px;
+	margin-bottom: 10px;
 	border-radius: 50px;
 	font-size: .7em;
 }

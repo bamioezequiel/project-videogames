@@ -68,7 +68,7 @@ export const postGame = async (req, res) => {
                 price: bodyGame.price,
                 on_sale: bodyGame.on_sale,
                 stock: bodyGame.stock,
-                features: bodyGame.features,
+                featured: bodyGame.featured,
                 is_new: bodyGame.is_new,
                 saturated_color: bodyGame.saturated_color,
                 dominant_color: bodyGame.dominant_color,
@@ -109,9 +109,6 @@ export const loadGames = async () => {
         await Game.findOrCreate({
           where: {
             ...g,
-            is_new: false,
-            stock: 0,
-            active: true
           },
         });
       });
