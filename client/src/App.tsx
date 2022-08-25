@@ -21,8 +21,8 @@ function App() {
   }, [dispatch]);
 
   return (
-    loading ? <div>Cargando...</div>
-    : <div className='container'>
+    // loading ? <div>Cargando...</div>
+    <div className='container'>
       <BrowserRouter>
         <Nav />
         <div className="content">

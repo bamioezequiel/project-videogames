@@ -22,11 +22,12 @@
 .wrapper {
 	display: flex;
     flex-direction: column;
-    width: 20vw;
-    height: 65vh;
+    width: calc(10rem + 10vw);
+    height: calc(20.8rem + 10vw);
     margin: auto 25px 30px;
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 20px;
 }
 
 .topCard{
@@ -45,7 +46,7 @@
 }
 
 .noFavIconCard{
-	color: white;
+	color: gray;
 	margin-top: calc(.6rem + .3vw);
 	font-size: calc(1.8rem + .3vw);
 	position: absolute;
@@ -84,12 +85,16 @@
 	z-index: 3
 }
 
+.navlink {
+	text-decoration: none;
+}
+
 .wrapper h2 {
 	width: 95%;
 	color: #111;
 }
 
-p {
+.cardDescription {
 	width: 95%;
 	font-size: 14px;
 	line-height: 1.4;
@@ -109,7 +114,8 @@ p {
 .button {
 	width: fit-content;
 	height: fit-content;
-	margin-top: 10px;	
+	margin: auto;
+	margin-bottom: calc(.6rem + .3vw);
 }
 
 .button a {
@@ -134,7 +140,7 @@ p {
 	background: #111;
 	height: 100%;
 	z-index: -1;
-	transition: width 0.3s ease-in-out;
+	transition: width 0.4s ease-in-out;
 	transform: skew(-25deg);
 	transform-origin: right;
 }
@@ -165,4 +171,3 @@ p {
 	padding-right: 8px;
 	
 }
-

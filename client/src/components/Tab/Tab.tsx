@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Features from './Features/Features';
-import News from './News/News';
+import Features from './Feature/Featured';
+import News from './New/New';
 import Reviews from './Reviews/Reviews';
 import s from './Tab.module.css';
 

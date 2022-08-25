@@ -4,27 +4,27 @@ import { sequelize } from '../db.js';
 export const User = sequelize.define("user", {
   username: {
     type: DataTypes.STRING,
-    allowNull: true,
+    // allowNull: true,
   },
 
   firstname: {
     type: DataTypes.STRING,
-    allowNull: true,
+    // allowNull: true,
   },
 
   lastname: {
     type: DataTypes.STRING,
-    allowNull: true,
+    // allowNull: true,
   },
 
   picture: {
     type: DataTypes.STRING,
-    allowNull: true,
+    // allowNull: true,
   },
 
   date_of_birth: {
     type: DataTypes.STRING,
-    allowNull: true,
+    // allowNull: true,
   },
 
   email: {
@@ -39,16 +39,16 @@ export const User = sequelize.define("user", {
 
   phone: {
     type: DataTypes.STRING,
-    allowNull: true,
+    // allowNull: true,
   },
 
   active: {
     type: DataTypes.BOOLEAN,
-    allowNull: true,
+    // allowNull: true,
   },
 
   is_admin: {
     type: DataTypes.BOOLEAN,
-    allowNull: true,
+    // allowNull: true,
   },
 });

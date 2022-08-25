@@ -12,14 +12,14 @@ export default function Pagination({gamesPerPage, allGames, paginado, currentPag
         {pageNumbers.length > 1 && (
           <span
             key="prev"
-            className={s.number}
+            className={currentPage !== 1 ? s.number : s.noneDisplay}
             onClick={() => {
               if (currentPage > 1) {
                 paginado(currentPage - 1);
               }
             }}
           >
-            <MdArrowBackIosNew />
+            {currentPage !== 1 && <MdArrowBackIosNew />}
           </span>
         )}
         {pageNumbers &&
@@ -35,14 +35,14 @@ export default function Pagination({gamesPerPage, allGames, paginado, currentPag
         {pageNumbers.length > 1 && (
           <span
             key="next"
-            className={s.number}
+            className={currentPage !== pageNumbers.length ? s.number : s.noneDisplay}
             onClick={() => {
               if (currentPage < pageNumbers.length) {
                 paginado(currentPage + 1);
               }
             }}
           >
-            <MdArrowForwardIos />
+            {currentPage !== pageNumbers.length && <MdArrowForwardIos />}
           </span>
         )}
     </nav>

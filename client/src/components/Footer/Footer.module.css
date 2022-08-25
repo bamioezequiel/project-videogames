@@ -49,8 +49,12 @@
 }
 
 .footer_copyright {
-  color: #000;
+  /* color: #000; */
   margin-bottom: 20px;
+  font-size: 14px;
+	line-height: 1.4;
+	color: #aaa;
+	/* margin: 20px 0; */
 }
 
 @media (max-width: 760px) {
