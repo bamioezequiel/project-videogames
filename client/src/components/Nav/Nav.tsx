@@ -4,9 +4,12 @@ import { AiFillHome, AiOutlineLogin, AiOutlineAppstoreAdd } from "react-icons/ai
 import { MdGames, MdFavorite } from "react-icons/md";
 import { BsFillCartCheckFill } from "react-icons/bs";
 import s from "./Nav.module.css";
+import { useSelector } from "react-redux";
 
 export default function Nav() {
-  
+  const user: any = useSelector( (state: any) => state.user );
+  const isAuth = Object.keys(user).length > 0;
+
   return (
     <div className={s.nav_container}>
       <nav className={s.nav}>
@@ -42,9 +45,14 @@ export default function Nav() {
             </NavLink>
           </div>
           <div className={s.nav_menu_col3}>
-            <NavLink to={"/login"} className={`${s.nav_menu_item}`}>
+            {
+              isAuth ? <NavLink to={"/profile"} className={`${s.nav_menu_item}`}>
+              <img src={user.picture} className={s.nav_menu_image_profile} alt="" />
+            </NavLink> : <NavLink to={"/login"} className={`${s.nav_menu_item}`}>
               <AiOutlineLogin />
             </NavLink>
+            }
+            
           </div>
         </div>
       </nav>

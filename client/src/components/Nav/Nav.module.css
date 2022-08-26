@@ -35,6 +35,12 @@
     text-decoration: none;
 }
 
+.nav_menu_image_profile {
+    border: thin solid var(--color-white);
+    border-radius: 20px;
+    width: 2.5vw;
+}
+
 .item_amount {
     position: absolute;
     top: -10px;

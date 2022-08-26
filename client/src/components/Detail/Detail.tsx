@@ -1,17 +1,30 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { getDetailGame } from '../../redux/actions';
+import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
 import s from './Detail.module.css';
 
 export default function Detail() {
     const dispatch: any = useDispatch();
+    const navigate = useNavigate();
     const detailGame = useSelector((state: any) => state.detailGame);
     const { id } = useParams();
+    const [favoriteDetail, setFavoriteDetail] = useState(false);
 
     useEffect(() => {
         dispatch(getDetailGame(id));
     }, [dispatch, id]);
+
+    function handleReturn(e: any){
+        e.preventDefault();
+        navigate(-1);
+    }
+
+    function handleFavorites(e: any) {
+        e.preventDefault();
+        setFavoriteDetail(!favoriteDetail);
+    }
 
     return (
         <div className={s.detail_background}
@@ -19,27 +32,21 @@ export default function Detail() {
                 backgroundImage: `url(${detailGame?.main_image})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center"
-            }}>
+            }}> 
             <div className={s.detail_container}>
+                <div className={s.topLineDetail}>
+                    <h3 onClick={(e) => handleReturn(e)} className={s.returnBtn}>Return</h3>
+                    <i className={favoriteDetail ? s.favIconDetail : s.noFavIconDetail} onClick={(e) => handleFavorites(e)}>{favoriteDetail ? <MdFavorite /> : <MdFavoriteBorder />}</i>
+                </div>
                 <div className={s.detail_content}>
                     {/* carusel */}
+                    <div className={s.flipCard}>
+                        <div className={s.flipCardInner}>
+                            <div className={s.flipCardFront}>
+                    
                     <img src={detailGame?.main_image} className={s.detail_main_image} alt="main_image" />
-                    <div className={s.detail_content_right}>
-                        <div>
-                            <span>{detailGame?.name}</span>
-                            <p>{new Array(detailGame?.rating).fill(false)?.map((el) => '⭐')}</p>
-                            <p>Release Date: {detailGame?.released?.split("-").reverse().join("-")}</p>
-                            <p className={s.detail_description}>{detailGame?.description}</p>
-                        </div>
-                        <div>
-                            <span>${detailGame?.price} USD</span>
-                        </div>
-                        <div className={s.detail_btn_container}>
-                            <button className={s.detail_btn}>Comprar ahora</button>
-                            <button className={s.detail_btn}>Agregar al carrito</button>
-                        </div>
-                        <br />
-                        <div className={s.details_labels_container}>
+                    </div>
+                    <div className={s.details_labels_container}>
                             <div className={s.detail_geners}>
                                 {
                                     detailGame?.geners?.map((g: any, i: number) => {
@@ -62,6 +69,26 @@ export default function Detail() {
                                 }
                             </div>
                         </div>
+                        </div>
+                    </div>
+
+                    <div className={s.detail_content_right}>
+                        <div>
+                            <div className={s.titleDetail}>
+                                <span className={s.nameGameDetail}>{detailGame?.name}</span>
+                                <span className={s.priceGameDetail}>${detailGame?.price} USD</span>
+                            </div>
+                            <div className={s.detailInfoNonImp}>
+                            <p className={s.ratingGameDetail}>{new Array(detailGame?.rating).fill(false)?.map((el) => '⭐')}</p>
+                            <p>Release Date: {detailGame?.released?.split("-").reverse().join("-")}</p>
+                            <p className={s.detail_description}>{detailGame?.description}</p>
+                            </div>
+                        </div>
+                        <div className={s.detail_btn_container}>
+                            <button className={s.detail_btn}>Comprar ahora</button>
+                            <button className={s.detail_btn}>Agregar al carrito</button>
+                        </div>
+                        <br />
                     </div>
                 </div>
             </div>

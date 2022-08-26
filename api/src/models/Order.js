@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import { sequelize } from '../db.js';
+import { sequelize } from "../db.js";
 
 export const Order = sequelize.define("order", {
   date: {
@@ -9,5 +9,12 @@ export const Order = sequelize.define("order", {
 
   total: { type: DataTypes.INTEGER, allowNull: false },
 
-  status: { type: DataTypes.STRING, allowNull: false },
+  quantity: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    defaultValue: 0,
+    validate: {
+      min: 0,
+    },
+  }
 });

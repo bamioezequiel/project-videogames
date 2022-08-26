@@ -1,5 +1,5 @@
 import { Action } from "../../interfaces/Action.interface";
-import { AXIOS_ERROR, AXIOS_START, GET_ALL_GAMES, GET_DETAIL_GAME, GET_FILTERED_FEATURED_GAMES, GET_FILTERED_NEW_GAMES } from "../actions";
+import { AXIOS_ERROR, AXIOS_START, GET_ALL_GAMES, GET_DETAIL_GAME, GET_FILTERED_FEATURED_GAMES, GET_FILTERED_NEW_GAMES, GET_USER } from "../actions";
 
 const initialState = {
   allGames: [],
@@ -7,12 +7,20 @@ const initialState = {
   filteredFeaturedGames: [],
   filteredNewGames: [],
   detailGame: {},
+  user: {},
   loading: false,
   error: null,
 };
 
 const rootReducer = (state = initialState, action: Action) => {
   switch (action.type) {
+    case GET_USER:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        user: action.payload,
+      };
     case GET_DETAIL_GAME:
       return {
         ...state,

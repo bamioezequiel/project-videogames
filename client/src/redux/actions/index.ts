@@ -6,15 +6,31 @@ export const GET_ALL_GAMES = "GET_ALL_GAMES";
 export const GET_FILTERED_GAMES = 'GET_FILTERED_GAMES';
 export const GET_FILTERED_FEATURED_GAMES = 'GET_FILTERED_FEATURED_GAMES';
 export const GET_FILTERED_NEW_GAMES = 'GET_FILTERED_NEW_GAMES';
+export const GET_USER = 'GET_USER';
 // export const ORDER_BY_PRICE = 'ORDER_BY_PRICE';
 
 export const axiosError = (error: Error) => {
   return { type: AXIOS_ERROR, payload: error };
 };
 
-export const axiosStart = (state: string) => {
-  return { type: AXIOS_START, state: state};
+export const axiosStart = (state: string, value?: any, ) => {
+  return { type: AXIOS_START, payload: (!value) ? [] : value, state: state};
 };
+
+export const getUser = (id: any) => {
+  return async function (dispatch: Function) {
+    try {
+      await dispatch(axiosStart('user', {}));
+      console.log(id)
+      let res = await axios.get(`http://localhost:3001/users/${id}`);
+      return dispatch({ type: GET_USER, payload: res.data });
+    } catch (error) {
+      await dispatch(axiosError(error as Error));
+      console.log(`Error, actions <GetUser>: ${error}`);
+    }
+  };
+};
+
 export const getDetailGame = (id: any) => {
   return async function (dispatch: Function) {
     try {

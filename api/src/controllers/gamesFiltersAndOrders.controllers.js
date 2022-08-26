@@ -5,7 +5,7 @@ export const getGamesFiltered = async (req, res) => {
   const { games } = req.body;
   
   try {
-    if(games.length === 0) {
+    if(!games || games.length === 0) {
       games = await Game.findAll();
     }
     if (featured) {
@@ -58,7 +58,7 @@ export const getGamesFiltered = async (req, res) => {
           g.description.toLowerCase().includes(s.toLowerCase())
       );
     }
-    res.send(games || []);
+    res.send(games.length === 0 ? [] : games);
   } catch (error) {
     res.status(404).send(`Error, route <Get, GetGamesFiltered>: ${error}`);
   }

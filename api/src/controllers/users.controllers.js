@@ -7,6 +7,7 @@ export const getUsers = async (req, res) => {
       attributes: {
         exclude: ["password"],
       },
+      include: "favorites"
     });
     let users = usersDB;
     if (typeof deleted === "boolean" && deleted) {
@@ -33,6 +34,7 @@ export const getUserByID = async (req, res) => {
       attributes: {
         exclude: ["password"],
       },
+      include: "favorites"
     });
     res.send(user);
   } catch (error) {
@@ -71,7 +73,6 @@ export const postUser = async (req, res) => {
         password: bodyUser.password,
         phone: bodyUser.phone,
         active: true,
-        is_admin: false,
       },
     });
     if (!createdUser[1]) {

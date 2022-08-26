@@ -39,6 +39,12 @@ export const Game = sequelize.define("game", {
     defaultValue: 0,
   },
 
+  price_with_sale: {
+    type: DataTypes.INTEGER,
+    defaultValue: 0,
+    
+  },
+
   on_sale: {
     type: DataTypes.INTEGER,
     defaultValue: 0,
@@ -86,7 +92,7 @@ export const Game = sequelize.define("game", {
   },
 });
 
-User.belongsToMany(Game, {
+/* User.belongsToMany(Game, {
   as: "cart",
   foreignKey: "user_id",
   through: 'Cart',
@@ -97,7 +103,7 @@ Game.belongsToMany(User, {
   foreignKey: "cart_id",
   through: 'Cart',
 });
-
+ */
 User.belongsToMany(Game, {
   as: "favorites",
   foreignKey: "user_id",

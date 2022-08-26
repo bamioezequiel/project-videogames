@@ -16,7 +16,7 @@ export const dataGames = [
     ],
     rating: 4.47,
     price: 782,
-    on_sale: 0,
+    on_sale: 10,
     stock: 3,
     featured: false,
     is_new: false,

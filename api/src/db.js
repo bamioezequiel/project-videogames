@@ -30,4 +30,3 @@ export const sequelize =
         logging: false,
         native: false,
       });
-
