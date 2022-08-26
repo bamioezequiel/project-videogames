@@ -42,33 +42,34 @@ export default function Detail() {
                     {/* carusel */}
                     <div className={s.flipCard}>
                         <div className={s.flipCardInner}>
-                            <div className={s.flipCardFront}>
-                    
-                    <img src={detailGame?.main_image} className={s.detail_main_image} alt="main_image" />
-                    </div>
-                    <div className={s.details_labels_container}>
-                            <div className={s.detail_geners}>
-                                {
-                                    detailGame?.geners?.map((g: any, i: number) => {
-                                        return <span key={i + g} className={s.detail_tag}><p>{g}</p></span>
-                                    })
-                                }
+               
+                                <img src={detailGame?.main_image} className={s.detail_main_image} alt="main_image" />
+                      
+                            <div className={s.details_labels_container}>
+                                <div className={s.allTags}>    
+                                    <div className={s.detail_geners}>
+                                        {
+                                            detailGame?.geners?.map((g: any, i: number) => {
+                                                return <span key={i + g} className={s.detail_tag}><p>{g}</p></span>
+                                            })
+                                        }
+                                    </div>
+                                    <div className={s.detail_tags}>
+                                        {
+                                            detailGame?.tags?.map((t: any, i: number) => {
+                                                return <span key={i + t} className={s.detail_tag}><p>{t}</p></span>
+                                            })
+                                        }
+                                    </div>
+                                    <div className={s.detail_platform}>
+                                        {
+                                            detailGame?.platforms?.map((p: any, i: number) => {
+                                                return <span key={i + p} className={s.detail_tag}><p>{p}</p></span>
+                                            })
+                                        }
+                                    </div>
+                                </div>
                             </div>
-                            <div className={s.detail_tags}>
-                                {
-                                    detailGame?.tags?.map((t: any, i: number) => {
-                                        return <span key={i + t} className={s.detail_tag}><p>{t}</p></span>
-                                    })
-                                }
-                            </div>
-                            <div className={s.detail_platform}>
-                                {
-                                    detailGame?.platforms?.map((p: any, i: number) => {
-                                        return <span key={i + p} className={s.detail_tag}><p>{p}</p></span>
-                                    })
-                                }
-                            </div>
-                        </div>
                         </div>
                     </div>
 

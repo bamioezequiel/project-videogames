@@ -1,14 +1,16 @@
 .header_container {
-  width: 60%;
+  width: 97%;
   height: 10vh;
-  margin: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 .header_logo {
-  width: 10vw;
+  width: 150px;
 }
 
 .header_search_container {
@@ -18,13 +20,36 @@
 
 .header_search {
   height: 4vh;
+  width: 200px;
   border-radius: 10px;
   padding: 20px 5px 20px 15px;
   margin-right: 10px;
   font-size: 18px;
+  border: none;
+  border-bottom: solid var(--main-color);
+  transition: ease-in 1s;
 }
 
 .header_search_icon {
   cursor: pointer;
   font-size: 30px;
+  margin-top: 5px;
+}
+
+.search_icon_background{
+  background-color: #ffff;
+  width: 40px;
+  height: 50px;
+  text-align: center;
+}
+
+.noneSBDisplay{
+  visibility: hidden;
+  border: none;
+  height: 4vh;
+  width: 0px;
+  padding: 20px 5px 20px 15px;
+  border-bottom: solid var(--main-color);
+  margin-right: -20px;
+  transition: ease-out 2.5s;
 }

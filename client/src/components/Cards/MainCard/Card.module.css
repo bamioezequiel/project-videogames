@@ -5,7 +5,12 @@
     align-items: flex-end;
 /*     width: 80vh;
     height: 50vh; */
-    margin: 0 20px 20px 5px;
+    margin: 0 20px 5px 5px;
+}
+
+.card_container:hover{
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 .card_content {

@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import s from "./Header.module.css";
 
 export default function Header() {
+  const [searchBar, setSearchBar] = useState(false);
+
+  function handleSearchBar(e: any){
+    e.preventDefault();
+    setSearchBar(!searchBar);
+  }
+
+  setTimeout(function(){
+    searchBar && setSearchBar(false);
+}, 20000);
+
   return (
     <div className={s.header_container}>
       <img
@@ -13,8 +24,10 @@ export default function Header() {
         <input
           type="search"
           placeholder="Search..."
-          className={s.header_search} />
-        <BiSearch className={s.header_search_icon} />
+          className={searchBar ? s.header_search : s.noneSBDisplay} />
+        <div onClick={(e) => handleSearchBar(e)} className={s.search_icon_background}>
+          <BiSearch className={s.header_search_icon} />
+        </div>
       </div>
     </div>
   );
