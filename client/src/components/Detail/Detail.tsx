@@ -14,6 +14,8 @@ export default function Detail() {
 
     useEffect(() => {
         dispatch(getDetailGame(id));
+        let favoritesLS = JSON.parse(localStorage.getItem("favorites") || '[]');
+        favoritesLS?.find((f: any) => f.id == id && setFavoriteDetail(true));
     }, [dispatch, id]);
 
     function handleReturn(e: any){
@@ -24,6 +26,26 @@ export default function Detail() {
     function handleFavorites(e: any) {
         e.preventDefault();
         setFavoriteDetail(!favoriteDetail);
+
+        if (!favoriteDetail) {
+            if (!localStorage.getItem("favorites")) {
+              let favoritesLS = [];
+              favoritesLS.push(detailGame);
+              localStorage.setItem("favorites", JSON.stringify(favoritesLS));
+            } else {
+              let favoritesLS = JSON.parse(localStorage.getItem("favorites") || '[]');
+              if (favoritesLS?.filter((f: any) => f.id !== detailGame.id)) {
+                favoritesLS.unshift(detailGame);
+                localStorage.setItem("favorites", JSON.stringify(favoritesLS));
+              }
+            }
+        } else {
+            let favoritesLS = JSON.parse(localStorage.getItem("favorites") || '[]');
+            let remFav = favoritesLS.filter((f: any) => {
+              return f.id !== detailGame.id;
+            });
+            localStorage.setItem("favorites", JSON.stringify(remFav));
+        }
     }
 
     return (
