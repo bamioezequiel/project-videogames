@@ -12,7 +12,7 @@ export default function Pagination({gamesPerPage, allGames, paginado, currentPag
         {pageNumbers.length > 1 && (
           <span
             key="prev"
-            className={currentPage !== 1 ? s.number : s.noneDisplay}
+            className={currentPage !== 1 ? s.pagArrow : s.noneDisplay}
             onClick={() => {
               if (currentPage > 1) {
                 paginado(currentPage - 1);
@@ -22,20 +22,22 @@ export default function Pagination({gamesPerPage, allGames, paginado, currentPag
             {currentPage !== 1 && <MdArrowBackIosNew />}
           </span>
         )}
-        {pageNumbers &&
-          pageNumbers.map((number) => (
-            <span
-              onClick={() => paginado(number)}
-              className={currentPage === number ? s.pagination_selected : s.number}
-              key={number + "games"}
-            >
-              {number}
-            </span>
-          ))}
+        <div className={s.pageNumbersPag}>
+          {pageNumbers &&
+            pageNumbers.map((number) => (
+              <span
+                onClick={() => paginado(number)}
+                className={currentPage === number ? s.pagination_selected : s.number}
+                key={number + "games"}
+              >
+                {number}
+              </span>
+            ))}
+        </div>
         {pageNumbers.length > 1 && (
           <span
             key="next"
-            className={currentPage !== pageNumbers.length ? s.number : s.noneDisplay}
+            className={currentPage !== pageNumbers.length ? s.pagArrow : s.noneDisplay}
             onClick={() => {
               if (currentPage < pageNumbers.length) {
                 paginado(currentPage + 1);

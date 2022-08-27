@@ -1,18 +1,7 @@
-import React, { useState } from "react";
-import { BiSearch } from "react-icons/bi";
 import s from "./Header.module.css";
+import SearchBar from "../../SearchBar/SearchBar";
 
 export default function Header() {
-  const [searchBar, setSearchBar] = useState(false);
-
-  function handleSearchBar(e: any){
-    e.preventDefault();
-    setSearchBar(!searchBar);
-  }
-
-  setTimeout(function(){
-    searchBar && setSearchBar(false);
-}, 20000);
 
   return (
     <div className={s.header_container}>
@@ -21,6 +10,9 @@ export default function Header() {
         className={s.header_logo}
         alt="logo not found" />
       <div className={s.header_search_container}>
+        <SearchBar />
+      </div>
+      {/* <div className={s.header_search_container}>
         <input
           type="search"
           placeholder="Search..."
@@ -28,7 +20,7 @@ export default function Header() {
         <div onClick={(e) => handleSearchBar(e)} className={s.search_icon_background}>
           <BiSearch className={s.header_search_icon} />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
