@@ -40,13 +40,14 @@ export default function Store() {
                     />
                 </div>
                 <div className={s.viewContainer}>
-                  <View 
-                    // `filteredGames={filteredGames} 
-                    // indexOfFirstVideogame={indexOfFirstVideogame}
-                    // setgamesPerPage={setgamesPerPage}
-                    // currentPage={currentPage}
-                    // setCurrentPage={setCurrentPage}`
-                  />
+                    {filteredGames.length > 0 && 
+                    <View 
+                        // filteredGames={filteredGames} 
+                        // indexOfFirstVideogame={indexOfFirstVideogame}
+                        // setgamesPerPage={setgamesPerPage}
+                        // currentPage={currentPage}
+                        // setCurrentPage={setCurrentPage}
+                    />}
                 </div>
             </div>
             <div className={s.store_list}>

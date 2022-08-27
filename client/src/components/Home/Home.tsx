@@ -9,6 +9,7 @@ import s from "./Home.module.css";
 export default function Home() {
   const allGames = useSelector((state: any) => state.allGames);
   const newsGames = allGames.filter( (g: any, i: number) => g.is_news || i % 2 === 0 );
+  
   return (
     <div className={s.home_container}>
       <Header />
