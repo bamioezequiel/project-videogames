@@ -11,10 +11,25 @@
   flex-direction: column;
   border-radius: 10px;
   width: 35vw;
-  height: 70vh;
+  height: 83vh;
   padding: 20px;
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.singup_password_validate {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  width: 20vw;
+  padding: 20px;
+  margin-left: 20px;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+  0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.singup_password_validate > p {
+  margin: 8px;
 }
 
 .signup_content span {
@@ -87,4 +102,9 @@
   padding: 10px;
   border: thin solid #aaa;
   border-radius: 20px;
+}
+
+.sgnup_form_label {
+  font-size: 14px;
+  margin: 0px 5px;
 }

@@ -64,14 +64,14 @@ export const postUser = async (req, res) => {
         email: bodyUser.email,
       },
       defaults: {
-        username: bodyUser.username,
+        username: bodyUser.username || '',
         firstname: bodyUser.firstname,
         lastname: bodyUser.lastname,
         picture: bodyUser.picture || "https://imgur.com/EyEFL9w.png",
-        date_of_birth: bodyUser.date_of_birth,
+        date_of_birth: bodyUser.date_of_birth || '',
         email: bodyUser.email,
         password: bodyUser.password,
-        phone: bodyUser.phone,
+        phone: bodyUser.phone || '',
         active: true,
       },
     });

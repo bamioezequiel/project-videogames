@@ -5,7 +5,8 @@ import s from './../Tab.module.css';
 
 export default function Reviews({ show }: any) {
     const allGames = useSelector((state: any) => state.allGames);
-    const reviewsGames = allGames.filter( (g: any) => g.rating > 4 );
+    // const reviewsGames = allGames.filter( (g: any) => g.rating > 4 );
+    const reviewsGames = allGames;
     return (
         show && <div className={s.cards_container}>
             {

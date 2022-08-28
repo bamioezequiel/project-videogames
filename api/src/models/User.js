@@ -10,22 +10,7 @@ export const User = sequelize.define(
       // allowNull: true,
       unique: true,
     },
-    rol: {
-      type: DataTypes.STRING,
-      defaultValue: "User",
-      validate: {
-        isString(value) {
-          if (value && typeof value !== "string")
-            throw new Error("El rol debe ser valido");
-        },
-      },
-    },
-    salt: {
-      type: DataTypes.STRING,
-      get() {
-        return () => this.getDataValue("salt");
-      },
-    },
+    
     firstname: {
       type: DataTypes.STRING,
       allowNull: true,
@@ -78,6 +63,23 @@ export const User = sequelize.define(
       // allowNull: true,
     },
 
+    rol: {
+      type: DataTypes.STRING,
+      defaultValue: "User",
+      validate: {
+        isString(value) {
+          if (value && typeof value !== "string")
+            throw new Error("El rol debe ser valido");
+        },
+      },
+    },
+
+    salt: {
+      type: DataTypes.STRING,
+      get() {
+        return () => this.getDataValue("salt");
+      },
+    },
   },
   {
     validate: {
