@@ -4,19 +4,20 @@ import { getFilteredFeaturedGames } from '../../../redux/actions';
 import Card from '../../Cards/CardGame/Card';
 import s from './../Tab.module.css';
 
-export default function Features({ show }: any) {
+export default function Featured({ show }: any) {
     const dispatch: Function = useDispatch();
-    const featuresGames = useSelector((state: any) => state.filterFeaturedGames);
+    // const featuredGames = useSelector((state: any) => state.filterFeaturedGames);
+    const featuredGames = useSelector((state: any) => state.allGames);
 
     useEffect( () => {
-        dispatch(getFilteredFeaturedGames());
+        // dispatch(getFilteredFeaturedGames());
     }, [dispatch]);
 
     return (
         show && <div className={s.cards_container}>
             {
-                featuresGames?.length > 0 
-                ? featuresGames.slice(0, 9).map( (g: any) => <Card id={g.id} name={g.name} description={g.description} price={g.price} image={g.main_image} tag='FEATURES' /> )
+                featuredGames?.length > 0 
+                ? featuredGames.slice(0, 9).map( (g: any) => <Card id={g.id} name={g.name} description={g.description} price={g.price} image={g.main_image} tag='FEATURED' /> )
                 : <span>No hay juegos destacados para mostrar</span> 
             }
             

@@ -88,3 +88,8 @@
   border: thin solid #aaa;
   border-radius: 20px;
 }
+
+.login_form_label {
+  font-size: 14px;
+  margin: 0px 5px;
+}

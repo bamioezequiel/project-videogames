@@ -1,15 +1,15 @@
 import express from "express";
 import passport from "passport";
-import { isAuthenticated } from "./midlewares.js";
-import { userLogout, adminAccess, adminDelete, me, login } from "./utils.js";
+import { isAuthenticated } from "./../../lib/midlewares/midlewares.js";
+import { logout, adminAccess, adminDelete, login, isAuth } from "./../../controllers/auth.controllers.js";
 
 const router = express.Router();
 router.post("/login", login);
 router.get("/login", isAuthenticated, (req, res) => {
   return res.send(req.user);
 });
-router.get("/logout", userLogout);
-router.get("/me", me);
+router.get("/logout", logout);
+router.get("/isAuth", isAuth);
 router.post("/promote/:id", adminAccess);
 router.post("/demote/:id", adminDelete);
 
