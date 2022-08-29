@@ -78,7 +78,7 @@ export default function Store() {
             <div className={s.store_list}>
                 {
                     currentVideogame?.length && currentVideogame?.map((g: any) => {
-                        return <Card id={g.id} name={g.name} description={g.description} price={g.price} image={g.main_image} tag='BUY' />
+                        return <Card game={g} tag='BUY' />
                     })
                 }
             </div>

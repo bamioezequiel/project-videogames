@@ -10,59 +10,61 @@ export const GET_FILTERED_NEW_GAMES = "GET_FILTERED_NEW_GAMES";
 export const GET_GENRES = "GET_GENRES";
 export const GET_PLATFORMS = "GET_PLATFORMS";
 export const GET_TAGS = "GET_TAGS";
+export const GET_FAVORITES_LOCAL_STORAGE = "GET_FAVORITES_LOCAL_STORAGE";
 export const GET_USER = "GET_USER";
 export const POST_USER = "POST_USER";
 // export const ORDER_BY_PRICE = 'ORDER_BY_PRICE';
 
+export const getFavoritesLocalStorage = () => {
+  return async function (dispatch: Function) {
+    try {
+      await dispatch(axiosStart("favoritesLS", []));
+      const res = JSON.parse(localStorage.getItem("favorites") || '[]');
+      return dispatch({ type: GET_FAVORITES_LOCAL_STORAGE, payload: res });
+    } catch (error) {
+      await dispatch(axiosError(error as Error));
+      console.log(`Error, actions <GetFavoritesLocalStorage>: ${error}`);
+    }
+  };
+};
+
 export const getTags = () => {
-  try {
-    return async function (dispatch: Function) {
-      try {
-        await dispatch(axiosStart("tags", []));
-        const res = await axios.get(`http://localhost:3001/tags`);
-        return dispatch({ type: GET_TAGS, payload: res.data });
-      } catch (error) {
-        await dispatch(axiosError(error as Error));
-        console.log(`Error, actions <GetTags>: ${error}`);
-      }
-    };
-  } catch (error) {
-    console.log(`Error, actions <GetTags>: ${error}`);
-  }
+  return async function (dispatch: Function) {
+    try {
+      await dispatch(axiosStart("tags", []));
+      const res = await axios.get(`http://localhost:3001/tags`);
+      return dispatch({ type: GET_TAGS, payload: res.data });
+    } catch (error) {
+      await dispatch(axiosError(error as Error));
+      console.log(`Error, actions <GetTags>: ${error}`);
+    }
+  };
 };
 
 export const getPlatforms = () => {
-  try {
-    return async function (dispatch: Function) {
-      try {
-        await dispatch(axiosStart("platforms", []));
-        const res = await axios.get(`http://localhost:3001/platforms`);
-        return dispatch({ type: GET_PLATFORMS, payload: res.data });
-      } catch (error) {
-        await dispatch(axiosError(error as Error));
-        console.log(`Error, actions <GetPlatforms>: ${error}`);
-      }
-    };
-  } catch (error) {
-    console.log(`Error, actions <GetPlatforms>: ${error}`);
-  }
+  return async function (dispatch: Function) {
+    try {
+      await dispatch(axiosStart("platforms", []));
+      const res = await axios.get(`http://localhost:3001/platforms`);
+      return dispatch({ type: GET_PLATFORMS, payload: res.data });
+    } catch (error) {
+      await dispatch(axiosError(error as Error));
+      console.log(`Error, actions <GetPlatforms>: ${error}`);
+    }
+  };
 };
 
 export const getGenres = () => {
-  try {
-    return async function (dispatch: Function) {
-      try {
-        await dispatch(axiosStart("genres", []));
-        const res = await axios.get(`http://localhost:3001/genres`);
-        return dispatch({ type: GET_GENRES, payload: res.data });
-      } catch (error) {
-        await dispatch(axiosError(error as Error));
-        console.log(`Error, actions <GetGenres>: ${error}`);
-      }
-    };
-  } catch (error) {
-    console.log(`Error, actions <GetGenres>: ${error}`);
-  }
+  return async function (dispatch: Function) {
+    try {
+      await dispatch(axiosStart("genres", []));
+      const res = await axios.get(`http://localhost:3001/genres`);
+      return dispatch({ type: GET_GENRES, payload: res.data });
+    } catch (error) {
+      await dispatch(axiosError(error as Error));
+      console.log(`Error, actions <GetGenres>: ${error}`);
+    }
+  };
 };
 
 export const getLogoutUser = () => {

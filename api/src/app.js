@@ -6,7 +6,7 @@ import cookieParser from "cookie-parser";
 import session from "express-session";
 import passport from "passport";
 import passportLocal from "passport-local";
-// import passportGoogle from "passport-google-oauth20";
+import passportGoogle from "passport-google-oauth20";
 import { User } from "./models/User.js";
 import usersRoutes from "./routes/users.routes.js";
 import gamesRoutes from "./routes/games.routes.js";
@@ -19,7 +19,7 @@ import genresRoutes from "./routes/genres.routes.js";
 import dotenv from 'dotenv';
 
 const LocalStrategy = passportLocal.Strategy;
-// const GoogleStrategy = passportGoogle.Strategy;
+const GoogleStrategy = passportGoogle.Strategy;
 const app = express();
 dotenv.config();
 
@@ -63,7 +63,7 @@ passport.use(
     }
   )
 );
-/* 
+
 passport.use(
   new GoogleStrategy(
     {
@@ -83,18 +83,6 @@ passport.use(
           },
         });
 
-        // Shoppingcart.findOrCreate({
-        //   where: {
-        //     userId: user.id,
-        //     status: {
-        //       [Op.or]: ["vacio", "curso"],
-        //     },
-        //   },
-        //   defaults: {
-        //     status: "vacio",
-        //   },
-        // });
-
         return done(null, user.dataValues);
       } catch (error) {
         done(error);
@@ -102,7 +90,7 @@ passport.use(
     }
   )
 );
- */
+
 // Middlewares
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 app.use(bodyParser.json({ limit: "50mb" }));

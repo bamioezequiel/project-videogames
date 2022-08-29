@@ -1,5 +1,5 @@
 import { Action } from "../../interfaces/Action.interface";
-import { AXIOS_ERROR, AXIOS_START, GET_ALL_GAMES, GET_DETAIL_GAME, GET_FILTERED_FEATURED_GAMES, GET_FILTERED_NEW_GAMES, GET_GENRES, GET_PLATFORMS, GET_TAGS, GET_USER, POST_USER } from "../actions";
+import { AXIOS_ERROR, AXIOS_START, GET_ALL_GAMES, GET_DETAIL_GAME, GET_FAVORITES_LOCAL_STORAGE, GET_FILTERED_FEATURED_GAMES, GET_FILTERED_NEW_GAMES, GET_GENRES, GET_PLATFORMS, GET_TAGS, GET_USER, POST_USER } from "../actions";
 
 const initialState = {
   allGames: [],
@@ -9,6 +9,7 @@ const initialState = {
   tags: [],
   platforms: [],
   genres: [],
+  favoritesLS: [],
   detailGame: {},
   user: {},
   loading: false,
@@ -17,6 +18,13 @@ const initialState = {
 
 const rootReducer = (state = initialState, action: Action) => {
   switch (action.type) {
+    case GET_FAVORITES_LOCAL_STORAGE:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        favoritesLS: action.payload,
+      };
     case GET_PLATFORMS:
       return {
         ...state,

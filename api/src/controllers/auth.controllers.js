@@ -2,7 +2,6 @@ import { User } from "./../models/User.js";
 import passport from "passport";
 
 export const login = (req, res, next) => {
-  // console.log(req.user, 'SOY REQ.USER POST');
   passport.authenticate("local", async (err, user, info) => {
     if (err) { return next(err); }
     if (!user) { return res.send(user); }

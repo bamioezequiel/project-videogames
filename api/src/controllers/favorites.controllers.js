@@ -35,8 +35,7 @@ export const addFavorites = async (req, res) => {
 };
 
 export const deleteFavorites = async (req, res) => {
-  const { id } = req.params;
-  const { gameId } = req.query;
+  const { id, gameId } = req.params;
 
   try {
     const user = await User.findByPk(id);

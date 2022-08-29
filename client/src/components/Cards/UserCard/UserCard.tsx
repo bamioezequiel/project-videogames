@@ -17,13 +17,13 @@ export default function UserCard() {
                 <h2>{user.firstname} {user.lastname} <FaUserEdit onClick={() => setDisableFieldsProfile(!disableFieldsProfile)} /></h2>
                 <div className={s.profile_card_data_content}>
                     <div className={s.profile_card_fields}>
-                        <label><FaUserAlt /> Nombre</label>
-                        <input type="text" disabled={disableFieldsProfile} value={user.firstname} placeholder='Nombre...' />
+                        <label><FaUserAlt /> First name</label>
+                        <input type="text" disabled={disableFieldsProfile} value={user.firstname} placeholder='First name...' />
                     </div>
                     <div className={s.profile_card_fields}>
 
-                        <label><FaUserAlt /> Apellido</label>
-                        <input type="text" disabled={disableFieldsProfile} value={user.lastname} placeholder='Apellido...' />
+                        <label><FaUserAlt /> Last name</label>
+                        <input type="text" disabled={disableFieldsProfile} value={user.lastname} placeholder='Last name...' />
                     </div>
                     <div className={s.profile_card_fields}>
 
@@ -32,12 +32,12 @@ export default function UserCard() {
                     </div>
                     <div className={s.profile_card_fields}>
 
-                        <label><MdOutlinePermContactCalendar /> Fecha de nacimiento</label>
-                        <input type="text" disabled={disableFieldsProfile} value={user.date_of_birth} placeholder='Fecha de nacimiento...' />
+                        <label><MdOutlinePermContactCalendar /> Date of Birth</label>
+                        <input type="text" disabled={disableFieldsProfile} value={user.date_of_birth} placeholder='Date of Birth...' />
                     </div>
                     <div className={s.profile_card_fields}>
-                        <label><BsFillTelephoneFill /> Telefono</label>
-                        <input type="text" disabled={disableFieldsProfile} value={user.phone} placeholder='Telefono...' />
+                        <label><BsFillTelephoneFill /> Phone</label>
+                        <input type="text" disabled={disableFieldsProfile} value={user.phone} placeholder='Phone...' />
                     </div>
 
                     {/* <div class>
@@ -45,7 +45,7 @@ export default function UserCard() {
                             <p><RiAdminLine /> {user.rol}</p>
                             <p><MdShoppingBasket /> 0</p>
                         </div> */}
-                    <button className={s.profile_card_btn}>Confirmar</button>
+                    <button className={s.profile_card_btn}>Confirm</button>
                 </div>
             </div>
         </header>

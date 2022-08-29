@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { AiFillHome, AiOutlineLogin, AiOutlineAppstoreAdd } from "react-icons/ai";
 import { MdGames, MdFavorite } from "react-icons/md";
 import { BsFillCartCheckFill } from "react-icons/bs";
 import s from "./Nav.module.css";
 import useAuth from "../../utils/auth";
+import { useSelector } from "react-redux";
 
 export default function Nav() {
   const { user, isAuth } = useAuth();
-  const favorites = JSON.parse(localStorage.getItem("favorites") || '[]');
+  // const favorites = JSON.parse(localStorage.getItem("favorites") || '[]');
+  const favorites = useSelector( (state: any) => state.favoritesLS );
+
 
   return (
     <div className={s.nav_container}>

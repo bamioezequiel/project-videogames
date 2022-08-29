@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { useEffect } from "react";
-import { getAllGames, getGenres, getLoginMeUser, getPlatforms, getTags, getUser } from "./redux/actions";
+import { useEffect, useState } from "react";
+import { getAllGames, getFavoritesLocalStorage, getGenres, getLoginMeUser, getPlatforms, getTags, getUser } from "./redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import useAuth from "./utils/auth";
 import Home from "./components/Home/Home";
@@ -12,33 +12,42 @@ import Login from "./components/Login/Login";
 import Signup from "./components/Singup/Signup";
 import Favorites from './components/Favorites/Favorites';
 import Profile from "./components/Profile/Profile";
-import Axios from "axios";
+import useLoading from "./components/Loading/Loading";
 // import Cart from './components/Cart/Cart';
 
 function App() {
   const dispatch: Function = useDispatch();
-  const loading: boolean = useSelector((state: any) => state.loading);
-  const tokenUserId: any = JSON.parse(localStorage.getItem('User') || '{}');
+  const allGames = useSelector( (state: any) => state.allGames )
+  const tokenUser: any = JSON.parse(localStorage.getItem('User') || '{}');
   const { isAuth } = useAuth();
-
-  useEffect(() => {
-    if (Object.keys(tokenUserId).length) {
-      loginMe();
-    }
-    return () => {
-      if (Object.keys(tokenUserId).length) {
-        loginMe();
-      }
-    };
-  }, []);
+  const {loading, setLoading, Loading}: any = useLoading();
 
   const loginMe = async () => {
     const res: any = await dispatch(getLoginMeUser());
     if (res && res.id) {
       await dispatch(getUser(res.id));
       localStorage.setItem("User", JSON.stringify(res));
+    } else {
+      localStorage.removeItem("User");
     }
   };
+
+  useEffect( () => {
+    if(allGames.length > 0) {
+      setLoading(false);
+    }
+  }, [allGames] )
+
+  useEffect(() => {
+    if (Object.keys(tokenUser).length) {
+      loginMe();
+    }
+    return () => {
+      if (Object.keys(tokenUser).length) {
+        loginMe();
+      }
+    };
+  }, []);
 
   useEffect(() => {
     dispatch(getPlatforms());
@@ -46,13 +55,16 @@ function App() {
     dispatch(getGenres());
     dispatch(getAllGames());
   }, []);
+  
+  useEffect(() => {
+    dispatch(getFavoritesLocalStorage());
+  }, []);
 
   return (
-    // loading ? <div>Cargando...</div>
-    <div className='container'>
+    loading ? Loading() : <div className='container-app'>
       <BrowserRouter>
         <Nav />
-        <div className="content">
+        <div className="content-app">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/store" element={<Store />} />

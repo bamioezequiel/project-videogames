@@ -3,16 +3,17 @@ import { NavLink } from "react-router-dom";
 import s from "./Card.module.css";
 import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
 import { useDispatch } from "react-redux";
+import { getFavoritesLocalStorage } from "../../../redux/actions";
 
-export default function Card({ id, name, description, price, image, tag }: any) {
-    const dispatch = useDispatch();
+export default function Card({ game, tag }: any) {
+    const dispatch: Function = useDispatch();
     const [favorite, setFavorite] = useState(false);
-    const gameInfo = { id, name, description, price, image, tag };
+    // const game = { id, name, description, price, image, tag };
 
     useEffect(() => {
         let favoritesLS = JSON.parse(localStorage.getItem("favorites") || '[]');
-        favoritesLS?.find((f: any) => f.id == id && setFavorite(true));
-    }, [dispatch, id]);
+        favoritesLS?.find((f: any) => f.id == game.id && setFavorite(true));
+    }, [dispatch, game.id]);
 
 
     function handleFavorites(e: any) {
@@ -21,23 +22,24 @@ export default function Card({ id, name, description, price, image, tag }: any) 
 
         if (!favorite) {
             if (!localStorage.getItem("favorites")) {
-              let favoritesLS = [];
-              favoritesLS.push(gameInfo);
-              localStorage.setItem("favorites", JSON.stringify(favoritesLS));
-            } else {
-              let favoritesLS = JSON.parse(localStorage.getItem("favorites") || '[]');
-              if (favoritesLS?.filter((f: any) => f.id !== id)) {
-                favoritesLS.unshift(gameInfo);
+                let favoritesLS = [];
+                favoritesLS.push(game);
                 localStorage.setItem("favorites", JSON.stringify(favoritesLS));
-              }
+            } else {
+                let favoritesLS = JSON.parse(localStorage.getItem("favorites") || '[]');
+                if (favoritesLS?.filter((f: any) => f.id !== game.id)) {
+                    favoritesLS.unshift(game);
+                    localStorage.setItem("favorites", JSON.stringify(favoritesLS));
+                }
             }
         } else {
             let favoritesLS = JSON.parse(localStorage.getItem("favorites") || '[]');
             let remFav = favoritesLS.filter((f: any) => {
-              return f.id !== id;
+                return f.id !== game.id;
             });
             localStorage.setItem("favorites", JSON.stringify(remFav));
         }
+        dispatch(getFavoritesLocalStorage())
     }
 
 
@@ -47,7 +49,7 @@ export default function Card({ id, name, description, price, image, tag }: any) 
             <div className={s.topCard}>
                 <div className={s.wrapper_image}
                     style={{
-                        backgroundImage: `url(${image})`,
+                        backgroundImage: `url(${game.main_image})`,
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                         height: '200px'
@@ -59,13 +61,13 @@ export default function Card({ id, name, description, price, image, tag }: any) 
                 <div className={s.content}>
                     <div>
                         <span className={s.bg}>{tag}</span>
-                        <NavLink to={`/detail/${id}`} className={s.navlink}><h2>{name}</h2></NavLink>
-                        <p className={s.cardDescription}>{name.length < 20 ? description.slice(0, 180) + '...' : name.length >= 20 && name.length < 40 ? description.slice(0, 140) + '...' : name.length > 40 && description.slice(0, 110) + '...'}</p>
+                        <NavLink to={`/detail/${game.id}`} className={s.navlink}><h2>{game.name}</h2></NavLink>
+                        <p className={s.cardDescription}>{game.name.length < 20 ? game.description.slice(0, 180) + '...' : game.name.length >= 20 && game.name.length < 40 ? game.description.slice(0, 140) + '...' : game.name.length > 40 && game.description.slice(0, 110) + '...'}</p>
                     </div>
 
                     <div className={s.button}>
-                        <NavLink to={`/detail/${id}`}>
-                            ${price}
+                        <NavLink to={`/detail/${game.id}`}>
+                            ${game.price}
                         </NavLink>
                         <a className={s.cart_btn}><i className={`${s.cart_icon} ${s.ion_bag}`}></i>ADD TO CART</a>
                     </div>

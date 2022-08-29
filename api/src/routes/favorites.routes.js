@@ -4,6 +4,6 @@ const router = Router();
 
 router.get('/:id', getFavorites);
 router.post('/:id', addFavorites);
-router.delete('/:id', deleteFavorites);
+router.delete('/:id/:gameId', deleteFavorites);
 
 export default router;

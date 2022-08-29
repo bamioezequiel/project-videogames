@@ -1,10 +1,10 @@
-.container {
+.container-app {
   /* overflow-x: hidden; */
   display: flex;
   flex-wrap: wrap;
 }
 
-.content {
+.content-app {
   margin-left: 4.5vw;
 }
 

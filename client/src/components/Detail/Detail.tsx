@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getDetailGame } from '../../redux/actions';
+import { getDetailGame, getFavoritesLocalStorage } from '../../redux/actions';
 import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
 import s from './Detail.module.css';
 
@@ -11,6 +11,12 @@ export default function Detail() {
     const detailGame = useSelector((state: any) => state.detailGame);
     const { id } = useParams();
     const [favoriteDetail, setFavoriteDetail] = useState(false);
+
+    /* useEffect( () => {
+        if(Object.keys(detailGame).length > 0) {
+          setLoading(false);
+        }
+      }, [detailGame] ) */
 
     useEffect(() => {
         dispatch(getDetailGame(id));
@@ -46,6 +52,7 @@ export default function Detail() {
             });
             localStorage.setItem("favorites", JSON.stringify(remFav));
         }
+        dispatch(getFavoritesLocalStorage())
     }
 
     return (

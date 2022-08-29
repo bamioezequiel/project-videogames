@@ -7,7 +7,7 @@ import { Order } from "./Order.js";
 export const Cart = sequelize.define(
   "cart", {
     status: {
-        type: DataTypes.ENUM("En proceso", "Cancelado", "Completado", "Vacio"),
+        type: DataTypes.ENUM("En proceso", "Completado", "Vacio"),
         defaultValue: 'Vacio'
     },
     cart: {
