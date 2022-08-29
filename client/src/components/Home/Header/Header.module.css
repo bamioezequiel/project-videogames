@@ -20,7 +20,7 @@
 
 .header_search {
   height: 4vh;
-  width: 200px;
+  width: 250px;
   border-radius: 10px;
   padding: 20px 5px 20px 15px;
   margin-right: 10px;
@@ -29,6 +29,10 @@
   border-bottom: solid var(--main-color);
   transition: ease-in 1s;
 }
+
+.header_search:focus{
+  outline:none;
+} 
 
 .header_search_icon {
   cursor: pointer;

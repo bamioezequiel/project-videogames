@@ -7,23 +7,70 @@ export const GET_ALL_GAMES = "GET_ALL_GAMES";
 export const GET_FILTERED_GAMES = "GET_FILTERED_GAMES";
 export const GET_FILTERED_FEATURED_GAMES = "GET_FILTERED_FEATURED_GAMES";
 export const GET_FILTERED_NEW_GAMES = "GET_FILTERED_NEW_GAMES";
+export const GET_GENRES = "GET_GENRES";
+export const GET_PLATFORMS = "GET_PLATFORMS";
+export const GET_TAGS = "GET_TAGS";
 export const GET_USER = "GET_USER";
 export const POST_USER = "POST_USER";
 // export const ORDER_BY_PRICE = 'ORDER_BY_PRICE';
 
-export const axiosError = (error: Error) => {
-  return { type: AXIOS_ERROR, payload: error };
+export const getTags = () => {
+  try {
+    return async function (dispatch: Function) {
+      try {
+        await dispatch(axiosStart("tags", []));
+        const res = await axios.get(`http://localhost:3001/tags`);
+        return dispatch({ type: GET_TAGS, payload: res.data });
+      } catch (error) {
+        await dispatch(axiosError(error as Error));
+        console.log(`Error, actions <GetTags>: ${error}`);
+      }
+    };
+  } catch (error) {
+    console.log(`Error, actions <GetTags>: ${error}`);
+  }
 };
 
-export const axiosStart = (state: string, value?: any) => {
-  return { type: AXIOS_START, payload: !value ? [] : value, state: state };
+export const getPlatforms = () => {
+  try {
+    return async function (dispatch: Function) {
+      try {
+        await dispatch(axiosStart("platforms", []));
+        const res = await axios.get(`http://localhost:3001/platforms`);
+        return dispatch({ type: GET_PLATFORMS, payload: res.data });
+      } catch (error) {
+        await dispatch(axiosError(error as Error));
+        console.log(`Error, actions <GetPlatforms>: ${error}`);
+      }
+    };
+  } catch (error) {
+    console.log(`Error, actions <GetPlatforms>: ${error}`);
+  }
+};
+
+export const getGenres = () => {
+  try {
+    return async function (dispatch: Function) {
+      try {
+        await dispatch(axiosStart("genres", []));
+        const res = await axios.get(`http://localhost:3001/genres`);
+        return dispatch({ type: GET_GENRES, payload: res.data });
+      } catch (error) {
+        await dispatch(axiosError(error as Error));
+        console.log(`Error, actions <GetGenres>: ${error}`);
+      }
+    };
+  } catch (error) {
+    console.log(`Error, actions <GetGenres>: ${error}`);
+  }
 };
 
 export const getLogoutUser = () => {
   return async function (dispatch: Function) {
     try {
       await dispatch(axiosStart("user", {}));
-      const res = await Axios.get(`http://localhost:3001/auth/logout`, {//arreglar logout no deslogea
+      const res = await Axios.get(`http://localhost:3001/auth/logout`, {
+        //arreglar logout no deslogea
         withCredentials: true,
       });
       return res.data;
@@ -39,12 +86,27 @@ export const getLoginMeUser = () => {
     try {
       let res = await Axios.get(`http://localhost:3001/auth/isAuth`, {
         withCredentials: true,
-      })
-      console.log(res.data)
+      });
+      console.log(res.data);
       return res.data;
     } catch (error) {
       await dispatch(axiosError(error as Error));
       console.log(`Error, actions <isAuthUser>: ${error}`);
+    }
+  };
+};
+
+export const postLoginUserWithGoogle = () => {
+  return async function (dispatch: Function) {
+    try {
+      await dispatch(axiosStart("user", {}));
+      let res = await Axios.post(`http://localhost:3001/auth/google`, {
+        withCredentials: true,
+      });
+      return res.data;
+    } catch (error) {
+      await dispatch(axiosError(error as Error));
+      console.log(`Error, actions <LoginUser>: ${error}`);
     }
   };
 };
@@ -170,6 +232,14 @@ export const getFilteredGames = (
       console.log(`Error, actions <getFilteredGames>: ${error}`);
     }
   };
+};
+
+export const axiosError = (error: Error) => {
+  return { type: AXIOS_ERROR, payload: error };
+};
+
+export const axiosStart = (state: string, value?: any) => {
+  return { type: AXIOS_START, payload: !value ? [] : value, state: state };
 };
 
 // export function orderByPrice(payload : any) {

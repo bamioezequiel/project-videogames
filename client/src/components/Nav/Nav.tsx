@@ -8,6 +8,7 @@ import useAuth from "../../utils/auth";
 
 export default function Nav() {
   const { user, isAuth } = useAuth();
+  const favorites = JSON.parse(localStorage.getItem("favorites") || '[]');
 
   return (
     <div className={s.nav_container}>
@@ -19,11 +20,15 @@ export default function Nav() {
             </NavLink>
             <NavLink to={"/favorites"} className={s.nav_menu_item}>
               <MdFavorite />
-              <span className={s.item_amount}>5</span>
+              <span className={s.item_amount}>{
+                (isAuth)
+                  ? user?.favorites.length
+                  : favorites?.length
+              }</span>
             </NavLink>
             <NavLink to={"/"} className={s.nav_menu_item}>
               <BsFillCartCheckFill />
-              <span className={s.item_amount}>1</span>
+              <span className={s.item_amount}>0</span>
             </NavLink>
           </div>
           <div className={s.nav_menu_col2}>

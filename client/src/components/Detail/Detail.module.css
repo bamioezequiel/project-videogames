@@ -1,5 +1,6 @@
 .detail_container {
     z-index: 200;
+    overflow: hidden;
     background-color: #ffffffa4;
     width: 90%;
     height: 90vh;
@@ -165,8 +166,8 @@
 .detail_tag p {
     color: var(--color-white);
     margin: 0;
-    padding: 3px 20px;
-    font-size: calc(.5rem + .3vw);
+    padding: 5px 20px;
+    font-size: calc(.6rem + .3vw);
 }
 
 .flipCard {

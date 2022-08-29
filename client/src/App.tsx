@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
-import { getAllGames, getLoginMeUser, getLogoutUser, getUser } from "./redux/actions";
+import { getAllGames, getGenres, getLoginMeUser, getPlatforms, getTags, getUser } from "./redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import useAuth from "./utils/auth";
 import Home from "./components/Home/Home";
@@ -36,13 +36,16 @@ function App() {
     const res: any = await dispatch(getLoginMeUser());
     if (res && res.id) {
       await dispatch(getUser(res.id));
+      localStorage.setItem("User", JSON.stringify(res));
     }
-    localStorage.setItem("User", JSON.stringify(res));
   };
 
   useEffect(() => {
+    dispatch(getPlatforms());
+    dispatch(getTags());
+    dispatch(getGenres());
     dispatch(getAllGames());
-  }, [dispatch]);
+  }, []);
 
   return (
     // loading ? <div>Cargando...</div>

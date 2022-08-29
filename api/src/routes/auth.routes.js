@@ -1,7 +1,7 @@
 import express from "express";
 import passport from "passport";
-import { isAuthenticated } from "./../../lib/midlewares/midlewares.js";
-import { logout, adminAccess, adminDelete, login, isAuth } from "./../../controllers/auth.controllers.js";
+import { isAuthenticated } from "../lib/midlewares/midlewares.js";
+import { logout, adminAccess, adminDelete, login, isAuth } from "../controllers/auth.controllers.js";
 
 const router = express.Router();
 router.post("/login", login);
@@ -26,8 +26,8 @@ router.get(
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    successRedirect: "http://localhost:3000/oauth",
-    failureRedirect: "http://localhost:3000/oauth",
+    successRedirect: "http://localhost:3000/",
+    failureRedirect: "http://localhost:3000/",
   })
 );
 

@@ -41,6 +41,7 @@ export const validationsLogin = (input: any) => {
   let errors = {
     email: "",
     password: "",
+    general: ""
   };
   const emailRegex = /\S+@\S+/;
 

@@ -18,6 +18,7 @@ export default function Login() {
     const [errors, setErrors] = useState({
         email: "",
         password: "",
+        general: ""
     });
 
     const redirect = () => {
@@ -38,16 +39,13 @@ export default function Login() {
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
-        const emailRegex = /\S+@\S+/;
-        if (!emailRegex.test(loginUser.email)) {
-            alert("Ingrese datos válidos");
-            return;
-        }
         try {
             let user = await dispatch(postLoginUser(loginUser));
             if (user === "false") {
-                alert("El usuario o la contraseña no son validos")
-
+                setErrors({
+                    ...errors,
+                    general: "El usuario o la contraseña no son validos"
+                });
             } else if (loginUser.email === user.email) {
                 localStorage.setItem('User', JSON.stringify(user))
                 await dispatch(getUser(user.id))
@@ -55,7 +53,10 @@ export default function Login() {
                 redirect();
 
             } else {
-                alert("El usuario o la contraseña no son validos");
+                setErrors({
+                    ...errors,
+                    general: "El usuario o la contraseña no son validos"
+                });
             }
         } catch (error) {
             console.log(`Error, actions <LoginUser>: ${error}`)
