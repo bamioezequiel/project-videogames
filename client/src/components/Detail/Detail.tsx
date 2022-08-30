@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getDetailGame, getFavoritesLocalStorage } from '../../redux/actions';
+import { getCartLocalStorage, getDetailGame, getFavoritesLocalStorage } from '../../redux/actions';
 import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
 import s from './Detail.module.css';
+import useCart from '../../hooks/useCart';
 
 export default function Detail() {
     const dispatch: any = useDispatch();
     const navigate = useNavigate();
     const detailGame = useSelector((state: any) => state.detailGame);
     const { id } = useParams();
+    const { cart, handleCart, setItemCart } = useCart();
     const [favoriteDetail, setFavoriteDetail] = useState(false);
 
     /* useEffect( () => {
@@ -22,9 +24,10 @@ export default function Detail() {
         dispatch(getDetailGame(id));
         let favoritesLS = JSON.parse(localStorage.getItem("favorites") || '[]');
         favoritesLS?.find((f: any) => f.id == id && setFavoriteDetail(true));
+        setItemCart(id);
     }, [dispatch, id]);
 
-    function handleReturn(e: any){
+    function handleReturn(e: any) {
         e.preventDefault();
         navigate(-1);
     }
@@ -35,20 +38,20 @@ export default function Detail() {
 
         if (!favoriteDetail) {
             if (!localStorage.getItem("favorites")) {
-              let favoritesLS = [];
-              favoritesLS.push(detailGame);
-              localStorage.setItem("favorites", JSON.stringify(favoritesLS));
-            } else {
-              let favoritesLS = JSON.parse(localStorage.getItem("favorites") || '[]');
-              if (favoritesLS?.filter((f: any) => f.id !== detailGame.id)) {
-                favoritesLS.unshift(detailGame);
+                let favoritesLS = [];
+                favoritesLS.push(detailGame);
                 localStorage.setItem("favorites", JSON.stringify(favoritesLS));
-              }
+            } else {
+                let favoritesLS = JSON.parse(localStorage.getItem("favorites") || '[]');
+                if (favoritesLS?.filter((f: any) => f.id !== detailGame.id)) {
+                    favoritesLS.unshift(detailGame);
+                    localStorage.setItem("favorites", JSON.stringify(favoritesLS));
+                }
             }
         } else {
             let favoritesLS = JSON.parse(localStorage.getItem("favorites") || '[]');
             let remFav = favoritesLS.filter((f: any) => {
-              return f.id !== detailGame.id;
+                return f.id !== detailGame.id;
             });
             localStorage.setItem("favorites", JSON.stringify(remFav));
         }
@@ -61,7 +64,7 @@ export default function Detail() {
                 backgroundImage: `url(${detailGame?.main_image})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center"
-            }}> 
+            }}>
             <div className={s.detail_container}>
                 <div className={s.topLineDetail}>
                     <h3 onClick={(e) => handleReturn(e)} className={s.returnBtn}>Return</h3>
@@ -71,11 +74,11 @@ export default function Detail() {
                     {/* carusel */}
                     <div className={s.flipCard}>
                         <div className={s.flipCardInner}>
-               
-                                <img src={detailGame?.main_image} className={s.detail_main_image} alt="main_image" />
-                      
+
+                            <img src={detailGame?.main_image} className={s.detail_main_image} alt="main_image" />
+
                             <div className={s.details_labels_container}>
-                                <div className={s.allTags}>    
+                                <div className={s.allTags}>
                                     <div className={s.detail_geners}>
                                         {
                                             detailGame?.geners?.map((g: any, i: number) => {
@@ -109,14 +112,20 @@ export default function Detail() {
                                 <span className={s.priceGameDetail}>${detailGame?.price} USD</span>
                             </div>
                             <div className={s.detailInfoNonImp}>
-                            <p className={s.ratingGameDetail}>{new Array(detailGame?.rating).fill(false)?.map((el) => '⭐')}</p>
-                            <p>Release Date: {detailGame?.released?.split("-").reverse().join("-")}</p>
-                            <p className={s.detail_description}>{detailGame?.description}</p>
+                                <p className={s.ratingGameDetail}>{new Array(detailGame?.rating).fill(false)?.map((el) => '⭐')}</p>
+                                <p>Release Date: {detailGame?.released?.split("-").reverse().join("-")}</p>
+                                <p className={s.detail_description}>{detailGame?.description}</p>
                             </div>
                         </div>
                         <div className={s.detail_btn_container}>
                             <button className={s.detail_btn}>Comprar ahora</button>
-                            <button className={s.detail_btn}>Agregar al carrito</button>
+                            <button className={s.detail_btn} onClick={(e) => handleCart(e, detailGame) } >
+                                {
+                                    (cart)
+                                        ? <span>Sacar del carrito</span>
+                                        : <span>Agregar al carrito</span>
+                                }
+                            </button>
                         </div>
                         <br />
                     </div>

@@ -10,10 +10,76 @@ export const GET_FILTERED_NEW_GAMES = "GET_FILTERED_NEW_GAMES";
 export const GET_GENRES = "GET_GENRES";
 export const GET_PLATFORMS = "GET_PLATFORMS";
 export const GET_TAGS = "GET_TAGS";
+export const PUT_CART = "PUT_CART";
+export const GET_CART = "GET_CART";
+export const DELETE_CART = "DELETE_CART";
+export const GET_CART_LOCAL_STORAGE = "GET_CART_LOCAL_STORAGE";
 export const GET_FAVORITES_LOCAL_STORAGE = "GET_FAVORITES_LOCAL_STORAGE";
 export const GET_USER = "GET_USER";
 export const POST_USER = "POST_USER";
 // export const ORDER_BY_PRICE = 'ORDER_BY_PRICE';
+
+export const removeCart = (id: any, gameId: any) => {
+  return async function (dispatch: Function) {
+    try {
+      const res = await axios.delete(`http://localhost:3001/cart/${id}/${gameId}`);
+      console.log(res);
+      return dispatch({ type: DELETE_CART, payload: res.data });
+    } catch (error) {
+      await dispatch(axiosError(error as Error));
+      console.log(`Error, actions <RemoveCart>: ${error}`);
+    }
+  };
+};
+
+export const addCart = (id: any, gameId: any) => {
+  return async function (dispatch: Function) {
+    try {
+      const res = await axios.put(`http://localhost:3001/cart/${id}/${gameId}`);
+      return dispatch({ type: PUT_CART, payload: res.data });
+    } catch (error) {
+      await dispatch(axiosError(error as Error));
+      console.log(`Error, actions <AddCart>: ${error}`);
+    }
+  };
+};
+
+export const getCart = (id: any) => {
+  return async function (dispatch: Function) {
+    try {
+      await dispatch(axiosStart("cart", {}));
+      const res = await axios.get(`http://localhost:3001/cart/${id}`);
+      return dispatch({ type: GET_CART, payload: res.data });
+    } catch (error) {
+      await dispatch(axiosError(error as Error));
+      console.log(`Error, actions <GetCart>: ${error}`);
+    }
+  };
+};
+
+export const cleanCart = () => {
+  return async function (dispatch: Function) {
+    try {
+      await dispatch(axiosStart("cart", {}));
+    } catch (error) {
+      await dispatch(axiosError(error as Error));
+      console.log(`Error, actions <GetCart>: ${error}`);
+    }
+  };
+};
+
+export const getCartLocalStorage = () => {
+  return async function (dispatch: Function) {
+    try {
+      await dispatch(axiosStart("cartLS", []));
+      const res = JSON.parse(localStorage.getItem("cart") || '[]');
+      return dispatch({ type: GET_CART_LOCAL_STORAGE, payload: res });
+    } catch (error) {
+      await dispatch(axiosError(error as Error));
+      console.log(`Error, actions <GetCartLocalStorage>: ${error}`);
+    }
+  };
+};
 
 export const getFavoritesLocalStorage = () => {
   return async function (dispatch: Function) {
@@ -170,6 +236,17 @@ export const getDetailGame = (id: any) => {
     } catch (error) {
       dispatch(axiosError(error as Error));
       console.log(`Error, actions <GetDetailGames>: ${error}`);
+    }
+  };
+};
+
+export const cleanAllGames = () => {
+  return async function (dispatch: Function) {
+    try {
+      dispatch(axiosStart("allVideogames"));
+    } catch (error) {
+      dispatch(axiosError(error as Error));
+      console.log(`Error, actions <GetAllGames>: ${error}`);
     }
   };
 };

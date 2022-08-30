@@ -15,13 +15,13 @@ export default function Home() {
       <div className={s.home_content}>
       {
         newsGames.length > 0 
-        ? newsGames.slice(0, 1).map( (g: any) => <Card  game={g} tag='NEWS' /> )
+        ? newsGames.slice(0, 1).map( (g: any) => <Card key={g.id+g.name+'h'} game={g} tag='NEWS' /> )
         : <span>No hay nuevos juegos para mostrar</span> 
       }
         <div>
         {
           newsGames.length > 0 
-          ? newsGames.slice(1, 3).map( (g: any) => <Card game={g} size='small' tag='NEWS' /> )
+          ? newsGames.slice(1, 3).map( (g: any) => <Card key={g.id+g.name+'h'} game={g} size='small' tag='NEWS' /> )
           : <span>No hay nuevos juegos para mostrar</span> 
         }
         </div>

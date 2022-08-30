@@ -1,5 +1,5 @@
 import { Action } from "../../interfaces/Action.interface";
-import { AXIOS_ERROR, AXIOS_START, GET_ALL_GAMES, GET_DETAIL_GAME, GET_FAVORITES_LOCAL_STORAGE, GET_FILTERED_FEATURED_GAMES, GET_FILTERED_NEW_GAMES, GET_GENRES, GET_PLATFORMS, GET_TAGS, GET_USER, POST_USER } from "../actions";
+import { AXIOS_ERROR, AXIOS_START, DELETE_CART, GET_ALL_GAMES, GET_CART, GET_CART_LOCAL_STORAGE, GET_DETAIL_GAME, GET_FAVORITES_LOCAL_STORAGE, GET_FILTERED_FEATURED_GAMES, GET_FILTERED_NEW_GAMES, GET_GENRES, GET_PLATFORMS, GET_TAGS, GET_USER, POST_USER, PUT_CART } from "../actions";
 
 const initialState = {
   allGames: [],
@@ -10,6 +10,8 @@ const initialState = {
   platforms: [],
   genres: [],
   favoritesLS: [],
+  cartLS: [],
+  cart: {},
   detailGame: {},
   user: {},
   loading: false,
@@ -18,6 +20,34 @@ const initialState = {
 
 const rootReducer = (state = initialState, action: Action) => {
   switch (action.type) {
+    case PUT_CART:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        cart: action.payload,
+      };
+    case DELETE_CART:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        cart: action.payload,
+      };
+    case GET_CART:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        cart: action.payload,
+      };
+    case GET_CART_LOCAL_STORAGE:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        cartLS: action.payload,
+      };
     case GET_FAVORITES_LOCAL_STORAGE:
       return {
         ...state,

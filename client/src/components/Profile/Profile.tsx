@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
-import useAuth from '../../utils/auth';
+import useAuth from '../../hooks/useAuth';
 import s from './Profile.module.css';
 import UserCard from '../Cards/UserCard/UserCard';
 import { useDispatch } from 'react-redux';
-import { getLogoutUser } from '../../redux/actions';
+import { cleanCart, getLogoutUser } from '../../redux/actions';
 
 export default function Profile() {
     const dispatch: Function = useDispatch();
 
     const handleLogout = async (e: any) => {
         e.preventDefault();
-        await dispatch(getLogoutUser());
         localStorage.removeItem('User');
+        await dispatch(getLogoutUser());
+        await dispatch(cleanCart());
     }
 
     return (

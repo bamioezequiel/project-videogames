@@ -3,7 +3,7 @@ import { addItemCart, deleteItemCart, getCart } from "../controllers/cart.contro
 const router = Router();
 
 router.get('/:id', getCart);
-router.put('/:id', addItemCart);
+router.put('/:id/:gameId', addItemCart);
 router.delete('/:id/:gameId', deleteItemCart);
 // router.delete('/:id', deleteCart);
 

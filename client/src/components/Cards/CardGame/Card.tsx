@@ -2,19 +2,27 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import s from "./Card.module.css";
 import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
-import { useDispatch } from "react-redux";
-import { getFavoritesLocalStorage } from "../../../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { cleanAllGames, getCart, getFavoritesLocalStorage } from "../../../redux/actions";
+import useCart from "../../../hooks/useCart";
+import useAuth from "../../../hooks/useAuth";
 
 export default function Card({ game, tag }: any) {
     const dispatch: Function = useDispatch();
     const [favorite, setFavorite] = useState(false);
+    const { cart, setCart, handleCart, setItemCart } = useCart();
+    const { isAuth } = useAuth();
     // const game = { id, name, description, price, image, tag };
+
+    useEffect(() => {
+        setItemCart(game.id);
+    }, [isAuth]);
 
     useEffect(() => {
         let favoritesLS = JSON.parse(localStorage.getItem("favorites") || '[]');
         favoritesLS?.find((f: any) => f.id == game.id && setFavorite(true));
+        setItemCart(game.id);
     }, [dispatch, game.id]);
-
 
     function handleFavorites(e: any) {
         e.preventDefault();
@@ -69,7 +77,14 @@ export default function Card({ game, tag }: any) {
                         <NavLink to={`/detail/${game.id}`}>
                             ${game.price}
                         </NavLink>
-                        <a className={s.cart_btn}><i className={`${s.cart_icon} ${s.ion_bag}`}></i>ADD TO CART</a>
+                        <a className={s.cart_btn} onClick={(e: any) => handleCart(e, game)}>
+                            <i className={`${s.cart_icon} ${s.ion_bag}`}></i>
+                            {
+                                (cart)
+                                    ? <span>REMOVE TO CART</span>
+                                    : <span>ADD TO CART</span>
+                            }
+                        </a>
                     </div>
 
                 </div>

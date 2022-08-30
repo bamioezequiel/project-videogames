@@ -17,7 +17,7 @@ export default function Featured({ show }: any) {
         show && <div className={s.cards_container}>
             {
                 featuredGames?.length > 0 
-                ? featuredGames.slice(0, 9).map( (g: any) => <Card game={g} tag='FEATURED' /> )
+                ? featuredGames.slice(0, 9).map( (g: any) => <Card key={g.id+g.name} game={g} tag='FEATURED' /> )
                 : <span>No hay juegos destacados para mostrar</span> 
             }
             

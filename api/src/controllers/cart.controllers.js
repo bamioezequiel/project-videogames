@@ -5,8 +5,8 @@ import { Cart } from "../models/Cart.js";
 import { Op } from "sequelize";
 
 export const addItemCart = async (req, res, next) => {
-  const { id } = req.params;
-  const { gameId } = req.query;
+  const { id, gameId } = req.params;
+
   try {
     const game = await Game.findByPk(gameId);
     let userCart = await Cart.findOne({
@@ -51,8 +51,9 @@ export const addItemCart = async (req, res, next) => {
           ? game.price
           : game.price - (game.price * game.on_sale / 100)),
     });
+    await userCart.save();
 
-    res.send("Cart updated");
+    res.send(await getCart(req, res));
   } catch (error) {
     res.status(404).send(`Error, route <Add, AddItemCart>: ${error}`);
   }
@@ -114,8 +115,8 @@ export const deleteItemCart = async (req, res) => {
           ? game.price
           : game.price - (game.price * game.on_sale / 100)),
     });
-
-    res.send("Cart updated");
+    await userCart.save();
+    res.send(await getCart(req, res));
   } catch (error) {
     res.status(404).send(`Error, route <Delete, DeleteItemCart>: ${error}`);
   }

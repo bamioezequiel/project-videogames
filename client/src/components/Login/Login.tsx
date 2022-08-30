@@ -4,13 +4,15 @@ import { useState } from 'react';
 import { BsCheck2Circle, BsDashCircle } from 'react-icons/bs';
 import { useDispatch } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { getUser, postLoginUser } from '../../redux/actions';
+import useCart from '../../hooks/useCart';
+import { getAllGames, getCart, getUser, postLoginUser } from '../../redux/actions';
 import { validationsLogin } from '../../utils/validations';
 import s from './Login.module.css';
 
 export default function Login() {
     const navigate = useNavigate();
     const dispatch: Function = useDispatch();
+    const { saveAllItemsInCart } = useCart();
     const [loginUser, setLoginUser] = useState({
         email: "",
         password: "",
@@ -41,6 +43,7 @@ export default function Login() {
         e.preventDefault();
         try {
             let user = await dispatch(postLoginUser(loginUser));
+            dispatch(getCart(user.id))
             if (user === "false") {
                 setErrors({
                     ...errors,
@@ -48,10 +51,10 @@ export default function Login() {
                 });
             } else if (loginUser.email === user.email) {
                 localStorage.setItem('User', JSON.stringify(user))
-                await dispatch(getUser(user.id))
+                await dispatch(getUser(user.id));
                 alert("Te logueaste correctamente!");
+                saveAllItemsInCart(user.id);
                 redirect();
-
             } else {
                 setErrors({
                     ...errors,

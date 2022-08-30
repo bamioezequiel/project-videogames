@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useAuth from '../../../utils/auth';
+import useAuth from '../../../hooks/useAuth';
 import { MdEmail, MdOutlinePermContactCalendar, MdShoppingBasket } from 'react-icons/md';
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { BiUserCircle } from 'react-icons/bi';

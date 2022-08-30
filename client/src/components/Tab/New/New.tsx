@@ -17,7 +17,7 @@ export default function New({ show }: any) {
         show && <div className={s.cards_container}>
             {
                newGames?.length > 0 
-               ? newGames.slice(9, 18).map( (g: any) => <Card game={g} tag='NEW' /> )
+               ? newGames.slice(9, 18).map( (g: any) => <Card key={g.id+g.name} game={g} tag='NEW' /> )
                : <span>No hay nuevos juegos para mostrar</span> 
             }
         </div>
