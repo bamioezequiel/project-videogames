@@ -37,9 +37,6 @@
     width: 100%;
 }
 
-.profile_card_fields {
-}
-
 .profile_card_fields > input {
 padding: 5px;
   border: thin solid #aaa;
