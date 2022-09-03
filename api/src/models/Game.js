@@ -35,14 +35,16 @@ export const Game = sequelize.define("game", {
   },
 
   price: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.FLOAT,
     defaultValue: 0,
   },
 
   price_with_sale: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.FLOAT,
     defaultValue: 0,
-    
+    get() {
+      return this.getDataValue('price') - (this.getDataValue('price') * this.getDataValue('on_sale') / 100)
+    }
   },
 
   on_sale: {
@@ -69,14 +71,6 @@ export const Game = sequelize.define("game", {
   is_new: {
     type: DataTypes.BOOLEAN,
     defaultValue: false,
-  },
-
-  saturated_color: {
-    type: DataTypes.STRING,
-  },
-
-  dominant_color: {
-    type: DataTypes.STRING,
   },
 
   genres: {

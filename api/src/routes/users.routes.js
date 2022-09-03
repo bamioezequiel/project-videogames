@@ -2,7 +2,6 @@ import { Router } from "express";
 import {
   getUsers,
   getUserByID,
-  postUser,
   deleteUser,
   restoreUser,
   patchAdminUser,
@@ -13,7 +12,6 @@ const router = Router();
 
 router.get("/", getUsers);
 router.get("/:id", getUserByID);
-router.post("/", postUser);
 router.delete("/delete/:id", deleteUser);
 router.put("/update", updateUser);
 router.patch("/restore/:id", restoreUser);

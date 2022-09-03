@@ -17,15 +17,6 @@ export const Order = sequelize.define("order", {
     },
   },
 
-  quantity: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    defaultValue: 0,
-    validate: {
-      min: 0,
-    },
-  },
-
   status: {
     type: DataTypes.ENUM("Cancelado", "Completado"),
     allowNull: false,

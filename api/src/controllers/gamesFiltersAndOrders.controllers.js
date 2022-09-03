@@ -2,16 +2,16 @@ import { Game } from "../models/Game.js";
 
 export const getGamesFiltered = async (req, res) => {
   const { s, featured, is_new, platform, tag, genres, rating, order, amount } = req.query;
-  const { games } = req.body;
+  let { games } = req.body;
   
   try {
     if(!games || games.length === 0) {
       games = await Game.findAll();
     }
-    if (featured) {
+    if (featured  === 'true') {
       games = games.filter((g) => g.featured == true);
     }
-    if (is_new) {
+    if (is_new === 'true') {
       games = games.filter((g) => g.is_new == true);
     }
     if (tag?.length > 0) {

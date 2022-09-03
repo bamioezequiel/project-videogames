@@ -6,22 +6,20 @@ import s from './../Tab.module.css';
 
 export default function Featured({ show }: any) {
     const dispatch: Function = useDispatch();
-    // const featuredGames = useSelector((state: any) => state.filterFeaturedGames);
-    const featuredGames = useSelector((state: any) => state.allGames);
+    const featuredGames = useSelector((state: any) => state.filterFeaturedGames);
+    // const featuredGames = useSelector((state: any) => state.allGames);
 
-    useEffect( () => {
-        // dispatch(getFilteredFeaturedGames());
+    useEffect(() => {
+        dispatch(getFilteredFeaturedGames());
     }, [dispatch]);
 
     return (
         show && <div className={s.cards_container}>
             {
-                featuredGames?.length > 0 
-                ? featuredGames.slice(0, 9).map( (g: any) => <Card key={g.id+g.name} game={g} tag='FEATURED' /> )
-                : <span>No hay juegos destacados para mostrar</span> 
+                featuredGames?.length > 0
+                    ? featuredGames.slice(0, 9).map((g: any) => <Card key={g.id + g.name} game={g} tag='FEATURED' />)
+                    : <span>No featured games</span>
             }
-            
-            {/* <Card image='https://imgur.com/IRINZJc.jpg' tag='FEATURE' />  */}
         </div>
     )
 }

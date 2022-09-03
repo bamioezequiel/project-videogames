@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getAllGames, getCart, getCartLocalStorage, getFavoritesLocalStorage, getGenres, getLoginMeUser, getPlatforms, getTags, getUser } from "./redux/actions";
+import { authenticateStatus, getAllGames, getCart, getCartLocalStorage, getFavoritesLocalStorage, getGenres, getPlatforms, getTags, getUser } from "./redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import useAuth from "./hooks/useAuth";
 import Home from "./components/Home/Home";
@@ -15,26 +15,18 @@ import Profile from "./components/Profile/Profile";
 import useLoading from "./components/Loading/Loading";
 import useCart from "./hooks/useCart";
 import Cart from './components/Cart/Cart';
-
+import Dashboard from "./components/Dashboard/Dashboard";
+import ListUsers from "./components/Dashboard/ListUsers/ListUsers";
+import ListGames from "./components/Dashboard/ListGames/ListGames";
+import CreateGame from "./components/Dashboard/CreateGame/CreateGame";
+import ListOrders from "./components/Dashboard/ListOrders/ListOrders";
 function App() {
   const dispatch: Function = useDispatch();
   const allGames = useSelector((state: any) => state.allGames);
-  const tokenUser: any = JSON.parse(localStorage.getItem('User') || '{}');
-  const { isAuth, user } = useAuth();
+  const tokenUser: any = localStorage.getItem('token');
+  const { isAuth, user, isAdmin, loginStatus } = useAuth();
   const { saveAllItemsInCart } = useCart();
   const { loading, setLoading, Loading }: any = useLoading();
-
-  const loginMe = async () => {
-    const res: any = await dispatch(getLoginMeUser());
-    if (res && res.id) {
-      await dispatch(getUser(res.id));
-      await dispatch(getCart(res.id));
-      saveAllItemsInCart(res.id);
-      localStorage.setItem("User", JSON.stringify(res));
-    } else {
-      localStorage.removeItem("User");
-    }
-  };
 
   const loadGames = async () => {
     await dispatch(getPlatforms());
@@ -44,42 +36,42 @@ function App() {
   }
 
   useEffect(() => {
+    if (allGames.length > 0) {
+      if (tokenUser !== null) {
+        if (isAuth) {
+          dispatch(getCart(user.id))
+          setLoading(false);
+        }
+      } else {
+        setLoading(false);
+      }
+    }
+  }, [allGames, isAuth])
+
+  useEffect(() => {
     if (allGames.length === 0) {
       loadGames();
-      setLoading(false);
     }
   }, [allGames])
-  
-  useEffect(() => {
-    if (Object.keys(tokenUser).length) {
-      if (isAuth) {
-        setLoading(false);
-      } else {
-        setLoading(true);
-      }
-    } else {
-      setLoading(false);
-    }
-  }, [isAuth])
 
   useEffect(() => {
-    if (Object.keys(tokenUser).length) {
-      loginMe();
-    }
-    return () => {
-      if (Object.keys(tokenUser).length) {
-        loginMe();
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    if (isAuth) {
-      dispatch(getCart(user.id));
+    if (tokenUser !== null) {
+      loginStatus();
+      dispatch(getCart(user.id))
+      saveAllItemsInCart(user.id);
     } else {
       dispatch(getFavoritesLocalStorage());
       dispatch(getCartLocalStorage());
     }
+
+    return () => {
+      if (tokenUser !== null) {
+        loginStatus();
+        dispatch(getCart(user.id))
+        saveAllItemsInCart(user.id);
+      }
+      // Eliminar token cuando expira
+    };
   }, []);
 
   return (
@@ -91,11 +83,18 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/store" element={<Store />} />
             <Route path="/detail/:id" element={<Detail />} />
+            <Route path="/favorites" element={<Favorites />} />
+            <Route path="/cart" element={<Cart />} />
+
             <Route path="/login" element={!isAuth ? <Login /> : <Navigate to="/" />} />
             <Route path="/signup" element={!isAuth ? <Signup /> : <Navigate to="/" />} />
             <Route path="/profile" element={isAuth ? <Profile /> : <Navigate to="/" />} />
-            <Route path="/favorites" element={<Favorites />} />
-            <Route path="/cart" element={<Cart />} />
+
+            <Route path="/dashboard" element={(isAdmin) ? <Dashboard /> : <Navigate to="/" />} />
+            <Route path="/dashboard/users" element={(isAdmin) ? <ListUsers /> : <Navigate to="/" />} />
+            <Route path="/dashboard/orders" element={(isAdmin) ? <ListOrders /> : <Navigate to="/" />} />
+            <Route path="/dashboard/games" element={(isAdmin) ? <ListGames /> : <Navigate to="/" />} />
+            <Route path="/dashboard/create-game" element={(isAdmin) ? <CreateGame /> : <Navigate to="/" />} />
           </Routes>
         </div>
       </BrowserRouter>

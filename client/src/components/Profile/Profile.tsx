@@ -3,17 +3,11 @@ import useAuth from '../../hooks/useAuth';
 import s from './Profile.module.css';
 import UserCard from '../Cards/UserCard/UserCard';
 import { useDispatch } from 'react-redux';
-import { cleanCart, getLogoutUser } from '../../redux/actions';
+import { NavLink } from 'react-router-dom';
 
 export default function Profile() {
     const dispatch: Function = useDispatch();
-
-    const handleLogout = async (e: any) => {
-        e.preventDefault();
-        localStorage.removeItem('User');
-        await dispatch(getLogoutUser());
-        await dispatch(cleanCart());
-    }
+    const { isAdmin, logout } = useAuth();
 
     return (
         <div className={s.profile_container}>
@@ -22,8 +16,10 @@ export default function Profile() {
                 <nav className={s.profile_nav}>
                     <span>Purchased games</span>
                     <div>
-                        <button className={s.profile_btn}>Dashboard</button>{/* Solo para admins */}
-                        <button className={s.profile_btn_leave} onClick={handleLogout}>Leave</button>
+                        {
+                            isAdmin && <NavLink to='/dashboard' className={s.profile_btn}>Dashboard</NavLink>
+                        }
+                        <button className={s.profile_btn_leave} onClick={logout}>Leave</button>
                     </div>
                 </nav>
                 {/* <div className={s.table_container}>

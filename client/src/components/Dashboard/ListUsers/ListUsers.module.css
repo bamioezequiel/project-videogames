@@ -1,0 +1,8 @@
+.listUsers_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90vw;
+    height: 100%;
+    margin: auto;
+}

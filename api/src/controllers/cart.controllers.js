@@ -31,6 +31,7 @@ export const addItemCart = async (req, res, next) => {
         },
       });
     }
+    
     const arrCart = userCart.dataValues.cart;
     for(let i = 0; i < arrCart.length; i++) {
       if(arrCart[i] == gameId) {
@@ -38,11 +39,6 @@ export const addItemCart = async (req, res, next) => {
       }
     }
     
-    // console.log(userCart.dataValues.price, game.on_sale, game.price)
-    // console.log(userCart.dataValues.price + ((game.on_sale === 0)
-    // ? game.price
-    // : game.price - (game.price * game.on_sale / 100)))
-
     userCart.update({
       status: "En proceso",
       cart: [...userCart.dataValues.cart, game.id],

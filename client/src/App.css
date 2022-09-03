@@ -1,10 +1,11 @@
 .container-app {
-  /* overflow-x: hidden; */
-  display: flex;
-  flex-wrap: wrap;
+  overflow-x: hidden;
+  /* display: flex; */
+  
 }
 
 .content-app {
+  width: 94.6vw;
   margin-left: 4.5vw;
 }
 

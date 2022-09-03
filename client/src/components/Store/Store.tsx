@@ -1,13 +1,15 @@
 import { useState } from 'react';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Card from '../Cards/CardGame/Card';
 import s from './Store.module.css';
 import Pagination from '../Pagination/Pagination';
 import Footer from '../Footer/Footer';
 import SearchBar from '../SearchBar/SearchBar';
 import View from '../View/View';
+import { filtersGames } from '../../redux/actions';
 
 export default function Store() {
+    const dispatch: Function = useDispatch();
     const tags = useSelector((state: any) => state.tags);
     const platforms = useSelector((state: any) => state.platforms);
     const genres = useSelector((state: any) => state.genres);
@@ -22,30 +24,53 @@ export default function Store() {
         setCurrentPage(pageNumber);
     };
 
+    const handleChangeSelect = (e: any) => {
+        e.preventDefault();
+
+        if (e.target.id === "tags") {
+            dispatch(filtersGames(e.target.id, e.target.value));
+        }
+        if (e.target.id === "genres") {
+            dispatch(filtersGames(e.target.id, e.target.value));
+        }
+        if (e.target.id === "platforms") {
+            dispatch(filtersGames(e.target.id, e.target.value));
+        }
+
+        if (e.target.id === "reset") {
+            dispatch(filtersGames(e.target.id, ''));
+        }
+
+        paginado(1);
+    };
+
     return (
         <div className={s.store_container}>
             <div className={s.store_filter}>
-                <select value='x'>
-                    <option value="x" disabled>Choose a tag</option>
+                <select id='tags' onChange={handleChangeSelect} >
+                    <option value="all" disabled>Choose a tag</option>
+                    <option value="all" >All tags</option>
                     {
                         tags.length > 0 && tags.map((tag: any) => {
                             return <option value={tag}>{tag}</option>
                         })
                     }
                 </select>
-                <select value='x'>
-                    <option value="x" disabled>Choose a platform</option>
+                <select id='platforms' onChange={handleChangeSelect} >
+                    <option value="all" disabled >Choose a platform</option>
+                    <option value="all" >All platforms</option>
                     {
                         platforms.length > 0 && platforms.map((platform: any) => {
                             return <option value={platform}>{platform}</option>
                         })
                     }
                 </select>
-                <select value='x'>
-                    <option value="x" disabled>Choose a genre</option>
+                <select id='genres' onChange={handleChangeSelect} >
+                    <option value="all" disabled >Choose a genre</option>
+                    <option value="all" >All genres</option>
                     {
                         genres.length > 0 && genres.map((genre: any) => {
-                            return <option value={genre}>{genre}</option>
+                            return <option key={genre} value={genre}>{genre}</option>
                         })
                     }
                 </select>

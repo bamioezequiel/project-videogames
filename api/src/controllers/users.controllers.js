@@ -56,37 +56,6 @@ export const deleteUser = async (req, res) => {
   }
 };
 
-export const postUser = async (req, res) => {
-  const bodyUser = req.body;
-  try {
-    const createdUser = await User.findOrCreate({
-      where: {
-        email: bodyUser.email,
-      },
-      defaults: {
-        username: bodyUser.username || '',
-        firstname: bodyUser.firstname,
-        lastname: bodyUser.lastname,
-        picture: bodyUser.picture || "https://imgur.com/EyEFL9w.png",
-        date_of_birth: bodyUser.date_of_birth || '',
-        email: bodyUser.email,
-        password: bodyUser.password,
-        phone: bodyUser.phone || '',
-        active: true,
-      },
-    });
-    if (!createdUser[1]) {
-      return res
-        .status(400)
-        .send(`Error, route <Post, PostUser>: This user already exists`);
-    }
-
-    res.status(201).send(createdUser[0]);
-  } catch (error) {
-    res.status(404).send(`Error, route <Add, PostUser>: ${error}`);
-  }
-};
-
 export const updateUser = async (req, res) => {
   const bodyUser = req.body;
   try {

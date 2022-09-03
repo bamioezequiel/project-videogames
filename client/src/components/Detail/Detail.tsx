@@ -109,7 +109,23 @@ export default function Detail() {
                         <div>
                             <div className={s.titleDetail}>
                                 <span className={s.nameGameDetail}>{detailGame?.name}</span>
-                                <span className={s.priceGameDetail}>${detailGame?.price} USD</span>
+                                {
+                                    (detailGame.on_sale > 0)
+                                    ? <div>
+                                        <span className={s.priceGameDetail}>
+                                            {detailGame?.price_with_sale} USD
+                                        </span>
+                                        <span style={{fontSize: '24px', textDecoration: 'line-through', marginLeft: '5px'}} className={s.priceGameDetail}>
+                                            {detailGame?.price} USD
+                                        </span>
+                                        <span style={{margin: '0 5px'}}>-{detailGame.on_sale}%</span>
+                                    </div>
+                                    : <span className={s.priceGameDetail}>
+                                            {detailGame?.price} USD
+                                        </span>
+                                }
+
+                                
                             </div>
                             <div className={s.detailInfoNonImp}>
                                 <p className={s.ratingGameDetail}>{new Array(detailGame?.rating).fill(false)?.map((el) => '⭐')}</p>
@@ -118,8 +134,8 @@ export default function Detail() {
                             </div>
                         </div>
                         <div className={s.detail_btn_container}>
-                            <button className={s.detail_btn}>Comprar ahora</button>
-                            <button className={s.detail_btn} onClick={(e) => handleCart(e, detailGame) } >
+                            <button className={s.detail_btn}>Añadir a la lista de deseos</button>
+                            <button className={s.detail_btn} onClick={(e) => handleCart(e, detailGame)} >
                                 {
                                     (cart)
                                         ? <span>Sacar del carrito</span>

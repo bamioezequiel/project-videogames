@@ -7,23 +7,32 @@ import s from "./Home.module.css";
 
 export default function Home() {
   const allGames = useSelector((state: any) => state.allGames);
-  const newsGames = allGames.filter( (g: any, i: number) => g.is_news || i % 2 === 0 );
+  // const newsGames = allGames.filter((g: any, i: number) => g.is_news || i % 2 === 0);
+  const amount = allGames.length;
+  let random1 = Math.floor(Math.random() * amount);
+  let random2 = Math.floor(Math.random() * amount);
+  let random3 = Math.floor(Math.random() * amount);
 
   return (
     <div className={s.home_container}>
       <Header />
       <div className={s.home_content}>
-      {
-        newsGames.length > 0 
-        ? newsGames.slice(0, 1).map( (g: any) => <Card key={g.id+g.name+'h'} game={g} tag='NEWS' /> )
-        : <span>No hay nuevos juegos para mostrar</span> 
-      }
-        <div>
         {
-          newsGames.length > 0 
-          ? newsGames.slice(1, 3).map( (g: any) => <Card key={g.id+g.name+'h'} game={g} size='small' tag='NEWS' /> )
-          : <span>No hay nuevos juegos para mostrar</span> 
+          (amount > 0) && (
+            <Card key={allGames[random1].id + allGames[random1].name + 'h'} game={allGames[random1]} />
+          )
         }
+        <div>
+          {
+            (amount > 0) && (
+              <Card key={allGames[random2].id + allGames[random2].name + 'h'} game={allGames[random2]} size='small' />
+            )
+          }
+          {
+            (amount > 0) && (
+              <Card key={allGames[random2].id + allGames[random3].name + 'h'} game={allGames[random3]} size='small' />
+            )
+          }
         </div>
       </div>
       <br /><br /><br /><br /><br />

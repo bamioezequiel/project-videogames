@@ -4,7 +4,8 @@ export const AXIOS_ERROR = "AXIOS_ERROR";
 export const AXIOS_START = "AXIOS_START";
 export const GET_DETAIL_GAME = "GET_DETAIL_GAME";
 export const GET_ALL_GAMES = "GET_ALL_GAMES";
-export const GET_FILTERED_GAMES = "GET_FILTERED_GAMES";
+export const FILTERS_GAMES = "FILTERS_GAMES";
+export const ORDERS_GAMES = "ORDERS_GAMES";
 export const GET_FILTERED_FEATURED_GAMES = "GET_FILTERED_FEATURED_GAMES";
 export const GET_FILTERED_NEW_GAMES = "GET_FILTERED_NEW_GAMES";
 export const GET_GENRES = "GET_GENRES";
@@ -16,13 +17,20 @@ export const DELETE_CART = "DELETE_CART";
 export const GET_CART_LOCAL_STORAGE = "GET_CART_LOCAL_STORAGE";
 export const GET_FAVORITES_LOCAL_STORAGE = "GET_FAVORITES_LOCAL_STORAGE";
 export const GET_USER = "GET_USER";
-export const POST_USER = "POST_USER";
+export const GET_ALL_USER = "GET_ALL_USER";
+export const GIVE_ADMIN = "GIVE_ADMIN";
+export const AUTHENTICATE_STATUS = "AUTHENTICATE_STATUS";
+export const LOGOUT_USER = "LOGOUT_USER";
+export const LOGIN_USER = "LOGIN_USER";
+export const CREATE_USER = "CREATE_USER";
 // export const ORDER_BY_PRICE = 'ORDER_BY_PRICE';
 
 export const removeCart = (id: any, gameId: any) => {
   return async function (dispatch: Function) {
     try {
-      const res = await axios.delete(`http://localhost:3001/cart/${id}/${gameId}`);
+      const res = await axios.delete(
+        `http://localhost:3001/cart/${id}/${gameId}`
+      );
       console.log(res);
       return dispatch({ type: DELETE_CART, payload: res.data });
     } catch (error) {
@@ -72,7 +80,7 @@ export const getCartLocalStorage = () => {
   return async function (dispatch: Function) {
     try {
       await dispatch(axiosStart("cartLS", []));
-      const res = JSON.parse(localStorage.getItem("cart") || '[]');
+      const res = JSON.parse(localStorage.getItem("cart") || "[]");
       return dispatch({ type: GET_CART_LOCAL_STORAGE, payload: res });
     } catch (error) {
       await dispatch(axiosError(error as Error));
@@ -85,7 +93,7 @@ export const getFavoritesLocalStorage = () => {
   return async function (dispatch: Function) {
     try {
       await dispatch(axiosStart("favoritesLS", []));
-      const res = JSON.parse(localStorage.getItem("favorites") || '[]');
+      const res = JSON.parse(localStorage.getItem("favorites") || "[]");
       return dispatch({ type: GET_FAVORITES_LOCAL_STORAGE, payload: res });
     } catch (error) {
       await dispatch(axiosError(error as Error));
@@ -133,37 +141,6 @@ export const getGenres = () => {
   };
 };
 
-export const getLogoutUser = () => {
-  return async function (dispatch: Function) {
-    try {
-      await dispatch(axiosStart("user", {}));
-      const res = await Axios.get(`http://localhost:3001/auth/logout`, {
-        //arreglar logout no deslogea
-        withCredentials: true,
-      });
-      return res.data;
-    } catch (error) {
-      await dispatch(axiosError(error as Error));
-      console.log(`Error, actions <LogoutUser>: ${error}`);
-    }
-  };
-};
-
-export const getLoginMeUser = () => {
-  return async function (dispatch: Function) {
-    try {
-      let res = await Axios.get(`http://localhost:3001/auth/isAuth`, {
-        withCredentials: true,
-      });
-      console.log(res.data);
-      return res.data;
-    } catch (error) {
-      await dispatch(axiosError(error as Error));
-      console.log(`Error, actions <isAuthUser>: ${error}`);
-    }
-  };
-};
-
 export const postLoginUserWithGoogle = () => {
   return async function (dispatch: Function) {
     try {
@@ -179,21 +156,85 @@ export const postLoginUserWithGoogle = () => {
   };
 };
 
-export const postLoginUser = (user: any) => {
+export const removeAdmin = (id: any, token: any) => {
+  return async function (dispatch: Function) {
+    try {
+      let res = await axios.patch(
+        `http://localhost:3001/auth/admin/remove/${id}`,
+        "",
+        {
+          headers: {
+            token,
+          },
+        }
+      );
+      console.log(res.data);
+      return res.data;
+    } catch (error) {
+      await dispatch(axiosError(error as Error));
+      console.log(`Error, actions <RemoveAdmin>: ${error}`);
+    }
+  };
+};
+
+export const giveAdmin = (id: any, token: any) => {
+  return async function (dispatch: Function) {
+    try {
+      let res = await axios.patch(
+        `http://localhost:3001/auth/admin/add/${id}`,
+        "",
+        {
+          headers: {
+            token,
+          },
+        }
+      );
+      console.log(res.data);
+      return res.data;
+    } catch (error) {
+      await dispatch(axiosError(error as Error));
+      console.log(`Error, actions <GiveAdmin>: ${error}`);
+    }
+  };
+};
+
+export const authenticateStatus = (token: any) => {
   return async function (dispatch: Function) {
     try {
       await dispatch(axiosStart("user", {}));
-      let res = await Axios.post(`http://localhost:3001/auth/login`, user, {
+      let res = await axios.post(`http://localhost:3001/auth/status`, "", {
         headers: {
-          "Content-Type": "application/json",
+          token,
         },
-        auth: {
-          username: user.email,
-          password: user.password,
-        },
-        withCredentials: true,
       });
-      return res.data;
+      return dispatch({ type: AUTHENTICATE_STATUS, payload: res.data });
+    } catch (error) {
+      await dispatch(axiosError(error as Error));
+      console.log(`Error, actions <AuthenticateStatus>: ${error}`);
+    }
+  };
+};
+
+export const logoutUser = () => {
+  return async function (dispatch: Function) {
+    try {
+      await dispatch(axiosStart("user", {}));
+      return dispatch({ type: LOGOUT_USER });
+    } catch (error) {
+      await dispatch(axiosError(error as Error));
+      console.log(`Error, actions <LogoutUser>: ${error}`);
+    }
+  };
+};
+
+export const loginUser = (user: any) => {
+  return async function (dispatch: Function) {
+    try {
+      await dispatch(axiosStart("user", {}));
+      let res = await Axios.post(`http://localhost:3001/auth/login`, user);
+      alert("Te logueaste correctamente!");
+      console.log(res.data);
+      return dispatch({ type: LOGIN_USER, payload: res.data });
     } catch (error) {
       await dispatch(axiosError(error as Error));
       console.log(`Error, actions <LoginUser>: ${error}`);
@@ -201,15 +242,17 @@ export const postLoginUser = (user: any) => {
   };
 };
 
-export const postUser = (user: any) => {
+export const createUser = (user: any) => {
   return async function (dispatch: Function) {
     try {
       await dispatch(axiosStart("user", {}));
-      let res = await axios.post(`http://localhost:3001/users`, user);
-      return dispatch({ type: POST_USER, payload: res.data });
+      let res = await axios.post(`http://localhost:3001/auth/register`, user);
+      alert("Te registraste correctamente!");
+      return dispatch({ type: CREATE_USER, payload: res.data });
     } catch (error) {
       await dispatch(axiosError(error as Error));
-      console.log(`Error, actions <PostUser>: ${error}`);
+      console.log(error);
+      console.log(`Error, actions <CreateUser>: ${error}`);
     }
   };
 };
@@ -223,6 +266,19 @@ export const getUser = (id: any) => {
     } catch (error) {
       await dispatch(axiosError(error as Error));
       console.log(`Error, actions <GetUser>: ${error}`);
+    }
+  };
+};
+
+export const getAllUsers = () => {
+  return async function (dispatch: Function) {
+    try {
+      await dispatch(axiosStart("users", []));
+      let res = await axios.get(`http://localhost:3001/users`);
+      return dispatch({ type: GET_ALL_USER, payload: res.data });
+    } catch (error) {
+      await dispatch(axiosError(error as Error));
+      console.log(`Error, actions <getAllUsers>: ${error}`);
     }
   };
 };
@@ -254,7 +310,7 @@ export const cleanAllGames = () => {
 export const getAllGames = () => {
   return async function (dispatch: Function) {
     try {
-      dispatch(axiosStart("allVideogames"));
+      // dispatch(axiosStart("allGames"));
       let res = await axios.get("http://localhost:3001/games");
       return dispatch({ type: GET_ALL_GAMES, payload: res.data });
     } catch (error) {
@@ -267,8 +323,10 @@ export const getAllGames = () => {
 export const getFilteredFeaturedGames = () => {
   return async function (dispatch: Function) {
     try {
-      dispatch(axiosStart("filteredGames"));
-      let res = await axios.get(`http://localhost:3001/filters?featured=true`);
+      dispatch(axiosStart("filteredFeaturedGames"));
+      let res = await axios.get(
+        `http://localhost:3001/games/filters?featured=true`
+      );
       return dispatch({ type: GET_FILTERED_FEATURED_GAMES, payload: res.data });
     } catch (error) {
       dispatch(axiosError(error as Error));
@@ -280,11 +338,14 @@ export const getFilteredFeaturedGames = () => {
 export const getFilteredNewGames = () => {
   return async function (dispatch: Function) {
     try {
-      dispatch(axiosStart("filteredGames"));
-      let res = await axios.get(`http://localhost:3001/filters?is_new=true`);
+      dispatch(axiosStart("filteredNewGames"));
+      let res = await axios.post(
+        `http://localhost:3001/games/filters?is_new=true`
+      );
       return dispatch({ type: GET_FILTERED_NEW_GAMES, payload: res.data });
     } catch (error) {
       dispatch(axiosError(error as Error));
+      console.log(error);
       console.log(`Error, actions <getFilteredGames>: ${error}`);
     }
   };
@@ -293,22 +354,30 @@ export const getFilteredNewGames = () => {
 // s, featured, is_new, platform, tag, genres, rating, order(asc, desc, min, max), amount
 // filter: tag, filterGames: [{...}...], payload: Singleplayer
 
-export const getFilteredGames = (
-  filter: any,
-  filterGames: any,
-  payload: any
-) => {
+export const ordersGames = ( type: any, value: any ) => {
   return async function (dispatch: Function) {
     try {
       dispatch(axiosStart("filteredGames"));
-      let res = await axios.get(
-        `http://localhost:3001/filters?${filter}=${payload}`,
-        filterGames
-      );
-      return dispatch({ type: GET_FILTERED_GAMES, payload: res.data });
+      let res = await axios.get("http://localhost:3001/games");
+      return dispatch({ type: ORDERS_GAMES, payload: { games: res.data, type, value } });
     } catch (error) {
       dispatch(axiosError(error as Error));
-      console.log(`Error, actions <getFilteredGames>: ${error}`);
+      console.log(error);
+      console.log(`Error, actions <OrdersGames>: ${error}`);
+    }
+  };
+};
+
+export const filtersGames = ( type: any, value: any ) => {
+  return async function (dispatch: Function) {
+    try {
+      dispatch(axiosStart("filteredGames"));
+      let res = await axios.get("http://localhost:3001/games");
+      return dispatch({ type: FILTERS_GAMES, payload: { games: res.data, type, value } });
+    } catch (error) {
+      dispatch(axiosError(error as Error));
+      console.log(error);
+      console.log(`Error, actions <FiltersGames>: ${error}`);
     }
   };
 };

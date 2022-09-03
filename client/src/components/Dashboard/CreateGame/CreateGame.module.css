@@ -1,0 +1,107 @@
+.createGame_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90vw;
+  height: 100%;
+  margin: auto;
+}
+
+.createGame_form_container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 95%;
+  padding: 20px;
+  border-radius: 20px;
+  color: var(--color-white);
+  background-color: var(--color-black);
+  margin: 25px 0;
+}
+
+.form_textarea,
+.form_input {
+  background-color: #ffffff33;
+  height: 5vh;
+  padding: 0px 20px;
+  border: none;
+  border-radius: 40px;
+  color: var(--color-black);
+  margin: 10px;
+}
+
+.form_textarea {
+    width: 60%;
+    height: 20vh;
+    padding: 20px;
+    resize: none;
+}
+
+.form_textarea,
+.form_input::placeholder {
+  color: var(--color-white);
+}
+
+.form_textarea,
+.form_input:focus {
+  outline: #ff8846;
+  box-shadow: 0px 0px 0px 2px #ff8846;
+}
+
+.form_labels_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.form_input_btn {
+    background-color: transparent;
+    color: var(--color-white);
+    border: none;
+    font-size: 16px;
+    margin: 0 5px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.form_labels {
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: 30%;
+  height: 25vh;
+  border-radius: 20px;
+  border: thin solid #000;
+  padding: 10px;
+  margin: 40px 20px;
+}
+
+.form_label {
+  margin: 8px;
+}
+
+.form_label > * {
+  margin: 0 4px;
+}
+
+.form_btn {
+  color: #fff;
+  background-color: #e35e0a;
+  font-weight: 700;
+  height: 6vh;
+  padding: 10px 30px;
+  width: 20%;
+  border-radius: 40px;
+  border: none;
+  text-transform: uppercase;
+  font-size: 16px;
+  cursor: pointer;
+  letter-spacing: 1.3px;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+.form_btn:hover {
+  opacity: 0.9;
+}

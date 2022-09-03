@@ -5,66 +5,75 @@ import crypto from "crypto";
 export const User = sequelize.define(
   "user",
   {
-    username: {
-      type: DataTypes.STRING,
-      // allowNull: true,
-      unique: true,
-    },
-    
+    /* id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true,
+    }, */
+
     firstname: {
       type: DataTypes.STRING,
       allowNull: true,
       validate: {
         isString(value) {
-          if (typeof value !== 'string')
-            throw new Error('Ingresa un nombre valido');
+          if (typeof value !== "string")
+            throw new Error("Invalid name");
         },
       },
     },
 
     lastname: {
       type: DataTypes.STRING,
-      // allowNull: true,
+      allowNull: true,
+      validate: {
+        isString(value) {
+          if (typeof value !== "string")
+            throw new Error("Invalid lastname");
+        },
+      },
     },
 
     picture: {
       type: DataTypes.STRING,
-      // allowNull: true,
+      defaultValue: 'https://imgur.com/EyEFL9w.png',
+      validate: {
+        isString(value) {
+          if (typeof value !== "string")
+            throw new Error("Invalid lastname");
+        },
+      },
     },
 
     date_of_birth: {
       type: DataTypes.STRING,
-      // allowNull: true,
+      defaultValue: '',
     },
 
     email: {
       type: DataTypes.STRING,
       unique: true,
-				validate: {
-					isEmail: true,
-				},
+      validate: {
+        isEmail: true,
+      },
     },
 
     password: {
       type: DataTypes.STRING,
       allowNull: true,
-      get() {
-        return () => this.getDataValue('password');
-      }
     },
 
     phone: {
       type: DataTypes.STRING,
-      // allowNull: true,
+      defaultValue: '',
     },
 
     active: {
       type: DataTypes.BOOLEAN,
-      // allowNull: true,
+      defaultValue: true
     },
 
     rol: {
-      type: DataTypes.STRING,
+      type: DataTypes.ENUM("Owner", "Admin", "User"),
       defaultValue: "User",
       validate: {
         isString(value) {
@@ -73,47 +82,6 @@ export const User = sequelize.define(
         },
       },
     },
-
-    salt: {
-      type: DataTypes.STRING,
-      get() {
-        return () => this.getDataValue("salt");
-      },
-    },
-  },
-  {
-    validate: {
-      OAuthOrPassword() {
-        if (
-          !this.password
-        ) {
-          throw new Error("No has iniciado sesión");
-        }
-      },
-    },
   }
 );
 
-// --------------------------HASH y SALT PASSWORD------------------------
-// Genera la una salt	random
-User.generateSalt = function () {
-  return crypto.randomBytes(16).toString("base64");
-};
-// crea y hashea la password y la pasa a texto plano
-User.encryptPassword = function (plainText, salt) {
-  return crypto.createHash("sha1").update(plainText).update(salt).digest("hex");
-};
-// En esta funcion se va a comenzar a crear y hashear la contraseña
-const setSaltAndPassword = (user) => {
-  if (user.changed("password")) {
-    user.salt = User.generateSalt();
-    user.password = User.encryptPassword(user.password(), user.salt());
-  }
-};
-// antes de que el usuario se guarde en la base de datos  va a usar las funciones anteriores para poder crear la salt y hashear la password
-User.beforeCreate(setSaltAndPassword);
-User.beforeUpdate(setSaltAndPassword);
-// Creamos un prototype para poder comparar la contraseña ingresada con la contraseñan que se ingreso(login)
-User.prototype.correctPassword = function (enteredPassword) {
-  return User.encryptPassword(enteredPassword, this.salt()) === this.password();
-};

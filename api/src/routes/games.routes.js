@@ -4,7 +4,7 @@ import { deleteGame, getAllGames, getGamesById, postGame, putGame, restoreGame }
 const router = Router();
 
 router.get('/', getAllGames);
-router.get('/filters', getGamesFiltered);
+router.post('/filters', getGamesFiltered);
 router.post('/', postGame);
 router.put('/', putGame);
 router.get('/:id', getGamesById);

@@ -29,19 +29,19 @@ export default function Footer() {
         </div>
         <div className={s.footer_links}>
           <NavLink to="/about" className={s.footer_link}>
-            Nosotros
+            About us
           </NavLink>
           |
           <NavLink to="/privacy" className={s.footer_link}>
-            Politica de privacidad
+            Privacy &amp; Cookies
           </NavLink>
           |
           <NavLink to="/terms-and-conditions" className={s.footer_link}>
-            Terminos y condiciones
+            Terms &amp; Conditions
           </NavLink>
           |
           <NavLink to="/faq" className={s.footer_link}>
-            Preguntas frecuentes
+            FAQ
           </NavLink>
         </div>
         <div className={s.footer_copyright}>

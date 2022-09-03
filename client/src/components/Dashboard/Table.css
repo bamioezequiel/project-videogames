@@ -1,0 +1,103 @@
+.table_wrapper {
+    width: 95%;
+    margin: 25px 0;
+    border-top: thin solid var(--main-color);
+}
+
+.fl_table {
+    overflow-x: visible; 
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+}
+
+.fl_table_btn {
+    background-color: transparent;
+    text-decoration: none;
+    border: none;
+    font-size: 20px;
+    margin: 0 5px;
+    color: #000;
+    cursor: pointer;
+}
+
+.fl_table_link {
+    text-decoration: none;
+    margin: 0 5px;
+    color: #000;
+}
+
+.fl_table_link:hover {
+    color: var(--main-color);
+}
+
+.fl_table_false,
+.fl_table_true {
+    padding: 3px 5px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.fl_table_false {
+    color: var(--color-red);
+}
+
+.fl_table_true {
+    color: var(--color-green);
+}
+
+.fl_table_true:hover {
+    background-color: var(--color-green);
+    color: var(--color-white);
+}
+
+.fl_table_false:hover {
+    background-color: var(--color-red);
+    color: var(--color-white);
+}
+
+.fl_table_btn:hover {
+    color: var(--main-color);
+}
+
+.fl_table td,
+.fl_table th {
+    text-align: center;
+    padding: 20px;
+}
+
+.fl_table td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 16px;
+}
+
+.fl_table thead th {
+    color: var(--color-black);
+    font-size: 16px;
+    /* background: var(--main-color); */
+}
+
+.fl_table thead th:nth-child(odd) {
+    color: var(--color-black);
+    /* background: var(--main-color); */
+}
+
+.fl_table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+
+/* Responsive */
+
+@media (max-width: 1000px) {
+    .dashboard_container {
+        margin-left: 0;
+        margin-top: 85px;
+    }
+}
+

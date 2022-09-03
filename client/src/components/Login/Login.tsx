@@ -1,17 +1,18 @@
-import Axios from 'axios';
-import axios from 'axios';
 import { useState } from 'react';
 import { BsCheck2Circle, BsDashCircle } from 'react-icons/bs';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 import useCart from '../../hooks/useCart';
-import { getAllGames, getCart, getUser, postLoginUser } from '../../redux/actions';
+import { getCart } from '../../redux/actions';
 import { validationsLogin } from '../../utils/validations';
 import s from './Login.module.css';
 
 export default function Login() {
     const navigate = useNavigate();
     const dispatch: Function = useDispatch();
+    const { login } = useAuth();
+    const user = useSelector( (state: any) => state.user )
     const { saveAllItemsInCart } = useCart();
     const [loginUser, setLoginUser] = useState({
         email: "",
@@ -42,18 +43,15 @@ export default function Login() {
     const handleSubmit = async (e: any) => {
         e.preventDefault();
         try {
-            let user = await dispatch(postLoginUser(loginUser));
-            dispatch(getCart(user.id))
+            const res = await login(loginUser);
+            await dispatch(getCart(res.payload.user.id))
+            saveAllItemsInCart(res.payload.user.id);
             if (user === "false") {
                 setErrors({
                     ...errors,
                     general: "El usuario o la contraseña no son validos"
                 });
             } else if (loginUser.email === user.email) {
-                localStorage.setItem('User', JSON.stringify(user))
-                await dispatch(getUser(user.id));
-                alert("Te logueaste correctamente!");
-                saveAllItemsInCart(user.id);
                 redirect();
             } else {
                 setErrors({

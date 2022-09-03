@@ -25,23 +25,34 @@ export default function Nav() {
             </NavLink>
             <NavLink to={"/favorites"} title='Favorites' className={s.nav_menu_item}>
               <MdFavorite />
-              <span className={s.item_amount}>
+              {
+                (user.favorites?.length > 0 || favorites?.length > 0) && <span className={s.item_amount}>
+                  {
+                    (isAuth)
+                    ? user?.favorites.length
+                    : favorites?.length
+                  }
+                </span>
+              }
+              {/* <span className={s.item_amount}>
                 {
                   (isAuth)
                     ? user?.favorites.length
                     : favorites?.length
                 }
-              </span>
+              </span> */}
             </NavLink>
             <NavLink to={"/cart"} title='Cart' className={s.nav_menu_item}>
               <BsFillCartCheckFill />
-              <span className={s.item_amount}>
-                {
-                  (isAuth)
-                    ? cart.cart?.length
-                    : cartLS?.length
-                }
-              </span>
+              {
+                (cart.cart?.length > 0 || cartLS?.length > 0) && <span className={s.item_amount}>
+                  {
+                    (isAuth)
+                      ? cart.cart?.length
+                      : cartLS?.length
+                  }
+                </span>
+              }
             </NavLink>
           </div>
           <div className={s.nav_menu_col2}>

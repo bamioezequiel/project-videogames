@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Featured from './Featured/Featured';
 import New from './New/New';
-import Reviews from './Reviews/Reviews';
+import Reviews from './OnSale/OnSale';
 import s from './Tab.module.css';
 
 export default function Tab() {
@@ -29,11 +29,11 @@ export default function Tab() {
     return (
         <div className={s.filter_container}>
             <div className={s.tabs_wrap}>
+                <div onClick={handleShowReviews} className={`${showReviews ? s.tab_wrap_active : s.tab_wrap}`}>
+                    <h2 className={s.tab_wrap_title}>On sale</h2>
+                </div>
                 <div onClick={handleShowNew} className={`${showNew ? s.tab_wrap_active : s.tab_wrap}`}>
                     <h2 className={s.tab_wrap_title}>New</h2>
-                </div>
-                <div onClick={handleShowReviews} className={`${showReviews ? s.tab_wrap_active : s.tab_wrap}`}>
-                    <h2 className={s.tab_wrap_title}>Reviews</h2>
                 </div>
                 <div onClick={handleShowFeatured} className={`${showFeatured ? s.tab_wrap_active : s.tab_wrap}`}>
                     <h2 className={s.tab_wrap_title}>Featured</h2>

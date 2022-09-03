@@ -20,8 +20,6 @@ export const dataGames = [
     stock: 3,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PC",
       "Xbox Series S/X",
@@ -78,8 +76,6 @@ export const dataGames = [
     stock: 10,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Nintendo Switch",
       "PlayStation 5",
@@ -137,8 +133,6 @@ export const dataGames = [
     stock: 1,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Xbox 360",
       "Linux",
@@ -200,8 +194,6 @@ export const dataGames = [
     stock: 7,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PlayStation 4",
       "macOS",
@@ -255,8 +247,6 @@ export const dataGames = [
     stock: 14,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PC",
       "Xbox 360",
@@ -314,8 +304,6 @@ export const dataGames = [
     stock: 14,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PC",
       "Nintendo Switch",
@@ -374,8 +362,6 @@ export const dataGames = [
     stock: 17,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "macOS",
       "Linux",
@@ -438,8 +424,6 @@ export const dataGames = [
     stock: 3,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PC",
       "macOS",
@@ -497,8 +481,6 @@ export const dataGames = [
     stock: 3,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PlayStation 4",
       "Xbox 360",
@@ -557,8 +539,6 @@ export const dataGames = [
     stock: 7,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PC",
       "Linux",
@@ -621,8 +601,6 @@ export const dataGames = [
     stock: 5,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PlayStation 4",
       "Xbox 360",
@@ -682,8 +660,6 @@ export const dataGames = [
     stock: 7,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PC",
       "PlayStation 4",
@@ -750,8 +726,6 @@ export const dataGames = [
     stock: 2,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PC",
       "Xbox 360",
@@ -811,8 +785,6 @@ export const dataGames = [
     stock: 15,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Xbox 360",
       "PlayStation 3",
@@ -869,8 +841,6 @@ export const dataGames = [
     stock: 9,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Linux",
       "PS Vita",
@@ -930,8 +900,6 @@ export const dataGames = [
     stock: 11,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Xbox One",
       "PC",
@@ -986,8 +954,6 @@ export const dataGames = [
     stock: 13,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Xbox One",
       "PC",
@@ -1040,8 +1006,6 @@ export const dataGames = [
     stock: 8,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Xbox One",
       "PC",
@@ -1123,8 +1087,6 @@ export const dataGames = [
     stock: 8,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PlayStation 5",
       "PlayStation 4",
@@ -1186,8 +1148,6 @@ export const dataGames = [
     stock: 16,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PC",
       "macOS",
@@ -1251,8 +1211,6 @@ export const dataGames = [
     stock: 14,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Linux",
       "PC",
@@ -1306,8 +1264,6 @@ export const dataGames = [
     stock: 19,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PlayStation 4",
       "PC"
@@ -1366,8 +1322,6 @@ export const dataGames = [
     stock: 6,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Xbox 360",
       "PlayStation 3",
@@ -1421,8 +1375,6 @@ export const dataGames = [
     stock: 7,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Xbox One",
       "PlayStation 4",
@@ -1483,8 +1435,6 @@ export const dataGames = [
     stock: 6,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PC",
       "macOS",
@@ -1541,8 +1491,6 @@ export const dataGames = [
     stock: 17,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Xbox 360",
       "PC"
@@ -1595,8 +1543,6 @@ export const dataGames = [
     stock: 6,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Xbox Series S/X",
       "PlayStation 5",
@@ -1657,8 +1603,6 @@ export const dataGames = [
     stock: 7,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Xbox One",
       "PlayStation 3",
@@ -1717,8 +1661,6 @@ export const dataGames = [
     stock: 5,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Xbox 360",
       "Wii U",
@@ -1787,8 +1729,6 @@ export const dataGames = [
     stock: 7,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Xbox One",
       "PC",
@@ -1843,8 +1783,6 @@ export const dataGames = [
     stock: 5,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Android",
       "PS Vita",
@@ -1903,8 +1841,6 @@ export const dataGames = [
     stock: 15,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PlayStation 4",
       "PC",
@@ -1973,8 +1909,6 @@ export const dataGames = [
     stock: 18,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PC",
       "Xbox One",
@@ -2027,8 +1961,6 @@ export const dataGames = [
     stock: 16,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "macOS",
       "PC",
@@ -2083,8 +2015,6 @@ export const dataGames = [
     stock: 5,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "macOS",
       "Linux",
@@ -2134,8 +2064,6 @@ export const dataGames = [
     stock: 0,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Linux",
       "Xbox One",
@@ -2198,8 +2126,6 @@ export const dataGames = [
     stock: 3,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Xbox One",
       "Android",
@@ -2261,8 +2187,6 @@ export const dataGames = [
     stock: 6,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PC",
       "macOS"
@@ -2314,8 +2238,6 @@ export const dataGames = [
     stock: 9,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PlayStation 4",
       "Xbox One",
@@ -2372,8 +2294,6 @@ export const dataGames = [
     stock: 15,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PlayStation 4",
       "Linux",
@@ -2427,8 +2347,6 @@ export const dataGames = [
     stock: 6,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Xbox One",
       "PlayStation 4",
@@ -2486,8 +2404,6 @@ export const dataGames = [
     stock: 18,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PlayStation 4",
       "PlayStation 3",
@@ -2544,8 +2460,6 @@ export const dataGames = [
     stock: 11,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PC",
       "Xbox One",
@@ -2594,8 +2508,6 @@ export const dataGames = [
     stock: 2,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PlayStation 4"
     ],
@@ -2634,8 +2546,6 @@ export const dataGames = [
     stock: 6,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "macOS",
       "Linux",
@@ -2675,8 +2585,6 @@ export const dataGames = [
     stock: 8,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PC",
       "Xbox One",
@@ -2731,8 +2639,6 @@ export const dataGames = [
     stock: 0,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Xbox One",
       "Xbox 360",
@@ -2784,8 +2690,6 @@ export const dataGames = [
     stock: 1,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PlayStation 3",
       "PlayStation 4",
@@ -2842,8 +2746,6 @@ export const dataGames = [
     stock: 12,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PlayStation 3",
       "Xbox 360",
@@ -2905,8 +2807,6 @@ export const dataGames = [
     stock: 5,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Xbox One",
       "PlayStation 4",
@@ -2961,8 +2861,6 @@ export const dataGames = [
     stock: 2,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Xbox Series S/X",
       "PlayStation 5",
@@ -3015,8 +2913,6 @@ export const dataGames = [
     stock: 2,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PC",
       "PlayStation 4"
@@ -3072,8 +2968,6 @@ export const dataGames = [
     stock: 18,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Xbox One",
       "iOS",
@@ -3131,8 +3025,6 @@ export const dataGames = [
     stock: 1,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PlayStation 4",
       "PS Vita",
@@ -3201,8 +3093,6 @@ export const dataGames = [
     stock: 2,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "PC",
       "iOS",
@@ -3260,8 +3150,6 @@ export const dataGames = [
     stock: 19,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Linux",
       "Xbox One",
@@ -3319,8 +3207,6 @@ export const dataGames = [
     stock: 9,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Xbox One",
       "PC",
@@ -3376,8 +3262,6 @@ export const dataGames = [
     stock: 16,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Linux",
       "macOS",
@@ -3432,8 +3316,6 @@ export const dataGames = [
     stock: 13,
     featured: false,
     is_new: false,
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Xbox 360",
       "PlayStation 3",
@@ -3488,8 +3370,6 @@ export const dataGames = [
     stock: 11,
     featured: false,
     is_new: true, 
-    saturated_color: "0f0f0f",
-    dominant_color: "0f0f0f",
     platforms: [
       "Xbox One",
       "PlayStation 4",
