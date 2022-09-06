@@ -18,33 +18,36 @@ export const filterGames = (arrGames: any, typeFilter: any, value: any) => {
 
 export const orderings = ( arrGames: any, typeOrder: string, orderingForm: string ) => {
   let result: any = arrGames;
+
   switch (typeOrder) {
     case "price":
       if (orderingForm === "asc") {
-        result = arrGames.sort((a: any, b: any) => b.price - a.price);
+        result.sort((a: any, b: any) => b.price - a.price);
       } else {
-        result = arrGames.sort((a: any, b: any) => a.price - b.price);
+        result.sort((a: any, b: any) => a.price - b.price);
       }
       return result;
     case "rating":
       if (orderingForm === "asc") {
-        result = arrGames.sort((a: any, b: any) => b.price - a.price);
+        result.sort((a: any, b: any) => b.price - a.price);
       } else {
-        result = arrGames.sort((a: any, b: any) => a.price - b.price);
+        result.sort((a: any, b: any) => a.price - b.price);
       }
       return result;
     case "alpha":
       if (orderingForm === "asc") {
-        result = arrGames.sort((a: any, b: any) =>
+        result.sort((a: any, b: any) =>
           a.name.toLowerCase().localeCompare(b.name.toLowerCase())
-        );
+          );
       } else {
-        result = arrGames.sort((a: any, b: any) =>
+        result.sort((a: any, b: any) =>
           b.name.toLowerCase().localeCompare(a.name.toLowerCase())
         );
       }
+      console.log(result)
       return result;
   }
+
 };
 
 export const search = (arrGames: any, value: any) => {

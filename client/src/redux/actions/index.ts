@@ -8,6 +8,7 @@ export const FILTERS_GAMES = "FILTERS_GAMES";
 export const ORDERS_GAMES = "ORDERS_GAMES";
 export const GET_FILTERED_FEATURED_GAMES = "GET_FILTERED_FEATURED_GAMES";
 export const GET_FILTERED_NEW_GAMES = "GET_FILTERED_NEW_GAMES";
+export const FILTER_SEARCH = "FILTER_SEARCH";
 export const GET_GENRES = "GET_GENRES";
 export const GET_PLATFORMS = "GET_PLATFORMS";
 export const GET_TAGS = "GET_TAGS";
@@ -351,13 +352,21 @@ export const getFilteredNewGames = () => {
   };
 };
 
-// s, featured, is_new, platform, tag, genres, rating, order(asc, desc, min, max), amount
-// filter: tag, filterGames: [{...}...], payload: Singleplayer
+export const filterSearch = ( value: any ) => {
+  return async function (dispatch: Function) {
+    try {
+      return dispatch({ type: FILTER_SEARCH, payload: value });
+    } catch (error) {
+      dispatch(axiosError(error as Error));
+      console.log(error);
+      console.log(`Error, actions <SearchGames>: ${error}`);
+    }
+  };
+};
 
 export const ordersGames = ( type: any, value: any ) => {
   return async function (dispatch: Function) {
     try {
-      dispatch(axiosStart("filteredGames"));
       let res = await axios.get("http://localhost:3001/games");
       return dispatch({ type: ORDERS_GAMES, payload: { games: res.data, type, value } });
     } catch (error) {
@@ -371,7 +380,6 @@ export const ordersGames = ( type: any, value: any ) => {
 export const filtersGames = ( type: any, value: any ) => {
   return async function (dispatch: Function) {
     try {
-      dispatch(axiosStart("filteredGames"));
       let res = await axios.get("http://localhost:3001/games");
       return dispatch({ type: FILTERS_GAMES, payload: { games: res.data, type, value } });
     } catch (error) {

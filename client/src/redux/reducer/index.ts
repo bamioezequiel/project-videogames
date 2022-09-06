@@ -23,6 +23,7 @@ import {
   FILTERS_GAMES,
   ORDERS_GAMES,
   ordersGames,
+  FILTER_SEARCH,
 } from "../actions";
 
 import { filterGames, orderings, search } from "./../../utils/filtersAndOrders";
@@ -41,61 +42,174 @@ const initialState = {
   cart: {},
   detailGame: {},
   user: {},
-  orders: { type: "price", value: "asc" },
+  orders: { type: "", value: "" },
+  filterGenres: { value: "" },
+  filterPlatforms: { value: "" },
+  filterTags: { value: "" },
   loading: false,
   error: null,
 };
 
 const rootReducer = (state = initialState, action: Action) => {
   switch (action.type) {
+    case FILTER_SEARCH:
+      let resultSearch = search(state.allGames, action.payload); 
+    return {
+      ...state,
+      filteredGames: resultSearch
+    }
     case FILTERS_GAMES:
       let resultFilters: any = [];
-      let orders = orderings(
+      /* let orders = orderings(
         state.filteredGames,
         state.orders.type,
         state.orders.value
-      );
-      if (action.payload.type === "tags") {
-        resultFilters = filterGames(
-          orders,
-          action.payload.type,
-          action.payload.value
-        );
-      } else if (action.payload.type === "platforms") {
-        resultFilters = filterGames(
-          orders,
-          action.payload.type,
-          action.payload.value
-        );
-      } else if (action.payload.type === "genres") {
-        resultFilters = filterGames(
-          orders,
-          action.payload.type,
-          action.payload.value
-        );
+      ); */
+      if (action.payload.type === "reset") {
+        return {
+          ...state,
+          loading: false,
+          error: null,
+          filteredGames: state.allGames,
+          filterGenres: { value: "" },
+          filterTags: { value: "" },
+          filterPlatforms: { value: "" },
+        };
       }
 
+      let rtn = { type: "", value: "" };
+      if (action.payload.type === "tags") {
+        let all = action.payload.value === "all";
+        if (
+          (state.filteredGames.length === 0 && state.filterTags.value !== "") ||
+          all
+        ) {
+          resultFilters = state.allGames;
+          all = true;
+        }
+
+        resultFilters = filterGames(
+          all ? resultFilters : state.filteredGames,
+          action.payload.type,
+          action.payload.value
+        );
+        if (state.filterGenres.value !== "") {
+          resultFilters = filterGames(
+            resultFilters,
+            "genres",
+            state.filterGenres.value
+          );
+        }
+        if (state.filterPlatforms.value !== "") {
+          resultFilters = filterGames(
+            resultFilters,
+            "platforms",
+            state.filterPlatforms.value
+          );
+        }
+        rtn = {
+          type: "tags",
+          value: action.payload.value !== "all" ? action.payload.value : "",
+        };
+      } else if (action.payload.type === "platforms") {
+        let all = action.payload.value === "all";
+        if (
+          (state.filteredGames.length === 0 &&
+            state.filterPlatforms.value !== "") ||
+          all
+        ) {
+          resultFilters = state.allGames;
+          all = true;
+        }
+
+        resultFilters = filterGames(
+          all ? resultFilters : state.filteredGames,
+          action.payload.type,
+          action.payload.value
+        );
+        if (state.filterTags.value !== "") {
+          resultFilters = filterGames(
+            resultFilters,
+            "tags",
+            state.filterTags.value
+          );
+        }
+        if (state.filterGenres.value !== "") {
+          resultFilters = filterGames(
+            resultFilters,
+            "genres",
+            state.filterGenres.value
+          );
+        }
+        rtn = {
+          type: "platforms",
+          value: action.payload.value !== "all" ? action.payload.value : "",
+        };
+      } else if (action.payload.type === "genres") {
+        let all = action.payload.value === "all";
+        if (
+          (state.filteredGames.length === 0 &&
+            state.filterGenres.value !== "") ||
+          all
+        ) {
+          resultFilters = state.allGames;
+          all = true;
+        }
+
+        resultFilters = filterGames(
+          all ? resultFilters : state.filteredGames,
+          action.payload.type,
+          action.payload.value
+        );
+        if (state.filterTags.value !== "") {
+          resultFilters = filterGames(
+            resultFilters,
+            "tags",
+            state.filterTags.value
+          );
+        }
+        if (state.filterPlatforms.value !== "") {
+          resultFilters = filterGames(
+            resultFilters,
+            "platforms",
+            state.filterPlatforms.value
+          );
+        }
+        rtn = {
+          type: "genres",
+          value: action.payload.value !== "all" ? action.payload.value : "",
+        };
+      }
       return {
         ...state,
         loading: false,
         error: null,
         filteredGames: resultFilters,
+        filterGenres:
+          rtn.type === "genres" ? { value: rtn.value } : state.filterGenres,
+        filterTags:
+          rtn.type === "tags" ? { value: rtn.value } : state.filterTags,
+        filterPlatforms:
+          rtn.type === "platforms"
+            ? { value: rtn.value }
+            : state.filterPlatforms,
       };
     case ORDERS_GAMES:
       const resultOrders = orderings(
-        state.filteredGames.length === 0 ? state.allGames : state.filteredGames,
+        state.filteredGames,
         action.payload.type,
-        state.orders.value
+        action.payload.value
       );
+
       return {
         ...state,
         loading: false,
         error: null,
         filteredGames: resultOrders,
         orders: {
-          ...state.orders,
           type: action.payload.type,
-        },
+          value: action.payload.value
+        }
       };
     case PUT_CART:
       return {
@@ -137,21 +251,21 @@ const rootReducer = (state = initialState, action: Action) => {
         ...state,
         loading: false,
         error: null,
-        platforms: action.payload,
+        platforms: action.payload.sort(),
       };
     case GET_TAGS:
       return {
         ...state,
         loading: false,
         error: null,
-        tags: action.payload,
+        tags: action.payload.sort(),
       };
     case GET_GENRES:
       return {
         ...state,
         loading: false,
         error: null,
-        genres: action.payload,
+        genres: action.payload.sort(),
       };
     case AUTHENTICATE_STATUS:
       return {
