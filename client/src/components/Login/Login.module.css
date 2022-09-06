@@ -18,7 +18,7 @@
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
-.login_content span {
+.login_text_register {
   color: #aaa;
   margin: auto;
   margin-bottom: 10px;
@@ -93,4 +93,8 @@
 .login_form_label {
   font-size: 14px;
   margin: 0px 5px;
+}
+
+.login_error {
+  color: var(--color-red);
 }

@@ -10,53 +10,73 @@ import s from './Signup.module.css';
 
 export default function Signup() {
     const dispatch: Function = useDispatch();
-    const { register } = useAuth();   
-    const { saveAllItemsInCart } = useCart(); 
+    const { register } = useAuth();
+    const { saveAllItemsInCart } = useCart();
     const [registerUser, setRegisterUser] = useState({
-        firstname: '',
-        lastname: '',
-        email: '',
-        password: '',
-        repeatPassword: '',
+        firstname: 'Ezequiel',
+        lastname: 'Bamio',
+        email: 'ezetestpf@gmail.com',
+        password: 'asdasd123',
+        phone: '1136457522',
+        dateBirth: '2002-04-14'
     });
     const [errors, setErrors] = useState({
         firstname: '',
         lastname: '',
         email: '',
         password: '',
-        repeatPassword: '',
+        phone: '',
+        dateBirth: ''
     });
 
     const handleChange = async (e: any) => {
         e.preventDefault();
-
         setRegisterUser({
             ...registerUser,
             [e.target.name]: e.target.value
         });
-        setErrors(validationsRegister({
-            ...registerUser,
-            [e.target.name]: e.target.value
-        }));
     }
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
-        if (errors.email || errors.password || errors.repeatPassword) {
-            alert('algo fallo')
+        setErrors(validationsRegister({
+            ...registerUser,
+            [e.target.name]: e.target.value
+        }));
+
+        if (errors.firstname || errors.lastname || errors.phone || errors.dateBirth || errors.email || errors.password) {
             return;
         }
-        const res = await register(registerUser);
-        await dispatch(getCart(res.payload.user.id))
-        saveAllItemsInCart(res.payload.user.id);
+        if (!registerUser.firstname.length || !registerUser.lastname.length || !registerUser.phone.length || !registerUser.dateBirth.length || !registerUser.email.length || !registerUser.password.length) {
+            return;
+        }
+        try {
+            const res = await register(registerUser);
+            console.log(res);
+            if(res) {
+                await dispatch(getCart(res.payload.user.id))
+                saveAllItemsInCart(res.payload.user.id);
+            }
+        } catch (error) {
+            // alert(error)
+        }
 
-        setRegisterUser({
+        /* setRegisterUser({
             firstname: '',
             lastname: '',
             email: '',
             password: '',
-            repeatPassword: '',
+            phone: '',
+            dateBirth: ''
         });
+        setErrors({
+            firstname: '',
+            lastname: '',
+            email: '',
+            password: '',
+            phone: '',
+            dateBirth: ''
+        }); */
     };
 
     return (
@@ -67,66 +87,78 @@ export default function Signup() {
                 <hr className={s.signup_line} />
                 <form action="" className={s.signup_form}>
                     <div className={s.signup_form_input_container}>
-                        <label className={s.sgnup_form_label}>
+                        <label className={s.signup_form_label}>
                             {
-                                !registerUser.firstname
-                                    ? (errors.firstname.length > 0)
-                                        ? <BsCheck2Circle color='red' />
-                                        : <BsDashCircle />
-                                    : <BsCheck2Circle color='green' />
-                            } Nombre
+                                (errors.firstname.length > 0)
+                                    ? <BsCheck2Circle color='red' />
+                                    : <BsDashCircle />
+                            } First name
+                            <br />
+                            <span className={s.signup_error}>{!errors.firstname ? '' : errors.firstname}</span>
                         </label>
-                        <input type="text" className={s.signup_form_input}/*  title={!errors.firstname ? 'No hay errores para corregir' : errors.firstname} */ name='firstname' value={registerUser.firstname} onChange={handleChange} placeholder='Nombre...' />
-                        <label className={s.sgnup_form_label}>
+                        <input type="text" style={errors.firstname ? { borderColor: 'var(--color-red)' } : undefined} className={s.signup_form_input} name='firstname' value={registerUser.firstname} onChange={handleChange} placeholder='First name...' />
+                        <label className={s.signup_form_label}>
                             {
-                                !registerUser.lastname
-                                    ? (errors.lastname.length > 0)
-                                        ? <BsCheck2Circle color='red' />
-                                        : <BsDashCircle />
-                                    : <BsCheck2Circle color='green' />
-                            } Apellido
+                                (errors.lastname.length > 0)
+                                    ? <BsCheck2Circle color='red' />
+                                    : <BsDashCircle />
+                            } Last name
+                            <br />
+                            <span className={s.signup_error}>{!errors.lastname ? '' : errors.lastname}</span>
                         </label>
-                        <input type="text" className={s.signup_form_input} /* title={!errors.lastname ? 'No hay errores para corregir' : errors.lastname} */ name='lastname' value={registerUser.lastname} onChange={handleChange} placeholder='Apellido...' />
-                        <label className={s.sgnup_form_label}>
+                        <input type="text" style={errors.lastname ? { borderColor: 'var(--color-red)' } : undefined} className={s.signup_form_input} name='lastname' value={registerUser.lastname} onChange={handleChange} placeholder='Last name...' />
+                        <label className={s.signup_form_label}>
                             {
-                                !registerUser.email ? <BsDashCircle />
-                                    : errors.email.length > 0
-                                        ? <BsCheck2Circle color='red' />
-                                        : <BsCheck2Circle color='green' />
+                                errors.email.length > 0
+                                    ? <BsCheck2Circle color='red' />
+                                    : <BsDashCircle />
                             } Email
+                            <br />
+                            <span className={s.signup_error}>{!errors.email ? '' : errors.email}</span>
                         </label>
-                        <input type="text" className={s.signup_form_input}/*  title={!errors.email ? 'No hay errores para corregir' : errors.email} */ name='email' value={registerUser.email} onChange={handleChange} placeholder='Email...' />
-                        <label className={s.sgnup_form_label}>
+                        <input type="text" style={errors.email ? { borderColor: 'var(--color-red)' } : undefined} className={s.signup_form_input} name='email' value={registerUser.email} onChange={handleChange} placeholder='Email...' />
+                        <label className={s.signup_form_label}>
                             {
-                                !registerUser.password ? <BsDashCircle />
-                                    : errors.password.length > 0
-                                        ? <BsCheck2Circle color='red' />
-                                        : <BsCheck2Circle color='green' />
-                            } Contraseña</label>
-                        <input type="text" className={s.signup_form_input} /* title={!errors.password ? 'No hay errores para corregir' : errors.password} */ name='password' value={registerUser.password} onChange={handleChange} placeholder='Contraseña...' />
-                        <label className={s.sgnup_form_label}>
-                            {
-                                !registerUser.repeatPassword ? <BsDashCircle />
-                                    : errors.repeatPassword.length > 0
-                                        ? <BsCheck2Circle color='red' />
-                                        : <BsCheck2Circle color='green' />
-                            } Repetir contraseña
+                                (errors.password.length > 0)
+                                    ? <BsCheck2Circle color='red' />
+                                    : <BsDashCircle />
+                            } Password
+                            <br />
+                            <span className={s.signup_error}>{!errors.password ? '' : errors.password}</span>
                         </label>
-                        <input type="text" className={s.signup_form_input} /* title={!errors.repeatPassword ? 'No hay errores para corregir' : errors.repeatPassword} */ name='repeatPassword' value={registerUser.repeatPassword} onChange={handleChange} placeholder='Repita la contraseña...' />
+                        <input type="password" style={errors.password ? { borderColor: 'var(--color-red)' } : undefined} className={s.signup_form_input} name='password' value={registerUser.password} onChange={handleChange} placeholder='Password...' />
+                        <label className={s.signup_form_label}>
+                            {
+                                (errors.password.length > 0)
+                                    ? <BsCheck2Circle color='red' />
+                                    : <BsDashCircle />
+                            } Phone
+                            <br />
+                            <span className={s.signup_error}>{!errors.phone ? '' : errors.phone}</span>
+                        </label>
+                        <input type="text" style={errors.phone ? { borderColor: 'var(--color-red)' } : undefined} className={s.signup_form_input} name='phone' value={registerUser.phone} onChange={handleChange} placeholder='Phone...' />
+                        <label className={s.signup_form_label}>
+                            {
+                                (errors.dateBirth.length > 0)
+                                    ? <BsCheck2Circle color='red' />
+                                    : <BsDashCircle />
+                            } Date of Birth
+                            <br />
+                            <span className={s.signup_error}>{!errors.dateBirth ? '' : errors.dateBirth}</span>
+                        </label>
+                        <input type="date"
+                            max={new Date().toISOString().split("T")[0]}
+                            style={errors.dateBirth ? { borderColor: 'var(--color-red)' } : undefined}
+                            className={s.signup_form_input}
+                            name='dateBirth'
+                            value={registerUser.dateBirth} onChange={handleChange} placeholder='Date of birth...' />
                     </div>
                     <button onClick={handleSubmit} className={s.signup_btn}>Sign Up</button>
                 </form>
                 <hr className={s.signup_line} />
-                <span>Already have an account?</span>
+                <span className={s.signup_alreadyAccount}>Already have an account?</span>
                 <NavLink to='/login' className={s.signup_btn_without_background}>Log In</NavLink>
-            </div>{/* 
-            <div className={s.singup_password_validate}>
-                <p> <BsCheck2Circle color='green'/> Nombre</p>
-                <p> <BsDashCircle /> Apellido</p>
-                <p> <BsDashCircle /> Email</p>
-                <p> <BsDashCircle /> Contraseña</p>
-                <p> <BsDashCircle /> Repetir contraseña</p>
-            </div> */}
+            </div>
         </div>
     )
 }

@@ -238,6 +238,7 @@ export const loginUser = (user: any) => {
       return dispatch({ type: LOGIN_USER, payload: res.data });
     } catch (error) {
       await dispatch(axiosError(error as Error));
+      console.log(error);
       console.log(`Error, actions <LoginUser>: ${error}`);
     }
   };
@@ -250,8 +251,9 @@ export const createUser = (user: any) => {
       let res = await axios.post(`http://localhost:3001/auth/register`, user);
       alert("Te registraste correctamente!");
       return dispatch({ type: CREATE_USER, payload: res.data });
-    } catch (error) {
+    } catch (error: any) {
       await dispatch(axiosError(error as Error));
+      alert(error.response.data.slice(39))
       console.log(error);
       console.log(`Error, actions <CreateUser>: ${error}`);
     }

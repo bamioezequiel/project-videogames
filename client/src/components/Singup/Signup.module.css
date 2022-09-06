@@ -12,7 +12,7 @@
   flex-direction: column;
   border-radius: 10px;
   width: 35vw;
-  height: 83vh;
+  height: auto;
   padding: 20px;
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
@@ -33,7 +33,7 @@
   margin: 8px;
 }
 
-.signup_content span {
+.signup_alreadyAccount {
   color: #aaa;
   margin: auto;
   margin-bottom: 10px;
@@ -88,7 +88,7 @@
 }
 
 .signup_form {
-  height: 50vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -105,7 +105,11 @@
   border-radius: 20px;
 }
 
-.sgnup_form_label {
+.signup_form_label {
   font-size: 14px;
   margin: 0px 5px;
+}
+
+.signup_error {
+  color: var(--color-red);
 }
