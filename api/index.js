@@ -1,13 +1,16 @@
 import { sequelize } from './src/db.js';
 import server from './src/app.js';
 import { loadGames } from './src/controllers/games.controllers.js';
+import { loadAdmin } from './src/controllers/users.controllers.js';
 const PORT = process.env.PORT || 3001;
 
 sequelize
-  .sync({ force: false })
+  .sync({ force: true })
   .then( () => {
     console.log('database connected!');
-    return loadGames();
+    loadAdmin();
+    loadGames();
+    return;
   })
   .then(() => {
     server.listen(PORT, function () {

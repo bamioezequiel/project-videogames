@@ -57,9 +57,11 @@ function App() {
 
   useEffect(() => {
     if (tokenUser !== null) {
-      loginStatus();
-      dispatch(getCart(user.id))
-      saveAllItemsInCart(user.id);
+      (async () => {
+        let res = await loginStatus();
+        await dispatch(getCart(res.payload.id))
+        saveAllItemsInCart(res.payload.id);
+      })();
     } else {
       dispatch(getFavoritesLocalStorage());
       dispatch(getCartLocalStorage());
@@ -71,7 +73,6 @@ function App() {
         dispatch(getCart(user.id))
         saveAllItemsInCart(user.id);
       }
-      // Eliminar token cuando expira
     };
   }, []);
 

@@ -15,7 +15,6 @@ export default function Detail() {
     const { cart, handleCart, setItemCart } = useCart();
     const { loading, setLoading, Loading } = useLoading();
     const [favoriteDetail, setFavoriteDetail] = useState(false);
-    console.log(detailGame?.main_image)
     const [currentImage, setCurrentImage] = useState(detailGame?.main_image);
 
     useEffect(() => {
@@ -25,7 +24,6 @@ export default function Detail() {
         setItemCart(id);
         setCurrentImage(res.payload?.main_image);
         setLoading(false)
-
     }, [dispatch, id]);
 
 

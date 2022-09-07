@@ -1,4 +1,7 @@
 import { User } from "../models/User.js";
+import { Cart } from "./../models/Cart.js";
+import jwt from "jsonwebtoken";
+import crypto from "crypto";
 
 export const getUsers = async (req, res) => {
   const { page, deleted, admin } = req.query;
@@ -7,7 +10,7 @@ export const getUsers = async (req, res) => {
       attributes: {
         exclude: ["password"],
       },
-      include: "favorites"
+      include: "favorites",
     });
     let users = usersDB;
     if (typeof deleted === "boolean" && deleted) {
@@ -34,7 +37,7 @@ export const getUserByID = async (req, res) => {
       attributes: {
         exclude: ["password"],
       },
-      include: "favorites"
+      include: "favorites",
     });
     res.send(user);
   } catch (error) {
@@ -60,11 +63,17 @@ export const updateUser = async (req, res) => {
   const bodyUser = req.body;
   try {
     const updatedUser = await User.update(bodyUser, {
-        where: {
-            id: bodyUser.id
-        }
+      where: {
+        id: bodyUser.id,
+      },
     });
-    if(Number(updatedUser) === 0) { return res.status(400).send(`Error, route <Put, UpdateUser>: Could not modify this user ${bodyUser.id}`); }
+    if (Number(updatedUser) === 0) {
+      return res
+        .status(400)
+        .send(
+          `Error, route <Put, UpdateUser>: Could not modify this user ${bodyUser.id}`
+        );
+    }
     res.send(await User.findByPk(bodyUser.id));
   } catch (error) {
     res.status(404).send(`Error, route <Put, UpdateUser>: ${error}`);
@@ -91,7 +100,7 @@ export const patchAdminUser = async (req, res) => {
   try {
     const user = await User.findByPk(id);
     await User.update(
-      { is_admin: (admin === undefined) ? !user?.get().is_admin : admin },
+      { is_admin: admin === undefined ? !user?.get().is_admin : admin },
       {
         where: {
           id,
@@ -110,7 +119,7 @@ export const patchStatusUser = async (req, res) => {
   try {
     const user = await User.findByPk(id);
     await User.update(
-      { active: (status === undefined) ? !user?.get().active : status },
+      { active: status === undefined ? !user?.get().active : status },
       {
         where: {
           id,
@@ -120,5 +129,53 @@ export const patchStatusUser = async (req, res) => {
     res.send(await User.findByPk(id));
   } catch (error) {
     res.status(404).send(`Error, route <Patch, PatchStatusUser>: ${error}`);
+  }
+};
+
+export const loadAdmin = async () => {
+  const bodyUser = {
+    firstname: "Admin",
+    lastname: "Admin",
+    picture: "https://imgur.com/EyEFL9w.png",
+    date_of_birth: "14-04-2001",
+    email: "admin@admin.com",
+    password: "Admin123",
+    phone: "1234567891",
+    active: true,
+    rol: "Owner",
+  };
+
+  try {
+    if (!(await User.findAndCountAll())?.count) {
+      console.log("Loading Admin in database...");
+      const createdUser = await User.findOrCreate({
+        where: {
+          email: bodyUser.email,
+        },
+        defaults: {
+          firstname: bodyUser.firstname,
+          lastname: bodyUser.lastname,
+          picture: bodyUser.picture,
+          date_of_birth: bodyUser.date_of_birth,
+          email: bodyUser.email,
+          password: crypto
+            .createHash("md5")
+            .update(bodyUser.password)
+            .digest("hex"),
+          phone: bodyUser.phone,
+          active: true,
+          rol: bodyUser.rol,
+        },
+      });
+
+      await Cart.create({
+        status: "Vacio",
+        userId: createdUser[0].dataValues.id,
+      });
+
+      console.log("Loading Admin complete.");
+    }
+  } catch (error) {
+    console.log(`Load Data Base: ${error}`);
   }
 };

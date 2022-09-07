@@ -15,7 +15,6 @@ export default function New({ show }: any) {
         }
     }, [dispatch]);
     
-    console.log(newGames)
     return (
         show && <div className={s.cards_container}>
             {

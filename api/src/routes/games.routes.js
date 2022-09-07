@@ -9,4 +9,11 @@ router.get('/:id', getGamesById);
 router.delete('/:id', deleteGame);
 router.patch('/:id', restoreGame);
 
+/* 
+faltan las rutas:
+- patch destacados
+- patch es nuevo
+- patch activo
+*/
+
 export default router;

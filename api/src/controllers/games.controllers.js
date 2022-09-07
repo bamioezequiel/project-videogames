@@ -4,7 +4,21 @@ import axios from "axios";
 
 export const getAllGames = async (req, res) =>{ 
     try {
-        const allGames = await Game.findAll();
+        const allGames = await Game.findAll();       
+        res.send(allGames);
+    } catch (error) {
+        res.status(404).send(`Error, route <Get, AllGames>: ${error}`)
+    }
+}
+
+export const getGames = async (req, res) =>{ 
+    try {
+        const allGames = await Game.findAll({
+            where: {
+                active: true,
+            }
+        });
+
         res.send(allGames);
     } catch (error) {
         res.status(404).send(`Error, route <Get, AllGames>: ${error}`)
@@ -109,6 +123,8 @@ export const loadGames = async () => {
         await Game.findOrCreate({
           where: {
             ...g,
+            featured: g.rating > 4.5 ? true : false,
+            active: g.stock > 0 ? true : false
           },
         });
       });
