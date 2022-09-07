@@ -23,6 +23,7 @@ export const GIVE_ADMIN = "GIVE_ADMIN";
 export const AUTHENTICATE_STATUS = "AUTHENTICATE_STATUS";
 export const LOGOUT_USER = "LOGOUT_USER";
 export const LOGIN_USER = "LOGIN_USER";
+export const UPDATE_USER = "UPDATE_USER";
 export const CREATE_USER = "CREATE_USER";
 // export const ORDER_BY_PRICE = 'ORDER_BY_PRICE';
 
@@ -240,6 +241,21 @@ export const loginUser = (user: any) => {
       await dispatch(axiosError(error as Error));
       console.log(error);
       console.log(`Error, actions <LoginUser>: ${error}`);
+    }
+  };
+};
+
+export const putUser = (user: any) => {
+  return async function (dispatch: Function) {
+    try {
+      await dispatch(axiosStart("user", {}));
+      let res = await axios.put(`http://localhost:3001/users/update`, user);
+      return dispatch({ type: UPDATE_USER, payload: res.data });
+    } catch (error: any) {
+      await dispatch(axiosError(error as Error));
+      alert(error.response.data.slice(39))
+      console.log(error);
+      console.log(`Error, actions <CreateUser>: ${error}`);
     }
   };
 };

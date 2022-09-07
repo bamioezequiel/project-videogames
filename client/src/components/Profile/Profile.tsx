@@ -1,16 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 import s from './Profile.module.css';
 import UserCard from '../Cards/UserCard/UserCard';
 import { useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { getAllUsers } from '../../redux/actions';
 
 export default function Profile() {
     const dispatch: Function = useDispatch();
+    const navigate = useNavigate();
     const { isAdmin, logout } = useAuth();
+
+    function handleReturn(e: any) {
+        e.preventDefault();
+        navigate(-1);
+    }
 
     return (
         <div className={s.profile_container}>
+            <h3 onClick={(e) => handleReturn(e)} className={s.returnBtn}>Return</h3>
             <UserCard />
             <div className={s.profile_content}>
                 <nav className={s.profile_nav}>

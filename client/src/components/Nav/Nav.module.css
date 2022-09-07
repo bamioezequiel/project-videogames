@@ -37,8 +37,9 @@
 
 .nav_menu_image_profile {
     border: thin solid var(--color-white);
-    border-radius: 20px;
+    border-radius: 100%;
     width: 2.5vw;
+    height: 4.5vh;
 }
 
 .item_amount {

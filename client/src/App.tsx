@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { authenticateStatus, getAllGames, getCart, getCartLocalStorage, getFavoritesLocalStorage, getGenres, getPlatforms, getTags, getUser } from "./redux/actions";
+import { authenticateStatus, getAllGames, getAllUsers, getCart, getCartLocalStorage, getFavoritesLocalStorage, getGenres, getPlatforms, getTags, getUser } from "./redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import useAuth from "./hooks/useAuth";
 import Home from "./components/Home/Home";
@@ -33,6 +33,7 @@ function App() {
     await dispatch(getTags());
     await dispatch(getGenres());
     await dispatch(getAllGames());
+    await dispatch(getAllUsers());
   }
 
   useEffect(() => {
@@ -92,6 +93,7 @@ function App() {
 
             <Route path="/dashboard" element={(isAdmin) ? <Dashboard /> : <Navigate to="/" />} />
             <Route path="/dashboard/users" element={(isAdmin) ? <ListUsers /> : <Navigate to="/" />} />
+            <Route path="/dashboard/users/:id" element={(isAdmin) ? <Profile /> : <Navigate to="/" />} />
             <Route path="/dashboard/orders" element={(isAdmin) ? <ListOrders /> : <Navigate to="/" />} />
             <Route path="/dashboard/games" element={(isAdmin) ? <ListGames /> : <Navigate to="/" />} />
             <Route path="/dashboard/create-game" element={(isAdmin) ? <CreateGame /> : <Navigate to="/" />} />

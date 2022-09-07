@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { AiFillEdit } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import { getAllUsers, giveAdmin, removeAdmin } from "../../../redux/actions";
 import AdminNav from "../AdminNav/AdminNav";
@@ -78,9 +79,9 @@ export default function ListUsers() {
                                             }
                                         </td>
                                         <td>
-                                            <button className='fl_table_btn'>
+                                            <NavLink to={`/dashboard/users/${u.id}`} className='fl_table_btn'>
                                                 <AiFillEdit />
-                                            </button>
+                                            </NavLink>
                                         </td>
                                         <td>
                                             <button className='fl_table_btn'>

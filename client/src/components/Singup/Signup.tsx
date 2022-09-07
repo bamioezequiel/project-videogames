@@ -13,12 +13,12 @@ export default function Signup() {
     const { register } = useAuth();
     const { saveAllItemsInCart } = useCart();
     const [registerUser, setRegisterUser] = useState({
-        firstname: 'Ezequiel',
-        lastname: 'Bamio',
-        email: 'ezetestpf@gmail.com',
-        password: 'asdasd123',
-        phone: '1136457522',
-        dateBirth: '2002-04-14'
+        firstname: '',
+        lastname: '',
+        email: '',
+        password: '',
+        phone: '',
+        dateBirth: ''
     });
     const [errors, setErrors] = useState({
         firstname: '',
@@ -61,7 +61,7 @@ export default function Signup() {
             // alert(error)
         }
 
-        /* setRegisterUser({
+        setRegisterUser({
             firstname: '',
             lastname: '',
             email: '',
@@ -76,7 +76,7 @@ export default function Signup() {
             password: '',
             phone: '',
             dateBirth: ''
-        }); */
+        });
     };
 
     return (

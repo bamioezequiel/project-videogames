@@ -24,6 +24,7 @@ import {
   ORDERS_GAMES,
   ordersGames,
   FILTER_SEARCH,
+  UPDATE_USER,
 } from "../actions";
 
 import { filterGames, orderings, search } from "./../../utils/filtersAndOrders";
@@ -290,6 +291,13 @@ const rootReducer = (state = initialState, action: Action) => {
         loading: false,
         error: null,
         user: action.payload.user,
+      };
+    case UPDATE_USER:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        user: action.payload,
       };
     case CREATE_USER:
       localStorage.setItem("token", action.payload.token);

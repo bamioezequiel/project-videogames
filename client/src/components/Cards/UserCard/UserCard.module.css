@@ -2,18 +2,39 @@
     display: flex;
     align-items: center;
     width: 70%;
+    height: 23vh;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 30px;
     border-radius: 20px 100px;
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);}
 
-.profile_card_img {
-    width: 15%;
+
+
+  .profile_file_upload_input {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .profile_image_upload_wrap {
+    width: 20%;
+    height: 18vh;
     border-radius: 100%;
-    margin: 20px;
+    margin: 25px;
     object-fit: cover;
-}
+    position: relative;
+  }
+  
+  .profile_image_upload_wrap:hover {
+    border: thin solid #fff;
+  }
+
 
 .profile_card_data {
     display: flex;
