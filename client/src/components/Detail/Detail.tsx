@@ -7,12 +7,13 @@ import s from './Detail.module.css';
 import useCart from '../../hooks/useCart';
 
 export default function Detail() {
-    const dispatch: any = useDispatch();
+    const dispatch: Function = useDispatch();
     const navigate = useNavigate();
     const detailGame = useSelector((state: any) => state.detailGame);
     const { id } = useParams();
     const { cart, handleCart, setItemCart } = useCart();
     const [favoriteDetail, setFavoriteDetail] = useState(false);
+    const [currentImage, setCurrentImage] = useState(detailGame?.main_image);
 
     /* useEffect( () => {
         if(Object.keys(detailGame).length > 0) {
@@ -26,6 +27,17 @@ export default function Detail() {
         favoritesLS?.find((f: any) => f.id == id && setFavoriteDetail(true));
         setItemCart(id);
     }, [dispatch, id]);
+    
+    useEffect(() => {
+        setCurrentImage('');
+        setCurrentImage(detailGame?.main_image);   
+            // Corregir: Queda pegada la imagen del juego anterior
+    }, [])
+
+    function handleImages(e: any) {
+        e.preventDefault();
+        setCurrentImage(e.target.id);
+    }
 
     function handleReturn(e: any) {
         e.preventDefault();
@@ -72,36 +84,51 @@ export default function Detail() {
                 </div>
                 <div className={s.detail_content}>
                     {/* carusel */}
-                    <div className={s.flipCard}>
-                        <div className={s.flipCardInner}>
+                    <div className={s.details_card_images}>
 
-                            <img src={detailGame?.main_image} className={s.detail_main_image} alt="main_image" />
+                        <div className={s.flipCard}>
+                            <div className={s.flipCardInner}>
 
-                            <div className={s.details_labels_container}>
-                                <div className={s.allTags}>
-                                    <div className={s.detail_geners}>
-                                        {
-                                            detailGame?.geners?.map((g: any, i: number) => {
-                                                return <span key={i + g} className={s.detail_tag}><p>{g}</p></span>
-                                            })
-                                        }
-                                    </div>
-                                    <div className={s.detail_tags}>
-                                        {
-                                            detailGame?.tags?.map((t: any, i: number) => {
-                                                return <span key={i + t} className={s.detail_tag}><p>{t}</p></span>
-                                            })
-                                        }
-                                    </div>
-                                    <div className={s.detail_platform}>
-                                        {
-                                            detailGame?.platforms?.map((p: any, i: number) => {
-                                                return <span key={i + p} className={s.detail_tag}><p>{p}</p></span>
-                                            })
-                                        }
+                                <img src={currentImage} className={s.detail_main_image} alt="main_image" />
+
+                                <div className={s.details_labels_container}>
+                                    <div className={s.allTags}>
+                                        <div className={s.detail_geners}>
+                                            {
+                                                detailGame?.geners?.map((g: any, i: number) => {
+                                                    return <span key={i + g} className={s.detail_tag}><p>{g}</p></span>
+                                                })
+                                            }
+                                        </div>
+                                        <div className={s.detail_tags}>
+                                            {
+                                                detailGame?.tags?.map((t: any, i: number) => {
+                                                    return <span key={i + t} className={s.detail_tag}><p>{t}</p></span>
+                                                })
+                                            }
+                                        </div>
+                                        <div className={s.detail_platform}>
+                                            {
+                                                detailGame?.platforms?.map((p: any, i: number) => {
+                                                    return <span key={i + p} className={s.detail_tag}><p>{p}</p></span>
+                                                })
+                                            }
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
+                        </div>
+
+                        <div className={s.details_images_container}>
+                            {
+                                detailGame?.short_screenshots?.length &&
+                                detailGame?.short_screenshots?.map((urlImg: any) => {
+                                    return (
+                                        <img key={urlImg} src={urlImg} id={urlImg} onClick={handleImages} className={s.details_image} alt={urlImg} />
+                                    )
+                                })
+                            }
                         </div>
                     </div>
 
@@ -111,21 +138,21 @@ export default function Detail() {
                                 <span className={s.nameGameDetail}>{detailGame?.name}</span>
                                 {
                                     (detailGame.on_sale > 0)
-                                    ? <div>
-                                        <span className={s.priceGameDetail}>
-                                            {detailGame?.price_with_sale} USD
-                                        </span>
-                                        <span style={{fontSize: '24px', textDecoration: 'line-through', marginLeft: '5px'}} className={s.priceGameDetail}>
-                                            {detailGame?.price} USD
-                                        </span>
-                                        <span style={{margin: '0 5px'}}>-{detailGame.on_sale}%</span>
-                                    </div>
-                                    : <span className={s.priceGameDetail}>
+                                        ? <div>
+                                            <span className={s.priceGameDetail}>
+                                                {detailGame?.price_with_sale} USD
+                                            </span>
+                                            <span style={{ fontSize: '24px', textDecoration: 'line-through', marginLeft: '5px' }} className={s.priceGameDetail}>
+                                                {detailGame?.price} USD
+                                            </span>
+                                            <span style={{ margin: '0 5px' }}>-{detailGame.on_sale}%</span>
+                                        </div>
+                                        : <span className={s.priceGameDetail}>
                                             {detailGame?.price} USD
                                         </span>
                                 }
 
-                                
+
                             </div>
                             <div className={s.detailInfoNonImp}>
                                 <p className={s.ratingGameDetail}>{new Array(detailGame?.rating).fill(false)?.map((el) => '⭐')}</p>

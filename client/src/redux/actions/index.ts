@@ -210,7 +210,9 @@ export const authenticateStatus = (token: any) => {
         },
       });
       return dispatch({ type: AUTHENTICATE_STATUS, payload: res.data });
-    } catch (error) {
+    } catch (error: any) {
+      console.log(error)
+      if(error.response.data === 'token expired') localStorage.removeItem("token");
       await dispatch(axiosError(error as Error));
       console.log(`Error, actions <AuthenticateStatus>: ${error}`);
     }
@@ -305,7 +307,7 @@ export const getAllUsers = () => {
 export const getDetailGame = (id: any) => {
   return async function (dispatch: Function) {
     try {
-      dispatch(axiosStart("detailGame"));
+      dispatch(axiosStart("detailGame", {}));
       let res = await axios.get(`http://localhost:3001/games/${id}`);
       return dispatch({ type: GET_DETAIL_GAME, payload: res.data });
     } catch (error) {
