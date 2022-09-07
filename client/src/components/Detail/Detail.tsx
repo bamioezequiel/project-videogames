@@ -5,6 +5,7 @@ import { getCartLocalStorage, getDetailGame, getFavoritesLocalStorage } from '..
 import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
 import s from './Detail.module.css';
 import useCart from '../../hooks/useCart';
+import useLoading from '../Loading/Loading';
 
 export default function Detail() {
     const dispatch: Function = useDispatch();
@@ -12,27 +13,21 @@ export default function Detail() {
     const detailGame = useSelector((state: any) => state.detailGame);
     const { id } = useParams();
     const { cart, handleCart, setItemCart } = useCart();
+    const { loading, setLoading, Loading } = useLoading();
     const [favoriteDetail, setFavoriteDetail] = useState(false);
+    console.log(detailGame?.main_image)
     const [currentImage, setCurrentImage] = useState(detailGame?.main_image);
 
-    /* useEffect( () => {
-        if(Object.keys(detailGame).length > 0) {
-          setLoading(false);
-        }
-      }, [detailGame] ) */
-
     useEffect(() => {
-        dispatch(getDetailGame(id));
+        let res = dispatch(getDetailGame(id));
         let favoritesLS = JSON.parse(localStorage.getItem("favorites") || '[]');
         favoritesLS?.find((f: any) => f.id == id && setFavoriteDetail(true));
         setItemCart(id);
+        setCurrentImage(res.payload?.main_image);
+        setLoading(false)
+
     }, [dispatch, id]);
-    
-    useEffect(() => {
-        setCurrentImage('');
-        setCurrentImage(detailGame?.main_image);   
-            // Corregir: Queda pegada la imagen del juego anterior
-    }, [])
+
 
     function handleImages(e: any) {
         e.preventDefault();
@@ -71,7 +66,7 @@ export default function Detail() {
     }
 
     return (
-        <div className={s.detail_background}
+        (loading) ? Loading() : <div className={s.detail_background}
             style={{
                 backgroundImage: `url(${detailGame?.main_image})`,
                 backgroundSize: "cover",
@@ -83,13 +78,10 @@ export default function Detail() {
                     <i className={favoriteDetail ? s.favIconDetail : s.noFavIconDetail} onClick={(e) => handleFavorites(e)}>{favoriteDetail ? <MdFavorite /> : <MdFavoriteBorder />}</i>
                 </div>
                 <div className={s.detail_content}>
-                    {/* carusel */}
                     <div className={s.details_card_images}>
-
                         <div className={s.flipCard}>
                             <div className={s.flipCardInner}>
-
-                                <img src={currentImage} className={s.detail_main_image} alt="main_image" />
+                                <img src={currentImage || detailGame?.main_image} className={s.detail_main_image} alt="main_image" />
 
                                 <div className={s.details_labels_container}>
                                     <div className={s.allTags}>

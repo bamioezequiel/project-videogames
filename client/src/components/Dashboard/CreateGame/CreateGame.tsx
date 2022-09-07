@@ -30,9 +30,9 @@ export default function CreateGame() {
             <AdminNav />
             <form className={s.createGame_form_container}>
                 <input type="text" className={s.form_input} placeholder='Name...' />
-                <input type="number" className={s.form_input} placeholder='Price...' />
-                <input type="number" className={s.form_input} placeholder='On sale...' />
-                <input type="number" className={s.form_input} placeholder='Stock...' />
+                <input type="number" min={0} className={s.form_input} placeholder='Price...' />
+                <input type="number" min={0} max={100} className={s.form_input} placeholder='On sale...' />
+                <input type="number" min={0} className={s.form_input} placeholder='Stock...' />
                 <input type="date" className={s.form_input} />
                 <select className={s.form_input} >
                     <option value="x">Features</option>
@@ -70,7 +70,7 @@ export default function CreateGame() {
                             platforms?.length > 0 && platforms.map((p: any) => {
                                 return (
                                     <div className={s.form_label}>
-                                        <input type="checkbox" id={p} />
+                                        <input type="checkbox" className={s.form_label_check} id={p} />
                                         <label htmlFor={p}>{p}</label>
                                     </div>
                                 )

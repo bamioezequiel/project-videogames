@@ -151,7 +151,7 @@ export default function Store() {
             <div className={s.store_list}>
                 {
                     currentVideogames?.length && currentVideogames?.map((g: any) => {
-                        return <Card game={g} tag='BUY' />
+                        return <Card game={g} tag={ g.on_sale > 0 ? 'ON SALE' : g.featured ? 'FEATURED' : 'BUY' } />
                     })
                 }
             </div>

@@ -10,21 +10,11 @@ export default function Footer() {
       <footer className={s.footer}>
         <div className={s.firstLineFooter}>
           <div className={s.footer_social}>
-            <a href="/" className={s.footer_social_icon}>
-              <FaFacebookF />
-            </a>
-            <a href="/" className={s.footer_social_icon}>
-              <FaTwitter />
-            </a>
-            <a href="/" className={s.footer_social_icon}>
-              <FaYoutube />
-            </a>
-            <a href="/" className={s.footer_social_icon}>
-              <FaInstagram />
-            </a>
-            <a href="/" className={s.footer_social_icon}>
-              <FaLinkedinIn />
-            </a>
+            <a href="/" className={s.footer_social_icon}><FaFacebookF /></a>
+            <a href="/" className={s.footer_social_icon}><FaTwitter /></a>
+            <a href="/" className={s.footer_social_icon}><FaYoutube /></a>
+            <a href="/" className={s.footer_social_icon}><FaInstagram /></a>
+            <a href="/" className={s.footer_social_icon}><FaLinkedinIn /></a>
           </div>
         </div>
         <div className={s.footer_links}>

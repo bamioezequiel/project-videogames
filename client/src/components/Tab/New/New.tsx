@@ -1,16 +1,18 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getFilteredNewGames } from '../../../redux/actions';
+import { getAllGames } from '../../../redux/actions';
 import Card from '../../Cards/CardGame/Card';
 import s from './../Tab.module.css';
 
 export default function New({ show }: any) {
     const dispatch: Function = useDispatch();
-    const newGames = useSelector((state: any) => state.filteredNewGames);
-    // const newGames = useSelector((state: any) => state.allGames);
+    const allGames = useSelector((state: any) => state.allGames);
+    const newGames = allGames.filter((g: any) => g.is_new == true);;
 
     useEffect( () => {
-        dispatch(getFilteredNewGames());
+        if(!allGames.length) {
+            dispatch(getAllGames());
+        }
     }, [dispatch]);
     
     console.log(newGames)

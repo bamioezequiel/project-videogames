@@ -1,22 +1,21 @@
 import Axios from "axios";
 import axios from "axios";
+// --------------- //
 export const AXIOS_ERROR = "AXIOS_ERROR";
 export const AXIOS_START = "AXIOS_START";
+// --------------- //
 export const GET_DETAIL_GAME = "GET_DETAIL_GAME";
 export const GET_ALL_GAMES = "GET_ALL_GAMES";
 export const FILTERS_GAMES = "FILTERS_GAMES";
 export const ORDERS_GAMES = "ORDERS_GAMES";
-export const GET_FILTERED_FEATURED_GAMES = "GET_FILTERED_FEATURED_GAMES";
-export const GET_FILTERED_NEW_GAMES = "GET_FILTERED_NEW_GAMES";
 export const FILTER_SEARCH = "FILTER_SEARCH";
+// --------------- //
 export const GET_GENRES = "GET_GENRES";
 export const GET_PLATFORMS = "GET_PLATFORMS";
 export const GET_TAGS = "GET_TAGS";
-export const PUT_CART = "PUT_CART";
-export const GET_CART = "GET_CART";
-export const DELETE_CART = "DELETE_CART";
-export const GET_CART_LOCAL_STORAGE = "GET_CART_LOCAL_STORAGE";
+// --------------- //
 export const GET_FAVORITES_LOCAL_STORAGE = "GET_FAVORITES_LOCAL_STORAGE";
+// --------------- //
 export const GET_USER = "GET_USER";
 export const GET_ALL_USER = "GET_ALL_USER";
 export const GIVE_ADMIN = "GIVE_ADMIN";
@@ -25,7 +24,28 @@ export const LOGOUT_USER = "LOGOUT_USER";
 export const LOGIN_USER = "LOGIN_USER";
 export const UPDATE_USER = "UPDATE_USER";
 export const CREATE_USER = "CREATE_USER";
-// export const ORDER_BY_PRICE = 'ORDER_BY_PRICE';
+// --------------- //
+export const GET_CART_LOCAL_STORAGE = "GET_CART_LOCAL_STORAGE";
+export const GET_CART = "GET_CART";
+export const DELETE_CART = "DELETE_CART";
+export const PUT_CART = "PUT_CART";
+// --------------- //
+
+
+
+/* --------------- START CART --------------- */
+
+export const addCart = (id: any, gameId: any) => {
+  return async function (dispatch: Function) {
+    try {
+      const res = await axios.put(`http://localhost:3001/cart/${id}/${gameId}`);
+      return dispatch({ type: PUT_CART, payload: res.data });
+    } catch (error) {
+      await dispatch(axiosError(error as Error));
+      console.log(`Error, actions <AddCart>: ${error}`);
+    }
+  };
+};
 
 export const removeCart = (id: any, gameId: any) => {
   return async function (dispatch: Function) {
@@ -38,18 +58,6 @@ export const removeCart = (id: any, gameId: any) => {
     } catch (error) {
       await dispatch(axiosError(error as Error));
       console.log(`Error, actions <RemoveCart>: ${error}`);
-    }
-  };
-};
-
-export const addCart = (id: any, gameId: any) => {
-  return async function (dispatch: Function) {
-    try {
-      const res = await axios.put(`http://localhost:3001/cart/${id}/${gameId}`);
-      return dispatch({ type: PUT_CART, payload: res.data });
-    } catch (error) {
-      await dispatch(axiosError(error as Error));
-      console.log(`Error, actions <AddCart>: ${error}`);
     }
   };
 };
@@ -91,6 +99,10 @@ export const getCartLocalStorage = () => {
   };
 };
 
+/* --------------- END CART --------------- */
+
+/* --------------- START FAVORITES --------------- */
+
 export const getFavoritesLocalStorage = () => {
   return async function (dispatch: Function) {
     try {
@@ -103,6 +115,10 @@ export const getFavoritesLocalStorage = () => {
     }
   };
 };
+
+/* --------------- END FAVORITES --------------- */
+
+/* --------------- START ? --------------- */
 
 export const getTags = () => {
   return async function (dispatch: Function) {
@@ -142,6 +158,9 @@ export const getGenres = () => {
     }
   };
 };
+/* --------------- END ? --------------- */
+
+/* --------------- START USERS --------------- */
 
 export const postLoginUserWithGoogle = () => {
   return async function (dispatch: Function) {
@@ -304,6 +323,10 @@ export const getAllUsers = () => {
   };
 };
 
+/* --------------- END USERS --------------- */
+
+/* --------------- START GAMES --------------- */
+
 export const getDetailGame = (id: any) => {
   return async function (dispatch: Function) {
     try {
@@ -337,37 +360,6 @@ export const getAllGames = () => {
     } catch (error) {
       dispatch(axiosError(error as Error));
       console.log(`Error, actions <GetAllGames>: ${error}`);
-    }
-  };
-};
-
-export const getFilteredFeaturedGames = () => {
-  return async function (dispatch: Function) {
-    try {
-      dispatch(axiosStart("filteredFeaturedGames"));
-      let res = await axios.get(
-        `http://localhost:3001/games/filters?featured=true`
-      );
-      return dispatch({ type: GET_FILTERED_FEATURED_GAMES, payload: res.data });
-    } catch (error) {
-      dispatch(axiosError(error as Error));
-      console.log(`Error, actions <getFilteredGames>: ${error}`);
-    }
-  };
-};
-
-export const getFilteredNewGames = () => {
-  return async function (dispatch: Function) {
-    try {
-      dispatch(axiosStart("filteredNewGames"));
-      let res = await axios.post(
-        `http://localhost:3001/games/filters?is_new=true`
-      );
-      return dispatch({ type: GET_FILTERED_NEW_GAMES, payload: res.data });
-    } catch (error) {
-      dispatch(axiosError(error as Error));
-      console.log(error);
-      console.log(`Error, actions <getFilteredGames>: ${error}`);
     }
   };
 };
@@ -410,6 +402,8 @@ export const filtersGames = ( type: any, value: any ) => {
   };
 };
 
+/* --------------- END GAMES --------------- */
+
 export const axiosError = (error: Error) => {
   return { type: AXIOS_ERROR, payload: error };
 };
@@ -417,10 +411,3 @@ export const axiosError = (error: Error) => {
 export const axiosStart = (state: string, value?: any) => {
   return { type: AXIOS_START, payload: !value ? [] : value, state: state };
 };
-
-// export function orderByPrice(payload : any) {
-//   return {
-//     type: "ORDER_BY_PRICE",
-//     payload,
-//   };
-// }
