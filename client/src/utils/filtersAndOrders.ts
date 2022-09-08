@@ -52,6 +52,13 @@ export const orderings = (
         result.sort((a: any, b: any) => a.stock - b.stock);
       }
       return result;
+    case "date":
+      if (orderingForm === "asc") {
+        result.sort((a: any, b: any) => new Date(b.released).getFullYear() - new Date(a.released).getFullYear());
+      } else {
+        result.sort((a: any, b: any) => new Date(a.released).getFullYear() - new Date(b.released).getFullYear());
+      }
+      return result;
     case "alpha":
       if (orderingForm === "asc") {
         result.sort((a: any, b: any) =>
@@ -66,15 +73,56 @@ export const orderings = (
     case "active":
       if (orderingForm === "asc") {
         result.sort((a: any, b: any) =>
-          a.active.toString().toLowerCase().localeCompare(b.active.toString().toLowerCase())
+          a.active
+            .toString()
+            .toLowerCase()
+            .localeCompare(b.active.toString().toLowerCase())
         );
       } else {
         result.sort((a: any, b: any) =>
-          b.active.toString().toLowerCase().localeCompare(a.active.toString().toLowerCase())
+          b.active
+            .toString()
+            .toLowerCase()
+            .localeCompare(a.active.toString().toLowerCase())
         );
       }
-      console.log(result);
       return result;
+    case "isNew":
+      if (orderingForm === "asc") {
+        result.sort((a: any, b: any) =>
+          a.is_new
+            .toString()
+            .toLowerCase()
+            .localeCompare(b.is_new.toString().toLowerCase())
+        );
+      } else {
+        result.sort((a: any, b: any) =>
+          b.is_new
+            .toString()
+            .toLowerCase()
+            .localeCompare(a.is_new.toString().toLowerCase())
+        );
+      }
+      return result;
+    case "featured":
+      if (orderingForm === "asc") {
+        result.sort((a: any, b: any) =>
+          a.featured
+            .toString()
+            .toLowerCase()
+            .localeCompare(b.featured.toString().toLowerCase())
+        );
+      } else {
+        result.sort((a: any, b: any) =>
+          b.featured
+            .toString()
+            .toLowerCase()
+            .localeCompare(a.featured.toString().toLowerCase())
+        );
+      }
+      return result;
+      default:
+        return arrGames;
   }
 };
 

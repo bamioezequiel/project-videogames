@@ -5,7 +5,7 @@ import { loadAdmin } from './src/controllers/users.controllers.js';
 const PORT = process.env.PORT || 3001;
 
 sequelize
-  .sync({ force: true })
+  .sync({ force: false })
   .then( () => {
     console.log('database connected!');
     loadAdmin();

@@ -17,6 +17,12 @@ export default function ListGames() {
         setGames(res);
         setOrderType(!typeOrder)
     }
+    const handleDate = (e: any, typeOrder: boolean) => {
+        e.preventDefault();
+        let res = orderings(allGames, 'date', (typeOrder) ? 'asc' : 'desc' );
+        setGames(res);
+        setOrderType(!typeOrder)
+    }
     const handleRating = (e: any, typeOrder: boolean) => {
         e.preventDefault();
         let res = orderings(allGames, 'rating', (typeOrder) ? 'asc' : 'desc' );
@@ -69,7 +75,7 @@ export default function ListGames() {
                         <tr>
                             <th>Id</th>
                             <th onClick={(e) => handleName(e, orderType)}>Name</th>
-                            <th>Released</th>
+                            <th onClick={(e) => handleDate(e, orderType)}>Released</th>
                             <th onClick={(e) => handleRating(e, orderType)}>Rating</th>
                             <th onClick={(e) => handlePrice(e, orderType)}>Price</th>
                             <th onClick={(e) => handleOnSale(e, orderType)}>On sale</th>
@@ -82,8 +88,8 @@ export default function ListGames() {
                         </tr>
                     </thead>
                     <tbody>
-                        {games.length &&
-                            games.map((g: any) => {
+                        {games?.length &&
+                            games?.map((g: any) => {
                                 return (
                                     <tr key={"gamesList" + g.name}>
                                         <td>#{g.id}</td>
