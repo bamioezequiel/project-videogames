@@ -5,19 +5,24 @@ import { Game } from "./Game.js";
 import { Order } from "./Order.js";
 
 export const Cart = sequelize.define(
-  "cart", {
+  "cart",
+  {
     status: {
-        type: DataTypes.ENUM("En proceso", "Completado", "Vacio"),
-        defaultValue: 'Vacio'
+      type: DataTypes.ENUM("En proceso", "Completado", "Vacio"),
+      defaultValue: "Vacio",
     },
     cart: {
-        type: DataTypes.ARRAY(DataTypes.JSON),
-        defaultValue: []
+      type: DataTypes.ARRAY(DataTypes.JSON),
+      defaultValue: [],
     },
     price: {
-        type: DataTypes.FLOAT,
-        defaultValue: 0
-    }
+      type: DataTypes.FLOAT,
+      defaultValue: 0,
+    },
+  },
+  {
+    paranoid: true,
+    deletedAt: "deleteAt",
   }
 );
 

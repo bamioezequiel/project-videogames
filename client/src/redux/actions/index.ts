@@ -5,6 +5,12 @@ export const AXIOS_ERROR = "AXIOS_ERROR";
 export const AXIOS_START = "AXIOS_START";
 // --------------- //
 export const GET_DETAIL_GAME = "GET_DETAIL_GAME";
+export const UPDATE_GAME = "UPDATE_GAME";
+export const RESTORE_GAME = "RESTORE_GAME";
+export const PATCH_FEATURED_GAME = "PATCH_FEATURED_GAME";
+export const PATCH_NEW_GAME = "PATCH_NEW_GAME";
+export const DELETE_GAME = "DELETE_GAME";
+export const POST_GAME = "POST_GAME";
 export const GET_ALL_GAMES = "GET_ALL_GAMES";
 export const FILTERS_GAMES = "FILTERS_GAMES";
 export const ORDERS_GAMES = "ORDERS_GAMES";
@@ -347,6 +353,90 @@ export const cleanAllGames = () => {
     } catch (error) {
       dispatch(axiosError(error as Error));
       console.log(`Error, actions <GetAllGames>: ${error}`);
+    }
+  };
+};
+
+export const restoreGame = (id: any) => {
+  return async function (dispatch: Function) {
+    try {
+      dispatch(axiosStart("allGames"));
+      let res = await axios.patch(`http://localhost:3001/games/restore/${id}`);
+      return dispatch({ type: RESTORE_GAME, payload: res.data });
+    } catch (error) {
+      dispatch(axiosError(error as Error));
+      console.log(error)
+      console.log(`Error, actions <RestoreGame>: ${error}`);
+    }
+  };
+};
+
+export const patchFeaturedGame = (id: any) => {
+  return async function (dispatch: Function) {
+    try {
+      dispatch(axiosStart("allGames"));
+      let res = await axios.patch(`http://localhost:3001/games/featured/${id}`);
+      return dispatch({ type: PATCH_FEATURED_GAME, payload: res.data });
+    } catch (error) {
+      dispatch(axiosError(error as Error));
+      console.log(error)
+      console.log(`Error, actions <PatchNewGame>: ${error}`);
+    }
+  };
+};
+
+export const patchNewGame = (id: any) => {
+  return async function (dispatch: Function) {
+    try {
+      dispatch(axiosStart("allGames"));
+      let res = await axios.patch(`http://localhost:3001/games/isNew/${id}`);
+      return dispatch({ type: PATCH_NEW_GAME, payload: res.data });
+    } catch (error) {
+      dispatch(axiosError(error as Error));
+      console.log(error)
+      console.log(`Error, actions <PatchNewGame>: ${error}`);
+    }
+  };
+};
+
+export const deleteGame = (id: any) => {
+  return async function (dispatch: Function) {
+    try {
+      dispatch(axiosStart("allGames"));
+      let res = await axios.delete(`http://localhost:3001/games/${id}`);
+      return dispatch({ type: DELETE_GAME, payload: res.data });
+    } catch (error) {
+      dispatch(axiosError(error as Error));
+      console.log(error)
+      console.log(`Error, actions <DeleteGame>: ${error}`);
+    }
+  };
+};
+
+export const putGame = (value: any) => {
+  return async function (dispatch: Function) {
+    try {
+      dispatch(axiosStart("allGames"));
+      let res = await axios.put("http://localhost:3001/games", value);
+      return dispatch({ type: POST_GAME, payload: res.data });
+    } catch (error) {
+      dispatch(axiosError(error as Error));
+      console.log(error)
+      console.log(`Error, actions <CreateGame>: ${error}`);
+    }
+  };
+};
+
+export const createGame = (value: any) => {
+  return async function (dispatch: Function) {
+    try {
+      dispatch(axiosStart("allGames"));
+      let res = await axios.post("http://localhost:3001/games", value);
+      return dispatch({ type: UPDATE_GAME, payload: res.data });
+    } catch (error) {
+      dispatch(axiosError(error as Error));
+      console.log(error)
+      console.log(`Error, actions <CreateGame>: ${error}`);
     }
   };
 };

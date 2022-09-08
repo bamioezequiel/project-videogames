@@ -1,27 +1,32 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import s from "./Card.module.css";
 import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
 import { useDispatch, useSelector } from "react-redux";
-import { cleanAllGames, getCart, getFavoritesLocalStorage } from "../../../redux/actions";
+import { getCart, getFavoritesLocalStorage } from "../../../redux/actions";
 import useCart from "../../../hooks/useCart";
 import useAuth from "../../../hooks/useAuth";
 
 export default function Card({ game, tag }: any) {
     const dispatch: Function = useDispatch();
     const [favorite, setFavorite] = useState(false);
-    const { cart, setCart, handleCart, setItemCart } = useCart();
+    const { cart, handleCart, setItemCart } = useCart();
     const { isAuth } = useAuth();
-    // const game = { id, name, description, price, image, tag };
-
-    useEffect(() => {
-        setItemCart(game.id);
-    }, [isAuth]);
-
+    const user = useSelector( (state: any) => state.user )
+    const cartUser = useSelector( (state: any) => state.cart )
+     
     useEffect(() => {
         let favoritesLS = JSON.parse(localStorage.getItem("favorites") || '[]');
         favoritesLS?.find((f: any) => f.id == game.id && setFavorite(true));
-        setItemCart(game.id);
+        // ( async () => await setItemCart(game.id))()
+        if(isAuth && !Object.keys(cartUser).length) {
+            ( async () => {
+                let res = await dispatch(getCart(user.id));
+                await setItemCart(game.id, res.payload);
+            } )()
+        } else {
+            ( async () => await setItemCart(game.id))()
+        }
     }, [dispatch, game.id]);
 
     function handleFavorites(e: any) {

@@ -98,6 +98,7 @@ function App() {
             <Route path="/dashboard/orders" element={(isAdmin) ? <ListOrders /> : <Navigate to="/" />} />
             <Route path="/dashboard/games" element={(isAdmin) ? <ListGames /> : <Navigate to="/" />} />
             <Route path="/dashboard/create-game" element={(isAdmin) ? <CreateGame /> : <Navigate to="/" />} />
+            <Route path="/dashboard/update-game/:id" element={(isAdmin) ? <CreateGame /> : <Navigate to="/" />} />
           </Routes>
         </div>
       </BrowserRouter>

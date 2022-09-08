@@ -14,11 +14,17 @@ export const getUsers = async (req, res) => {
     });
     let users = usersDB;
     if (typeof deleted === "boolean" && deleted) {
-      users = users.filter((u) => u.deletionDate === null);
+      users = await User.findAll({
+        attributes: {
+          exclude: ["password"],
+        },
+        include: "favorites",
+        paranoid: false
+      });
     }
 
     if (typeof admin === "boolean" && admin) {
-      users = users.filter((u) => u.is_admin === true);
+      users = users.filter((u) => u.rol === 'Admin' || u.rol === 'Owner');
     }
 
     res.send(users);
@@ -53,6 +59,9 @@ export const deleteUser = async (req, res) => {
         id,
       },
     });
+    const user = User.findByPk(id);
+    user.active = false;
+    user.save();
     res.send(`the user ${id} was successfully deleted`);
   } catch (error) {
     res.status(404).send(`Error, route <Delete, deleteUser>: ${error}`);
@@ -88,6 +97,9 @@ export const restoreUser = async (req, res) => {
         id,
       },
     });
+    const user = User.findByPk(id);
+    user.active = true;
+    user.save();
     res.send(`the user ${id} was successfully restored`);
   } catch (error) {
     res.status(404).send(`Error, route <Patch, RestoreUser>: ${error}`);

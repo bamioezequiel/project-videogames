@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BsCheck2Circle, BsDashCircle } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
@@ -6,6 +6,7 @@ import useAuth from '../../hooks/useAuth';
 import useCart from '../../hooks/useCart';
 import { getCart } from '../../redux/actions';
 import { validationsLogin } from '../../utils/validations';
+import useLoading from '../Loading/Loading';
 import s from './Login.module.css';
 
 export default function Login() {
@@ -14,6 +15,8 @@ export default function Login() {
     const { login } = useAuth();
     const user = useSelector((state: any) => state.user)
     const { saveAllItemsInCart } = useCart();
+    const [loading, setLoading] = useState(false);
+    const { Loading } = useLoading();
     const [loginUser, setLoginUser] = useState({
         email: "",
         password: "",
@@ -23,6 +26,14 @@ export default function Login() {
         password: "",
         general: ""
     });
+
+    useEffect( () => {
+        return () => {
+            setLoading(true);
+            window.location.reload();
+            redirect();
+        }
+    }, [] )
 
     const redirect = () => {
         navigate('/');
@@ -34,7 +45,6 @@ export default function Login() {
             ...loginUser,
             [e.target.name]: e.target.value
         });
-        
     }
 
     const handleSubmit = async (e: any) => {
@@ -58,7 +68,7 @@ export default function Login() {
                     general: "El usuario o la contraseña no son validos"
                 });
             } else if (loginUser.email === user.email) {
-                redirect();
+                // redirect();
             } else {
                 setErrors({
                     ...errors,

@@ -23,6 +23,12 @@ import {
   ordersGames,
   FILTER_SEARCH,
   UPDATE_USER,
+  POST_GAME,
+  UPDATE_GAME,
+  DELETE_GAME,
+  RESTORE_GAME,
+  PATCH_NEW_GAME,
+  PATCH_FEATURED_GAME,
 } from "../actions";
 
 import { filterGames, orderings, search } from "./../../utils/filtersAndOrders";
@@ -304,6 +310,48 @@ const rootReducer = (state = initialState, action: Action) => {
         loading: false,
         error: null,
         user: action.payload,
+      };
+    case PATCH_FEATURED_GAME:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        allGames: action.payload,
+      };
+    case PATCH_NEW_GAME:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        allGames: action.payload,
+      };
+    case RESTORE_GAME:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        allGames: action.payload,
+      };
+    case DELETE_GAME:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        allGames: action.payload,
+      };
+    case UPDATE_GAME:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        allGames: action.payload,
+      };
+    case POST_GAME:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        allGames: action.payload,
       };
     case GET_ALL_USER:
       return {

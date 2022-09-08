@@ -16,8 +16,7 @@ export const User = sequelize.define(
       allowNull: true,
       validate: {
         isString(value) {
-          if (typeof value !== "string")
-            throw new Error("Invalid name");
+          if (typeof value !== "string") throw new Error("Invalid name");
         },
       },
     },
@@ -27,26 +26,24 @@ export const User = sequelize.define(
       allowNull: true,
       validate: {
         isString(value) {
-          if (typeof value !== "string")
-            throw new Error("Invalid lastname");
+          if (typeof value !== "string") throw new Error("Invalid lastname");
         },
       },
     },
 
     picture: {
       type: DataTypes.STRING,
-      defaultValue: 'https://imgur.com/EyEFL9w.png',
+      defaultValue: "https://imgur.com/EyEFL9w.png",
       validate: {
         isString(value) {
-          if (typeof value !== "string")
-            throw new Error("Invalid lastname");
+          if (typeof value !== "string") throw new Error("Invalid lastname");
         },
       },
     },
 
     date_of_birth: {
       type: DataTypes.STRING,
-      defaultValue: '',
+      defaultValue: "",
     },
 
     email: {
@@ -64,12 +61,12 @@ export const User = sequelize.define(
 
     phone: {
       type: DataTypes.STRING,
-      defaultValue: '',
+      defaultValue: "",
     },
 
     active: {
       type: DataTypes.BOOLEAN,
-      defaultValue: true
+      defaultValue: true,
     },
 
     rol: {
@@ -82,6 +79,9 @@ export const User = sequelize.define(
         },
       },
     },
+  },
+  {
+    paranoid: true,
+    deletedAt: "deleteAt",
   }
 );
-

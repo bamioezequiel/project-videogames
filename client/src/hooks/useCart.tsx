@@ -10,8 +10,9 @@ export default function useCart() {
   const cartUser = useSelector((state: any) => state.cart);
 
   /* useEffect( () => {
-    getAllCart();
-  }, [isAuth] ); */
+    // await dispatch(getCart(user.id));
+    ( async () => await getCart(user.id) )()
+  }, [] ); */
 
   async function getAllItemsCart() {
     if (isAuth) {
@@ -29,16 +30,22 @@ export default function useCart() {
     for (let i = 0; i < cartLS.length; i++) {
       if (cartUser.cart?.find((g: any) => g.id == cartLS[i].id)) { continue }
       else {
-        await dispatch(addCart(userId, cartLS[i].id))
+        await dispatch(addCart(userId, cartLS[i].id));
       };
     }
     localStorage.removeItem("cart");
     await dispatch(getCartLocalStorage());
   }
 
-  function setItemCart(id: any) {
+  async function setItemCart(id: any, cart?: any) {
     if (isAuth) {
-      cartUser.cart?.find((c: any) => c.id == id && setCart(true));
+      if(!Object.keys(cartUser).length) {
+        // await dispatch(getCart(user.id));
+        cart.cart?.find((c: any) => c.id == id && setCart(true));
+        console.log(user, cart, id);
+      } else {
+        cartUser.cart?.find((c: any) => c.id == id && setCart(true));
+      }
     } else {
       let cartLS = JSON.parse(localStorage.getItem("cart") || '[]');
       cartLS?.find((c: any) => c.id == id && setCart(true));
