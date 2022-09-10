@@ -6,7 +6,7 @@ import Pagination from '../Pagination/Pagination';
 import Footer from '../Footer/Footer';
 import SearchBar from '../SearchBar/SearchBar';
 import View from '../View/View';
-import { filtersGames, getAllGames, ordersGames } from '../../redux/actions';
+import { filtersGames, getAllGames, getGames, ordersGames } from '../../redux/actions';
 
 export default function Store() {
     const dispatch: Function = useDispatch();
@@ -29,7 +29,7 @@ export default function Store() {
     };
 
     useEffect(() => {
-        dispatch(getAllGames());
+        dispatch(getGames());
     }, [])
 
     const resetSelectors = () => {

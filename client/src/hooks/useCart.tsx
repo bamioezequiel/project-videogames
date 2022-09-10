@@ -9,11 +9,6 @@ export default function useCart() {
   const { isAuth, user } = useAuth();
   const cartUser = useSelector((state: any) => state.cart);
 
-  /* useEffect( () => {
-    // await dispatch(getCart(user.id));
-    ( async () => await getCart(user.id) )()
-  }, [] ); */
-
   async function getAllItemsCart() {
     if (isAuth) {
       await dispatch(getCart(user.id));

@@ -9,7 +9,7 @@ export const getFavorites = async (req, res) => {
     })
     if(!user) { res.status(400).send(`Error, route <Get, GetFavorites>: User not found`); };
     
-    res.send(user);
+    res.send(user.dataValues.favorites);
   } catch (error) {
     res.status(404).send(`Error, route <Get, GetFavorites>: ${error}`);
   }
@@ -28,7 +28,11 @@ export const addFavorites = async (req, res) => {
         .send(`Error, route <Add, AddFavorites>: User not found `);
     }
     user.addFavorites(game);
-    res.send('The game was added to the Favorites')
+    await user.save();
+    const rtnUser = await User.findByPk(id, {
+      include: 'favorites'
+    });
+    res.send(rtnUser.dataValues.favorites);
   } catch (error) {
     res.status(404).send(`Error, route <Add, AddFavorites>: ${error}`);
   }
@@ -46,7 +50,11 @@ export const deleteFavorites = async (req, res) => {
         .send(`Error, route <Delete, DeleteFavorites>: User not found `);
     }
     user.removeFavorites(game);
-    res.send(`The game was removed from the Favorites`);
+    await user.save();
+    const rtnUser = await User.findByPk(id, {
+      include: 'favorites'
+    });
+    res.send(rtnUser.dataValues.favorites);
   } catch (error) {
     res.status(404).send(`Error, route <Delete, DeleteFavorites>: ${error}`);
   }

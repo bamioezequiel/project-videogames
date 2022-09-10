@@ -6,6 +6,7 @@ import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
 import s from './Detail.module.css';
 import useCart from '../../hooks/useCart';
 import useLoading from '../Loading/Loading';
+import useFavorites from '../../hooks/useFavorites';
 
 export default function Detail() {
     const dispatch: Function = useDispatch();
@@ -13,14 +14,16 @@ export default function Detail() {
     const detailGame = useSelector((state: any) => state.detailGame);
     const { id } = useParams();
     const { cart, handleCart, setItemCart } = useCart();
+    const { favorites, handleFavorites, setItemFavorites } = useFavorites();
     const { loading, setLoading, Loading } = useLoading();
-    const [favoriteDetail, setFavoriteDetail] = useState(false);
+    // const [favoriteDetail, setFavoriteDetail] = useState(false);
     const [currentImage, setCurrentImage] = useState(detailGame?.main_image);
 
     useEffect(() => {
         let res = dispatch(getDetailGame(id));
-        let favoritesLS = JSON.parse(localStorage.getItem("favorites") || '[]');
-        favoritesLS?.find((f: any) => f.id == id && setFavoriteDetail(true));
+        ( async () => await setItemFavorites(id))()
+        // let favoritesLS = JSON.parse(localStorage.getItem("favorites") || '[]');
+        // favoritesLS?.find((f: any) => f.id == id && setFavoriteDetail(true));
         setItemCart(id);
         setCurrentImage(res.payload?.main_image);
         setLoading(false)
@@ -37,32 +40,6 @@ export default function Detail() {
         navigate(-1);
     }
 
-    function handleFavorites(e: any) {
-        e.preventDefault();
-        setFavoriteDetail(!favoriteDetail);
-
-        if (!favoriteDetail) {
-            if (!localStorage.getItem("favorites")) {
-                let favoritesLS = [];
-                favoritesLS.push(detailGame);
-                localStorage.setItem("favorites", JSON.stringify(favoritesLS));
-            } else {
-                let favoritesLS = JSON.parse(localStorage.getItem("favorites") || '[]');
-                if (favoritesLS?.filter((f: any) => f.id !== detailGame.id)) {
-                    favoritesLS.unshift(detailGame);
-                    localStorage.setItem("favorites", JSON.stringify(favoritesLS));
-                }
-            }
-        } else {
-            let favoritesLS = JSON.parse(localStorage.getItem("favorites") || '[]');
-            let remFav = favoritesLS.filter((f: any) => {
-                return f.id !== detailGame.id;
-            });
-            localStorage.setItem("favorites", JSON.stringify(remFav));
-        }
-        dispatch(getFavoritesLocalStorage())
-    }
-
     return (
         (loading) ? Loading() : <div className={s.detail_background}
             style={{
@@ -73,7 +50,7 @@ export default function Detail() {
             <div className={s.detail_container}>
                 <div className={s.topLineDetail}>
                     <h3 onClick={(e) => handleReturn(e)} className={s.returnBtn}>Return</h3>
-                    <i className={favoriteDetail ? s.favIconDetail : s.noFavIconDetail} onClick={(e) => handleFavorites(e)}>{favoriteDetail ? <MdFavorite /> : <MdFavoriteBorder />}</i>
+                    <i className={favorites ? s.favIconDetail : s.noFavIconDetail} onClick={(e) => handleFavorites(e, detailGame)}>{favorites ? <MdFavorite /> : <MdFavoriteBorder />}</i>
                 </div>
                 <div className={s.detail_content}>
                     <div className={s.details_card_images}>

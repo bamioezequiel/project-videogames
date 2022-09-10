@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { authenticateStatus, getAllGames, getAllUsers, getCart, getCartLocalStorage, getFavoritesLocalStorage, getGenres, getPlatforms, getTags, getUser } from "./redux/actions";
+import { authenticateStatus, getAllGames, getAllUsers, getCart, getCartLocalStorage, getFavorites, getFavoritesLocalStorage, getGames, getGenres, getPlatforms, getTags, getUser } from "./redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import useAuth from "./hooks/useAuth";
 import Home from "./components/Home/Home";
@@ -20,11 +20,13 @@ import ListUsers from "./components/Dashboard/ListUsers/ListUsers";
 import ListGames from "./components/Dashboard/ListGames/ListGames";
 import CreateGame from "./components/Dashboard/CreateGame/CreateGame";
 import ListOrders from "./components/Dashboard/ListOrders/ListOrders";
+import useFavorites from "./hooks/useFavorites";
 function App() {
   const dispatch: Function = useDispatch();
-  const allGames = useSelector((state: any) => state.allGames);
+  const allGames = useSelector((state: any) => state.games);
   const tokenUser: any = localStorage.getItem('token');
   const { isAuth, user, isAdmin, loginStatus } = useAuth();
+  const { favorites, handleFavorites, setItemFavorites, saveAllItemsInFavorites } = useFavorites();
   const { saveAllItemsInCart } = useCart();
   const { loading, setLoading, Loading }: any = useLoading();
 
@@ -33,6 +35,7 @@ function App() {
     await dispatch(getTags());
     await dispatch(getGenres());
     await dispatch(getAllGames());
+    await dispatch(getGames());
     await dispatch(getAllUsers());
   }
 
@@ -40,7 +43,8 @@ function App() {
     if (allGames.length > 0) {
       if (tokenUser !== null) {
         if (isAuth) {
-          dispatch(getCart(user.id))
+          dispatch(getCart(user.id));
+          // dispatch(getFavorites(user.id));
           setLoading(false);
         }
       } else {
@@ -60,7 +64,9 @@ function App() {
       (async () => {
         let res = await loginStatus();
         await dispatch(getCart(res.payload.id))
+        // await dispatch(getFavorites(res.payload.id));
         saveAllItemsInCart(res.payload.id);
+        saveAllItemsInFavorites(res.payload.id);
       })();
     } else {
       dispatch(getFavoritesLocalStorage());
@@ -70,8 +76,10 @@ function App() {
     return () => {
       if (tokenUser !== null) {
         loginStatus();
-        dispatch(getCart(user.id))
+        dispatch(getCart(user.id));
+        // dispatch(getFavorites(user.id));
         saveAllItemsInCart(user.id);
+        saveAllItemsInFavorites(user.id);
       }
     };
   }, []);

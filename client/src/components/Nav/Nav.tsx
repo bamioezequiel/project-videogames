@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 export default function Nav() {
   const { user, isAuth } = useAuth();
   // const favorites = JSON.parse(localStorage.getItem("favorites") || '[]');
+  const favoritesDB = useSelector((state: any) => state.favorites);
   const favorites = useSelector((state: any) => state.favoritesLS);
   const cart = useSelector((state: any) => state.cart);
   const cartLS = useSelector((state: any) => state.cartLS);
@@ -26,10 +27,10 @@ export default function Nav() {
             <NavLink to={"/favorites"} title='Favorites' className={s.nav_menu_item}>
               <MdFavorite />
               {
-                (user.favorites?.length > 0 || favorites?.length > 0) && <span className={s.item_amount}>
+                (favoritesDB?.length > 0 || favorites?.length > 0) && <span className={s.item_amount}>
                   {
                     (isAuth)
-                    ? user?.favorites.length
+                    ? favoritesDB?.length
                     : favorites?.length
                   }
                 </span>

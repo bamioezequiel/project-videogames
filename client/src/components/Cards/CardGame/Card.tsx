@@ -3,21 +3,27 @@ import { NavLink } from "react-router-dom";
 import s from "./Card.module.css";
 import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
 import { useDispatch, useSelector } from "react-redux";
-import { getCart, getFavoritesLocalStorage } from "../../../redux/actions";
+import { getCart, getFavorites, getFavoritesLocalStorage } from "../../../redux/actions";
 import useCart from "../../../hooks/useCart";
 import useAuth from "../../../hooks/useAuth";
+import useFavorites from "../../../hooks/useFavorites";
 
 export default function Card({ game, tag }: any) {
     const dispatch: Function = useDispatch();
-    const [favorite, setFavorite] = useState(false);
+    // const [favorite, setFavorite] = useState(false);
     const { cart, handleCart, setItemCart } = useCart();
+    const { favorites, handleFavorites, setItemFavorites } = useFavorites();
     const { isAuth } = useAuth();
     const user = useSelector( (state: any) => state.user )
     const cartUser = useSelector( (state: any) => state.cart )
-     
+
     useEffect(() => {
-        let favoritesLS = JSON.parse(localStorage.getItem("favorites") || '[]');
-        favoritesLS?.find((f: any) => f.id == game.id && setFavorite(true));
+        ( async () => {
+            await setItemFavorites(game.id)
+        })()
+        
+        // let favoritesLS = JSON.parse(localStorage.getItem("favorites") || '[]');
+        // favoritesLS?.find((f: any) => f.id == game.id && setFavorite(true));
         // ( async () => await setItemCart(game.id))()
         if(isAuth && !Object.keys(cartUser).length) {
             ( async () => {
@@ -29,31 +35,6 @@ export default function Card({ game, tag }: any) {
         }
     }, [dispatch, game.id]);
 
-    function handleFavorites(e: any) {
-        e.preventDefault();
-        setFavorite(!favorite);
-
-        if (!favorite) {
-            if (!localStorage.getItem("favorites")) {
-                let favoritesLS = [];
-                favoritesLS.push(game);
-                localStorage.setItem("favorites", JSON.stringify(favoritesLS));
-            } else {
-                let favoritesLS = JSON.parse(localStorage.getItem("favorites") || '[]');
-                if (favoritesLS?.filter((f: any) => f.id !== game.id)) {
-                    favoritesLS.unshift(game);
-                    localStorage.setItem("favorites", JSON.stringify(favoritesLS));
-                }
-            }
-        } else {
-            let favoritesLS = JSON.parse(localStorage.getItem("favorites") || '[]');
-            let remFav = favoritesLS.filter((f: any) => {
-                return f.id !== game.id;
-            });
-            localStorage.setItem("favorites", JSON.stringify(remFav));
-        }
-        dispatch(getFavoritesLocalStorage())
-    }
 
 
 
@@ -67,7 +48,7 @@ export default function Card({ game, tag }: any) {
                         backgroundPosition: "center",
                         height: '200px'
                     }}>
-                    <i className={favorite ? s.favIconCard : s.noFavIconCard} onClick={(e) => handleFavorites(e)}>{favorite ? <MdFavorite /> : <MdFavoriteBorder />}</i>
+                    <i className={favorites ? s.favIconCard : s.noFavIconCard} onClick={(e) => handleFavorites(e, game)}>{favorites ? <MdFavorite /> : <MdFavoriteBorder />}</i>
                 </div>
             </div>
             <div className={s.outer}>

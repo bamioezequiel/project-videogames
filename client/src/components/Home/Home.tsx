@@ -9,9 +9,12 @@ export default function Home() {
   const allGames = useSelector((state: any) => state.allGames);
   // const newsGames = allGames.filter((g: any, i: number) => g.is_news || i % 2 === 0);
   const amount = allGames.length;
-  let random1 = Math.floor(Math.random() * amount);
-  let random2 = Math.floor(Math.random() * amount);
-  let random3 = Math.floor(Math.random() * amount);
+  // let random1 = Math.floor(Math.random() * amount);
+  // let random2 = Math.floor(Math.random() * amount);
+  // let random3 = Math.floor(Math.random() * amount);
+  let random1 = 2;
+  let random2 = 22;
+  let random3 = 32;
 
   return (
     <div className={s.home_container}>

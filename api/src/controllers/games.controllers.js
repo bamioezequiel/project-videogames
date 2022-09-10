@@ -3,25 +3,22 @@ import { dataGames } from "../lib/data/games.js";
 import axios from "axios";
 
 export const getAllGames = async (req, res) => {
+  const { active } = req.query;
   try {
-    const allGames = await Game.findAll({
-      paranoid: false,
-    });
-    res.send(allGames);
-  } catch (error) {
-    res.status(404).send(`Error, route <Get, AllGames>: ${error}`);
-  }
-};
-
-export const getGames = async (req, res) => {
-  try {
-    const allGames = await Game.findAll({
-      where: {
-        active: true,
-      },
-    });
-
-    res.send(allGames);
+    if(active === 'true') {
+      const games = await Game.findAll({
+        where: {
+          active: true,
+        },
+      });
+  
+      res.send(games);
+    } else {
+      const allGames = await Game.findAll({
+        paranoid: false,
+      });
+      res.send(allGames);
+    }
   } catch (error) {
     res.status(404).send(`Error, route <Get, AllGames>: ${error}`);
   }

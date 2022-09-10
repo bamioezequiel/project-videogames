@@ -11,6 +11,7 @@ export const PATCH_FEATURED_GAME = "PATCH_FEATURED_GAME";
 export const PATCH_NEW_GAME = "PATCH_NEW_GAME";
 export const DELETE_GAME = "DELETE_GAME";
 export const POST_GAME = "POST_GAME";
+export const GET_GAMES = "GET_GAMES";
 export const GET_ALL_GAMES = "GET_ALL_GAMES";
 export const FILTERS_GAMES = "FILTERS_GAMES";
 export const ORDERS_GAMES = "ORDERS_GAMES";
@@ -20,6 +21,9 @@ export const GET_GENRES = "GET_GENRES";
 export const GET_PLATFORMS = "GET_PLATFORMS";
 export const GET_TAGS = "GET_TAGS";
 // --------------- //
+export const GET_FAVORITES = "GET_FAVORITES";
+export const PUT_FAVORITES = "PUT_FAVORITES";
+export const DELETE_FAVORITES = "DELETE_FAVORITES";
 export const GET_FAVORITES_LOCAL_STORAGE = "GET_FAVORITES_LOCAL_STORAGE";
 // --------------- //
 export const GET_USER = "GET_USER";
@@ -71,7 +75,7 @@ export const removeCart = (id: any, gameId: any) => {
 export const getCart = (id: any) => {
   return async function (dispatch: Function) {
     try {
-      await dispatch(axiosStart("cart", {}));
+      // await dispatch(axiosStart("cart", {}));
       const res = await axios.get(`http://localhost:3001/cart/${id}`);
       return dispatch({ type: GET_CART, payload: res.data });
     } catch (error) {
@@ -108,6 +112,49 @@ export const getCartLocalStorage = () => {
 /* --------------- END CART --------------- */
 
 /* --------------- START FAVORITES --------------- */
+
+export const removeFavorites = (id: any, gameId: any) => {
+  return async function (dispatch: Function) {
+    try {
+      const res = await axios.delete(
+        `http://localhost:3001/favorites/${id}/${gameId}`
+      );
+      console.log(res);
+      return dispatch({ type: DELETE_FAVORITES, payload: res.data });
+    } catch (error) {
+      await dispatch(axiosError(error as Error));
+      console.log(error);
+      console.log(`Error, actions <RemoveFavorites>: ${error}`);
+    }
+  };
+}
+
+export const getFavorites = (id: any) => {
+  return async function (dispatch: Function) {
+    try {
+      // await dispatch(axiosStart("user", {}));
+      const res = await axios.get(`http://localhost:3001/favorites/${id}`);
+      return dispatch({ type: GET_FAVORITES, payload: res.data });
+    } catch (error) {
+      await dispatch(axiosError(error as Error));
+      console.log(error);
+      console.log(`Error, actions <GetFavorites>: ${error}`);
+    }
+  };
+}
+
+export const addFavorites = (id: any, gameId: any) => {
+  return async function (dispatch: Function) {
+    try {
+      const res = await axios.post(`http://localhost:3001/favorites/${id}?gameId=${gameId}`);
+      return dispatch({ type: PUT_FAVORITES, payload: res.data });
+    } catch (error) {
+      await dispatch(axiosError(error as Error));
+      console.log(error);
+      console.log(`Error, actions <AddFavorites>: ${error}`);
+    }
+  };
+}
 
 export const getFavoritesLocalStorage = () => {
   return async function (dispatch: Function) {
@@ -447,6 +494,18 @@ export const getAllGames = () => {
       // dispatch(axiosStart("allGames"));
       let res = await axios.get("http://localhost:3001/games");
       return dispatch({ type: GET_ALL_GAMES, payload: res.data });
+    } catch (error) {
+      dispatch(axiosError(error as Error));
+      console.log(`Error, actions <GetAllGames>: ${error}`);
+    }
+  };
+};
+
+export const getGames = () => {
+  return async function (dispatch: Function) {
+    try {
+      let res = await axios.get("http://localhost:3001/games?active=true");
+      return dispatch({ type: GET_GAMES, payload: res.data });
     } catch (error) {
       dispatch(axiosError(error as Error));
       console.log(`Error, actions <GetAllGames>: ${error}`);

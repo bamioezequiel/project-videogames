@@ -29,19 +29,25 @@ import {
   RESTORE_GAME,
   PATCH_NEW_GAME,
   PATCH_FEATURED_GAME,
+  PUT_FAVORITES,
+  DELETE_FAVORITES,
+  GET_FAVORITES,
+  GET_GAMES,
 } from "../actions";
 
 import { filterGames, orderings, search } from "./../../utils/filtersAndOrders";
 
 const initialState = {
   allGames: [],
+  games: [],
   filteredGames: [],
   tags: [],
   platforms: [],
   genres: [],
   favoritesLS: [],
-  cartLS: [],
+  favorites: [],
   users: [],
+  cartLS: [],
   cart: {},
   detailGame: {},
   user: {},
@@ -230,6 +236,27 @@ const rootReducer = (state = initialState, action: Action) => {
         error: null,
         cart: action.payload,
       };
+    case PUT_FAVORITES:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        favorites: action.payload,
+      };
+    case DELETE_FAVORITES:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        favorites: action.payload,
+      };
+    case GET_FAVORITES:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        favorites: action.payload,
+      };
     case GET_CART_LOCAL_STORAGE:
       return {
         ...state,
@@ -367,13 +394,20 @@ const rootReducer = (state = initialState, action: Action) => {
         error: null,
         detailGame: action.payload,
       };
+    case GET_GAMES: 
+    return {
+      ...state,
+      loading: false,
+      error: null,
+      games: action.payload,
+      filteredGames: action.payload,
+    };
     case GET_ALL_GAMES:
       return {
         ...state,
         loading: false,
         error: null,
         allGames: action.payload,
-        filteredGames: action.payload,
       };
     case AXIOS_ERROR:
       return {

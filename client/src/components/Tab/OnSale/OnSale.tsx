@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllGames } from '../../../redux/actions';
+import { getAllGames, getGames } from '../../../redux/actions';
 import Card from '../../Cards/CardGame/Card';
 import s from './../Tab.module.css';
 
 export default function Reviews({ show }: any) {
     const dispatch: Function = useDispatch();
-    const allGames = useSelector((state: any) => state.allGames);
+    const allGames = useSelector((state: any) => state.games);
     const reviewsGames = allGames.filter( (g: any) => g.on_sale > 0 );
 
     useEffect( () => {
         if(!allGames.length) {
-            dispatch(getAllGames());
+            dispatch(getGames());
         }
     }, [dispatch]);
 

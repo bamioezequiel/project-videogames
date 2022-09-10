@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import useCart from '../../hooks/useCart';
-import { getCart } from '../../redux/actions';
+import useFavorites from '../../hooks/useFavorites';
+import { getCart, getFavorites } from '../../redux/actions';
 import { validationsLogin } from '../../utils/validations';
 import useLoading from '../Loading/Loading';
 import s from './Login.module.css';
@@ -15,6 +16,7 @@ export default function Login() {
     const { login } = useAuth();
     const user = useSelector((state: any) => state.user)
     const { saveAllItemsInCart } = useCart();
+    const { saveAllItemsInFavorites } = useFavorites();
     const [loading, setLoading] = useState(false);
     const { Loading } = useLoading();
     const [loginUser, setLoginUser] = useState({
@@ -60,8 +62,10 @@ export default function Login() {
         console.log(loginUser)
         try {
             const res = await login(loginUser);
-            await dispatch(getCart(res.payload.user.id))
+            await dispatch(getCart(res.payload.user.id));
+            await dispatch(getFavorites(res.payload.user.id));
             saveAllItemsInCart(res.payload.user.id);
+            saveAllItemsInFavorites(res.payload.user.id);
             if (user === "false") {
                 setErrors({
                     ...errors,

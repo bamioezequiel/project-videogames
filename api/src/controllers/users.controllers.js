@@ -19,12 +19,12 @@ export const getUsers = async (req, res) => {
           exclude: ["password"],
         },
         include: "favorites",
-        paranoid: false
+        paranoid: false,
       });
     }
 
     if (typeof admin === "boolean" && admin) {
-      users = users.filter((u) => u.rol === 'Admin' || u.rol === 'Owner');
+      users = users.filter((u) => u.rol === "Admin" || u.rol === "Owner");
     }
 
     res.send(users);
@@ -83,7 +83,17 @@ export const updateUser = async (req, res) => {
           `Error, route <Put, UpdateUser>: Could not modify this user ${bodyUser.id}`
         );
     }
-    res.send(await User.findByPk(bodyUser.id));
+    res.send(
+      await User.findOne({
+        where: {
+          id: bodyUser.id,
+        },
+        attributes: {
+          exclude: ["password"],
+        },
+        include: "favorites",
+      })
+    );
   } catch (error) {
     res.status(404).send(`Error, route <Put, UpdateUser>: ${error}`);
   }
@@ -119,7 +129,17 @@ export const patchAdminUser = async (req, res) => {
         },
       }
     );
-    res.send(await User.findByPk(id));
+    res.send(
+      await User.findOne({
+        where: {
+          id,
+        },
+        attributes: {
+          exclude: ["password"],
+        },
+        include: "favorites",
+      })
+    );
   } catch (error) {
     res.status(404).send(`Error, route <Patch, PatchAdminUser>: ${error}`);
   }
@@ -138,7 +158,17 @@ export const patchStatusUser = async (req, res) => {
         },
       }
     );
-    res.send(await User.findByPk(id));
+    res.send(
+      await User.findOne({
+        where: {
+          id,
+        },
+        attributes: {
+          exclude: ["password"],
+        },
+        include: "favorites",
+      })
+    );
   } catch (error) {
     res.status(404).send(`Error, route <Patch, PatchStatusUser>: ${error}`);
   }
