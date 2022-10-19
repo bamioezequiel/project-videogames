@@ -1,5 +1,5 @@
-import { sequelize } from './src/db.js';
-// import { sequelize } from './src/db';
+// import { sequelize } from './src/db.js';
+import { sequelize } from './src/db';
 import server from './src/app.js';
 import { loadGames } from './src/controllers/games.controllers.js';
 import { loadAdmin } from './src/controllers/users.controllers.js';
