@@ -113,7 +113,7 @@ export default function Login() {
                                     : <BsDashCircle />
                             } Contraseña
                         </label>
-                        <input type="password" className={s.login_form_input} name='password' value={loginUser.password} onChange={handleChange}
+                        <input type="text" className={s.login_form_input} name='password' value={loginUser.password} onChange={handleChange}
                             placeholder='Password...' />
                     </div>
                     <button onClick={handleSubmit} className={s.login_btn}>Log In</button>

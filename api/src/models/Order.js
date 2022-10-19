@@ -6,7 +6,7 @@ export const Order = sequelize.define(
   {
     date: {
       type: DataTypes.DATE,
-      allowNull: false,
+      // allowNull: false,
       defaultValue: Date,
     },
 
@@ -20,9 +20,15 @@ export const Order = sequelize.define(
     },
 
     status: {
-      type: DataTypes.ENUM("Cancelado", "Completado"),
-      allowNull: false,
+      type: DataTypes.ENUM("In process", "Cancel", "Completed"),
+      // allowNull: false,
+      defaultValue: "In process"
     },
+
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    }
   },
   {
     paranoid: true,

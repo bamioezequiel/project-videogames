@@ -62,7 +62,7 @@ const initialState = {
 const rootReducer = (state = initialState, action: Action) => {
   switch (action.type) {
     case FILTER_SEARCH:
-      let resultSearch = search(state.allGames, action.payload); 
+      let resultSearch = search(state.games, action.payload); 
     return {
       ...state,
       filteredGames: resultSearch

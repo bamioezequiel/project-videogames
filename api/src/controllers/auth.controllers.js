@@ -149,7 +149,7 @@ export const register = async (req, res) => {
     }
 
     await Cart.create({
-      status: "Vacio",
+      status: "Empty",
       userId: createdUser[0].dataValues.id,
     });
 

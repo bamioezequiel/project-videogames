@@ -7,7 +7,9 @@ export default function useCart() {
   const dispatch: Function = useDispatch();
   const [cart, setCart] = useState(false);
   const { isAuth, user } = useAuth();
+  const cartLS = JSON.parse(localStorage.getItem("cart") || '[]');;
   const cartUser = useSelector((state: any) => state.cart);
+  const arrCart = isAuth ? cartUser : cartLS;
 
   async function getAllItemsCart() {
     if (isAuth) {
@@ -34,7 +36,7 @@ export default function useCart() {
 
   async function setItemCart(id: any, cart?: any) {
     if (isAuth) {
-      if(!Object.keys(cartUser).length) {
+      if (!Object.keys(cartUser).length) {
         // await dispatch(getCart(user.id));
         cart.cart?.find((c: any) => c.id == id && setCart(true));
         console.log(user, cart, id);
@@ -54,18 +56,18 @@ export default function useCart() {
     return res;
   }
 
-  function handleCart(e: any, game: any) {
+  async function handleCart(e: any, game: any) {
     e.preventDefault();
     if (isAuth) {
       if (cartUser.cart?.find((g: any) => g.id == game.id)) {
-        dispatch(removeCart(user.id, game.id));
+        await dispatch(removeCart(user.id, game.id));
         setCart(false);
       } else {
-        dispatch(addCart(user.id, game.id));
+        await dispatch(addCart(user.id, game.id));
         setCart(true);
       }
-      dispatch(cleanAllGames());
-      dispatch(getCart(user.id));
+      await dispatch(cleanAllGames());
+      await dispatch(getCart(user.id));
     } else {
       if (!findItemCart(game.id)) {
         if (!localStorage.getItem("cart")) {
@@ -89,7 +91,7 @@ export default function useCart() {
         setCart(false);
       }
     }
-    dispatch(getCartLocalStorage());
+    await dispatch(getCartLocalStorage());
   }
 
   return {

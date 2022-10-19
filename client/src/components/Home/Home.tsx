@@ -1,4 +1,5 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Payment } from "../../redux/actions";
 import Card from "../Cards/MainCard/Card";
 import Footer from "../Footer/Footer";
 import Tab from "../Tab/Tab";
@@ -6,7 +7,7 @@ import Header from "./Header/Header";
 import s from "./Home.module.css";
 
 export default function Home() {
-  const allGames = useSelector((state: any) => state.allGames);
+  const allGames = useSelector((state: any) => state.games);
   // const newsGames = allGames.filter((g: any, i: number) => g.is_news || i % 2 === 0);
   const amount = allGames.length;
   // let random1 = Math.floor(Math.random() * amount);
@@ -15,6 +16,7 @@ export default function Home() {
   let random1 = 2;
   let random2 = 22;
   let random3 = 32;
+  const cart = useSelector( (state: any) => state.cart );
 
   return (
     <div className={s.home_container}>
@@ -39,6 +41,8 @@ export default function Home() {
         </div>
       </div>
       <br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br />
+
       <Tab />
       <Footer />
     </div>

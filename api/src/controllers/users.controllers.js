@@ -211,7 +211,7 @@ export const loadAdmin = async () => {
       });
 
       await Cart.create({
-        status: "Vacio",
+        status: "Empty",
         userId: createdUser[0].dataValues.id,
       });
 

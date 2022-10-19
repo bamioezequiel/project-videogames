@@ -41,7 +41,18 @@ export const DELETE_CART = "DELETE_CART";
 export const PUT_CART = "PUT_CART";
 // --------------- //
 
-
+export const Payment = async (cart: any) => {
+    try {
+      console.log(cart)
+      const res = await axios.post("http://localhost:3001/payment", cart);
+      console.log(res)
+      if (res) {
+        window.location = res.data.url;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+};
 
 /* --------------- START CART --------------- */
 
@@ -52,6 +63,7 @@ export const addCart = (id: any, gameId: any) => {
       return dispatch({ type: PUT_CART, payload: res.data });
     } catch (error) {
       await dispatch(axiosError(error as Error));
+      console.log(error)
       console.log(`Error, actions <AddCart>: ${error}`);
     }
   };
@@ -67,6 +79,7 @@ export const removeCart = (id: any, gameId: any) => {
       return dispatch({ type: DELETE_CART, payload: res.data });
     } catch (error) {
       await dispatch(axiosError(error as Error));
+      console.log(error)
       console.log(`Error, actions <RemoveCart>: ${error}`);
     }
   };
@@ -80,6 +93,7 @@ export const getCart = (id: any) => {
       return dispatch({ type: GET_CART, payload: res.data });
     } catch (error) {
       await dispatch(axiosError(error as Error));
+      console.log(error)
       console.log(`Error, actions <GetCart>: ${error}`);
     }
   };

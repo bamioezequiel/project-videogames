@@ -51,7 +51,7 @@ export default function useFavorites() {
                 await dispatch(addFavorites(user.id, game.id));
                 setFavorites(true);
             }
-            dispatch(cleanAllGames());
+            await dispatch(cleanAllGames());
             await dispatch(getFavorites(user.id));
         } else {
             if (!findItemFavorites(game.id)) {
@@ -77,7 +77,7 @@ export default function useFavorites() {
             }
         }
 
-        dispatch(getFavoritesLocalStorage())
+        await dispatch(getFavoritesLocalStorage())
     }
 
 

@@ -7,17 +7,26 @@ import s from './Detail.module.css';
 import useCart from '../../hooks/useCart';
 import useLoading from '../Loading/Loading';
 import useFavorites from '../../hooks/useFavorites';
+import useAuth from '../../hooks/useAuth';
 
 export default function Detail() {
     const dispatch: Function = useDispatch();
     const navigate = useNavigate();
     const detailGame = useSelector((state: any) => state.detailGame);
     const { id } = useParams();
+    const { user } = useAuth();
     const { cart, handleCart, setItemCart } = useCart();
     const { favorites, handleFavorites, setItemFavorites } = useFavorites();
     const { loading, setLoading, Loading } = useLoading();
     // const [favoriteDetail, setFavoriteDetail] = useState(false);
     const [currentImage, setCurrentImage] = useState(detailGame?.main_image);
+
+    useEffect( () => {
+        if((user?.rol !== 'Owner' && user?.rol !== 'Admin') && !detailGame.active ) {
+            console.log(user.rol)
+            navigate('/');
+        }
+    }, [] )
 
     useEffect(() => {
         let res = dispatch(getDetailGame(id));
@@ -49,8 +58,7 @@ export default function Detail() {
             }}>
             <div className={s.detail_container}>
                 <div className={s.topLineDetail}>
-                    <h3 onClick={(e) => handleReturn(e)} className={s.returnBtn}>Return</h3>
-                    <i className={favorites ? s.favIconDetail : s.noFavIconDetail} onClick={(e) => handleFavorites(e, detailGame)}>{favorites ? <MdFavorite /> : <MdFavoriteBorder />}</i>
+                    <h3 onClick={(e) => handleReturn(e)} className={s.returnBtn}>Return</h3>                    
                 </div>
                 <div className={s.detail_content}>
                     <div className={s.details_card_images}>
@@ -128,12 +136,15 @@ export default function Detail() {
                             </div>
                         </div>
                         <div className={s.detail_btn_container}>
-                            <button className={s.detail_btn}>Añadir a la lista de deseos</button>
+                        <i className={favorites ? s.favIconDetail : s.noFavIconDetail} ></i>
+                            <button onClick={(e) => handleFavorites(e, detailGame)} className={s.detail_btn}>
+                            {favorites ? 'Remove from favorites' : 'Add to Favorites' }
+                            </button>
                             <button className={s.detail_btn} onClick={(e) => handleCart(e, detailGame)} >
                                 {
                                     (cart)
-                                        ? <span>Sacar del carrito</span>
-                                        : <span>Agregar al carrito</span>
+                                        ? <span>Remove from cart</span>
+                                        : <span>Add to cart</span>
                                 }
                             </button>
                         </div>

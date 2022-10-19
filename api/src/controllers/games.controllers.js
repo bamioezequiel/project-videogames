@@ -27,7 +27,12 @@ export const getAllGames = async (req, res) => {
 export const getGamesById = async (req, res) => {
   const { id } = req.params;
   try {
-    const game = await Game.findByPk(id);
+    const game = await Game.findOne({
+      where: {
+        id
+      },
+      paranoid: false,
+    });
     res.send(game);
   } catch (error) {
     res.status(404).send(`Error, route <Get, GamesById>: ${error}`);
