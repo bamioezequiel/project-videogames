@@ -1,4 +1,4 @@
-import { sequelize } from '../src/db.js';
+import { sequelize } from './db.js';
 // import { sequelize } from './src/db';
 import server from './src/app.js';
 import { loadGames } from './src/controllers/games.controllers.js';
