@@ -97,6 +97,11 @@ export const validateUser = async (req, res) => {
 export const status = async (req, res) => {
   const token = req.headers.token;
   try {
+    jwt.verify(token, 'secret');
+  } catch(error) {
+    return res.status(400).send('token expired');
+  }
+  try {
     jwt.verify(token, "secret", async function (err, { id, email }) {
       if (err) return res.status(400).send(false);
       
@@ -144,7 +149,7 @@ export const register = async (req, res) => {
     }
 
     await Cart.create({
-      status: "Vacio",
+      status: "Empty",
       userId: createdUser[0].dataValues.id,
     });
 

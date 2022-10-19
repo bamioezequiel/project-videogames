@@ -5,19 +5,32 @@ import { Game } from "./Game.js";
 import { Order } from "./Order.js";
 
 export const Cart = sequelize.define(
-  "cart", {
+  "cart",
+  {
+    date: {
+      type: DataTypes.DATEONLY,
+      // allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
     status: {
-        type: DataTypes.ENUM("En proceso", "Completado", "Vacio"),
-        defaultValue: 'Vacio'
+      type: DataTypes.ENUM("In process", "Completed", "Empty", "Cancel"),
+      defaultValue: "Empty",
     },
     cart: {
-        type: DataTypes.ARRAY(DataTypes.JSON),
-        defaultValue: []
+      type: DataTypes.ARRAY(DataTypes.JSON),
+      defaultValue: [],
     },
     price: {
-        type: DataTypes.FLOAT,
-        defaultValue: 0
-    }
+      type: DataTypes.FLOAT,
+      defaultValue: 0,
+      validate: {
+        min: 0,
+      },
+    },
+  },
+  {
+    paranoid: true,
+    deletedAt: "deleteAt",
   }
 );
 
@@ -25,4 +38,5 @@ User.hasMany(Cart);
 Cart.belongsTo(User);
 
 Game.belongsToMany(Cart, { through: Order });
-Cart.belongsToMany(Game, { through: Order });
+Cart.hasMany(Order);
+// Cart.belongsToMany(Game, { through: Order });

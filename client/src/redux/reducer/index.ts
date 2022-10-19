@@ -8,8 +8,6 @@ import {
   GET_CART_LOCAL_STORAGE,
   GET_DETAIL_GAME,
   GET_FAVORITES_LOCAL_STORAGE,
-  GET_FILTERED_FEATURED_GAMES,
-  GET_FILTERED_NEW_GAMES,
   GET_GENRES,
   GET_PLATFORMS,
   GET_TAGS,
@@ -24,21 +22,32 @@ import {
   ORDERS_GAMES,
   ordersGames,
   FILTER_SEARCH,
+  UPDATE_USER,
+  POST_GAME,
+  UPDATE_GAME,
+  DELETE_GAME,
+  RESTORE_GAME,
+  PATCH_NEW_GAME,
+  PATCH_FEATURED_GAME,
+  PUT_FAVORITES,
+  DELETE_FAVORITES,
+  GET_FAVORITES,
+  GET_GAMES,
 } from "../actions";
 
 import { filterGames, orderings, search } from "./../../utils/filtersAndOrders";
 
 const initialState = {
   allGames: [],
+  games: [],
   filteredGames: [],
-  filteredFeaturedGames: [],
-  filteredNewGames: [],
   tags: [],
   platforms: [],
   genres: [],
   favoritesLS: [],
-  cartLS: [],
+  favorites: [],
   users: [],
+  cartLS: [],
   cart: {},
   detailGame: {},
   user: {},
@@ -53,18 +62,13 @@ const initialState = {
 const rootReducer = (state = initialState, action: Action) => {
   switch (action.type) {
     case FILTER_SEARCH:
-      let resultSearch = search(state.allGames, action.payload); 
+      let resultSearch = search(state.games, action.payload); 
     return {
       ...state,
       filteredGames: resultSearch
-    }
+    };
     case FILTERS_GAMES:
       let resultFilters: any = [];
-      /* let orders = orderings(
-        state.filteredGames,
-        state.orders.type,
-        state.orders.value
-      ); */
       if (action.payload.type === "reset") {
         return {
           ...state,
@@ -232,6 +236,27 @@ const rootReducer = (state = initialState, action: Action) => {
         error: null,
         cart: action.payload,
       };
+    case PUT_FAVORITES:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        favorites: action.payload,
+      };
+    case DELETE_FAVORITES:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        favorites: action.payload,
+      };
+    case GET_FAVORITES:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        favorites: action.payload,
+      };
     case GET_CART_LOCAL_STORAGE:
       return {
         ...state,
@@ -291,6 +316,13 @@ const rootReducer = (state = initialState, action: Action) => {
         error: null,
         user: action.payload.user,
       };
+    case UPDATE_USER:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        user: action.payload,
+      };
     case CREATE_USER:
       localStorage.setItem("token", action.payload.token);
       return {
@@ -306,6 +338,48 @@ const rootReducer = (state = initialState, action: Action) => {
         error: null,
         user: action.payload,
       };
+    case PATCH_FEATURED_GAME:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        allGames: action.payload,
+      };
+    case PATCH_NEW_GAME:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        allGames: action.payload,
+      };
+    case RESTORE_GAME:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        allGames: action.payload,
+      };
+    case DELETE_GAME:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        allGames: action.payload,
+      };
+    case UPDATE_GAME:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        allGames: action.payload,
+      };
+    case POST_GAME:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        allGames: action.payload,
+      };
     case GET_ALL_USER:
       return {
         ...state,
@@ -320,27 +394,20 @@ const rootReducer = (state = initialState, action: Action) => {
         error: null,
         detailGame: action.payload,
       };
+    case GET_GAMES: 
+    return {
+      ...state,
+      loading: false,
+      error: null,
+      games: action.payload,
+      filteredGames: action.payload,
+    };
     case GET_ALL_GAMES:
       return {
         ...state,
         loading: false,
         error: null,
         allGames: action.payload,
-        filteredGames: action.payload,
-      };
-    case GET_FILTERED_FEATURED_GAMES:
-      return {
-        ...state,
-        loading: false,
-        error: null,
-        filteredFeaturedGames: action.payload,
-      };
-    case GET_FILTERED_NEW_GAMES:
-      return {
-        ...state,
-        loading: false,
-        error: null,
-        filteredNewGames: action.payload,
       };
     case AXIOS_ERROR:
       return {
@@ -354,24 +421,6 @@ const rootReducer = (state = initialState, action: Action) => {
         loading: true,
         [action.state]: action.payload,
       };
-    // case ORDER_BY_PRICE:
-    //   let sortPrice =
-    //     action.payload === "minPrice"
-    //       ? state.filteredGames.sort(function (a, b) {
-    //           if (a.price > b.price) return 1;
-    //           if (b.price > a.price) return -1;
-    //           return 0;
-    //         })
-    //       : state.filteredGames.sort(function (a, b) {
-    //           if (a.price > b.price) return -1;
-    //           if (b.price > a.price) return 1;
-    //           return 0;
-    //         });
-
-    //   return {
-    //     ...state,
-    //     filteredGames: sortPrice,
-    //   };
     default:
       return {
         ...state,

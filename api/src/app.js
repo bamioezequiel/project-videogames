@@ -14,7 +14,9 @@ import auth from "./routes/auth.routes.js";
 import tagsRoutes from "./routes/tags.routes.js";
 import platformsRoutes from "./routes/platforms.routes.js";
 import genresRoutes from "./routes/genres.routes.js";
+import paymentRoutes from "./routes/payment.routes.js";
 import dotenv from "dotenv";
+import { PaymentResponse } from "./controllers/payment.controllers.js";
 dotenv.config();
 
 const ExtractJwt = passportJwt.ExtractJwt;
@@ -82,6 +84,8 @@ app.use("/users", usersRoutes);
 app.use("/favorites", favoritesRoutes);
 app.use("/cart", cartRoutes);
 app.use("/auth", auth);
+app.use("/payment", paymentRoutes);
+app.use(PaymentResponse);
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from

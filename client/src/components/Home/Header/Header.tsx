@@ -11,16 +11,7 @@ export default function Header() {
         alt="logo not found" />
       <div className={s.header_search_container}>
         <SearchBar />
-      </div>
-      {/* <div className={s.header_search_container}>
-        <input
-          type="search"
-          placeholder="Search..."
-          className={searchBar ? s.header_search : s.noneSBDisplay} />
-        <div onClick={(e) => handleSearchBar(e)} className={s.search_icon_background}>
-          <BiSearch className={s.header_search_icon} />
-        </div>
-      </div> */}
+      </div>     
     </div>
   );
 }

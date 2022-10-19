@@ -1,19 +1,24 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BsCheck2Circle, BsDashCircle } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import useCart from '../../hooks/useCart';
-import { getCart } from '../../redux/actions';
+import useFavorites from '../../hooks/useFavorites';
+import { getCart, getFavorites } from '../../redux/actions';
 import { validationsLogin } from '../../utils/validations';
+import useLoading from '../Loading/Loading';
 import s from './Login.module.css';
 
 export default function Login() {
     const navigate = useNavigate();
     const dispatch: Function = useDispatch();
     const { login } = useAuth();
-    const user = useSelector( (state: any) => state.user )
+    const user = useSelector((state: any) => state.user)
     const { saveAllItemsInCart } = useCart();
+    const { saveAllItemsInFavorites } = useFavorites();
+    const [loading, setLoading] = useState(false);
+    const { Loading } = useLoading();
     const [loginUser, setLoginUser] = useState({
         email: "",
         password: "",
@@ -23,6 +28,14 @@ export default function Login() {
         password: "",
         general: ""
     });
+
+    useEffect( () => {
+        return () => {
+            setLoading(true);
+            window.location.reload();
+            redirect();
+        }
+    }, [] )
 
     const redirect = () => {
         navigate('/');
@@ -34,25 +47,32 @@ export default function Login() {
             ...loginUser,
             [e.target.name]: e.target.value
         });
-        setErrors(validationsLogin({
-            ...errors,
-            [e.target.name]: e.target.value
-        }));
     }
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
+        setErrors(validationsLogin({
+            ...loginUser,
+            [e.target.name]: e.target.value
+        }));
+        console.log(errors)
+        if (errors.email || errors.password || errors.general) { return; }
+        console.log(errors)
+        if (!loginUser.email.length || !loginUser.password.length) { return; }
+        console.log(loginUser)
         try {
             const res = await login(loginUser);
-            await dispatch(getCart(res.payload.user.id))
+            await dispatch(getCart(res.payload.user.id));
+            await dispatch(getFavorites(res.payload.user.id));
             saveAllItemsInCart(res.payload.user.id);
+            saveAllItemsInFavorites(res.payload.user.id);
             if (user === "false") {
                 setErrors({
                     ...errors,
                     general: "El usuario o la contraseña no son validos"
                 });
             } else if (loginUser.email === user.email) {
-                redirect();
+                // redirect();
             } else {
                 setErrors({
                     ...errors,
@@ -60,8 +80,11 @@ export default function Login() {
                 });
             }
         } catch (error) {
+            setErrors({
+                ...errors,
+                general: "El usuario o la contraseña no son validos"
+            });
             console.log(`Error, actions <LoginUser>: ${error}`)
-            window.location.reload();
         }
     };
 
@@ -75,25 +98,29 @@ export default function Login() {
                     <div className={s.login_form_input_container}>
                         <label className={s.login_form_label}>
                             {
-                                !loginUser.email ? <BsDashCircle />
-                                    : errors.email.length > 0
-                                        ? <BsCheck2Circle color='red' />
-                                        : <BsCheck2Circle color='green' />
+                                (errors.general.length > 0)
+                                    ? <BsCheck2Circle color='red' />
+                                    : <BsDashCircle />
                             } Email
                         </label>
-                        <input type="text" className={s.login_form_input} title={!errors.email ? 'No hay errores para corregir' : errors.email} name='email' value={loginUser.email} onChange={handleChange}
+                        {errors.general && <span className={s.login_error}>{errors.general}</span>}
+                        <input type="text" className={s.login_form_input} name='email' value={loginUser.email} onChange={handleChange}
                             placeholder='Email...' />
                         <label className={s.login_form_label}>
-                            <BsDashCircle /> Contraseña
+                            {
+                                (errors.general.length > 0)
+                                    ? <BsCheck2Circle color='red' />
+                                    : <BsDashCircle />
+                            } Contraseña
                         </label>
-                        <input type="password" className={s.login_form_input} name='password' value={loginUser.password} onChange={handleChange}
+                        <input type="text" className={s.login_form_input} name='password' value={loginUser.password} onChange={handleChange}
                             placeholder='Password...' />
                     </div>
                     <button onClick={handleSubmit} className={s.login_btn}>Log In</button>
                     <button className={s.login_btn_without_background}>Forgot Password?</button>
                 </form>
                 <hr className={s.login_line} />
-                <span>Don't have an account?</span>
+                <span className={s.login_text_register}>Don't have an account?</span>
                 <NavLink to='/signup' className={s.login_btn_without_background}>Sing up</NavLink>
             </div>
         </div>

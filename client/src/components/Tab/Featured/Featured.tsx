@@ -1,16 +1,18 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getFilteredFeaturedGames } from '../../../redux/actions';
+import { getAllGames, getGames } from '../../../redux/actions';
 import Card from '../../Cards/CardGame/Card';
 import s from './../Tab.module.css';
 
 export default function Featured({ show }: any) {
     const dispatch: Function = useDispatch();
-    const featuredGames = useSelector((state: any) => state.filterFeaturedGames);
-    // const featuredGames = useSelector((state: any) => state.allGames);
+    const allGames = useSelector((state: any) => state.games);
+    const featuredGames = allGames.filter((g: any) => g.featured == true);
 
     useEffect(() => {
-        dispatch(getFilteredFeaturedGames());
+        if (!allGames.length) {
+            dispatch(getGames());
+        }
     }, [dispatch]);
 
     return (

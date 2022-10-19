@@ -9,7 +9,7 @@ export default function AdminNav() {
             <NavLink to='/dashboard/games'>List games</NavLink>
             <NavLink to='/dashboard/users'>List users</NavLink>
             <NavLink to='/dashboard/orders'>List orders</NavLink>
-            <NavLink to='/dashboard/'>Settings</NavLink>
+            {/* <NavLink to='/dashboard/'>Settings</NavLink> */}
         </nav>
     )
 }

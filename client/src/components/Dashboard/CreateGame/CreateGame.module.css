@@ -11,12 +11,35 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  align-items: center;
   width: 95%;
   padding: 20px;
   border-radius: 20px;
   color: var(--color-white);
   background-color: var(--color-black);
   margin: 25px 0;
+}
+
+.form_input_group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form_textarea_group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px;
+  width: 100%;
+}
+
+.form_images_group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  width: 100%;
 }
 
 .form_textarea,
@@ -26,26 +49,30 @@
   padding: 0px 20px;
   border: none;
   border-radius: 40px;
-  color: var(--color-black);
+  color: var(--color-white);
   margin: 10px;
 }
 
 .form_textarea {
-    width: 60%;
-    height: 20vh;
-    padding: 20px;
-    resize: none;
+  overflow-y: auto;
+  width: 60%;
+  height: 20vh;
+  padding: 20px;
+  border-radius: 20px;
+  resize: none;
 }
 
-.form_textarea,
+.form_textarea::placeholder,
 .form_input::placeholder {
   color: var(--color-white);
 }
 
-.form_textarea,
+.form_textarea:focus,
 .form_input:focus {
-  outline: #ff8846;
-  box-shadow: 0px 0px 0px 2px #ff8846;
+  outline: var(--main-color);
+  /* outline: #ff8846; */
+  box-shadow: 0px 0px 0px 2px var(--main-color);
+  /* box-shadow: 0px 0px 0px 2px #ff8846; */
 }
 
 .form_labels_container {
@@ -53,28 +80,36 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin: 20px 0;
 }
 
-.form_input_btn {
-    background-color: transparent;
-    color: var(--color-white);
-    border: none;
-    font-size: 16px;
-    margin: 0 5px;
-    border-radius: 100%;
-    cursor: pointer;
+.form_checkbox_group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  height: 45vh;
 }
 
 .form_labels {
   overflow-y: auto;
   display: flex;
   flex-wrap: wrap;
-  width: 30%;
-  height: 25vh;
+  height: 35vh;
   border-radius: 20px;
   border: thin solid #000;
   padding: 10px;
-  margin: 40px 20px;
+  margin: 20px 20px;
+}
+
+.form_input_btn {
+  background-color: transparent;
+  color: var(--color-white);
+  border: none;
+  font-size: 16px;
+  margin: 0 5px;
+  border-radius: 100%;
+  cursor: pointer;
 }
 
 .form_label {
@@ -85,9 +120,14 @@
   margin: 0 4px;
 }
 
+input[type="checkbox"] {
+  accent-color: var(--main-color);
+}
+
 .form_btn {
   color: #fff;
-  background-color: #e35e0a;
+  background-color: var(--main-color);
+  /* background-color: #e35e0a; */
   font-weight: 700;
   height: 6vh;
   padding: 10px 30px;
