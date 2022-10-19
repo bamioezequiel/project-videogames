@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import { sequelize } from "../db.js";
+import { sequelize } from "./../../db.js";
 import { Genres, Platforms, Tags } from "../lib/enums/index.js";
 import { User } from "./User.js";
 
