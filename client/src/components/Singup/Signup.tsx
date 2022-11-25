@@ -52,8 +52,8 @@ export default function Signup() {
         }
         try {
             const res = await register(registerUser);
-            console.log(res);
             if(res) {
+                alert("Te registraste correctamente!");
                 await dispatch(getCart(res.payload.user.id))
                 saveAllItemsInCart(res.payload.user.id);
             }

@@ -353,7 +353,7 @@ export const createUser = (user: any) => {
     try {
       await dispatch(axiosStart("user", {}));
       let res = await axios.post(`https://videogames-ezequiel-bamio.onrender.com/auth/register`, user);
-      alert("Te registraste correctamente!");
+      
       return dispatch({ type: CREATE_USER, payload: res.data });
     } catch (error: any) {
       await dispatch(axiosError(error as Error));
