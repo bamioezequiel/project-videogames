@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import { sequelize } from "../db.js";
+import { sequelize } from "./../../db.js";
 import crypto from "crypto";
 
 export const User = sequelize.define(
