@@ -44,7 +44,7 @@ export const PUT_CART = "PUT_CART";
 export const Payment = async (cart: any) => {
     try {
       console.log(cart)
-      const res = await axios.post("http://localhost:3001/payment", cart);
+      const res = await axios.post("https://videogames-ezequiel-bamio.onrender.com/payment", cart);
       console.log(res)
       if (res) {
         window.location = res.data.url;
@@ -59,7 +59,7 @@ export const Payment = async (cart: any) => {
 export const addCart = (id: any, gameId: any) => {
   return async function (dispatch: Function) {
     try {
-      const res = await axios.put(`http://localhost:3001/cart/${id}/${gameId}`);
+      const res = await axios.put(`https://videogames-ezequiel-bamio.onrender.com/cart/${id}/${gameId}`);
       return dispatch({ type: PUT_CART, payload: res.data });
     } catch (error) {
       await dispatch(axiosError(error as Error));
@@ -73,7 +73,7 @@ export const removeCart = (id: any, gameId: any) => {
   return async function (dispatch: Function) {
     try {
       const res = await axios.delete(
-        `http://localhost:3001/cart/${id}/${gameId}`
+        `https://videogames-ezequiel-bamio.onrender.com/cart/${id}/${gameId}`
       );
       console.log(res);
       return dispatch({ type: DELETE_CART, payload: res.data });
@@ -89,7 +89,7 @@ export const getCart = (id: any) => {
   return async function (dispatch: Function) {
     try {
       // await dispatch(axiosStart("cart", {}));
-      const res = await axios.get(`http://localhost:3001/cart/${id}`);
+      const res = await axios.get(`https://videogames-ezequiel-bamio.onrender.com/cart/${id}`);
       return dispatch({ type: GET_CART, payload: res.data });
     } catch (error) {
       await dispatch(axiosError(error as Error));
@@ -131,7 +131,7 @@ export const removeFavorites = (id: any, gameId: any) => {
   return async function (dispatch: Function) {
     try {
       const res = await axios.delete(
-        `http://localhost:3001/favorites/${id}/${gameId}`
+        `https://videogames-ezequiel-bamio.onrender.com/favorites/${id}/${gameId}`
       );
       console.log(res);
       return dispatch({ type: DELETE_FAVORITES, payload: res.data });
@@ -147,7 +147,7 @@ export const getFavorites = (id: any) => {
   return async function (dispatch: Function) {
     try {
       // await dispatch(axiosStart("user", {}));
-      const res = await axios.get(`http://localhost:3001/favorites/${id}`);
+      const res = await axios.get(`https://videogames-ezequiel-bamio.onrender.com/favorites/${id}`);
       return dispatch({ type: GET_FAVORITES, payload: res.data });
     } catch (error) {
       await dispatch(axiosError(error as Error));
@@ -160,7 +160,7 @@ export const getFavorites = (id: any) => {
 export const addFavorites = (id: any, gameId: any) => {
   return async function (dispatch: Function) {
     try {
-      const res = await axios.post(`http://localhost:3001/favorites/${id}?gameId=${gameId}`);
+      const res = await axios.post(`https://videogames-ezequiel-bamio.onrender.com/favorites/${id}?gameId=${gameId}`);
       return dispatch({ type: PUT_FAVORITES, payload: res.data });
     } catch (error) {
       await dispatch(axiosError(error as Error));
@@ -191,7 +191,7 @@ export const getTags = () => {
   return async function (dispatch: Function) {
     try {
       await dispatch(axiosStart("tags", []));
-      const res = await axios.get(`http://localhost:3001/tags`);
+      const res = await axios.get(`https://videogames-ezequiel-bamio.onrender.com/tags`);
       return dispatch({ type: GET_TAGS, payload: res.data });
     } catch (error) {
       await dispatch(axiosError(error as Error));
@@ -204,7 +204,7 @@ export const getPlatforms = () => {
   return async function (dispatch: Function) {
     try {
       await dispatch(axiosStart("platforms", []));
-      const res = await axios.get(`http://localhost:3001/platforms`);
+      const res = await axios.get(`https://videogames-ezequiel-bamio.onrender.com/platforms`);
       return dispatch({ type: GET_PLATFORMS, payload: res.data });
     } catch (error) {
       await dispatch(axiosError(error as Error));
@@ -217,7 +217,7 @@ export const getGenres = () => {
   return async function (dispatch: Function) {
     try {
       await dispatch(axiosStart("genres", []));
-      const res = await axios.get(`http://localhost:3001/genres`);
+      const res = await axios.get(`https://videogames-ezequiel-bamio.onrender.com/genres`);
       return dispatch({ type: GET_GENRES, payload: res.data });
     } catch (error) {
       await dispatch(axiosError(error as Error));
@@ -233,7 +233,7 @@ export const postLoginUserWithGoogle = () => {
   return async function (dispatch: Function) {
     try {
       await dispatch(axiosStart("user", {}));
-      let res = await Axios.post(`http://localhost:3001/auth/google`, {
+      let res = await Axios.post(`https://videogames-ezequiel-bamio.onrender.com/auth/google`, {
         withCredentials: true,
       });
       return res.data;
@@ -248,7 +248,7 @@ export const removeAdmin = (id: any, token: any) => {
   return async function (dispatch: Function) {
     try {
       let res = await axios.patch(
-        `http://localhost:3001/auth/admin/remove/${id}`,
+        `https://videogames-ezequiel-bamio.onrender.com/auth/admin/remove/${id}`,
         "",
         {
           headers: {
@@ -269,7 +269,7 @@ export const giveAdmin = (id: any, token: any) => {
   return async function (dispatch: Function) {
     try {
       let res = await axios.patch(
-        `http://localhost:3001/auth/admin/add/${id}`,
+        `https://videogames-ezequiel-bamio.onrender.com/auth/admin/add/${id}`,
         "",
         {
           headers: {
@@ -290,7 +290,7 @@ export const authenticateStatus = (token: any) => {
   return async function (dispatch: Function) {
     try {
       await dispatch(axiosStart("user", {}));
-      let res = await axios.post(`http://localhost:3001/auth/status`, "", {
+      let res = await axios.post(`https://videogames-ezequiel-bamio.onrender.com/auth/status`, "", {
         headers: {
           token,
         },
@@ -321,7 +321,7 @@ export const loginUser = (user: any) => {
   return async function (dispatch: Function) {
     try {
       await dispatch(axiosStart("user", {}));
-      let res = await Axios.post(`http://localhost:3001/auth/login`, user);
+      let res = await Axios.post(`https://videogames-ezequiel-bamio.onrender.com/auth/login`, user);
       alert("Te logueaste correctamente!");
       console.log(res.data);
       return dispatch({ type: LOGIN_USER, payload: res.data });
@@ -337,7 +337,7 @@ export const putUser = (user: any) => {
   return async function (dispatch: Function) {
     try {
       await dispatch(axiosStart("user", {}));
-      let res = await axios.put(`http://localhost:3001/users/update`, user);
+      let res = await axios.put(`https://videogames-ezequiel-bamio.onrender.com/users/update`, user);
       return dispatch({ type: UPDATE_USER, payload: res.data });
     } catch (error: any) {
       await dispatch(axiosError(error as Error));
@@ -352,7 +352,7 @@ export const createUser = (user: any) => {
   return async function (dispatch: Function) {
     try {
       await dispatch(axiosStart("user", {}));
-      let res = await axios.post(`http://localhost:3001/auth/register`, user);
+      let res = await axios.post(`https://videogames-ezequiel-bamio.onrender.com/auth/register`, user);
       alert("Te registraste correctamente!");
       return dispatch({ type: CREATE_USER, payload: res.data });
     } catch (error: any) {
@@ -368,7 +368,7 @@ export const getUser = (id: any) => {
   return async function (dispatch: Function) {
     try {
       await dispatch(axiosStart("user", {}));
-      let res = await axios.get(`http://localhost:3001/users/${id}`);
+      let res = await axios.get(`https://videogames-ezequiel-bamio.onrender.com/users/${id}`);
       return dispatch({ type: GET_USER, payload: res.data });
     } catch (error) {
       await dispatch(axiosError(error as Error));
@@ -381,7 +381,7 @@ export const getAllUsers = () => {
   return async function (dispatch: Function) {
     try {
       await dispatch(axiosStart("users", []));
-      let res = await axios.get(`http://localhost:3001/users`);
+      let res = await axios.get(`https://videogames-ezequiel-bamio.onrender.com/users`);
       return dispatch({ type: GET_ALL_USER, payload: res.data });
     } catch (error) {
       await dispatch(axiosError(error as Error));
@@ -398,7 +398,7 @@ export const getDetailGame = (id: any) => {
   return async function (dispatch: Function) {
     try {
       dispatch(axiosStart("detailGame", {}));
-      let res = await axios.get(`http://localhost:3001/games/${id}`);
+      let res = await axios.get(`https://videogames-ezequiel-bamio.onrender.com/games/${id}`);
       return dispatch({ type: GET_DETAIL_GAME, payload: res.data });
     } catch (error) {
       dispatch(axiosError(error as Error));
@@ -422,7 +422,7 @@ export const restoreGame = (id: any) => {
   return async function (dispatch: Function) {
     try {
       dispatch(axiosStart("allGames"));
-      let res = await axios.patch(`http://localhost:3001/games/restore/${id}`);
+      let res = await axios.patch(`https://videogames-ezequiel-bamio.onrender.com/games/restore/${id}`);
       return dispatch({ type: RESTORE_GAME, payload: res.data });
     } catch (error) {
       dispatch(axiosError(error as Error));
@@ -436,7 +436,7 @@ export const patchFeaturedGame = (id: any) => {
   return async function (dispatch: Function) {
     try {
       dispatch(axiosStart("allGames"));
-      let res = await axios.patch(`http://localhost:3001/games/featured/${id}`);
+      let res = await axios.patch(`https://videogames-ezequiel-bamio.onrender.com/games/featured/${id}`);
       return dispatch({ type: PATCH_FEATURED_GAME, payload: res.data });
     } catch (error) {
       dispatch(axiosError(error as Error));
@@ -450,7 +450,7 @@ export const patchNewGame = (id: any) => {
   return async function (dispatch: Function) {
     try {
       dispatch(axiosStart("allGames"));
-      let res = await axios.patch(`http://localhost:3001/games/isNew/${id}`);
+      let res = await axios.patch(`https://videogames-ezequiel-bamio.onrender.com/games/isNew/${id}`);
       return dispatch({ type: PATCH_NEW_GAME, payload: res.data });
     } catch (error) {
       dispatch(axiosError(error as Error));
@@ -464,7 +464,7 @@ export const deleteGame = (id: any) => {
   return async function (dispatch: Function) {
     try {
       dispatch(axiosStart("allGames"));
-      let res = await axios.delete(`http://localhost:3001/games/${id}`);
+      let res = await axios.delete(`https://videogames-ezequiel-bamio.onrender.com/games/${id}`);
       return dispatch({ type: DELETE_GAME, payload: res.data });
     } catch (error) {
       dispatch(axiosError(error as Error));
@@ -478,7 +478,7 @@ export const putGame = (value: any) => {
   return async function (dispatch: Function) {
     try {
       dispatch(axiosStart("allGames"));
-      let res = await axios.put("http://localhost:3001/games", value);
+      let res = await axios.put("https://videogames-ezequiel-bamio.onrender.com/games", value);
       return dispatch({ type: POST_GAME, payload: res.data });
     } catch (error) {
       dispatch(axiosError(error as Error));
@@ -492,7 +492,7 @@ export const createGame = (value: any) => {
   return async function (dispatch: Function) {
     try {
       dispatch(axiosStart("allGames"));
-      let res = await axios.post("http://localhost:3001/games", value);
+      let res = await axios.post("https://videogames-ezequiel-bamio.onrender.com/games", value);
       return dispatch({ type: UPDATE_GAME, payload: res.data });
     } catch (error) {
       dispatch(axiosError(error as Error));
@@ -506,7 +506,7 @@ export const getAllGames = () => {
   return async function (dispatch: Function) {
     try {
       // dispatch(axiosStart("allGames"));
-      let res = await axios.get("http://localhost:3001/games");
+      let res = await axios.get("https://videogames-ezequiel-bamio.onrender.com/games");
       return dispatch({ type: GET_ALL_GAMES, payload: res.data });
     } catch (error) {
       dispatch(axiosError(error as Error));
@@ -518,7 +518,7 @@ export const getAllGames = () => {
 export const getGames = () => {
   return async function (dispatch: Function) {
     try {
-      let res = await axios.get("http://localhost:3001/games?active=true");
+      let res = await axios.get("https://videogames-ezequiel-bamio.onrender.com/games?active=true");
       return dispatch({ type: GET_GAMES, payload: res.data });
     } catch (error) {
       dispatch(axiosError(error as Error));
@@ -542,7 +542,7 @@ export const filterSearch = ( value: any ) => {
 export const ordersGames = ( type: any, value: any ) => {
   return async function (dispatch: Function) {
     try {
-      let res = await axios.get("http://localhost:3001/games");
+      let res = await axios.get("https://videogames-ezequiel-bamio.onrender.com/games");
       return dispatch({ type: ORDERS_GAMES, payload: { games: res.data, type, value } });
     } catch (error) {
       dispatch(axiosError(error as Error));
@@ -555,7 +555,7 @@ export const ordersGames = ( type: any, value: any ) => {
 export const filtersGames = ( type: any, value: any ) => {
   return async function (dispatch: Function) {
     try {
-      let res = await axios.get("http://localhost:3001/games");
+      let res = await axios.get("https://videogames-ezequiel-bamio.onrender.com/games");
       return dispatch({ type: FILTERS_GAMES, payload: { games: res.data, type, value } });
     } catch (error) {
       dispatch(axiosError(error as Error));
