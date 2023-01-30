@@ -10,9 +10,7 @@ export const getGames = async (active: string, id?: string | null) => {
   } else {
     if (active === "true") {
       const games = await GameModel.find({
-        where: {
-          active: true,
-        },
+        active: true,
       });
 
       return games;
@@ -34,11 +32,7 @@ export const deletePermanentlyGame = async (id: string) => {
   return await GameModel.findByIdAndDelete(id);
 };
 
-export const patchGame = async (
-  id: string,
-  action: string,
-  value: boolean
-) => {
+export const patchGame = async (id: string, action: string, value: boolean) => {
   const game = await GameModel.findByIdAndUpdate(id, {
     [action]: value,
   });
@@ -46,37 +40,34 @@ export const patchGame = async (
   return await GameModel.findById(`${game?._id}`);
 };
 
-export const createGame =async(bodyGame: Game) => {
-    const game = await GameModel.findOne({ name: bodyGame.name });
-    if (game) throw new Error(`This game already exists`);
-    const createdGame = await GameModel.create({
-      name: bodyGame.name,
-      description: bodyGame.description,
-      released: bodyGame.released,
-      main_image: bodyGame.main_image,
-      short_screenshots: bodyGame.short_screenshots,
-      rating: bodyGame.rating,
-      price: Number(bodyGame.price),
-      on_sale: Number(bodyGame.on_sale),
-      stock: Number(bodyGame.stock),
-      featured: bodyGame.featured ? true : false,
-      is_new: bodyGame.is_new ? true : false,
-      platforms: bodyGame.platforms,
-      genres: bodyGame.genres,
-      tags: bodyGame.tags,
-    });
+export const createGame = async (bodyGame: Game) => {
+  const game = await GameModel.findOne({ name: bodyGame.name });
+  if (game) throw new Error(`This game already exists`);
+  const createdGame = await GameModel.create({
+    name: bodyGame.name,
+    description: bodyGame.description,
+    released: bodyGame.released,
+    main_image: bodyGame.main_image,
+    short_screenshots: bodyGame.short_screenshots,
+    rating: bodyGame.rating,
+    price: Number(bodyGame.price),
+    on_sale: Number(bodyGame.on_sale),
+    stock: Number(bodyGame.stock),
+    featured: bodyGame.featured ? true : false,
+    is_new: bodyGame.is_new ? true : false,
+    platforms: bodyGame.platforms,
+    genres: bodyGame.genres,
+    tags: bodyGame.tags,
+  });
 
-    return `The game was created successfully!`;
-}
+  return `The game was created successfully!`;
+};
 
 export const updateGame = async (bodyGame: any) => {
-    const updatedGame = await GameModel.findByIdAndUpdate(
-        bodyGame._id,
-        bodyGame
-      );
-  
-      if (!updatedGame) {
-        throw new Error(`The game could not be modified successfully`);
-      }
-      return "The game was modified successfully";
-}
+  const updatedGame = await GameModel.findByIdAndUpdate(bodyGame._id, bodyGame);
+
+  if (!updatedGame) {
+    throw new Error(`The game could not be modified successfully`);
+  }
+  return "The game was modified successfully";
+};
