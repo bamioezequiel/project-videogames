@@ -5,7 +5,7 @@ import s from "./Card.module.css";
 export default function Card({ game, size, tag }) {
   
   return (
-    <NavLink style={{textDecoration: 'none'}} to={`/detail/${game.id}`}>
+    <NavLink style={{textDecoration: 'none'}} to={`/detail/${game._id}`}>
     <div
       className={s.card_container}
       style={{

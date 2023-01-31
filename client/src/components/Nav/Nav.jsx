@@ -24,25 +24,7 @@ export default function Nav() {
             <NavLink to={"/"} title='Home' className={s.nav_menu_item}>
               <AiFillHome />
             </NavLink>
-            <NavLink to={"/favorites"} title='Favorites' className={s.nav_menu_item}>
-              <MdFavorite />
-              {
-                (favoritesDB?.length > 0 || favorites?.length > 0) && <span className={s.item_amount}>
-                  {
-                    (isAuth)
-                    ? favoritesDB?.length
-                    : favorites?.length
-                  }
-                </span>
-              }
-              {/* <span className={s.item_amount}>
-                {
-                  (isAuth)
-                    ? user?.favorites.length
-                    : favorites?.length
-                }
-              </span> */}
-            </NavLink>
+            
             <NavLink to={"/cart"} title='Cart' className={s.nav_menu_item}>
               <BsFillCartCheckFill />
               {
@@ -54,6 +36,9 @@ export default function Nav() {
                   }
                 </span>
               }
+            </NavLink>
+            <NavLink to={"/"} title='Empty' className={s.nav_menu_item}>
+              <MdGames />
             </NavLink>
           </div>
           <div className={s.nav_menu_col2}>

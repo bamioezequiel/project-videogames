@@ -1,8 +1,7 @@
-import { useDispatch, useSelector } from "react-redux";
-import { Payment } from "../../redux/actions";
+import { useSelector } from "react-redux";
 import Card from "../Cards/MainCard/Card";
 import Footer from "../Footer/Footer";
-import Tab from "../Tab/Tab";
+import Billboard from "./Billboard/Billboard";
 import Header from "./Header/Header";
 import s from "./Home.module.css";
 
@@ -43,7 +42,7 @@ export default function Home() {
       <br /><br /><br /><br /><br />
       <br /><br /><br /><br /><br />
 
-      <Tab />
+      <Billboard />
       <Footer />
     </div>
   );

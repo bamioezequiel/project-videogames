@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import useCart from '../../hooks/useCart';
-import useFavorites from '../../hooks/useFavorites';
 import { getCart, getFavorites } from '../../redux/actions';
 import { validationsLogin } from '../../utils/validations';
 import useLoading from '../Loading/Loading';
@@ -16,7 +15,6 @@ export default function Login() {
     const { login } = useAuth();
     const user = useSelector((state) => state.user)
     const { saveAllItemsInCart } = useCart();
-    const { saveAllItemsInFavorites } = useFavorites();
     const [loading, setLoading] = useState(false);
     const { Loading } = useLoading();
     const [loginUser, setLoginUser] = useState({
@@ -29,13 +27,13 @@ export default function Login() {
         general: ""
     });
 
-    useEffect( () => {
+   /*  useEffect( () => {
         return () => {
             setLoading(true);
             window.location.reload();
             redirect();
         }
-    }, [] )
+    }, [] ) */
 
     const redirect = () => {
         navigate('/');
@@ -63,9 +61,7 @@ export default function Login() {
         try {
             const res = await login(loginUser);
             await dispatch(getCart(res.payload.user.id));
-            await dispatch(getFavorites(res.payload.user.id));
             saveAllItemsInCart(res.payload.user.id);
-            saveAllItemsInFavorites(res.payload.user.id);
             if (user === "false") {
                 setErrors({
                     ...errors,
@@ -92,7 +88,6 @@ export default function Login() {
         <div className={s.login_container}>
             <div className={s.login_content}>
                 <h2 className={s.login_title}>Log In</h2>
-                <button className={s.login_with}>Log in with Google</button>
                 <hr className={s.login_line} />
                 <form action="" className={s.login_form}>
                     <div className={s.login_form_input_container}>

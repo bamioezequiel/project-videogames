@@ -30,6 +30,7 @@
     "@types/jsonwebtoken": "^9.0.1",
     "@types/mercadopago": "^1.5.8",
     "@types/mongoose": "^5.11.97",
+    "@types/morgan": "^1.9.4",
     "@types/nodemailer": "^6.4.7",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.20",

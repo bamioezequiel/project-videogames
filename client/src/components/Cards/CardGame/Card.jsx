@@ -1,39 +1,28 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import s from "./Card.module.css";
-import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
 import { useDispatch, useSelector } from "react-redux";
-import { getCart, getFavorites, getFavoritesLocalStorage } from "../../../redux/actions";
+import { getCart } from "../../../redux/actions";
 import useCart from "../../../hooks/useCart";
 import useAuth from "../../../hooks/useAuth";
-import useFavorites from "../../../hooks/useFavorites";
 
 export default function Card({ game, tag }) {
     const dispatch = useDispatch();
-    // const [favorite, setFavorite] = useState(false);
     const { cart, handleCart, setItemCart } = useCart();
-    const { favorites, handleFavorites, setItemFavorites } = useFavorites();
     const { isAuth } = useAuth();
     const user = useSelector( (state) => state.user )
     const cartUser = useSelector( (state) => state.cart )
 
     useEffect(() => {
-        ( async () => {
-            await setItemFavorites(game.id)
-        })()
-        
-        // let favoritesLS = JSON.parse(localStorage.getItem("favorites") || '[]');
-        // favoritesLS?.find((f) => f.id == game.id && setFavorite(true));
-        // ( async () => await setItemCart(game.id))()
         if(isAuth && !Object.keys(cartUser).length) {
             ( async () => {
                 let res = await dispatch(getCart(user.id));
-                await setItemCart(game.id, res.payload);
+                await setItemCart(game._id, res.payload);
             } )()
         } else {
-            ( async () => await setItemCart(game.id))()
+            ( async () => await setItemCart(game._id))()
         }
-    }, [dispatch, game.id]);
+    }, [dispatch, game._id]);
 
 
 
@@ -47,20 +36,19 @@ export default function Card({ game, tag }) {
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                         height: '200px'
-                    }}>
-                    <i className={favorites ? s.favIconCard : s.noFavIconCard} onClick={(e) => handleFavorites(e, game)}>{favorites ? <MdFavorite /> : <MdFavoriteBorder />}</i>
+                    }}>                    
                 </div>
             </div>
             <div className={s.outer}>
                 <div className={s.content}>
                     <div>
                         <span className={s.bg}>{tag}</span>
-                        <NavLink to={`/detail/${game.id}`} className={s.navlink}><h2>{game.name}</h2></NavLink>
+                        <NavLink to={`/detail/${game._id}`} className={s.navlink}><h2>{game.name}</h2></NavLink>
                         <p className={s.cardDescription}>{game.name.length < 20 ? game.description.slice(0, 180) + '...' : game.name.length >= 20 && game.name.length < 40 ? game.description.slice(0, 140) + '...' : game.name.length > 40 && game.description.slice(0, 110) + '...'}</p>
                     </div>
 
                     <div className={s.button}>
-                        <NavLink to={`/detail/${game.id}`}>
+                        <NavLink to={`/detail/${game._id}`}>
                             ${game.price}
                         </NavLink>
                         <a className={s.cart_btn} onClick={(e) => handleCart(e, game)}>

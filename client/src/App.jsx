@@ -10,7 +10,6 @@ import Detail from "./components/Detail/Detail";
 import Store from "./components/Store/Store";
 import Login from "./components/Login/Login";
 import Signup from "./components/Singup/Signup";
-import Favorites from './components/Favorites/Favorites';
 import Profile from "./components/Profile/Profile";
 import useLoading from "./components/Loading/Loading";
 import useCart from "./hooks/useCart";
@@ -20,72 +19,35 @@ import ListUsers from "./components/Dashboard/ListUsers/ListUsers";
 import ListGames from "./components/Dashboard/ListGames/ListGames";
 import CreateGame from "./components/Dashboard/CreateGame/CreateGame";
 import ListOrders from "./components/Dashboard/ListOrders/ListOrders";
-import useFavorites from "./hooks/useFavorites";
 function App() {
   const dispatch = useDispatch();
-  const allGames = useSelector((state) => state.games);
+  const games = useSelector((state) => state.games);
   const tokenUser = localStorage.getItem('token');
   const { isAuth, user, isAdmin, loginStatus } = useAuth();
-  const { favorites, handleFavorites, setItemFavorites, saveAllItemsInFavorites } = useFavorites();
   const { saveAllItemsInCart } = useCart();
   const { loading, setLoading, Loading } = useLoading();
 
-  const loadGames = async () => {
-    await dispatch(getPlatforms());
-    await dispatch(getTags());
-    await dispatch(getGenres());
-    await dispatch(getAllGames());
-    await dispatch(getGames());
-    await dispatch(getAllUsers());
+  const loadGames = () => {
+    dispatch(getPlatforms());
+    dispatch(getTags());
+    dispatch(getGenres());
+    dispatch(getAllGames());
+    dispatch(getGames());
   }
 
-  useEffect(() => {
-    if (allGames.length > 0) {
-      if (tokenUser !== null) {
-        if (isAuth) {
-          dispatch(getCart(user.id));
-          // dispatch(getFavorites(user.id));
-          setLoading(false);
-        }
-      } else {
-        setLoading(false);
-      }
+  useEffect(()=> {
+    setLoading(true);
+    loadGames();
+  }, [])
+  
+  useEffect(()=> {
+    if(games.length) {
+      setLoading(false);
     }
-  }, [allGames, isAuth])
-
-  useEffect(() => {
-    if (allGames.length === 0) {
-      loadGames();
-    }
-  }, [allGames])
-
-  useEffect(() => {
-    if (tokenUser !== null) {
-      (async () => {
-        let res = await loginStatus();
-        await dispatch(getCart(res.payload.id))
-        // await dispatch(getFavorites(res.payload.id));
-        saveAllItemsInCart(res.payload.id);
-        saveAllItemsInFavorites(res.payload.id);
-      })();
-    } else {
-      dispatch(getFavoritesLocalStorage());
-      dispatch(getCartLocalStorage());
-    }
-
-    return () => {
-      if (tokenUser !== null) {
-        loginStatus();
-        dispatch(getCart(user.id));
-        // dispatch(getFavorites(user.id));
-        saveAllItemsInCart(user.id);
-        saveAllItemsInFavorites(user.id);
-      }
-    };
-  }, []);
+  }, [games])
 
   return (
-    loading ? Loading() : <div className='container-app'>
+    loading ? <Loading /> : <div className='container-app'>
       <BrowserRouter>
         <Nav />
         <div className="content-app">
@@ -93,7 +55,6 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/store" element={<Store />} />
             <Route path="/detail/:id" element={<Detail />} />
-            <Route path="/favorites" element={<Favorites />} />
             <Route path="/cart" element={<Cart />} />
 
             <Route path="/login" element={!isAuth ? <Login /> : <Navigate to="/" />} />

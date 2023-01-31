@@ -59,24 +59,24 @@ export default function useCart() {
   async function handleCart(e, game) {
     e.preventDefault();
     if (isAuth) {
-      if (cartUser.cart?.find((g) => g.id == game.id)) {
-        await dispatch(removeCart(user.id, game.id));
+      if (cartUser.cart?.find((g) => g.id == game._id)) {
+        await dispatch(removeCart(user.id, game._id));
         setCart(false);
       } else {
-        await dispatch(addCart(user.id, game.id));
+        await dispatch(addCart(user.id, game._id));
         setCart(true);
       }
       await dispatch(cleanAllGames());
       await dispatch(getCart(user.id));
     } else {
-      if (!findItemCart(game.id)) {
+      if (!findItemCart(game._id)) {
         if (!localStorage.getItem("cart")) {
           let cartLS = [];
           cartLS.push(game);
           localStorage.setItem("cart", JSON.stringify(cartLS));
         } else {
           let cartLS = JSON.parse(localStorage.getItem("cart") || '[]');
-          if (cartLS?.filter((c) => c.id !== game.id)) {
+          if (cartLS?.filter((c) => c.id !== game._id)) {
             cartLS.unshift(game);
             localStorage.setItem("cart", JSON.stringify(cartLS));
           }
@@ -85,7 +85,7 @@ export default function useCart() {
       } else {
         let cartLS = JSON.parse(localStorage.getItem("cart") || '[]');
         let remCart = cartLS.filter((c) => {
-          return c.id !== game.id;
+          return c.id !== game._id;
         });
         localStorage.setItem("cart", JSON.stringify(remCart));
         setCart(false);

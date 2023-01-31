@@ -7,7 +7,7 @@ export default function CartCard({ game, size, tag }) {
   const { handleCart } = useCart();
   const handleClick = (e) => {
     e.preventDefault();
-    navigate(`/detail/${game.id}`)
+    navigate(`/detail/${game._id}`)
   }
 
   return (

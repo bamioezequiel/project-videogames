@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getCartLocalStorage, getDetailGame, getFavoritesLocalStorage } from '../../redux/actions';
-import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
+import { getDetailGame } from '../../redux/actions';
 import s from './Detail.module.css';
 import useCart from '../../hooks/useCart';
 import useLoading from '../Loading/Loading';
-import useFavorites from '../../hooks/useFavorites';
 import useAuth from '../../hooks/useAuth';
 
 export default function Detail() {
@@ -16,27 +14,27 @@ export default function Detail() {
     const { id } = useParams();
     const { user } = useAuth();
     const { cart, handleCart, setItemCart } = useCart();
-    const { favorites, handleFavorites, setItemFavorites } = useFavorites();
     const { loading, setLoading, Loading } = useLoading();
-    // const [favoriteDetail, setFavoriteDetail] = useState(false);
     const [currentImage, setCurrentImage] = useState(detailGame?.main_image);
 
     useEffect( () => {
-        if((user?.rol !== 'Owner' && user?.rol !== 'Admin') && !detailGame.active ) {
-            console.log(user.rol)
+        /* if((user?.rol !== 'Owner' && user?.rol !== 'Admin') && !detailGame.active ) {
             navigate('/');
-        }
+        } */
     }, [] )
 
     useEffect(() => {
+        setLoading(true)
         let res = dispatch(getDetailGame(id));
-        ( async () => await setItemFavorites(id))()
-        // let favoritesLS = JSON.parse(localStorage.getItem("favorites") || '[]');
-        // favoritesLS?.find((f) => f.id == id && setFavoriteDetail(true));
         setItemCart(id);
         setCurrentImage(res.payload?.main_image);
-        setLoading(false)
     }, [dispatch, id]);
+
+    useEffect(() => {
+        if(Object.keys(detailGame).length) {
+            setLoading(false)
+        }
+    }, [detailGame]);
 
 
     function handleImages(e) {
@@ -130,16 +128,14 @@ export default function Detail() {
 
                             </div>
                             <div className={s.detailInfoNonImp}>
-                                <p className={s.ratingGameDetail}>{new Array(detailGame?.rating).fill(false)?.map((el) => '⭐')}</p>
+                                {console.log(detailGame.rating)}
+                                {/* <p className={s.ratingGameDetail}>{new Array(Math.floor(detailGame.rating)).fill(false)?.map((el) => '⭐')}</p> */}
+                                <p className={s.ratingGameDetail}>⭐⭐⭐</p>
                                 <p>Release Date: {detailGame?.released?.split("-").reverse().join("-")}</p>
                                 <p className={s.detail_description}>{detailGame?.description}</p>
                             </div>
                         </div>
                         <div className={s.detail_btn_container}>
-                        <i className={favorites ? s.favIconDetail : s.noFavIconDetail} ></i>
-                            <button onClick={(e) => handleFavorites(e, detailGame)} className={s.detail_btn}>
-                            {favorites ? 'Remove from favorites' : 'Add to Favorites' }
-                            </button>
                             <button className={s.detail_btn} onClick={(e) => handleCart(e, detailGame)} >
                                 {
                                     (cart)

@@ -83,7 +83,6 @@ export default function Signup() {
         <div className={s.signup_container}>
             <div className={s.signup_content}>
                 <h2 className={s.signup_title}>Create Account</h2>
-                <button className={s.signup_with}>Log in with Google</button>
                 <hr className={s.signup_line} />
                 <form action="" className={s.signup_form}>
                     <div className={s.signup_form_input_container}>
@@ -127,31 +126,6 @@ export default function Signup() {
                             <span className={s.signup_error}>{!errors.password ? '' : errors.password}</span>
                         </label>
                         <input type="password" style={errors.password ? { borderColor: 'var(--color-red)' } : undefined} className={s.signup_form_input} name='password' value={registerUser.password} onChange={handleChange} placeholder='Password...' />
-                        <label className={s.signup_form_label}>
-                            {
-                                (errors.password.length > 0)
-                                    ? <BsCheck2Circle color='red' />
-                                    : <BsDashCircle />
-                            } Phone
-                            <br />
-                            <span className={s.signup_error}>{!errors.phone ? '' : errors.phone}</span>
-                        </label>
-                        <input type="text" style={errors.phone ? { borderColor: 'var(--color-red)' } : undefined} className={s.signup_form_input} name='phone' value={registerUser.phone} onChange={handleChange} placeholder='Phone...' />
-                        <label className={s.signup_form_label}>
-                            {
-                                (errors.dateBirth.length > 0)
-                                    ? <BsCheck2Circle color='red' />
-                                    : <BsDashCircle />
-                            } Date of Birth
-                            <br />
-                            <span className={s.signup_error}>{!errors.dateBirth ? '' : errors.dateBirth}</span>
-                        </label>
-                        <input type="date"
-                            max={new Date().toISOString().split("T")[0]}
-                            style={errors.dateBirth ? { borderColor: 'var(--color-red)' } : undefined}
-                            className={s.signup_form_input}
-                            name='dateBirth'
-                            value={registerUser.dateBirth} onChange={handleChange} placeholder='Date of birth...' />
                     </div>
                     <button onClick={handleSubmit} className={s.signup_btn}>Sign Up</button>
                 </form>
