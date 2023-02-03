@@ -20,9 +20,7 @@ export const getCart = async (req: Request, res: Response) => {
       userId: id,
       status: "processed",
     });
-    if (!cart) {
-      return res.status(400).send("This User has not Cart");
-    }
+    if (!cart) cart = await CartModel.create({ userId: id });
 
     res.send(cart);
   } catch (error) {
@@ -39,9 +37,7 @@ export const addGameInCart = async (req: Request, res: Response) => {
       userId: id,
       status: "processed",
     });
-    console.log(cart)
     if (!cart) cart = await CartModel.create({ userId: id });
-    console.log(cart)
     const game: any = await getGames("true", `${gameId}`);
 
     const notGame = cart.cart?.every(
@@ -51,9 +47,11 @@ export const addGameInCart = async (req: Request, res: Response) => {
     if (!notGame)
       return res.status(400).send("The game is already in the Cart");
 
+    const priceTotal = game.on_sale > 0 ? game.price_with_sale : game.price
+
     await CartModel.findByIdAndUpdate(cart._id, {
       cart: [...cart.cart, game],
-      total: cart.total + game.price,
+      total: cart.total + priceTotal,
     });
     const cartUpdated = await CartModel.find({
       userId: id,
@@ -91,11 +89,13 @@ export const removeGamesFromCart = async (req: Request, res: Response) => {
 
     if (!notGame) return res.status(400).send("The game is not in the Cart");
 
+    const priceTotal = game.on_sale > 0 ? game.price_with_sale : game.price
+
     await CartModel.findByIdAndUpdate(cart._id, {
       cart: cart.cart.filter(
         (el: Game) => el._id?.toString() !== game._id?.toString()
       ),
-      total: cart.total - game.price,
+      total: cart.total - priceTotal,
     });
     const cartUpdated = await CartModel.find({
       userId: id,

@@ -51,6 +51,7 @@ export const createGame = async (bodyGame: Game) => {
     short_screenshots: bodyGame.short_screenshots,
     rating: bodyGame.rating,
     price: Number(bodyGame.price),
+    price_with_sale: bodyGame.price - (bodyGame.price * bodyGame.on_sale / 100),
     on_sale: Number(bodyGame.on_sale),
     stock: Number(bodyGame.stock),
     featured: bodyGame.featured ? true : false,

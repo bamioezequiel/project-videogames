@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 import { loginUser, registerNewUser } from "../services/auth.service";
 import { handleErrors } from "./../utils/error.handle";
 import UserModel from '../models/user.model';
-const JWT_SECRET = process.env.JWT_SECRET || '';
+const JWT_SECRET = process.env.JWT_SECRET || 'secret';
 
 export const checkUser = (req: Request, res: Response) => {
   const token = req.headers.authorization?.split(" ").pop();

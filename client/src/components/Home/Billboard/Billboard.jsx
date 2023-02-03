@@ -17,17 +17,25 @@ export default function Billboard() {
 
   return (
     <div className={s.billboard_container}>
-        <h2>Store</h2>
+      <h2 className={s.billboard_title}>Store</h2>
       <div className={s.cards_container}>
         {allGames?.length > 0 ? (
           allGames
             .slice(0, 12)
-            .map((g) => <Card key={g.id + g.name} game={g} tag={ g.on_sale > 0 ? 'ON SALE' : g.featured ? 'FEATURED' : 'BUY' }/>)
+            .map((g) => (
+              <Card
+                key={g.id + g.name}
+                game={g}
+                tag={
+                  g.on_sale > 0 ? "ON SALE" : g.featured ? "FEATURED" : "BUY"
+                }
+              />
+            ))
         ) : (
           <span>No games</span>
         )}
       </div>
-      <button>Ver mas...</button>
+      <NavLink to='/store' className={s.billboard_btn}>See more...</NavLink>
     </div>
   );
 }

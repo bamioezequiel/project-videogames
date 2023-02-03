@@ -98,6 +98,7 @@ export const loadGames = async () => {
           ...g,
           featured: g.rating > 4.5 ? true : false,
           active: g.stock > 0 ? true : false,
+          price_with_sale: g.price - (g.price * g.on_sale / 100)
         });
       });
       console.log("🟢 Loading of games complete. 🟢");

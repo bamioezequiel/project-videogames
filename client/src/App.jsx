@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { authenticateStatus, getAllGames, getAllUsers, getCart, getCartLocalStorage, getFavorites, getFavoritesLocalStorage, getGames, getGenres, getPlatforms, getTags, getUser } from "./redux/actions";
+import { authenticateStatus, getAllGames, getAllUsers, getCart, getCartLocalStorage, getFavorites, getFavoritesLocalStorage, getGames, getGenres, getPlatforms, getTags, getUser, getUserByToken } from "./redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import useAuth from "./hooks/useAuth";
 import Home from "./components/Home/Home";
@@ -19,12 +19,15 @@ import ListUsers from "./components/Dashboard/ListUsers/ListUsers";
 import ListGames from "./components/Dashboard/ListGames/ListGames";
 import CreateGame from "./components/Dashboard/CreateGame/CreateGame";
 import ListOrders from "./components/Dashboard/ListOrders/ListOrders";
+import axios from "axios";
+axios.defaults.baseURL = "http://localhost:3001";
+
 function App() {
   const dispatch = useDispatch();
   const games = useSelector((state) => state.games);
   const tokenUser = localStorage.getItem('token');
-  const { isAuth, user, isAdmin, loginStatus } = useAuth();
-  const { saveAllItemsInCart } = useCart();
+  const { isAuth, user, isAdmin, loginStatus, logout } = useAuth();
+  const { saveAllItemsInCart, getAllItemsCart } = useCart();
   const { loading, setLoading, Loading } = useLoading();
 
   const loadGames = () => {
@@ -35,9 +38,22 @@ function App() {
     dispatch(getGames());
   }
 
+  const loginUserStatus = async () => {
+    console.log(await loginStatus());
+    if(await loginStatus()) {
+      const token = localStorage.getItem('token');
+      console.log(localStorage.getItem('token'));
+      const response = await dispatch(getUserByToken(token));
+      dispatch(getCart(response.payload._id))
+    } else {
+      logout();
+    }
+  }
+
   useEffect(()=> {
     setLoading(true);
     loadGames();
+    loginUserStatus();
   }, [])
   
   useEffect(()=> {

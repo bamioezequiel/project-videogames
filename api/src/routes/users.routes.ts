@@ -6,6 +6,7 @@ const router = Router();
 
 /* router.get('/', checkAuth, checkRoleAuth(['User']), getUser); */
 router.get("/:id", getUserById);
+router.post("/token", getUserByToken);
 router.get("/", getUserByToken);
 router.post("/changeRole", checkAuth, checkRoleAuth(["Admin"]), changeRole);
 

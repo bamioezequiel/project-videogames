@@ -4,9 +4,7 @@ import {
   DELETE_CART,
   GET_ALL_GAMES,
   GET_CART,
-  GET_CART_LOCAL_STORAGE,
   GET_DETAIL_GAME,
-  GET_FAVORITES_LOCAL_STORAGE,
   GET_GENRES,
   GET_PLATFORMS,
   GET_TAGS,
@@ -28,9 +26,6 @@ import {
   RESTORE_GAME,
   PATCH_NEW_GAME,
   PATCH_FEATURED_GAME,
-  PUT_FAVORITES,
-  DELETE_FAVORITES,
-  GET_FAVORITES,
   GET_GAMES,
 } from "../actions";
 
@@ -43,10 +38,7 @@ const initialState = {
   tags: [],
   platforms: [],
   genres: [],
-  favoritesLS: [],
-  favorites: [],
   users: [],
-  cartLS: [],
   cart: {},
   detailGame: {},
   user: {},
@@ -234,41 +226,6 @@ const rootReducer = (state = initialState, action) => {
         loading: false,
         error: null,
         cart: action.payload,
-      };
-    case PUT_FAVORITES:
-      return {
-        ...state,
-        loading: false,
-        error: null,
-        favorites: action.payload,
-      };
-    case DELETE_FAVORITES:
-      return {
-        ...state,
-        loading: false,
-        error: null,
-        favorites: action.payload,
-      };
-    case GET_FAVORITES:
-      return {
-        ...state,
-        loading: false,
-        error: null,
-        favorites: action.payload,
-      };
-    case GET_CART_LOCAL_STORAGE:
-      return {
-        ...state,
-        loading: false,
-        error: null,
-        cartLS: action.payload,
-      };
-    case GET_FAVORITES_LOCAL_STORAGE:
-      return {
-        ...state,
-        loading: false,
-        error: null,
-        favoritesLS: action.payload,
       };
     case GET_PLATFORMS:
       return {
