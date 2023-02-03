@@ -1,4 +1,4 @@
-import express from "express";
+import express, { NextFunction, Request, Response } from "express";
 import cors from "cors";
 import dotenv from 'dotenv';
 import morgan from "morgan";
@@ -19,7 +19,6 @@ app.use(
       "https://project-videogames-aztyaetqw-ezequielbamio.vercel.app/",
       "https://project-videogames-rosy.vercel.app",
     ],
-    allowedHeaders: '*',
     methods: ["POST", "GET", "DELETE"],
     credentials: true,
   })
@@ -33,5 +32,14 @@ app.use("/cart", cartRoutes);
 app.use("/users", usersRoutes);
 app.use("/categories", categoriesRoutes);
 app.use("/payment", paymentRoutes);
+
+app.use((req: Request, res: Response, next: NextFunction) => {
+  res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+  next();
+});
+
 
 export default app;
