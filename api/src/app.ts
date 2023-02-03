@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import usersRoutes from './routes/users.routes';
 import cartRoutes from './routes/cart.routes';
 import gamesRoutes from './routes/games.routes';
+import paymentRoutes from './routes/payment.routes';
 import categoriesRoutes from './routes/categories.routes';
 import authRoutes from './routes/auth.routes';
 const app = express();
@@ -21,5 +22,6 @@ app.use("/games", gamesRoutes);
 app.use("/cart", cartRoutes);
 app.use("/users", usersRoutes);
 app.use("/categories", categoriesRoutes);
+app.use("/payment", paymentRoutes);
 
 export default app;

@@ -6,7 +6,7 @@ import CartModel from "../models/cart.model";
 // import { addCoinsUser } from "./coin.services";
 const URL_FRONT = process.env.URL_FRONT;
 
-export const createPayment = async (unitPrice: number, userId: string) => {
+export const createPayment = async (userId: string) => {
   const url = "https://api.mercadopago.com/checkout/preferences";
 
   let cart: any = await CartModel.findOne({
@@ -21,7 +21,7 @@ export const createPayment = async (unitPrice: number, userId: string) => {
       picture_url: el.main_image,
       category_id: "category123",
       quantity: 1,
-      unit_price: el.price * 100,
+      unit_price: el.on_sale > 0 ? el.price_with_sale : el.price,
     };
   });
 
@@ -53,6 +53,7 @@ export const notificationPayment = async (body: any) => {
     }
   );
   let status = infoPago.data.status;
+  console.log(infoPago.data);
   if (status === "rejected") status = "cancelled";
   /*   console.log(infoPago.data) */
   if (status === "approved" || status === "cancelled") {

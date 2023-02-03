@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import useAuth from "../../hooks/useAuth";
@@ -19,8 +20,14 @@ export default function Cart() {
 
   const handlePayment = async (e) => {
     e.preventDefault();
-    await dispatch(Payment(cart));
+    const token = localStorage.getItem("token");
+      const res = await axios.post("/payment/mp", {
+        token,
+      });
+      console.log(res);
+      window.location = res.data.init_point;
   };
+
   return (
     <div className={s.cart_container}>
       <div className={s.cart_menu}>
