@@ -1,6 +1,4 @@
 import { Request, Response } from "express";
-import OrderModel from "../models/order.models";
-import UserModel from "../models/user.models";
 import { createPayment, notificationPayment } from "../services/mercadopago.services";
 import { verifyToken } from "../utils/jwt.handle";
 
