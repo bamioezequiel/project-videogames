@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import dotenv from 'dotenv';
 import morgan from "morgan";
 import usersRoutes from "./routes/users.routes";
 import cartRoutes from "./routes/cart.routes";
@@ -9,11 +10,13 @@ import categoriesRoutes from "./routes/categories.routes";
 import authRoutes from "./routes/auth.routes";
 const app = express();
 
+dotenv.config();
+
 app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "http://project-videogames-rosy.vercel.app",
+      "https://project-videogames-aztyaetqw-ezequielbamio.vercel.app/",
       "https://project-videogames-rosy.vercel.app",
     ],
     allowedHeaders: '*',
