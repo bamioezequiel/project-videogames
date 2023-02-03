@@ -13,8 +13,10 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
+      "http://project-videogames-rosy.vercel.app",
       "https://project-videogames-rosy.vercel.app",
     ],
+    allowedHeaders: '*',
     methods: ["POST", "GET", "DELETE"],
     credentials: true,
   })
