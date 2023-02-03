@@ -21,12 +21,12 @@ export default function Cart() {
   const handlePayment = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
-      const res = await axios.post("/payment/mp", {
-        token,
-      });
-      console.log(res);
-      window.location = res.data.init_point;
-  };
+    const res = await axios.post("/payment/mp", {
+      token,
+    });
+    console.log(res);
+/*     window.location = res.data.init_point;
+ */  };
 
   return (
     <div className={s.cart_container}>
