@@ -40,9 +40,7 @@ export const PUT_CART = "PUT_CART";
 export const addCart = (id, gameId) => {
   return async function (dispatch) {
     try {
-      const res = await axios.post(
-        `/cart/addGame/${id}?gameId=${gameId}`
-      );
+      const res = await axios.post(`/cart/addGame/${id}?gameId=${gameId}`);
       console.log(res.data);
 
       return dispatch({ type: PUT_CART, payload: res.data[0] });
@@ -56,9 +54,7 @@ export const addCart = (id, gameId) => {
 export const removeCart = (id, gameId) => {
   return async function (dispatch) {
     try {
-      const res = await axios.delete(
-        `/cart/${id}?gameId=${gameId}`
-      );
+      const res = await axios.delete(`/cart/${id}?gameId=${gameId}`);
       console.log(res.data);
       return dispatch({ type: DELETE_CART, payload: res.data });
     } catch (error) {
@@ -104,7 +100,7 @@ export const getTags = () => {
       return dispatch({ type: GET_TAGS, payload: res.data });
     } catch (error) {
       await dispatch(axiosError(error));
-      console.log(`Error, actions <GetTags>: ${error}`);
+      console.log(error);
     }
   };
 };
@@ -117,7 +113,7 @@ export const getPlatforms = () => {
       return dispatch({ type: GET_PLATFORMS, payload: res.data });
     } catch (error) {
       await dispatch(axiosError(error));
-      console.log(`Error, actions <GetPlatforms>: ${error}`);
+      console.log(error);
     }
   };
 };
@@ -130,7 +126,7 @@ export const getGenres = () => {
       return dispatch({ type: GET_GENRES, payload: res.data });
     } catch (error) {
       await dispatch(axiosError(error));
-      console.log(`Error, actions <GetGenres>: ${error}`);
+      console.log(error);
     }
   };
 };
@@ -150,7 +146,7 @@ export const removeAdmin = (id, token) => {
       return res.data;
     } catch (error) {
       await dispatch(axiosError(error));
-      console.log(`Error, actions <RemoveAdmin>: ${error}`);
+      console.log(error);
     }
   };
 };
@@ -167,7 +163,7 @@ export const giveAdmin = (id, token) => {
       return res.data;
     } catch (error) {
       await dispatch(axiosError(error));
-      console.log(`Error, actions <GiveAdmin>: ${error}`);
+      console.log(error);
     }
   };
 };
@@ -191,7 +187,7 @@ export const authenticateStatus = (token) => {
       if (error.response.data === "token expired")
         localStorage.removeItem("token");
       await dispatch(axiosError(error));
-      console.log(`Error, actions <AuthenticateStatus>: ${error}`);
+      console.log(error);
     }
   };
 };
@@ -203,7 +199,7 @@ export const logoutUser = () => {
       return dispatch({ type: LOGOUT_USER });
     } catch (error) {
       await dispatch(axiosError(error));
-      console.log(`Error, actions <LogoutUser>: ${error}`);
+      console.log(error);
     }
   };
 };
@@ -219,7 +215,6 @@ export const loginUser = (user) => {
     } catch (error) {
       await dispatch(axiosError(error));
       console.log(error);
-      console.log(`Error, actions <LoginUser>: ${error}`);
     }
   };
 };
@@ -234,7 +229,6 @@ export const putUser = (user) => {
       await dispatch(axiosError(error));
       alert(error.response.data.slice(39));
       console.log(error);
-      console.log(`Error, actions <CreateUser>: ${error}`);
     }
   };
 };
@@ -250,7 +244,6 @@ export const createUser = (user) => {
       await dispatch(axiosError(error));
       alert(error.response.data.slice(39));
       console.log(error);
-      console.log(`Error, actions <CreateUser>: ${error}`);
     }
   };
 };
@@ -298,7 +291,7 @@ export const getAllUsers = () => {
       return dispatch({ type: GET_ALL_USER, payload: res.data });
     } catch (error) {
       await dispatch(axiosError(error));
-      console.log(`Error, actions <getAllUsers>: ${error}`);
+      console.log(error);
     }
   };
 };
@@ -326,7 +319,7 @@ export const cleanAllGames = () => {
       dispatch(axiosStart("allVideogames"));
     } catch (error) {
       dispatch(axiosError(error));
-      console.log(`Error, actions <GetAllGames>: ${error}`);
+      console.log(error);
     }
   };
 };
@@ -340,7 +333,6 @@ export const restoreGame = (id) => {
     } catch (error) {
       dispatch(axiosError(error));
       console.log(error);
-      console.log(`Error, actions <RestoreGame>: ${error}`);
     }
   };
 };
@@ -354,7 +346,6 @@ export const patchFeaturedGame = (id) => {
     } catch (error) {
       dispatch(axiosError(error));
       console.log(error);
-      console.log(`Error, actions <PatchNewGame>: ${error}`);
     }
   };
 };
@@ -368,7 +359,6 @@ export const patchNewGame = (id) => {
     } catch (error) {
       dispatch(axiosError(error));
       console.log(error);
-      console.log(`Error, actions <PatchNewGame>: ${error}`);
     }
   };
 };
@@ -382,7 +372,6 @@ export const deleteGame = (id) => {
     } catch (error) {
       dispatch(axiosError(error));
       console.log(error);
-      console.log(`Error, actions <DeleteGame>: ${error}`);
     }
   };
 };
@@ -396,7 +385,6 @@ export const putGame = (value) => {
     } catch (error) {
       dispatch(axiosError(error));
       console.log(error);
-      console.log(`Error, actions <CreateGame>: ${error}`);
     }
   };
 };
@@ -410,7 +398,6 @@ export const createGame = (value) => {
     } catch (error) {
       dispatch(axiosError(error));
       console.log(error);
-      console.log(`Error, actions <CreateGame>: ${error}`);
     }
   };
 };
@@ -423,7 +410,7 @@ export const getAllGames = () => {
       return dispatch({ type: GET_ALL_GAMES, payload: res.data });
     } catch (error) {
       dispatch(axiosError(error));
-      console.log(`Error, actions <GetAllGames>: ${error}`);
+      console.log(error);
     }
   };
 };
@@ -435,7 +422,7 @@ export const getGames = () => {
       return dispatch({ type: GET_GAMES, payload: res.data });
     } catch (error) {
       dispatch(axiosError(error));
-      console.log(`Error, actions <GetAllGames>: ${error}`);
+      console.log(error);
     }
   };
 };
@@ -447,7 +434,6 @@ export const filterSearch = (value) => {
     } catch (error) {
       dispatch(axiosError(error));
       console.log(error);
-      console.log(`Error, actions <SearchGames>: ${error}`);
     }
   };
 };
@@ -463,7 +449,6 @@ export const ordersGames = (type, value) => {
     } catch (error) {
       dispatch(axiosError(error));
       console.log(error);
-      console.log(`Error, actions <OrdersGames>: ${error}`);
     }
   };
 };
@@ -479,7 +464,6 @@ export const filtersGames = (type, value) => {
     } catch (error) {
       dispatch(axiosError(error));
       console.log(error);
-      console.log(`Error, actions <FiltersGames>: ${error}`);
     }
   };
 };
