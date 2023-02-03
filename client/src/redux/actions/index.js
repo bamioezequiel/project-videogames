@@ -35,26 +35,13 @@ export const DELETE_CART = "DELETE_CART";
 export const PUT_CART = "PUT_CART";
 // --------------- //
 
-export const Payment = async (cart) => {
-  try {
-    console.log(cart);
-    const res = await axios.post("/payment", cart);
-    console.log(res);
-    if (res) {
-      window.location = res.data.url;
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 /* --------------- START CART --------------- */
 
 export const addCart = (id, gameId) => {
   return async function (dispatch) {
     try {
       const res = await axios.post(
-        `http://localhost:3001/cart/addGame/${id}?gameId=${gameId}`
+        `/cart/addGame/${id}?gameId=${gameId}`
       );
       console.log(res.data);
 
@@ -70,7 +57,7 @@ export const removeCart = (id, gameId) => {
   return async function (dispatch) {
     try {
       const res = await axios.delete(
-        `http://localhost:3001/cart/${id}?gameId=${gameId}`
+        `/cart/${id}?gameId=${gameId}`
       );
       console.log(res.data);
       return dispatch({ type: DELETE_CART, payload: res.data });
@@ -85,7 +72,7 @@ export const getCart = (id) => {
   return async function (dispatch) {
     try {
       // await dispatch(axiosStart("cart", {}));
-      const res = await axios.get(`http://localhost:3001/cart/${id}`);
+      const res = await axios.get(`/cart/${id}`);
       return dispatch({ type: GET_CART, payload: res.data });
     } catch (error) {
       await dispatch(axiosError(error));
@@ -113,7 +100,7 @@ export const getTags = () => {
   return async function (dispatch) {
     try {
       await dispatch(axiosStart("tags", []));
-      const res = await axios.get(`http://localhost:3001/categories/tags`);
+      const res = await axios.get(`/categories/tags`);
       return dispatch({ type: GET_TAGS, payload: res.data });
     } catch (error) {
       await dispatch(axiosError(error));
@@ -126,7 +113,7 @@ export const getPlatforms = () => {
   return async function (dispatch) {
     try {
       await dispatch(axiosStart("platforms", []));
-      const res = await axios.get(`http://localhost:3001/categories/platforms`);
+      const res = await axios.get(`/categories/platforms`);
       return dispatch({ type: GET_PLATFORMS, payload: res.data });
     } catch (error) {
       await dispatch(axiosError(error));
@@ -139,7 +126,7 @@ export const getGenres = () => {
   return async function (dispatch) {
     try {
       await dispatch(axiosStart("genres", []));
-      const res = await axios.get(`http://localhost:3001/categories/genres`);
+      const res = await axios.get(`/categories/genres`);
       return dispatch({ type: GET_GENRES, payload: res.data });
     } catch (error) {
       await dispatch(axiosError(error));
@@ -324,7 +311,7 @@ export const getDetailGame = (id) => {
   return async function (dispatch) {
     try {
       dispatch(axiosStart("detailGame", {}));
-      let res = await axios.get(`http://localhost:3001/games/${id}`);
+      let res = await axios.get(`/games/${id}`);
       return dispatch({ type: GET_DETAIL_GAME, payload: res.data });
     } catch (error) {
       dispatch(axiosError(error));
@@ -348,7 +335,7 @@ export const restoreGame = (id) => {
   return async function (dispatch) {
     try {
       dispatch(axiosStart("allGames"));
-      let res = await axios.patch(`http://localhost:3001/games/restore/${id}`);
+      let res = await axios.patch(`/games/restore/${id}`);
       return dispatch({ type: RESTORE_GAME, payload: res.data });
     } catch (error) {
       dispatch(axiosError(error));
@@ -362,7 +349,7 @@ export const patchFeaturedGame = (id) => {
   return async function (dispatch) {
     try {
       dispatch(axiosStart("allGames"));
-      let res = await axios.patch(`http://localhost:3001/games/featured/${id}`);
+      let res = await axios.patch(`/games/featured/${id}`);
       return dispatch({ type: PATCH_FEATURED_GAME, payload: res.data });
     } catch (error) {
       dispatch(axiosError(error));
@@ -376,7 +363,7 @@ export const patchNewGame = (id) => {
   return async function (dispatch) {
     try {
       dispatch(axiosStart("allGames"));
-      let res = await axios.patch(`http://localhost:3001/games/isNew/${id}`);
+      let res = await axios.patch(`/games/isNew/${id}`);
       return dispatch({ type: PATCH_NEW_GAME, payload: res.data });
     } catch (error) {
       dispatch(axiosError(error));
@@ -390,7 +377,7 @@ export const deleteGame = (id) => {
   return async function (dispatch) {
     try {
       dispatch(axiosStart("allGames"));
-      let res = await axios.delete(`http://localhost:3001/games/${id}`);
+      let res = await axios.delete(`/games/${id}`);
       return dispatch({ type: DELETE_GAME, payload: res.data });
     } catch (error) {
       dispatch(axiosError(error));
@@ -404,7 +391,7 @@ export const putGame = (value) => {
   return async function (dispatch) {
     try {
       dispatch(axiosStart("allGames"));
-      let res = await axios.put("http://localhost:3001/games", value);
+      let res = await axios.put("/games", value);
       return dispatch({ type: POST_GAME, payload: res.data });
     } catch (error) {
       dispatch(axiosError(error));
@@ -418,7 +405,7 @@ export const createGame = (value) => {
   return async function (dispatch) {
     try {
       dispatch(axiosStart("allGames"));
-      let res = await axios.post("http://localhost:3001/games", value);
+      let res = await axios.post("/games", value);
       return dispatch({ type: UPDATE_GAME, payload: res.data });
     } catch (error) {
       dispatch(axiosError(error));
@@ -432,7 +419,7 @@ export const getAllGames = () => {
   return async function (dispatch) {
     try {
       // dispatch(axiosStart("allGames"));
-      let res = await axios.get("http://localhost:3001/games");
+      let res = await axios.get("/games");
       return dispatch({ type: GET_ALL_GAMES, payload: res.data });
     } catch (error) {
       dispatch(axiosError(error));
@@ -444,7 +431,7 @@ export const getAllGames = () => {
 export const getGames = () => {
   return async function (dispatch) {
     try {
-      let res = await axios.get("http://localhost:3001/games?active=true");
+      let res = await axios.get("/games?active=true");
       return dispatch({ type: GET_GAMES, payload: res.data });
     } catch (error) {
       dispatch(axiosError(error));
