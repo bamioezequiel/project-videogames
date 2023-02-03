@@ -10,7 +10,7 @@ import authRoutes from './routes/auth.routes';
 const app = express();
 
 app.use(cors({
-    origin: ['http://localhost:3000', '*'],
+    origin: ['*', 'http://localhost:3000', 'https://project-videogames-omega.vercel.app'],
     methods: ['POST', 'GET', 'DELETE'],
     credentials: true
 }));
