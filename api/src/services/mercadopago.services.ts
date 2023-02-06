@@ -23,7 +23,6 @@ export const createPayment = async (userId: string) => {
       unit_price: el.on_sale > 0 ? el.price_with_sale : el.price,
     };
   });
-  console.log(bodyItems);
 
   const body = {
     items: bodyItems,

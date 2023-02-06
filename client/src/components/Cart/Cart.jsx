@@ -31,9 +31,10 @@ export default function Cart() {
     const res = await axios.post("/payment/mp", {
       token,
     });
-    console.log(res);
-/*     window.location = res.data.init_point;
- */  };
+    //console.log(res);
+  
+    window.location = res.data.init_point;
+  };
 
   return (
     <div className={s.cart_container}>
@@ -45,8 +46,8 @@ export default function Cart() {
           <div className={s.card_group}>
             <h3>{cart.cart?.length} Games in Cart</h3>
             <div>
-              {cart.cart?.map((c) => {
-                return <CartCard game={c} size="small" tag="" />;
+              {cart.cart?.map((c, i) => {
+                return <CartCard key={c._id+i} game={c} size="small" tag="" />;
               })}
             </div>
           </div>
