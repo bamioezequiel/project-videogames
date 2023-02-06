@@ -13,8 +13,8 @@ export const createPayment = async (userId: string) => {
     userId,
     status: "processed",
   });
-
-  const bodyItems = cart.cart.maps((el: Game) => {
+  console.log(cart);
+  const bodyItems = cart.cart?.maps((el: Game) => {
     return {
       title: el.name,
       description: cart._id,

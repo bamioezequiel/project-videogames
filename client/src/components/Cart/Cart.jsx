@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import useCart from "../../hooks/useCart";
 import { Payment } from "../../redux/actions";
@@ -9,7 +10,7 @@ import Card from "../Cards/MainCard/Card";
 import s from "./Cart.module.css";
 
 export default function Cart() {
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { isAuth } = useAuth();
   const cart = useSelector((state) => state.cart);
 
@@ -17,6 +18,12 @@ export default function Cart() {
   cart?.cart?.map((g) => {
     total += g.price;
   });
+
+  useEffect(()=>{
+    if(!isAuth) {
+      navigate('/login'); 
+    }
+  }, [])
 
   const handlePayment = async (e) => {
     e.preventDefault();
