@@ -6,7 +6,6 @@ export const checkoutMercadoPago = async (req: Request, res: Response) => {
   try {
     const { token } = req.body;
     const tokenData: any = verifyToken(`${token}`);
-    console.log(tokenData)
     const payment = await createPayment(tokenData.id);    
     
     res.json(payment);
