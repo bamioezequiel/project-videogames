@@ -27,6 +27,7 @@ import {
   PATCH_NEW_GAME,
   PATCH_FEATURED_GAME,
   GET_GAMES,
+  GET_ALL_CART,
 } from "../actions";
 
 import { filterGames, orderings, search } from "../../utils/filtersAndOrders";
@@ -42,7 +43,7 @@ const initialState = {
   cart: {},
   detailGame: {},
   user: {},
-  orders: { type: "", value: "" },
+  orders: [],
   filterGenres: { value: "" },
   filterPlatforms: { value: "" },
   filterTags: { value: "" },
@@ -219,6 +220,13 @@ const rootReducer = (state = initialState, action) => {
         loading: false,
         error: null,
         cart: action.payload,
+      };
+    case GET_ALL_CART:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        orders: action.payload,
       };
     case GET_CART:
       return {

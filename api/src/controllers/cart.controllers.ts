@@ -18,6 +18,7 @@ export const getAllCart = async (req: Request, res: Response) => {
   try {
     let carts = await CartModel.find({
       userId: id,
+      status: "approved" || "cancelled"
     });
     if (!carts) res.status(400).send('The user has not carts');
 

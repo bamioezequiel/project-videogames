@@ -31,6 +31,7 @@ export const UPDATE_USER = "UPDATE_USER";
 export const CREATE_USER = "CREATE_USER";
 // --------------- //
 export const GET_CART = "GET_CART";
+export const GET_ALL_CART = "GET_ALL_CART";
 export const DELETE_CART = "DELETE_CART";
 export const PUT_CART = "PUT_CART";
 // --------------- //
@@ -70,6 +71,19 @@ export const getCart = (id) => {
       // await dispatch(axiosStart("cart", {}));
       const res = await axios.get(`/cart/${id}`);
       return dispatch({ type: GET_CART, payload: res.data });
+    } catch (error) {
+      await dispatch(axiosError(error));
+      console.log(error);
+    }
+  };
+};
+
+export const getAllCart = (id) => {
+  return async function (dispatch) {
+    try {
+      // await dispatch(axiosStart("cart", {}));
+      const res = await axios.get(`/cart/all/${id}`);
+      return dispatch({ type: GET_ALL_CART, payload: res.data });
     } catch (error) {
       await dispatch(axiosError(error));
       console.log(error);
