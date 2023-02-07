@@ -30,7 +30,7 @@ export default function Profile() {
                         <button className={s.profile_btn_leave} onClick={logout}>Leave</button>
                     </div>
                 </nav>
-                {/* <div className={s.table_container}>
+                <div className={s.table_container}>
                     <section>
                         <div className={s.tbl_header}>
                             <table>
@@ -65,7 +65,7 @@ export default function Profile() {
                             </table>
                         </div>
                     </section>
-                </div> */}
+                </div>
             </div >
 
         </div >

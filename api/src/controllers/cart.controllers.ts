@@ -13,6 +13,20 @@ export const changeStatusCart = async (userId: string, status: string) => {
   );
 };
 
+export const getAllCart = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  try {
+    let carts = await CartModel.find({
+      userId: id,
+    });
+    if (!carts) res.status(400).send('The user has not carts');
+
+    res.send(carts);
+  } catch (error) {
+    res.status(404).send(error);
+  }
+};
+
 export const getCart = async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
