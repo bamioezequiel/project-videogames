@@ -30,8 +30,9 @@ export const LOGIN_USER = "LOGIN_USER";
 export const UPDATE_USER = "UPDATE_USER";
 export const CREATE_USER = "CREATE_USER";
 // --------------- //
-export const GET_CART = "GET_CART";
+export const GET_ALL_ORDERS = "GET_ALL_ORDERS";
 export const GET_ALL_CART = "GET_ALL_CART";
+export const GET_CART = "GET_CART";
 export const DELETE_CART = "DELETE_CART";
 export const PUT_CART = "PUT_CART";
 // --------------- //
@@ -71,6 +72,20 @@ export const getCart = (id) => {
       // await dispatch(axiosStart("cart", {}));
       const res = await axios.get(`/cart/${id}`);
       return dispatch({ type: GET_CART, payload: res.data });
+    } catch (error) {
+      await dispatch(axiosError(error));
+      console.log(error);
+    }
+  };
+};
+
+export const getAllOrders = () => {
+  return async function (dispatch) {
+    try {
+      // await dispatch(axiosStart("cart", {}));
+      const res = await axios.get(`/cart/all`);
+      console.log(res.data)
+      return dispatch({ type: GET_ALL_ORDERS, payload: res.data });
     } catch (error) {
       await dispatch(axiosError(error));
       console.log(error);
@@ -338,11 +353,11 @@ export const cleanAllGames = () => {
   };
 };
 
-export const restoreGame = (id) => {
+export const restoreGame = (id,value) => {
   return async function (dispatch) {
     try {
       dispatch(axiosStart("allGames"));
-      let res = await axios.patch(`/games/restore/${id}`);
+      let res = await axios.patch(`/games/status/${id}?value=${value}`);
       return dispatch({ type: RESTORE_GAME, payload: res.data });
     } catch (error) {
       dispatch(axiosError(error));
@@ -351,11 +366,11 @@ export const restoreGame = (id) => {
   };
 };
 
-export const patchFeaturedGame = (id) => {
+export const patchFeaturedGame = (id, value) => {
   return async function (dispatch) {
     try {
       dispatch(axiosStart("allGames"));
-      let res = await axios.patch(`/games/featured/${id}`);
+      let res = await axios.patch(`/games/featured/${id}/?value=${value}`);
       return dispatch({ type: PATCH_FEATURED_GAME, payload: res.data });
     } catch (error) {
       dispatch(axiosError(error));
@@ -364,11 +379,11 @@ export const patchFeaturedGame = (id) => {
   };
 };
 
-export const patchNewGame = (id) => {
+export const patchNewGame = (id, value) => {
   return async function (dispatch) {
     try {
       dispatch(axiosStart("allGames"));
-      let res = await axios.patch(`/games/isNew/${id}`);
+      let res = await axios.patch(`/games/isNew/${id}/?value=${value}`);
       return dispatch({ type: PATCH_NEW_GAME, payload: res.data });
     } catch (error) {
       dispatch(axiosError(error));

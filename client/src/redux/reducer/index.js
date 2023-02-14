@@ -28,6 +28,7 @@ import {
   PATCH_FEATURED_GAME,
   GET_GAMES,
   GET_ALL_CART,
+  GET_ALL_ORDERS,
 } from "../actions";
 
 import { filterGames, orderings, search } from "../../utils/filtersAndOrders";
@@ -40,10 +41,11 @@ const initialState = {
   platforms: [],
   genres: [],
   users: [],
+  carts: [],
+  orders: [],
   cart: {},
   detailGame: {},
   user: {},
-  orders: [],
   filterGenres: { value: "" },
   filterPlatforms: { value: "" },
   filterTags: { value: "" },
@@ -54,11 +56,11 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case FILTER_SEARCH:
-      let resultSearch = search(state.games, action.payload); 
-    return {
-      ...state,
-      filteredGames: resultSearch
-    };
+      let resultSearch = search(state.games, action.payload);
+      return {
+        ...state,
+        filteredGames: resultSearch,
+      };
     case FILTERS_GAMES:
       let resultFilters = [];
       if (action.payload.type === "reset") {
@@ -204,8 +206,8 @@ const rootReducer = (state = initialState, action) => {
         filteredGames: resultOrders,
         orders: {
           type: action.payload.type,
-          value: action.payload.value
-        }
+          value: action.payload.value,
+        },
       };
     case PUT_CART:
       return {
@@ -221,12 +223,19 @@ const rootReducer = (state = initialState, action) => {
         error: null,
         cart: action.payload,
       };
-    case GET_ALL_CART:
+    case GET_ALL_ORDERS:
       return {
         ...state,
         loading: false,
         error: null,
         orders: action.payload,
+      };
+    case GET_ALL_CART:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        carts: action.payload,
       };
     case GET_CART:
       return {
@@ -358,14 +367,14 @@ const rootReducer = (state = initialState, action) => {
         error: null,
         detailGame: action.payload,
       };
-    case GET_GAMES: 
-    return {
-      ...state,
-      loading: false,
-      error: null,
-      games: action.payload,
-      filteredGames: action.payload,
-    };
+    case GET_GAMES:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        games: action.payload,
+        filteredGames: action.payload,
+      };
     case GET_ALL_GAMES:
       return {
         ...state,

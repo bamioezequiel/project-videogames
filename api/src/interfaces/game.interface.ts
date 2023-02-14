@@ -9,7 +9,6 @@ export interface Game {
   price: number;
   price_with_sale: number;
   on_sale: number;
-  stock: number;
   active: boolean;
   featured: boolean;
   is_new: boolean;

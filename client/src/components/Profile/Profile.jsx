@@ -11,7 +11,7 @@ export default function Profile() {
   const navigate = useNavigate();
   const { isAdmin, logout } = useAuth();
   const user = useSelector((state) => state.user);
-  const orders = useSelector((state) => state.orders);
+  const carts = useSelector((state) => state.carts);
 
   useEffect(() => {
     dispatch(getAllCart(user._id));
@@ -30,7 +30,7 @@ export default function Profile() {
       <UserCard />
       <div className={s.profile_content}>
         <nav className={s.profile_nav}>
-          <span>Purchased games</span>
+          <span></span>
           <div>
             {isAdmin && (
               <NavLink to="/dashboard" className={s.profile_btn}>
@@ -38,7 +38,7 @@ export default function Profile() {
               </NavLink>
             )}
             <button className={s.profile_btn_leave} onClick={logout}>
-              Leave
+              Logout
             </button>
           </div>
         </nav>
@@ -61,17 +61,17 @@ export default function Profile() {
               <table>
                 <tbody>
                     {
-                        orders.length > 0 ? orders.map((el, i) => {
+                        carts.length > 0 ? carts.map((el, i) => {
                             return (
                               <tr>
                                 <td>{el._id}</td>
                                 <td>{el.status}</td>
-                                <td>{el.total}</td>
+                                <td>${el.total}</td>
                                 <td>{el.cart.length}</td>
                                 <td>See more</td>
                               </tr>
                             );
-                          }) : <p>Not orders</p>
+                          }) : <p>Not carts</p>
                     }
                   {/* {new Array(20).fill(false).map((el, i) => {
                     return (

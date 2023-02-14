@@ -8,7 +8,7 @@ export default function useAuth() {
 
     const user = useSelector((state) => state.user);
     let isAuth = Object.keys(user).length > 1;
-    const isAdmin = (user.rol === 'Admin' || user.rol === 'Owner');
+    const isAdmin = (user.role === 'Admin' || user.role === 'Owner');
     const token = localStorage.getItem('token');
 
     const logout = () => {

@@ -23,9 +23,11 @@ export const getGames = async (active: string, id?: string | null) => {
 };
 
 export const updateStatusGame = async (id: string, status: boolean) => {
-  return await GameModel.findByIdAndUpdate(id, {
+  await GameModel.findByIdAndUpdate(id, {
     active: status,
   });
+
+  return await GameModel.find();
 };
 
 export const deletePermanentlyGame = async (id: string) => {
@@ -33,11 +35,13 @@ export const deletePermanentlyGame = async (id: string) => {
 };
 
 export const patchGame = async (id: string, action: string, value: boolean) => {
+  console.log(id, action, value)
   const game = await GameModel.findByIdAndUpdate(id, {
     [action]: value,
   });
+  // console.log(game)
   if (!game) throw new Error("The game is null");
-  return await GameModel.findById(`${game?._id}`);
+  return await GameModel.find();
 };
 
 export const createGame = async (bodyGame: Game) => {
@@ -53,7 +57,6 @@ export const createGame = async (bodyGame: Game) => {
     price: Number(bodyGame.price),
     price_with_sale: bodyGame.price - (bodyGame.price * bodyGame.on_sale / 100),
     on_sale: Number(bodyGame.on_sale),
-    stock: Number(bodyGame.stock),
     featured: bodyGame.featured ? true : false,
     is_new: bodyGame.is_new ? true : false,
     platforms: bodyGame.platforms,
@@ -61,14 +64,16 @@ export const createGame = async (bodyGame: Game) => {
     tags: bodyGame.tags,
   });
 
-  return `The game was created successfully!`;
+  return await GameModel.find();
 };
 
 export const updateGame = async (bodyGame: any) => {
+  console.log(bodyGame)
   const updatedGame = await GameModel.findByIdAndUpdate(bodyGame._id, bodyGame);
+  console.log(updatedGame)
 
   if (!updatedGame) {
     throw new Error(`The game could not be modified successfully`);
   }
-  return "The game was modified successfully";
+  return await GameModel.find();
 };

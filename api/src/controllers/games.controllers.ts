@@ -27,12 +27,10 @@ export const getGamesById = async (req: Request, res: Response) => {
 
 export const statusGame = async (req: Request, res: Response) => {
   const { id } = req.params;
-  let { status }: any = req.query;
-  if (status === undefined) status = false;
+  let { value }: any = req.query;
+  if (value === undefined) value = false;
   try {
-    const disabledGame = await updateStatusGame(id, status);
-
-    res.send(`The game was ${status ? "active" : "disabled"}`);
+    res.send(await updateStatusGame(id, value));
   } catch (error) {
     res.status(404).send(error);
   }
@@ -50,10 +48,10 @@ export const deleteGame = async (req: Request, res: Response) => {
 
 export const featuredGame = async (req: Request, res: Response) => {
   const { id } = req.params;
-  let { featured }: any = req.query;
-  if (featured === undefined) featured = false;
+  let { value }: any = req.query;
+  if (value === undefined) value = false;
   try {   
-    res.send(await patchGame(id, 'featured', featured));
+    res.send(await patchGame(id, 'featured', value));
   } catch (error) {
     res.status(404).send(error);
   }
@@ -61,10 +59,10 @@ export const featuredGame = async (req: Request, res: Response) => {
 
 export const isNewGame = async (req: Request, res: Response) => {
   const { id } = req.params;
-  let { isNew }: any = req.query;
-  if (isNew === undefined) isNew = false;
+  let { value }: any = req.query;
+  if (value === undefined) value = false;
   try {
-    res.send(await patchGame(id, 'is_new', isNew));
+    res.send(await patchGame(id, 'is_new', value));
   } catch (error) {
     res.status(404).send(error);
   }
@@ -97,7 +95,7 @@ export const loadGames = async () => {
         await GameModel.create({
           ...g,
           featured: g.rating > 4.5 ? true : false,
-          active: g.stock > 0 ? true : false,
+          active: true,
           price_with_sale: g.price - (g.price * g.on_sale / 100)
         });
       });

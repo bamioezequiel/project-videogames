@@ -10,6 +10,7 @@ export const registerNewUser = async ({
   email,
   password,
   role,
+  picture
 }: User) => {
   const checkIs = await UserModel.findOne({ email });
   if (checkIs) throw "USER_ALREADY";
@@ -44,6 +45,7 @@ export const loginUser = async ({ email, password }: Auth) => {
       name: checkIs.name,
       lastname: checkIs.lastname,
       role: checkIs.role,
+      picture: checkIs.picture
     },
   };
 };

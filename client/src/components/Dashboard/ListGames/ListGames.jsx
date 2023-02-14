@@ -18,55 +18,49 @@ export default function ListGames() {
         setGames(allGames);
     }, [allGames] )
 
-    const handleName = (e, typeOrder: boolean) => {
+    const handleName = (e, typeOrder) => {
         e.preventDefault();
         let res = orderings(allGames, 'alpha', (typeOrder) ? 'asc' : 'desc' );
         setGames(res);
         setOrderType(!typeOrder)
     }
-    const handleDate = (e, typeOrder: boolean) => {
+    const handleDate = (e, typeOrder) => {
         e.preventDefault();
         let res = orderings(allGames, 'date', (typeOrder) ? 'asc' : 'desc' );
         setGames(res);
         setOrderType(!typeOrder)
     }
-    const handleRating = (e, typeOrder: boolean) => {
+    const handleRating = (e, typeOrder) => {
         e.preventDefault();
         let res = orderings(allGames, 'rating', (typeOrder) ? 'asc' : 'desc' );
         setGames(res);
         setOrderType(!typeOrder)
     }
-    const handlePrice = (e, typeOrder: boolean) => {
+    const handlePrice = (e, typeOrder) => {
         e.preventDefault();
         let res = orderings(allGames, 'price', (typeOrder) ? 'asc' : 'desc' );
         setGames(res);
         setOrderType(!typeOrder)
     }
-    const handleOnSale = (e, typeOrder: boolean) => {
+    const handleOnSale = (e, typeOrder) => {
         e.preventDefault();
         let res = orderings(allGames, 'onSale', (typeOrder) ? 'asc' : 'desc' );
         setGames(res);
         setOrderType(!typeOrder)
     }
-    const handleStock = (e, typeOrder: boolean) => {
-        e.preventDefault();
-        let res = orderings(allGames, 'stock', (typeOrder) ? 'asc' : 'desc' );
-        setGames(res);
-        setOrderType(!typeOrder)
-    }
-    const handleFeatured = (e, typeOrder: boolean) => {
+    const handleFeatured = (e, typeOrder) => {
         e.preventDefault();
         let res = orderings(allGames, 'featured', (typeOrder) ? 'asc' : 'desc' );
         setGames(res);
         setOrderType(!typeOrder)
     }
-    const handleIsNew = (e, typeOrder: boolean) => {
+    const handleIsNew = (e, typeOrder) => {
         e.preventDefault();
         let res = orderings(allGames, 'isNew', (typeOrder) ? 'asc' : 'desc' );
         setGames(res);
         setOrderType(!typeOrder)
     }
-    const handleActive = (e, typeOrder: boolean) => {
+    const handleActive = (e, typeOrder) => {
         e.preventDefault();
         let res = orderings(allGames, 'active', (typeOrder) ? 'asc' : 'desc' );
         setGames(res);
@@ -81,17 +75,17 @@ export default function ListGames() {
         alert('The game was deleted');
         console.log(games)
     }
-    const handleRestore = async (e, id) => {
+    const handleRestore = async (e, id, value) => {
         e.preventDefault();
-        await dispatch(restoreGame(id));
+        await dispatch(restoreGame(id, !value));
     }
-    const handlePatchIsNew = async (e, id) => {
+    const handlePatchIsNew = async (e, id, value) => {
         e.preventDefault();
-        await dispatch(patchNewGame(id));
+        await dispatch(patchNewGame(id, !value));
     }
-    const handlePatchFeatured = async (e, id) => {
+    const handlePatchFeatured = async (e, id, value) => {
         e.preventDefault();
-        await dispatch(patchFeaturedGame(id));
+        await dispatch(patchFeaturedGame(id, !value));
     }
 
     return (
@@ -107,7 +101,6 @@ export default function ListGames() {
                             <th style={{cursor: 'pointer'}} onClick={(e) => handleRating(e, orderType)}>Rating</th>
                             <th style={{cursor: 'pointer'}} onClick={(e) => handlePrice(e, orderType)}>Price</th>
                             <th style={{cursor: 'pointer'}} onClick={(e) => handleOnSale(e, orderType)}>On sale</th>
-                            <th style={{cursor: 'pointer'}} onClick={(e) => handleStock(e, orderType)}>Stock</th>
                             <th style={{cursor: 'pointer'}} onClick={(e) => handleFeatured(e, orderType)}>Featured</th>
                             <th style={{cursor: 'pointer'}} onClick={(e) => handleIsNew(e, orderType)}>Is new</th>
                             <th style={{cursor: 'pointer'}} onClick={(e) => handleActive(e, orderType)}>Active</th>
@@ -123,47 +116,46 @@ export default function ListGames() {
                             games?.map((g) => {
                                 return (
                                     <tr key={"gamesList" + g.name}>
-                                        <td>#{g.id}</td>
+                                        <td>{g._id}</td>
                                         <td>{g.name}</td>
                                         <td>{g.released}</td>
                                         <td>{g.rating}</td>
                                         <td>${g.price}</td>
                                         <td>{g.on_sale}%</td>
-                                        <td>{g.stock}</td>
                                         <td>
                                             {
                                                 (g.featured) ? (
-                                                    <div onClick={(e) => handlePatchFeatured(e, g.id)} className='fl_table_true'>Active</div>
+                                                    <div onClick={(e) => handlePatchFeatured(e, g._id,g.featured)} className='fl_table_true'>Active</div>
                                                 ) : (
-                                                    <div onClick={(e) => handlePatchFeatured(e, g.id)} className='fl_table_false'>Inactive</div>
+                                                    <div onClick={(e) => handlePatchFeatured(e, g._id,g.featured)} className='fl_table_false'>Inactive</div>
                                                 )
                                             }
                                         </td>
                                         <td>
                                             {
                                                 (g.is_new) ? (
-                                                    <div onClick={(e) => handlePatchIsNew(e, g.id)} className='fl_table_true'>Active</div>
+                                                    <div onClick={(e) => handlePatchIsNew(e, g._id,g.is_new)} className='fl_table_true'>Active</div>
                                                 ) : (
-                                                    <div onClick={(e) => handlePatchIsNew(e, g.id)} className='fl_table_false'>Inactive</div>
+                                                    <div onClick={(e) => handlePatchIsNew(e, g._id,g.is_new)} className='fl_table_false'>Inactive</div>
                                                 )
                                             }
                                         </td>
                                         <td>
                                             {
                                                 (g.active) ? (
-                                                    <div className='fl_table_true'>Active</div>
+                                                    <div onClick={(e) => handleRestore(e, g._id, g.active)} className='fl_table_true'>Active</div>
                                                 ) : (
-                                                    <div onClick={(e) => handleRestore(e, g.id)} className='fl_table_false'>Inactive</div>
+                                                    <div onClick={(e) => handleRestore(e, g._id, g.active)} className='fl_table_false'>Inactive</div>
                                                 )
                                             }
                                         </td>
                                         <td>
-                                            <NavLink to={`/dashboard/update-game/${g.id}`} className='fl_table_btn'>
+                                            <NavLink to={`/dashboard/update-game/${g._id}`} className='fl_table_btn'>
                                                 <AiFillEdit />
                                             </NavLink>
                                         </td>
                                         <td>
-                                            <button onClick={(e) => handleDelete(e, g.id)} className='fl_table_btn'>
+                                            <button onClick={(e) => handleDelete(e, g._id)} className='fl_table_btn'>
                                                 <MdDelete />
                                             </button>
                                         </td>

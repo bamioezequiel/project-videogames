@@ -20,5 +20,12 @@ export const getUser = async (id: string) => {
     lastname: user.lastname,
     email: user.email,
     role: user.role,
+    picture: user.picture
   };
+}
+
+export const getUsers = async () => {
+  const users: any =  await UserModel.find({});
+
+  return users;
 }

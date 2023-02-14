@@ -13,6 +13,18 @@ export const changeStatusCart = async (userId: string, status: string) => {
   );
 };
 
+export const getAllUsersCart = async (req: Request, res: Response) => {
+  try {
+    let carts = await CartModel.find({
+      status: "approved" || "cancelled"
+    });
+
+    res.send(carts);
+  } catch (error) {
+    res.status(404).send(error);
+  }
+};
+
 export const getAllCart = async (req: Request, res: Response) => {
   const { id } = req.params;
   try {

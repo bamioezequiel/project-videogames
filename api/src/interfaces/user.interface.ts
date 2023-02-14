@@ -3,5 +3,6 @@ import { Auth } from "./auth.interface";
 export interface User extends Auth {
   name: string;
   lastname: string;
+  picture?: string;
   role: string;
 }

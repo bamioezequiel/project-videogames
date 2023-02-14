@@ -19,7 +19,7 @@ app.use(
       "https://project-videogames-aztyaetqw-ezequielbamio.vercel.app/",
       "https://project-videogames-rosy.vercel.app",
     ],
-    methods: ["POST", "GET", "DELETE"],
+    methods: ["POST", "GET", "DELETE", "PATCH", "PUT"],
     credentials: true,
   })
 );
