@@ -20,8 +20,8 @@ import ListGames from "./components/Dashboard/ListGames/ListGames";
 import CreateGame from "./components/Dashboard/CreateGame/CreateGame";
 import ListOrders from "./components/Dashboard/ListOrders/ListOrders";
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost:3001";
-// axios.defaults.baseURL = "https://videogames-ezequiel-bamio.onrender.com";
+// axios.defaults.baseURL = "http://localhost:3001";
+axios.defaults.baseURL = "https://videogames-ezequiel-bamio.onrender.com";
 
 function App() {
   const dispatch = useDispatch();

@@ -1,10 +1,22 @@
 import { Request, Response } from "express";
 import UserModel from "../models/user.model";
-import { changeRoleUser, getUser, getUsers } from "../services/user.service";
+import { changeRoleUser, getUser, getUsers, updateUser } from "../services/user.service";
 import { checkUser } from "./auth.controllers";
 import jwt from "jsonwebtoken";
 import { registerNewUser } from "../services/auth.service";
 const JWT_SECRET = process.env.JWT_SECRET || "";
+
+export const putUser = async (req: Request, res: Response) => {
+  const {id}: any = req.params;
+  const bodyUser: any = req.body;
+  try {
+    const user = await updateUser(id, bodyUser);
+    res.send(user);
+  } catch (error) {
+    console.log(error);
+    res.status(404).send(error);
+  }
+}
 
 export const getUserByToken = async (req: Request, res: Response) => {
   try {

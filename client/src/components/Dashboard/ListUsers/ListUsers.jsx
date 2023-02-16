@@ -18,14 +18,13 @@ export default function ListUsers() {
 
   const handleGiveAdmin = (e, id) => {
     e.preventDefault();
+    console.log(token)
     dispatch(giveAdmin(id, token));
-    dispatch(getAllUsers());
   };
 
   const handleRemoveAdmin = async (e, id) => {
     e.preventDefault();
     dispatch(removeAdmin(id, token));
-    dispatch(getAllUsers());
   };
 
   return (
@@ -54,14 +53,14 @@ export default function ListUsers() {
                     <td>
                       {u.role === "Admin" || u.role === "Owner" ? (
                         <div
-                          onClick={(e) => handleRemoveAdmin(e, u.id)}
+                          onClick={(e) => handleRemoveAdmin(e, u._id)}
                           className="fl_table_true"
                         >
                           Active
                         </div>
                       ) : (
                         <div
-                          onClick={(e) => handleGiveAdmin(e, u.id)}
+                          onClick={(e) => handleGiveAdmin(e, u._id)}
                           className="fl_table_false"
                         >
                           Inactive

@@ -166,12 +166,12 @@ export const getGenres = () => {
 export const removeAdmin = (id, token) => {
   return async function (dispatch) {
     try {
-      let res = await axios.patch(`/auth/admin/remove/${id}`, "", {
+      let res = await axios.post(`/users/changeRole`, {id, role: 'User'}, {
         headers: {
           authorization: `Bearer ${token}`,
         },
       });
-      console.log(res.data);
+      dispatch(getAllUsers())
       return res.data;
     } catch (error) {
       await dispatch(axiosError(error));
@@ -183,12 +183,12 @@ export const removeAdmin = (id, token) => {
 export const giveAdmin = (id, token) => {
   return async function (dispatch) {
     try {
-      let res = await axios.patch(`/auth/admin/add/${id}`, "", {
+      let res = await axios.post(`/users/changeRole`, {id, role: 'Admin'}, {
         headers: {
-          token,
+          authorization: `Bearer ${token}`,
         },
       });
-      console.log(res.data);
+      dispatch(getAllUsers())
       return res.data;
     } catch (error) {
       await dispatch(axiosError(error));
@@ -252,11 +252,10 @@ export const putUser = (user) => {
   return async function (dispatch) {
     try {
       await dispatch(axiosStart("user", {}));
-      let res = await axios.put(`/users/update`, user);
+      let res = await axios.put(`/users/${user.id}`, {name: user.name, lastname:user.lastname, picture: user.picture});
       return dispatch({ type: UPDATE_USER, payload: res.data });
     } catch (error) {
       await dispatch(axiosError(error));
-      alert(error.response.data.slice(39));
       console.log(error);
     }
   };

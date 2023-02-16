@@ -1,5 +1,16 @@
 import UserModel from "../models/user.model";
 
+export const updateUser = async (id: string, bodyUser: any) => {
+  const user = await UserModel.findOneAndUpdate(
+    { _id: id },
+    { ...bodyUser },
+    {
+      new: true,
+    }
+  );
+  return user;
+};
+
 export const changeRoleUser = async (id: string, role: string) => {
   const user = await UserModel.findOneAndUpdate(
     { _id: id },
