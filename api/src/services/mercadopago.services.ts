@@ -38,8 +38,8 @@ export const getPayment = async (payment_id: string) => {
   const body = {
     items: bodyItems,
     back_urls: {
-      /*       failure: `${URL_BACK}/failure`,
-      pending: `${URL_BACK}/pending`, */
+      failure: `${URL_FRONT}`,
+      pending: `${URL_FRONT}`, 
       success: `${URL_FRONT}`,
     },
   };

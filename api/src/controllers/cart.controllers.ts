@@ -15,10 +15,8 @@ export const changeStatusCart = async (userId: string, status: string) => {
 
 export const getAllUsersCart = async (req: Request, res: Response) => {
   try {
-    let carts = await CartModel.find({
-      status: "approved" || "cancelled"
-    });
-
+    let carts = [...await CartModel.find({status: 'approved'}),
+    ...await CartModel.find({status: 'cancelled'})]
     res.send(carts);
   } catch (error) {
     res.status(404).send(error);
