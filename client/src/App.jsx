@@ -40,10 +40,8 @@ function App() {
   }
 
   const loginUserStatus = async () => {
-    console.log(await loginStatus());
     if(await loginStatus()) {
       const token = localStorage.getItem('token');
-      console.log(localStorage.getItem('token'));
       const response = await dispatch(getUserByToken(token));
       dispatch(getCart(response.payload._id))
     } else {

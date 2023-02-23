@@ -15,8 +15,8 @@ dotenv.config();
 app.use(
   cors({
     origin: [
+      "*",
       "http://localhost:3000",
-      "https://project-videogames-aztyaetqw-ezequielbamio.vercel.app/",
       "https://project-videogames-rosy.vercel.app",
     ],
     methods: ["POST", "GET", "DELETE", "PATCH", "PUT"],
