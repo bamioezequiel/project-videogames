@@ -6,7 +6,18 @@ import CartModel from "../models/cart.model";
 // import { addCoinsUser } from "./coin.services";
 const URL_FRONT = process.env.URL_FRONT;
 
-export const createPayment = async (userId: string) => {
+export const getPayment = async (payment_id: string) => {
+  const url = `https://api.mercadopago.com/v1/payments/${payment_id}`;
+  const payment = await axios(url, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.ACCESS_TOKEN_MP}`,
+    },
+  });
+  return payment.status;
+}
+
+  export const createPayment = async (userId: string) => {
   const url = "https://api.mercadopago.com/checkout/preferences";
 
   let cart: any = await CartModel.findOne({
@@ -63,6 +74,5 @@ export const notificationPayment = async (body: any) => {
       },
       { status }
     );
-    return status;
   }
 };

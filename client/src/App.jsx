@@ -36,16 +36,13 @@ import ListOrders from "./components/Dashboard/ListOrders/ListOrders";
 import axios from "axios";
 import Swal from "sweetalert2";
 import "react-toastify/dist/ReactToastify.css";
-import PaymentSuccess from "./components/Cart/PaymentSuccess";
 // axios.defaults.baseURL = "http://localhost:3001";
 axios.defaults.baseURL = "https://videogames-ezequiel-bamio.onrender.com";
 
 function App() {
   const dispatch = useDispatch();
   const games = useSelector((state) => state.games);
-  const tokenUser = localStorage.getItem("token");
-  const { isAuth, user, isAdmin, loginStatus, logout } = useAuth();
-  const { saveAllItemsInCart, getAllItemsCart } = useCart();
+  const { isAuth, isAdmin, loginStatus, logout } = useAuth();
   const { loading, setLoading, Loading } = useLoading();
 
   const loadGames = () => {
@@ -65,6 +62,24 @@ function App() {
       logout();
     }
   };
+
+  useEffect(() => {
+    const arrQuery = window.location.search?.split("&");
+    if (arrQuery.length <= 1) return;
+
+    const payment_id = arrQuery[2]?.split("=");
+    if (payment_id[1]) {
+      axios.get(`/payment/${payment_id[1]}`).then(({ data }) => {
+        if (data.status === 200) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Your purchase made successfully",
+          });
+        }
+      });
+    }
+  }, []);
 
   useEffect(() => {
     setLoading(true);
@@ -90,14 +105,6 @@ function App() {
             <Route path="/store" element={<Store />} />
             <Route path="/detail/:id" element={<Detail />} />
             <Route path="/cart" element={<Cart />} />
-            <Route
-              path="/success"
-              element={<PaymentSuccess />}
-              action={async (obj) => {
-                console.log('hola')
-                console.log(obj)
-              }}
-            />
             <Route
               path="/login"
               element={!isAuth ? <Login /> : <Navigate to="/" />}
