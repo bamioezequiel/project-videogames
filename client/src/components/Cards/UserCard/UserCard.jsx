@@ -1,19 +1,12 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
-import {
-  MdEmail,
-  MdOutlinePermContactCalendar,
-  MdShoppingBasket,
-} from "react-icons/md";
-import { BsFillTelephoneFill } from "react-icons/bs";
-import { BiUserCircle } from "react-icons/bi";
 import { RiAdminLine } from "react-icons/ri";
-import { FaUserAlt, FaUserEdit } from "react-icons/fa";
+import { FaUserAlt } from "react-icons/fa";
 import s from "./UserCard.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllUsers, putUser } from "../../../redux/actions";
-import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { putUser } from "../../../redux/actions";
 import { validationsUpdate } from "../../../utils/validations";
+import Swal from "sweetalert2";
 import axios from "axios";
 
 export default function UserCard() {
@@ -90,16 +83,39 @@ export default function UserCard() {
       return;
     }
     try {
-      const res = await dispatch(putUser({ id: user._id, ...updateUser }));
-      setUpdateUser({
-        name: res.payload.name,
-        lastname: res.payload.lastname,
-        picture: res.payload.picture,
-      });
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes!'
+      }).then(async(result) => {
+        if (result.isConfirmed) {
+          const res = await dispatch(putUser({ id: user._id, ...updateUser }));
+          setUpdateUser({
+            name: res.payload.name,
+            lastname: res.payload.lastname,
+            picture: res.payload.picture,
+          });
+          Swal.fire(
+            'Updated!',
+            'Your data was modified.',
+            'success'
+          )
+        }  else {
+          setUpdateUser({
+            name: user.name,
+            lastname: user.lastname,
+            picture: user.picture,
+          });
+        }
+      })
+
       setErrors({
         name: "",
         lastname: "",
-        email: "",
         picture: "",
       });
     } catch (error) {

@@ -1,12 +1,10 @@
 import axios from "axios";
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import useCart from "../../hooks/useCart";
-import { Payment } from "../../redux/actions";
 import CartCard from "../Cards/CartCard/CartCard";
-import Card from "../Cards/MainCard/Card";
+import Swal from "sweetalert2";
 import s from "./Cart.module.css";
 
 export default function Cart() {
@@ -21,6 +19,11 @@ export default function Cart() {
 
   useEffect(()=>{
     if(!isAuth) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'You must be logged in to enter the cart!',
+      })
       navigate('/login'); 
     }
   }, [])

@@ -63,11 +63,6 @@ export const notificationPayment = async (body: any) => {
       },
       { status }
     );
-    if (status === "approved") {
-      const cart: any = await CartModel.findOne({ _id: cartId });
-      // await addCoinsUser(order.userId, order.amount);
-    }
-
-    /* console.log(await CoinModel.findOne({userId: user._id})) */
+    return status;
   }
 };

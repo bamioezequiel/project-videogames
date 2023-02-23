@@ -20,7 +20,8 @@ export const notificationMercadoPago = async (req: Request, res: Response) => {
     res.status(200).send("ok");
     console.log(req.body.action);
     if (req.body.action === "payment.created") {
-      await notificationPayment(req.body);
+     const status = await notificationPayment(req.body);
+     res.send(status)
     }
   } catch (error) {
     console.log(error);

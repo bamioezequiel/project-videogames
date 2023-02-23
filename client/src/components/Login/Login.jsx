@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BsCheck2Circle, BsDashCircle } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import useCart from "../../hooks/useCart";
-import { getCart, getFavorites, getUser } from "../../redux/actions";
+import { getUser } from "../../redux/actions";
 import { handleValidationLogin, toastOptions } from "../../utils/validations";
 import useLoading from "../Loading/Loading";
 import s from "./Login.module.css";
@@ -62,21 +62,22 @@ export default function Login() {
       },
       { withCredentials: true }
     );
-    console.log(data);
     if (data) {
       if (data.errors) {
         const { email, password } = data.errors;
+        console.log(password)
         if (email) toast.error(email, toastOptions);
         else if (password) toast.error(password, toastOptions);
       } else {
         localStorage.setItem("token", data.token);
-        dispatch(getUser(data.user._id));
+        dispatch(getUser(data.user._id));        
         // navigate("/home");
       }
     }
   };
 
   return (
+    <>
     <div className={s.login_container}>
       <div className={s.login_content}>
         <h2 className={s.login_title}>Log In</h2>
@@ -132,6 +133,8 @@ export default function Login() {
           Sing up
         </NavLink>
       </div>
+    <ToastContainer></ToastContainer>
     </div>
+    </>
   );
 }
